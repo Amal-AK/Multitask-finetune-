@@ -1,0 +1,42 @@
+
+python3 run.py \
+    --output_dir=./ \
+    --data_file_clone=./datasets/dataset_clone/data.jsonl \
+    --train_data_file_vul=./datasets/dataset_vulnerabilty/train.jsonl \
+    --eval_data_file_vul=./datasets/dataset_vulnerabilty/valid.jsonl \
+    --test_data_file_vul=./datasets/dataset_vulnerabilty/test.jsonl \
+    --train_data_file_clone=./datasets/dataset_clone/train.txt \
+    --eval_data_file_clone=./datasets/dataset_clone/valid.txt \
+    --test_data_file_clone=./datasets/dataset_clone/test.txt \
+    --train_data_file_flaky=./datasets/dataset_flakytest/train.json \
+    --eval_data_file_flaky=./datasets/dataset_flakytest/valid.json \
+    --test_data_file_flaky=./datasets/dataset_flakytest/test.json \
+    --train_data_file_CodeSearch=./datasets/code_search/train.jsonl \
+    --eval_data_file_CodeSearch=./datasets/code_search/valid.jsonl \
+    --test_data_file_CodeSearch=./datasets/code_search/test.jsonl \
+    --model_name_or_path=Qwen/Qwen2.5-Coder-1.5B \
+    --tokenizer_name=Qwen/Qwen2.5-Coder-1.5B \
+    --num_classes 1 \
+    --nl_length 128 \
+    --code_length 512 \
+    --do_train True \
+    --peft_module adapter \
+    --bottleneck_dim 64 \
+    --lora_r 16 \
+    --train_code_search True\
+    --train_flaky True \
+    --train_vul True \
+    --train_code_search True\
+    --train_batch_size 4 \
+    --eval_batch_size 4 \
+    --train_data_rate_vul 1.0 \
+    --train_data_rate_clone 0.2 \
+    --train_data_rate_flaky 1.0 \
+    --train_data_rate_code_search 1.0 \
+    --learning_rate 2e-5 \
+    --max_grad_norm 1.0 \
+    --num_train_epochs 7 \
+    --output_model_name qwen_4tasks_adapter \
+    --cuda_device 3 \
+    --seed 42 2>&1 | tee ./logs/qwen_4tasks_adapter.log
+
