@@ -5,6 +5,7 @@ import argparse
 import logging
 import os
 import pprint
+import random
 import torch
 import numpy as np
 from model import MultiTaskModel_MTL
@@ -25,7 +26,7 @@ from opendelta import AdapterModel, ParallelAdapterModel
 from utilities import (
     TextDataset_vul_detect, TextDataset_clone_detect,
     TextDataset_code_search, TextDataset_flakyTest,
-    BatchSchedulerSampler, MultiTaskEarlyStopper,
+    BatchSchedulerSampler, TemperatureSampler, MultiTaskEarlyStopper,
     set_seed, update_validation_results,
     save_trainable_params,
 )
@@ -114,18 +115,33 @@ def _build_split_dataloaders(tokenizer, args, active_keys, split="train"):
         else:
             result.append((key, DataLoader(ds, sampler=SequentialSampler(ds),
                                            batch_size=args.eval_batch_size,
-                                           num_workers=4, pin_memory=False)))
+                                           num_workers=4, pin_memory=False,
+                                           worker_init_fn=_worker_init_fn)))
     return result
+
+def _worker_init_fn(worker_id):
+    seed = torch.initial_seed() % 2**32
+    np.random.seed(seed)
+    random.seed(seed)
 
 def _concat_train_loader(train_sets, args):
     concat = ConcatDataset([ds for _, ds in train_sets])
+    temp   = getattr(args, 'sampling_temperature', 0.0)
+    if temp > 0:
+        sampler = TemperatureSampler(dataset=concat, batch_size=args.train_batch_size,
+                                     temperature=temp)
+        logger.info("Using TemperatureSampler  T=%.2f  probs=%s",
+                    temp, [f"{p:.3f}" for p in sampler.probs])
+    else:
+        sampler = BatchSchedulerSampler(dataset=concat, batch_size=args.train_batch_size)
     return DataLoader(
         dataset=concat,
-        sampler=BatchSchedulerSampler(dataset=concat, batch_size=args.train_batch_size),
+        sampler=sampler,
         batch_size=args.train_batch_size,
         shuffle=False,
         num_workers=4,
         pin_memory=False,
+        worker_init_fn=_worker_init_fn,
     )
 
 def _pad_seqs(tensors, pad_id):
@@ -148,7 +164,16 @@ def _estimate_initial_losses(args, model, train_sets, active_keys, n_batches=50)
     Used once before training to set frozen inverse-loss weights.
     Returns {task_name: mean_loss}.
     """
-    tmp_loader = _concat_train_loader(train_sets, args)
+    # Always use round-robin here so every task is represented equally,
+    # regardless of the sampling strategy used during training.
+    concat     = ConcatDataset([ds for _, ds in train_sets])
+    tmp_loader = DataLoader(
+        dataset=concat,
+        sampler=BatchSchedulerSampler(dataset=concat, batch_size=args.train_batch_size),
+        batch_size=args.train_batch_size,
+        shuffle=False, num_workers=4, pin_memory=False,
+        worker_init_fn=_worker_init_fn,
+    )
     bce = nn.BCEWithLogitsLoss()
     ce  = CrossEntropyLoss()
     pad_id = (model.module if args.n_gpu > 1 else model).pad_token_id
@@ -259,7 +284,10 @@ def train(args, model, tokenizer):
     # all sigma entries would otherwise move at identical rates regardless of task loss
     # magnitude, defeating the purpose of uncertainty weighting. A 100× lr here lets
     # sigma converge within the same number of epochs as the task heads.
-    steps_per_epoch = len(dataloader) // len(active_keys)
+    use_temp_sampling = getattr(args, 'sampling_temperature', 0.0) > 0
+    # Temperature mode: one batch = one optimizer step → steps_per_epoch = len(dataloader).
+    # Round-robin mode: n_tasks batches are consumed per step → divide by n_tasks.
+    steps_per_epoch = len(dataloader) if use_temp_sampling else len(dataloader) // len(active_keys)
 
     m_ref = model.module if args.n_gpu > 1 else model
     sigma_ids = {id(m_ref.log_sigma2)}
@@ -267,8 +295,8 @@ def train(args, model, tokenizer):
     sigma_params = [p for p in model.parameters() if id(p) in sigma_ids]
     param_groups = [{"params": main_params, "lr": args.learning_rate}]
     if args.loss_weighting == "uncertainty" and sigma_params:
-        param_groups.append({"params": sigma_params, "lr": args.learning_rate * 100})
-    optimizer = torch.optim.Adam(param_groups, lr=args.learning_rate)
+        param_groups.append({"params": sigma_params, "lr": args.learning_rate * 10})
+    optimizer = torch.optim.AdamW(param_groups, lr=args.learning_rate, weight_decay=0.01)
     # steps_per_epoch already accounts for consuming n_tasks batches per step;
     # len(dataloader) counts raw batches (4× more), which would make warmup 4× too long.
     max_steps = steps_per_epoch * args.num_train_epochs
@@ -326,10 +354,29 @@ def train(args, model, tokenizer):
 
     model.zero_grad()
 
-    bce = nn.BCEWithLogitsLoss()
+    # Per-task BCE: compute pos_weight for imbalanced binary tasks.
+    # pos_weight = neg/pos so the positive-class gradient is upscaled to match
+    # the negative-class contribution — prevents "predict all-negative" collapse.
+    _task_bce: dict = {}
+    for key, ds in train_sets:
+        if TASK_REGISTRY[key]["type"] != "binary":
+            continue
+        labels = [ex.label for ex in ds.examples]
+        pos = sum(labels)
+        neg = len(labels) - pos
+        if pos > 0 and (neg / pos) > 2.0:
+            pw = neg / pos
+            _task_bce[key] = nn.BCEWithLogitsLoss(
+                pos_weight=torch.tensor([pw], device=args.device, dtype=torch.float32)
+            )
+            logger.info("  pos_weight %-22s = %.1f  (pos=%d  neg=%d)", key, pw, int(pos), int(neg))
+        else:
+            _task_bce[key] = nn.BCEWithLogitsLoss()
+
+    bce = nn.BCEWithLogitsLoss()   # used by eval helpers (no pos_weight for eval loss)
 
     def _bce(task_name, logits, labels):
-        return bce(logits, labels)
+        return _task_bce.get(task_name, bce)(logits, labels)
 
     ce = CrossEntropyLoss()
 
@@ -342,126 +389,199 @@ def train(args, model, tokenizer):
         losses_per_task = {k: [] for k in active_keys}
         total_losses = []
 
-        data_iter = iter(dataloader)
         n_tasks = len(active_keys)
         step = 0
 
         model.train()
-        while True:
-            try:
-                batches = [next(data_iter) for _ in range(n_tasks)]
-            except StopIteration:
-                break
 
-            # --------- BUILD COMBINED BATCH ----------
-            # Concatenate all task inputs into one tensor for a single encoder pass.
-            # For code_search: code inputs come first, NL appended immediately after;
-            # cs_batch_size tells us where code ends and NL begins in the output.
-            all_seqs, all_task_ids = [], []
-            binary_data = []   # (task_name, labels)
-            cs_batch_size = 0
-
-            for b in batches:
-                task_name = CONFIG_TASKS[int(b[2][0].item())]
-                code_seq  = b[0].to(args.device, non_blocking=True)
-                all_seqs.append(code_seq)
-                all_task_ids.append(b[2].to(args.device))
-                if task_name == "code_search":
-                    nl_seq = b[1].to(args.device, non_blocking=True)
-                    cs_batch_size = code_seq.size(0)
-                    all_seqs.append(nl_seq)
-                    all_task_ids.append(b[2].to(args.device))   # same task_id for NL
-                else:
-                    binary_data.append((task_name, b[1].to(args.device, non_blocking=True).float()))
-
-            # --------- ONE FORWARD PASS ----------
-            # Sequences may have different lengths (code_length vs nl_length for
-            # code_search NL). Pad to the same length before the single encoder pass.
+        if use_temp_sampling:
+            # ---- Temperature-based sampling: one batch → one optimizer step ----
             pad_id = (model.module if args.n_gpu > 1 else model).pad_token_id
-            all_seqs = _pad_seqs(all_seqs, pad_id)
-            with autocast("cuda", dtype=args.autocast_dtype):
-                outputs = model(torch.cat(all_seqs, 0), torch.cat(all_task_ids, 0))
+            for batch in dataloader:
+                task_name = CONFIG_TASKS[int(batch[2][0].item())]
+                code_seq  = batch[0].to(args.device, non_blocking=True)
+                task_ids  = batch[2].to(args.device)
 
-                per_task_losses = []
-                for task_name, labels in binary_data:
-                    loss = _bce(task_name, outputs[task_name].squeeze(), labels.squeeze())
-                    per_task_losses.append((task_name, loss))
+                with autocast("cuda", dtype=args.autocast_dtype):
+                    if task_name == "code_search":
+                        nl_seq = batch[1].to(args.device, non_blocking=True)
+                        bs = code_seq.size(0)
+                        code_p, nl_p = _pad_seqs([code_seq, nl_seq], pad_id)
+                        vecs   = model(torch.cat([code_p, nl_p], 0),
+                                       task_ids.repeat(2))["code_search"]
+                        scores = torch.einsum("ab,cb->ac", vecs[bs:], vecs[:bs])
+                        loss   = ce(scores * 20, torch.arange(bs, device=scores.device))
+                    else:
+                        labels = batch[1].to(args.device, non_blocking=True).float()
+                        logit  = model(code_seq, task_ids)[task_name]
+                        loss   = _bce(task_name, logit.squeeze(), labels.squeeze())
 
-                if cs_batch_size > 0:
-                    cs_vecs    = outputs["code_search"]
-                    code_vecs  = cs_vecs[:cs_batch_size]
-                    nl_vecs    = cs_vecs[cs_batch_size:]
-                    scores     = torch.einsum("ab,cb->ac", nl_vecs, code_vecs)
-                    loss       = ce(scores * 20, torch.arange(cs_batch_size, device=scores.device))
-                    per_task_losses.append(("code_search", loss))
-
-            # --------- COMBINE LOSSES WITH TASK WEIGHTS ----------
-            m = model.module if args.n_gpu > 1 else model
-
-            if args.loss_weighting == "gradnorm":
-                _gradnorm_step(m, per_task_losses, gn_weights,
-                               gn_initial_losses, active_keys, args.gradnorm_alpha)
-                optimizer.zero_grad()
-
-            total_loss = 0.0
-            for task_name, loss in per_task_losses:
                 losses_per_task[task_name].append(loss.item())
+                m = model.module if args.n_gpu > 1 else model
+
                 if args.loss_weighting == "uncertainty":
-                    # Kendall et al. (NeurIPS 2018): exp(−s)·L + 0.5·s
-                    # s→∞ makes the penalty dominate → no task can be silenced.
-                    # Clamp s so effective weight exp(-s) never drops below 0.5:
-                    # hard tasks (high persistent loss) can still be down-weighted
-                    # but not starved of gradient entirely.
-                    s = m.log_sigma2[active_keys.index(task_name)].clamp(max=0.693)
-                    total_loss = total_loss + torch.exp(-s) * loss + 0.5 * s
+                    s = m.log_sigma2[active_keys.index(task_name)].clamp(min=-2.0, max=0.693)
+                    total_loss = torch.exp(-s) * loss + 0.5 * s
                 elif args.loss_weighting == "gradnorm":
                     w = gn_weights[active_keys.index(task_name)].detach().abs()
-                    total_loss = total_loss + w * loss
+                    total_loss = w * loss
                 elif args.loss_weighting == "normalized":
-                    total_loss = total_loss + static_weights[task_name] * loss
+                    total_loss = static_weights[task_name] * loss
                 elif args.loss_weighting == "famo":
                     w = torch.softmax(famo_z, dim=0)[active_keys.index(task_name)]
-                    total_loss = total_loss + w * loss
-                else:  # uniform
-                    total_loss = total_loss + loss
-            # famo weights (softmax) already sum to 1 → no division needed
-            if args.loss_weighting in ("uniform", "normalized"):
-                total_loss = total_loss / max(len(per_task_losses), 1)
-            total_losses.append(total_loss.item())
+                    total_loss = w * loss
+                else:
+                    total_loss = loss
 
-            # --------- BACKWARD + STEP (scaled if fp16, no-op scale if bf16) ----------
-            scaler.scale(total_loss).backward()
-            scaler.unscale_(optimizer)  # so clipping sees true grads
-            torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
-            scaler.step(optimizer)
-            scaler.update()
-            scheduler.step()
-            optimizer.zero_grad()
+                total_losses.append(total_loss.item())
 
-            # FAMO z update: δ_i = log(L_i^t) − log(L_i^{t-1})
-            # tasks reducing loss fast get less weight next step; stalling tasks get more.
-            if args.loss_weighting == "famo":
-                curr_scalars = {k: l.item() for k, l in per_task_losses}
-                if famo_prev_losses:
-                    with torch.no_grad():
-                        curr = torch.tensor([curr_scalars[k] for k in active_keys], device=args.device)
-                        prev = torch.tensor([famo_prev_losses[k] for k in active_keys], device=args.device)
-                        delta = torch.log(curr.clamp(min=1e-8)) - torch.log(prev.clamp(min=1e-8))
-                        famo_z -= args.famo_gamma * (delta - delta.mean())
-                famo_prev_losses.update(curr_scalars)
+                scaler.scale(total_loss).backward()
+                scaler.unscale_(optimizer)
+                torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+                scaler.step(optimizer)
+                scaler.update()
+                scheduler.step()
+                optimizer.zero_grad()
 
-            step += 1
-            if step % 32 == 0:
-                lr_now  = optimizer.param_groups[0]["lr"]
-                task_str = "  ".join(
-                    f"{k}={np.mean(v):.4f}" for k, v in losses_per_task.items() if v
-                )
-                logger.info(
-                    "E%d/%d  step %d/%d  total=%.4f  lr=%.2e  |  %s",
-                    epoch + 1, args.num_train_epochs,
-                    step, steps_per_epoch,
-                    float(np.mean(total_losses)), lr_now, task_str,
-                )
+                # FAMO per-task update: track each task's loss trajectory independently
+                if args.loss_weighting == "famo":
+                    curr_loss = loss.item()
+                    task_idx  = active_keys.index(task_name)
+                    if task_name in famo_prev_losses:
+                        with torch.no_grad():
+                            curr_t = torch.tensor([curr_loss], device=args.device)
+                            prev_t = torch.tensor([famo_prev_losses[task_name]], device=args.device)
+                            delta  = (torch.log(curr_t.clamp(min=1e-8))
+                                      - torch.log(prev_t.clamp(min=1e-8)))
+                            famo_z[task_idx] -= args.famo_gamma * delta
+                    famo_prev_losses[task_name] = curr_loss
+
+                step += 1
+                if step % 32 == 0:
+                    lr_now   = optimizer.param_groups[0]["lr"]
+                    task_str = "  ".join(
+                        f"{k}={np.mean(v):.4f}" for k, v in losses_per_task.items() if v
+                    )
+                    logger.info(
+                        "E%d/%d  step %d/%d  total=%.4f  lr=%.2e  |  %s",
+                        epoch + 1, args.num_train_epochs,
+                        step, steps_per_epoch,
+                        float(np.mean(total_losses)), lr_now, task_str,
+                    )
+
+        else:
+            # ---- Round-robin: n_tasks batches per optimizer step ----
+            data_iter = iter(dataloader)
+            while True:
+                try:
+                    batches = [next(data_iter) for _ in range(n_tasks)]
+                except StopIteration:
+                    break
+
+                # --------- BUILD COMBINED BATCH ----------
+                # Concatenate all task inputs into one tensor for a single encoder pass.
+                # For code_search: code inputs come first, NL appended immediately after;
+                # cs_batch_size tells us where code ends and NL begins in the output.
+                all_seqs, all_task_ids = [], []
+                binary_data = []   # (task_name, labels)
+                cs_batch_size = 0
+
+                for b in batches:
+                    task_name = CONFIG_TASKS[int(b[2][0].item())]
+                    code_seq  = b[0].to(args.device, non_blocking=True)
+                    all_seqs.append(code_seq)
+                    all_task_ids.append(b[2].to(args.device))
+                    if task_name == "code_search":
+                        nl_seq = b[1].to(args.device, non_blocking=True)
+                        cs_batch_size = code_seq.size(0)
+                        all_seqs.append(nl_seq)
+                        all_task_ids.append(b[2].to(args.device))   # same task_id for NL
+                    else:
+                        binary_data.append((task_name, b[1].to(args.device, non_blocking=True).float()))
+
+                # --------- ONE FORWARD PASS ----------
+                # Sequences may have different lengths (code_length vs nl_length for
+                # code_search NL). Pad to the same length before the single encoder pass.
+                pad_id = (model.module if args.n_gpu > 1 else model).pad_token_id
+                all_seqs = _pad_seqs(all_seqs, pad_id)
+                with autocast("cuda", dtype=args.autocast_dtype):
+                    outputs = model(torch.cat(all_seqs, 0), torch.cat(all_task_ids, 0))
+
+                    per_task_losses = []
+                    for task_name, labels in binary_data:
+                        loss = _bce(task_name, outputs[task_name].squeeze(), labels.squeeze())
+                        per_task_losses.append((task_name, loss))
+
+                    if cs_batch_size > 0:
+                        cs_vecs    = outputs["code_search"]
+                        code_vecs  = cs_vecs[:cs_batch_size]
+                        nl_vecs    = cs_vecs[cs_batch_size:]
+                        scores     = torch.einsum("ab,cb->ac", nl_vecs, code_vecs)
+                        loss       = ce(scores * 20, torch.arange(cs_batch_size, device=scores.device))
+                        per_task_losses.append(("code_search", loss))
+
+                # --------- COMBINE LOSSES WITH TASK WEIGHTS ----------
+                m = model.module if args.n_gpu > 1 else model
+
+                if args.loss_weighting == "gradnorm":
+                    _gradnorm_step(m, per_task_losses, gn_weights,
+                                   gn_initial_losses, active_keys, args.gradnorm_alpha)
+                    optimizer.zero_grad()
+
+                total_loss = 0.0
+                for task_name, loss in per_task_losses:
+                    losses_per_task[task_name].append(loss.item())
+                    if args.loss_weighting == "uncertainty":
+                        s = m.log_sigma2[active_keys.index(task_name)].clamp(min=-2.0, max=0.693)
+                        total_loss = total_loss + torch.exp(-s) * loss + 0.5 * s
+                    elif args.loss_weighting == "gradnorm":
+                        w = gn_weights[active_keys.index(task_name)].detach().abs()
+                        total_loss = total_loss + w * loss
+                    elif args.loss_weighting == "normalized":
+                        total_loss = total_loss + static_weights[task_name] * loss
+                    elif args.loss_weighting == "famo":
+                        w = torch.softmax(famo_z, dim=0)[active_keys.index(task_name)]
+                        total_loss = total_loss + w * loss
+                    else:  # uniform
+                        total_loss = total_loss + loss
+                # famo weights (softmax) already sum to 1 → no division needed
+                if args.loss_weighting in ("uniform", "normalized"):
+                    total_loss = total_loss / max(len(per_task_losses), 1)
+                total_losses.append(total_loss.item())
+
+                # --------- BACKWARD + STEP (scaled if fp16, no-op scale if bf16) ----------
+                scaler.scale(total_loss).backward()
+                scaler.unscale_(optimizer)  # so clipping sees true grads
+                torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+                scaler.step(optimizer)
+                scaler.update()
+                scheduler.step()
+                optimizer.zero_grad()
+
+                # FAMO z update: δ_i = log(L_i^t) − log(L_i^{t-1})
+                # tasks reducing loss fast get less weight next step; stalling tasks get more.
+                if args.loss_weighting == "famo":
+                    curr_scalars = {k: l.item() for k, l in per_task_losses}
+                    if famo_prev_losses:
+                        with torch.no_grad():
+                            curr = torch.tensor([curr_scalars[k] for k in active_keys], device=args.device)
+                            prev = torch.tensor([famo_prev_losses[k] for k in active_keys], device=args.device)
+                            delta = torch.log(curr.clamp(min=1e-8)) - torch.log(prev.clamp(min=1e-8))
+                            famo_z -= args.famo_gamma * (delta - delta.mean())
+                    famo_prev_losses.update(curr_scalars)
+
+                step += 1
+                if step % 32 == 0:
+                    lr_now  = optimizer.param_groups[0]["lr"]
+                    task_str = "  ".join(
+                        f"{k}={np.mean(v):.4f}" for k, v in losses_per_task.items() if v
+                    )
+                    logger.info(
+                        "E%d/%d  step %d/%d  total=%.4f  lr=%.2e  |  %s",
+                        epoch + 1, args.num_train_epochs,
+                        step, steps_per_epoch,
+                        float(np.mean(total_losses)), lr_now, task_str,
+                    )
 
         # ---- Epoch train summary ----
         train_results.setdefault('total_train_loss', []).append(round(np.mean(total_losses), 4))
@@ -496,11 +616,9 @@ def train(args, model, tokenizer):
         for k, res in eval_results.items():
             update_validation_results(res, validation_results)
 
-        # Early stopping (disabled — freezing encoder mid-training hurts vul)
-        # if early_stopper.early_stop(validation_results):
-        #     logger.info("Early stopping triggered — freezing encoder.")
-        #     for p in m.encoder.parameters():
-        #         p.requires_grad = False
+        if early_stopper.early_stop(validation_results):
+            logger.info("Early stopping triggered at epoch %d — halting training.", epoch + 1)
+            break
 
         # Combined score
         scores = []
@@ -794,6 +912,14 @@ def main():
                         help="GradNorm asymmetry hyperparameter alpha (default 1.5).")
     parser.add_argument("--famo_gamma", default=0.02, type=float,
                         help="FAMO step size for z update (default 0.02, as in the original paper).")
+    # --- task sampling ---
+    parser.add_argument("--sampling_temperature", default=0.0, type=float,
+                        help="Temperature T for task sampling: prob ∝ N_i^T.\n"
+                             "  T=0   → round-robin (BatchSchedulerSampler, default).\n"
+                             "  T=0.5 → mT5-style sqrt(N_i); large datasets downscaled.\n"
+                             "  T=1   → proportional to dataset size.\n"
+                             "  T>1   → super-linear; largest dataset dominates.")
+
     # --- quick limits for smoke tests ---
     parser.add_argument("--max_train_samples", default=None, type=int,
                         help="Cap each training dataset to N examples. Useful for smoke tests.")
@@ -812,7 +938,6 @@ def main():
     else:
         device = torch.device("cpu")
     args.device = device
-    torch.backends.cudnn.benchmark = True
     logger.info("device: %s, n_gpu: %s", device, args.n_gpu)
 
     autocast_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
@@ -841,12 +966,11 @@ def main():
 
     try:
         base_model = AutoModel.from_pretrained(args.model_name_or_path, config=config,
-                                               trust_remote_code=True, torch_dtype=autocast_dtype)
+                                               trust_remote_code=True)
     except (ValueError, OSError, RuntimeError) as e:
         logger.warning("AutoModel failed (%s); retrying with AutoModelForSeq2SeqLM.", e)
         base_model = AutoModelForSeq2SeqLM.from_pretrained(args.model_name_or_path,
-                                                           trust_remote_code=True,
-                                                           torch_dtype=autocast_dtype)
+                                                           trust_remote_code=True)
 
     # ---- Extract encoder for seq2seq models BEFORE injecting adapters ----
     # Must happen first so PEFT targets the encoder directly, not the full
@@ -865,7 +989,7 @@ def main():
         # learning which tokens attend together, not just query/value projections.
         "roberta":     {"adapter":          ["attention", r"\d+\.output"],
                         "parallel_adapter": ["attention", r"\d+\.output"],
-                        "lora":             ["query", "key", "value"]},
+                        "lora":             ["query", "key", "value", "attention.output.dense"]},
         # Encoder-decoder (CodeT5+) — not in PEFT's built-in mapping.
         "codet5p":     {"adapter":          ["mlp", "attn"],
                         "parallel_adapter": ["mlp", "attn"],
@@ -947,7 +1071,7 @@ def main():
     else:
         encoder = base_model
 
-    MTLmodel = MultiTaskModel_MTL(encoder, config).to(args.device).to(autocast_dtype)
+    MTLmodel = MultiTaskModel_MTL(encoder, config).to(args.device)
 
     # NOTE: torch.nn.DataParallel is used for simplicity but has known limitations
     # (GIL contention, GPU-0 memory imbalance). For large-scale training, migrating

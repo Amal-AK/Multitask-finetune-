@@ -66,12 +66,17 @@ class  MultiTaskModel_MTL(nn.Module):
         _ENCODER_ONLY   = {"roberta", "bert", "deberta", "deberta-v2", "albert",
                            "xlm-roberta", "electra", "camembert"}
         _ENCODER_DECODER = {"t5", "mt5", "bart", "mbart", "pegasus", "codet5p"}
+        # Decoder-only models used as encoders (with adapters, not for generation):
+        # mean pooling outperforms last_token here because the model wasn't trained
+        # for last-token encoding and code functions vary widely in length.
+        _MEAN_DECODER = {"qwen2", "qwen3", "llama", "mistral", "deepseek_v2",
+                         "codellamaconfig", "starcoder2", "phi", "phi3"}
         if _model_type in _ENCODER_ONLY:
             self._pooling = "cls"
-        elif _model_type in _ENCODER_DECODER:
+        elif _model_type in _ENCODER_DECODER or _model_type in _MEAN_DECODER:
             self._pooling = "mean"
         else:
-            self._pooling = "last_token"   # Qwen, LLaMA, DeepSeek, Mistral, …
+            self._pooling = "last_token"
 
         # Uncertainty-based task weighting (Kendall et al., NeurIPS 2018).
         # Parametrise as log σ²_i; effective weight = exp(−s_i).
@@ -103,11 +108,9 @@ class  MultiTaskModel_MTL(nn.Module):
                 )
                 self._head_out_dims[task] = 1
             elif task == "code_search":
-                emb_dim = getattr(config, "code_search_emb_dim", min(512, self.hidden_size))
+                emb_dim = getattr(config, "code_search_emb_dim", self.hidden_size)
                 self.task_heads[task] = nn.Sequential(
                     nn.LayerNorm(self.hidden_size),
-                    nn.Linear(self.hidden_size, self.hidden_size),
-                    nn.GELU(),
                     nn.Linear(self.hidden_size, emb_dim),
                 )
                 self._head_out_dims[task] = emb_dim

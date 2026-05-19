@@ -310,8 +310,9 @@ def set_seed(seed=42):
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)   # seeds every visible GPU, not just cuda:0
     torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False  # benchmark=True overrides deterministic
 
 
 def update_validation_results(eval_results, validation_results):
@@ -424,3 +425,55 @@ class BatchSchedulerSampler(torch.utils.data.sampler.Sampler):
                 final_samples_list.extend(cur_samples)
 
         return iter(final_samples_list)
+
+
+class TemperatureSampler(torch.utils.data.sampler.Sampler):
+    """Sample task batches with probability proportional to N_i^T.
+
+    At each step one task is drawn from a temperature-scaled multinomial, then
+    a full batch is drawn from that task's shuffled index pool (cycling with a
+    reshuffle when exhausted).  One epoch spans ceil(sum_i N_i / batch_size)
+    steps — roughly one expected pass through each task, weighted by temperature.
+
+    T → 0:  uniform across tasks (N_i^0 = 1 for all i).
+    T = 0.5: mT5 style — prob proportional to sqrt(N_i); large datasets downscaled.
+    T = 1:  proportional to dataset size (no correction).
+    T > 1:  super-linear; largest dataset dominates progressively more.
+    """
+    def __init__(self, dataset, batch_size, temperature=0.5):
+        self.dataset     = dataset
+        self.batch_size  = batch_size
+        self.temperature = temperature
+
+        datasets         = dataset.datasets
+        self.task_sizes  = [len(d.examples) for d in datasets]
+        self.offsets     = [0] + list(dataset.cumulative_sizes[:-1])
+        self.n_tasks     = len(datasets)
+
+        sizes   = np.array(self.task_sizes, dtype=float)
+        weights = sizes ** max(temperature, 1e-8)   # T=0.5 → sqrt(N_i); T=1 → proportional
+        self.probs = (weights / weights.sum()).tolist()
+
+        self.n_batches = math.ceil(sum(self.task_sizes) / batch_size)
+
+    def __len__(self):
+        return self.n_batches * self.batch_size
+
+    def __iter__(self):
+        rng          = np.random.default_rng()
+        task_indices = [list(torch.randperm(sz).numpy()) for sz in self.task_sizes]
+        cursors      = [0] * self.n_tasks
+
+        indices = []
+        for _ in range(self.n_batches):
+            t      = int(rng.choice(self.n_tasks, p=self.probs))
+            offset = self.offsets[t]
+            size   = self.task_sizes[t]
+            for _ in range(self.batch_size):
+                if cursors[t] >= size:
+                    task_indices[t] = list(torch.randperm(size).numpy())
+                    cursors[t]      = 0
+                indices.append(offset + task_indices[t][cursors[t]])
+                cursors[t] += 1
+
+        return iter(indices)
