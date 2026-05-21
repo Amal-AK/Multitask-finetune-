@@ -266,6 +266,91 @@ def _gradnorm_step(m, per_task_losses, gn_weights, gn_initial_losses, active_tas
         gn_weights.data = gn_weights * len(active_tasks) / gn_weights.sum()
 
 
+# ================== GRADIENT CONFLICT METRICS ==================
+
+def _compute_gradient_conflicts(args, model, train_sets, active_keys):
+    """Compute pairwise cosine similarity and L2 norm of per-task gradients on shared encoder params.
+
+    One batch per task is run independently; gradients are collected for all
+    encoder parameters that require grad. Positive similarity = tasks aligned;
+    negative = tasks conflicting (pulling encoder in opposite directions).
+    Returns:
+        conflicts  — {(task_i, task_j): cosine_sim} for all i < j pairs
+        grad_norms — {task_name: l2_norm}
+    """
+    m = model.module if args.n_gpu > 1 else model
+    pad_id = m.pad_token_id
+    shared_params = [p for p in m.encoder.parameters() if p.requires_grad]
+    if not shared_params:
+        return {}
+
+    concat = ConcatDataset([ds for _, ds in train_sets])
+    tmp_loader = DataLoader(
+        dataset=concat,
+        sampler=BatchSchedulerSampler(dataset=concat, batch_size=args.train_batch_size),
+        batch_size=args.train_batch_size,
+        shuffle=False, num_workers=0, pin_memory=False,
+    )
+
+    bce_fn = nn.BCEWithLogitsLoss()
+    ce_fn  = CrossEntropyLoss()
+    n_tasks = len(active_keys)
+
+    data_iter = iter(tmp_loader)
+    try:
+        batches = [next(data_iter) for _ in range(n_tasks)]
+    except StopIteration:
+        return {}
+
+    model.eval()
+    task_grads = {}
+
+    for b in batches:
+        task_name = CONFIG_TASKS[int(b[2][0].item())]
+        model.zero_grad()
+        code_seq = b[0].to(args.device, non_blocking=True)
+        task_ids = b[2].to(args.device)
+
+        with autocast("cuda", dtype=args.autocast_dtype):
+            if task_name == "code_search":
+                nl_seq = b[1].to(args.device, non_blocking=True)
+                bs = code_seq.size(0)
+                code_p, nl_p = _pad_seqs([code_seq, nl_seq], pad_id)
+                vecs   = model(torch.cat([code_p, nl_p], 0), task_ids.repeat(2))["code_search"]
+                scores = torch.einsum("ab,cb->ac", vecs[bs:], vecs[:bs])
+                loss   = ce_fn(scores * 20, torch.arange(bs, device=scores.device))
+            else:
+                labels = b[1].to(args.device, non_blocking=True).float()
+                logit  = model(code_seq, task_ids)[task_name]
+                loss   = bce_fn(logit.squeeze(), labels.squeeze())
+
+        loss.backward()
+
+        grads = []
+        for p in shared_params:
+            g = p.grad.detach().float().view(-1) if p.grad is not None else p.new_zeros(p.numel()).float()
+            grads.append(g)
+        task_grads[task_name] = torch.cat(grads)
+
+    model.zero_grad()
+    model.train()
+
+    grad_norms = {t: round(g.norm(2).item(), 6) for t, g in task_grads.items()}
+
+    conflicts = {}
+    for i, ti in enumerate(active_keys):
+        for j, tj in enumerate(active_keys):
+            if j <= i:
+                continue
+            gi, gj = task_grads.get(ti), task_grads.get(tj)
+            if gi is None or gj is None:
+                continue
+            cos_sim = F.cosine_similarity(gi.unsqueeze(0), gj.unsqueeze(0)).item()
+            conflicts[(ti, tj)] = round(cos_sim, 4)
+
+    return conflicts, grad_norms
+
+
 # ================== TRAIN ==================
 def train(args, model, tokenizer):
     """Train on any subset of tasks (1–4) selected via flags/CSV."""
@@ -384,10 +469,13 @@ def train(args, model, tokenizer):
     train_results, validation_results = {}, {}
     early_stopper = MultiTaskEarlyStopper(active_keys, patience=4)
 
+    cumulative_tokens = 0   # running total across all epochs
+
     for epoch in range(args.num_train_epochs):
         torch.cuda.empty_cache()
         losses_per_task = {k: [] for k in active_keys}
         total_losses = []
+        tokens_per_task = {k: 0 for k in active_keys}  # non-padding tokens per task this epoch
 
         n_tasks = len(active_keys)
         step = 0
@@ -417,6 +505,11 @@ def train(args, model, tokenizer):
                         loss   = _bce(task_name, logit.squeeze(), labels.squeeze())
 
                 losses_per_task[task_name].append(loss.item())
+                # Count non-padding tokens (code + NL for code_search)
+                tokens_per_task[task_name] += int((code_seq != pad_id).sum().item())
+                if task_name == "code_search":
+                    tokens_per_task[task_name] += int((nl_seq != pad_id).sum().item())
+
                 m = model.module if args.n_gpu > 1 else model
 
                 if args.loss_weighting == "uncertainty":
@@ -491,11 +584,13 @@ def train(args, model, tokenizer):
                     code_seq  = b[0].to(args.device, non_blocking=True)
                     all_seqs.append(code_seq)
                     all_task_ids.append(b[2].to(args.device))
+                    tokens_per_task[task_name] += int((code_seq != pad_id).sum().item())
                     if task_name == "code_search":
                         nl_seq = b[1].to(args.device, non_blocking=True)
                         cs_batch_size = code_seq.size(0)
                         all_seqs.append(nl_seq)
                         all_task_ids.append(b[2].to(args.device))   # same task_id for NL
+                        tokens_per_task[task_name] += int((nl_seq != pad_id).sum().item())
                     else:
                         binary_data.append((task_name, b[1].to(args.device, non_blocking=True).float()))
 
@@ -584,10 +679,15 @@ def train(args, model, tokenizer):
                     )
 
         # ---- Epoch train summary ----
+        epoch_tokens = sum(tokens_per_task.values())
+        cumulative_tokens += epoch_tokens
         train_results.setdefault('total_train_loss', []).append(round(np.mean(total_losses), 4))
+        train_results.setdefault('tokens_epoch', []).append(epoch_tokens)
+        train_results.setdefault('tokens_cumulative', []).append(cumulative_tokens)
         for k in active_keys:
             if losses_per_task[k]:
                 train_results.setdefault(f'{k}_train_loss', []).append(round(np.mean(losses_per_task[k]), 4))
+            train_results.setdefault(f'{k}_tokens', []).append(tokens_per_task[k])
 
         m = model.module if args.n_gpu > 1 else model
         if args.loss_weighting == "uncertainty":
@@ -603,13 +703,32 @@ def train(args, model, tokenizer):
 
         logger.info("-" * 70)
         logger.info("Epoch %d/%d — Train Summary", epoch + 1, args.num_train_epochs)
-        logger.info("  %-22s  %8s  %8s", "Task", "Loss", "Weight")
-        logger.info("  %-22s  %8s  %8s", "----", "----", "------")
+        logger.info("  %-22s  %8s  %8s  %12s", "Task", "Loss", "Weight", "Tokens")
+        logger.info("  %-22s  %8s  %8s  %12s", "----", "----", "------", "------")
         for k, w in zip(active_keys, task_weights):
             loss_val = np.mean(losses_per_task[k]) if losses_per_task[k] else float("nan")
-            logger.info("  %-22s  %8.4f  %8.4f", k, loss_val, w)
-        logger.info("  %-22s  %8.4f", "TOTAL", np.mean(total_losses))
+            logger.info("  %-22s  %8.4f  %8.4f  %12d", k, loss_val, w, tokens_per_task[k])
+        logger.info("  %-22s  %8.4f  %8s  %12d  (epoch)  cumulative=%d",
+                    "TOTAL", np.mean(total_losses), "", epoch_tokens, cumulative_tokens)
         logger.info("-" * 70)
+
+        # ===== Gradient norms + conflict (cosine similarity between per-task gradients) =====
+        if len(active_keys) > 1:
+            conflicts, grad_norms = _compute_gradient_conflicts(args, model, train_sets, active_keys)
+            if grad_norms:
+                logger.info("  Gradient Norms (L2, shared encoder params):")
+                for t, norm in grad_norms.items():
+                    train_results.setdefault(f'{t}_grad_norm', []).append(norm)
+                    logger.info("    %-22s  grad_norm=%10.6f", t, norm)
+                logger.info("-" * 70)
+            if conflicts:
+                logger.info("  Gradient Conflict Matrix (cosine similarity of encoder grads):")
+                logger.info("  %-22s  %-22s  %10s  %s", "Task A", "Task B", "cos_sim", "")
+                for (ti, tj), cos_sim in conflicts.items():
+                    tag = "CONFLICT" if cos_sim < 0 else "aligned"
+                    train_results.setdefault(f'conflict_{ti}_vs_{tj}', []).append(cos_sim)
+                    logger.info("  %-22s  %-22s  %+10.4f  [%s]", ti, tj, cos_sim, tag)
+                logger.info("-" * 70)
 
         # ===== Validation =====
         eval_results = evaluate(args, model, tokenizer, eval_loaders)
@@ -643,6 +762,35 @@ def train(args, model, tokenizer):
     # Final test after training
     test_res = test_model(args, model, tokenizer, test_loaders)
     _log_metrics_table("Final Test", args.num_train_epochs, test_res)
+
+    # ===== Gradient conflict summary across all epochs =====
+    conflict_keys = [(ti, tj) for i, ti in enumerate(active_keys)
+                     for j, tj in enumerate(active_keys) if j > i]
+    conflict_data = {(ti, tj): train_results.get(f'conflict_{ti}_vs_{tj}', [])
+                     for ti, tj in conflict_keys}
+    if any(v for v in conflict_data.values()):
+        logger.info("=" * 70)
+        logger.info("Gradient Conflict Summary (aggregated over %d epochs)", epoch + 1)
+        logger.info("  %-22s  %-22s  %8s  %6s  %8s  %s",
+                    "Task A", "Task B", "mean", "std", "neg_freq", "verdict")
+        logger.info("  %-22s  %-22s  %8s  %6s  %8s  %s",
+                    "------", "------", "----", "---", "--------", "-------")
+        for (ti, tj), vals in conflict_data.items():
+            if not vals:
+                continue
+            arr = np.array(vals)
+            mean_sim  = arr.mean()
+            std_sim   = arr.std()
+            neg_freq  = (arr < 0).mean()   # fraction of epochs with conflict
+            if mean_sim < -0.05:
+                verdict = "CONFLICT"
+            elif mean_sim > 0.05:
+                verdict = "aligned"
+            else:
+                verdict = "neutral"
+            logger.info("  %-22s  %-22s  %+8.4f  %6.4f  %7.1f%%  [%s]",
+                        ti, tj, mean_sim, std_sim, neg_freq * 100, verdict)
+        logger.info("=" * 70)
 
     return train_results, validation_results
 
@@ -990,6 +1138,10 @@ def main():
         "roberta":     {"adapter":          ["attention", r"\d+\.output"],
                         "parallel_adapter": ["attention", r"\d+\.output"],
                         "lora":             ["query", "key", "value", "attention.output.dense"]},
+        # T5-family (CodeT5+ 770M reports model_type='t5')
+        "t5":          {"adapter":          ["SelfAttention", "DenseReluDense"],
+                        "parallel_adapter": ["SelfAttention", "DenseReluDense"],
+                        "lora":             ["q", "k", "v"]},
         # Encoder-decoder (CodeT5+) — not in PEFT's built-in mapping.
         "codet5p":     {"adapter":          ["mlp", "attn"],
                         "parallel_adapter": ["mlp", "attn"],

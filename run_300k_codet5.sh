@@ -1,0 +1,40 @@
+#!/bin/bash
+set -euo pipefail
+
+conda run --no-capture-output -n multitask env CUDA_VISIBLE_DEVICES=2 python -u run.py \
+    --model_name_or_path Salesforce/codet5p-770m \
+    --peft_module lora \
+    --loss_weighting uncertainty \
+    --tasks vul_detection,clone_detection,code_search,flakiness_detect \
+    --max_train_samples 300000 \
+    --num_train_epochs 10 \
+    --train_batch_size 16 \
+    --eval_batch_size 16 \
+    --code_length 512 \
+    --nl_length 128 \
+    --lora_r 32 \
+    --learning_rate 1e-4 \
+    --max_grad_norm 1.0 \
+    --sampling_temperature 0.3 \
+    --output_model_name codet5_lora_300k \
+    2>&1 | tee logs/run_300k_codet5.log &
+
+conda run --no-capture-output -n multitask env CUDA_VISIBLE_DEVICES=3 python -u run.py \
+    --model_name_or_path Salesforce/codet5p-770m \
+    --peft_module lora \
+    --loss_weighting normalized \
+    --tasks vul_detection,clone_detection,code_search,flakiness_detect \
+    --max_train_samples 300000 \
+    --num_train_epochs 10 \
+    --train_batch_size 16 \
+    --eval_batch_size 16 \
+    --code_length 512 \
+    --nl_length 128 \
+    --lora_r 32 \
+    --learning_rate 1e-4 \
+    --max_grad_norm 1.0 \
+    --sampling_temperature 0.3 \
+    --output_model_name codet5_lora_300k_normalized \
+    2>&1 | tee logs/run_300k_codet5_normalized.log &
+
+wait
