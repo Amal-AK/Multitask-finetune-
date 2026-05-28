@@ -6,6 +6,7 @@ import logging
 import os
 import pprint
 import random
+import time
 import torch
 import numpy as np
 from model import MultiTaskModel_MTL
@@ -392,15 +393,13 @@ def train(args, model, tokenizer):
     )
     scaler = GradScaler("cuda", enabled=(args.autocast_dtype == torch.float16))
 
-    # Normalized static weights: estimate initial loss per task, then freeze w_i = 1/L_i.
+    # Normalized weights: uniform for epoch 1, then updated each epoch using w_i ∝ L_i
+    # so harder tasks (higher loss) get more weight. Inverse weighting (1/L_i) is avoided
+    # because all tasks start at the same BCE baseline (~0.69) making it uninformative,
+    # and because it would favour easy/converged tasks over hard ones.
     if args.loss_weighting == "normalized":
-        logger.info("Estimating initial losses for static weight normalization (50 batches)...")
-        init_losses = _estimate_initial_losses(args, model, train_sets, active_keys, n_batches=50)
-        raw_w = {k: 1.0 / max(v, 1e-8) for k, v in init_losses.items()}
-        w_sum = sum(raw_w.values())
-        static_weights = {k: v * len(active_keys) / w_sum for k, v in raw_w.items()}
-        logger.info("  Initial losses : %s", {k: f"{v:.4f}" for k, v in init_losses.items()})
-        logger.info("  Static weights : %s", {k: f"{v:.4f}" for k, v in static_weights.items()})
+        static_weights = {k: 1.0 for k in active_keys}
+        logger.info("  Normalized weights: uniform for epoch 1, updated each epoch (w ∝ L_i).")
     else:
         static_weights = None
 
@@ -421,6 +420,14 @@ def train(args, model, tokenizer):
         famo_prev_losses: dict = {}   # task_name → loss scalar from previous step
     else:
         famo_z = famo_prev_losses = None
+
+    # Uncertainty direction-correction EMA: the Kendall formula at equilibrium gives
+    # weight ∝ 1/L, favouring easy tasks. Multiplying by (L_ema / mean_ema) flips this
+    # so harder tasks get proportionally more weight while σ still provides fine adjustment.
+    if args.loss_weighting == "uncertainty":
+        loss_ema: dict = {k: 1.0 for k in active_keys}
+    else:
+        loss_ema = None
 
     logger.info("=" * 70)
     logger.info("***** Running Training *****")
@@ -472,6 +479,8 @@ def train(args, model, tokenizer):
     cumulative_tokens = 0   # running total across all epochs
 
     for epoch in range(args.num_train_epochs):
+        epoch_start_time = time.time()
+        torch.cuda.reset_peak_memory_stats(args.device)
         torch.cuda.empty_cache()
         losses_per_task = {k: [] for k in active_keys}
         total_losses = []
@@ -513,8 +522,10 @@ def train(args, model, tokenizer):
                 m = model.module if args.n_gpu > 1 else model
 
                 if args.loss_weighting == "uncertainty":
-                    s = m.log_sigma2[active_keys.index(task_name)].clamp(min=-2.0, max=0.693)
-                    total_loss = torch.exp(-s) * loss + 0.5 * s
+                    s = m.log_sigma2[active_keys.index(task_name)].clamp(min=-1.0, max=1.0)
+                    mean_ema = sum(loss_ema.values()) / len(loss_ema)
+                    direction = loss_ema[task_name] / max(mean_ema, 1e-8)
+                    total_loss = direction * (torch.exp(-s) * loss + 0.5 * s)
                 elif args.loss_weighting == "gradnorm":
                     w = gn_weights[active_keys.index(task_name)].detach().abs()
                     total_loss = w * loss
@@ -536,7 +547,11 @@ def train(args, model, tokenizer):
                 scheduler.step()
                 optimizer.zero_grad()
 
-                # FAMO per-task update: track each task's loss trajectory independently
+                # FAMO per-task update (Liu et al. NeurIPS 2023, Alg. 1).
+                # z += γ (δ_i − mean_δ) for the drawn task, mean-preserving:
+                # spread -δ/n to all z, add δ to task i.
+                # Net on task i: +γ·δ·(n-1)/n; net on others: -γ·δ/n.
+                # prev_losses stored as EMA to smooth cross-batch noise.
                 if args.loss_weighting == "famo":
                     curr_loss = loss.item()
                     task_idx  = active_keys.index(task_name)
@@ -545,9 +560,17 @@ def train(args, model, tokenizer):
                             curr_t = torch.tensor([curr_loss], device=args.device)
                             prev_t = torch.tensor([famo_prev_losses[task_name]], device=args.device)
                             delta  = (torch.log(curr_t.clamp(min=1e-8))
-                                      - torch.log(prev_t.clamp(min=1e-8)))
-                            famo_z[task_idx] -= args.famo_gamma * delta
-                    famo_prev_losses[task_name] = curr_loss
+                                      - torch.log(prev_t.clamp(min=1e-8))).item()
+                            n = len(active_keys)
+                            famo_z -= args.famo_gamma * delta / n
+                            famo_z[task_idx] += args.famo_gamma * delta
+                        famo_prev_losses[task_name] = (0.9 * famo_prev_losses[task_name]
+                                                       + 0.1 * curr_loss)
+                    else:
+                        famo_prev_losses[task_name] = curr_loss
+
+                if args.loss_weighting == "uncertainty":
+                    loss_ema[task_name] = 0.99 * loss_ema[task_name] + 0.01 * loss.item()
 
                 step += 1
                 if step % 32 == 0:
@@ -575,6 +598,7 @@ def train(args, model, tokenizer):
                 # Concatenate all task inputs into one tensor for a single encoder pass.
                 # For code_search: code inputs come first, NL appended immediately after;
                 # cs_batch_size tells us where code ends and NL begins in the output.
+                pad_id = (model.module if args.n_gpu > 1 else model).pad_token_id
                 all_seqs, all_task_ids = [], []
                 binary_data = []   # (task_name, labels)
                 cs_batch_size = 0
@@ -597,7 +621,6 @@ def train(args, model, tokenizer):
                 # --------- ONE FORWARD PASS ----------
                 # Sequences may have different lengths (code_length vs nl_length for
                 # code_search NL). Pad to the same length before the single encoder pass.
-                pad_id = (model.module if args.n_gpu > 1 else model).pad_token_id
                 all_seqs = _pad_seqs(all_seqs, pad_id)
                 with autocast("cuda", dtype=args.autocast_dtype):
                     outputs = model(torch.cat(all_seqs, 0), torch.cat(all_task_ids, 0))
@@ -627,8 +650,10 @@ def train(args, model, tokenizer):
                 for task_name, loss in per_task_losses:
                     losses_per_task[task_name].append(loss.item())
                     if args.loss_weighting == "uncertainty":
-                        s = m.log_sigma2[active_keys.index(task_name)].clamp(min=-2.0, max=0.693)
-                        total_loss = total_loss + torch.exp(-s) * loss + 0.5 * s
+                        s = m.log_sigma2[active_keys.index(task_name)].clamp(min=-1.0, max=1.0)
+                        mean_ema = sum(loss_ema.values()) / len(loss_ema)
+                        direction = loss_ema[task_name] / max(mean_ema, 1e-8)
+                        total_loss = total_loss + direction * (torch.exp(-s) * loss + 0.5 * s)
                     elif args.loss_weighting == "gradnorm":
                         w = gn_weights[active_keys.index(task_name)].detach().abs()
                         total_loss = total_loss + w * loss
@@ -653,8 +678,8 @@ def train(args, model, tokenizer):
                 scheduler.step()
                 optimizer.zero_grad()
 
-                # FAMO z update: δ_i = log(L_i^t) − log(L_i^{t-1})
-                # tasks reducing loss fast get less weight next step; stalling tasks get more.
+                # FAMO z update: δ_i = log(L_i^t) − log(L_i^{t-1}), mean-centered.
+                # Struggling tasks (δ_i > mean) get more weight; fast-improving ones less.
                 if args.loss_weighting == "famo":
                     curr_scalars = {k: l.item() for k, l in per_task_losses}
                     if famo_prev_losses:
@@ -662,8 +687,12 @@ def train(args, model, tokenizer):
                             curr = torch.tensor([curr_scalars[k] for k in active_keys], device=args.device)
                             prev = torch.tensor([famo_prev_losses[k] for k in active_keys], device=args.device)
                             delta = torch.log(curr.clamp(min=1e-8)) - torch.log(prev.clamp(min=1e-8))
-                            famo_z -= args.famo_gamma * (delta - delta.mean())
+                            famo_z += args.famo_gamma * (delta - delta.mean())
                     famo_prev_losses.update(curr_scalars)
+
+                if args.loss_weighting == "uncertainty":
+                    for k, l in per_task_losses:
+                        loss_ema[k] = 0.99 * loss_ema[k] + 0.01 * l.item()
 
                 step += 1
                 if step % 32 == 0:
@@ -679,11 +708,16 @@ def train(args, model, tokenizer):
                     )
 
         # ---- Epoch train summary ----
+        epoch_time = time.time() - epoch_start_time
+        peak_memory_gb = torch.cuda.max_memory_allocated(args.device) / 1024 ** 3
+
         epoch_tokens = sum(tokens_per_task.values())
         cumulative_tokens += epoch_tokens
         train_results.setdefault('total_train_loss', []).append(round(np.mean(total_losses), 4))
         train_results.setdefault('tokens_epoch', []).append(epoch_tokens)
         train_results.setdefault('tokens_cumulative', []).append(cumulative_tokens)
+        train_results.setdefault('epoch_time_s', []).append(round(epoch_time, 1))
+        train_results.setdefault('peak_gpu_memory_gb', []).append(round(peak_memory_gb, 3))
         for k in active_keys:
             if losses_per_task[k]:
                 train_results.setdefault(f'{k}_train_loss', []).append(round(np.mean(losses_per_task[k]), 4))
@@ -710,7 +744,19 @@ def train(args, model, tokenizer):
             logger.info("  %-22s  %8.4f  %8.4f  %12d", k, loss_val, w, tokens_per_task[k])
         logger.info("  %-22s  %8.4f  %8s  %12d  (epoch)  cumulative=%d",
                     "TOTAL", np.mean(total_losses), "", epoch_tokens, cumulative_tokens)
+        logger.info("  epoch_time=%.1fs  peak_gpu_memory=%.3fGB", epoch_time, peak_memory_gb)
         logger.info("-" * 70)
+
+        # Update normalized weights for the next epoch: w_i ∝ L_i so tasks with
+        # higher loss get proportionally more gradient attention next epoch.
+        if args.loss_weighting == "normalized":
+            epoch_losses = {k: np.mean(v) for k, v in losses_per_task.items() if v}
+            raw_w = {k: max(v, 1e-8) for k, v in epoch_losses.items()}
+            w_sum = sum(raw_w.values())
+            static_weights = {k: v * len(active_keys) / w_sum for k, v in raw_w.items()}
+            logger.info("  Normalized weights → next epoch: %s",
+                        {k: f"{v:.4f}" for k, v in static_weights.items()})
+            logger.info("-" * 70)
 
         # ===== Gradient norms + conflict (cosine similarity between per-task gradients) =====
         if len(active_keys) > 1:
@@ -1048,7 +1094,7 @@ def main():
     parser.add_argument("--loss_weighting", default="normalized", type=str,
                         choices=["uncertainty", "gradnorm", "uniform", "normalized", "famo"],
                         help="MTL loss weighting strategy.\n"
-                             "  normalized:  frozen inverse-loss weights computed once before training;\n"
+                             "  normalized:  weights w_i ∝ L_i updated each epoch (uniform for epoch 1);\n"
                              "               w_i = 1/L_i(init), normalised so mean weight = 1.\n"
                              "  famo:        Liu et al. (NeurIPS 2023) — softmax weights updated from\n"
                              "               log-ratios of consecutive losses; no extra backward pass.\n"
@@ -1224,6 +1270,25 @@ def main():
         encoder = base_model
 
     MTLmodel = MultiTaskModel_MTL(encoder, config).to(args.device)
+
+    # AdapterLayer / ParallelAdapterLayer use lazy init: weights are created on
+    # self.init_device/self.device during the first post_forward() call, which happens
+    # inside train() — after the optimizer is already built. For seq2seq encoders
+    # (T5Stack) OpenDelta's pseudo-data forward also fails silently (T5Stack.dummy_inputs
+    # includes decoder keys the extracted encoder rejects), so the adapter weights never
+    # exist at optimizer-build time and are never trained.
+    # Fix: patch the device attribute then call instantiate() eagerly here, before
+    # DataParallel and before train(), so the optimizer collects the adapter params.
+    if args.peft_module in ("adapter", "parallel_adapter"):
+        _hs = MTLmodel.hidden_size
+        _dummy = torch.zeros(1, 2, _hs, dtype=torch.float32)  # shape only; device irrelevant
+        for al in delta_model.delta_modules:
+            if hasattr(al, "init_device"):   # AdapterLayer
+                al.init_device = args.device
+            if hasattr(al, "device"):        # ParallelAdapterLayer
+                al.device = args.device
+            if not al.instantiated:
+                al.instantiate(_dummy)
 
     # NOTE: torch.nn.DataParallel is used for simplicity but has known limitations
     # (GIL contention, GPU-0 memory imbalance). For large-scale training, migrating
