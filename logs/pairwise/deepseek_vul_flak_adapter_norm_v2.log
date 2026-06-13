@@ -1,0 +1,1628 @@
+INFO:name:device: cuda:0, n_gpu: 1
+DEBUG:httpcore.connection:connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x77ec8e4996d0>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x77ec8d1130b0> server_hostname='huggingface.co' timeout=10
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x77ec8d0068d0>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'276'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:35 GMT'), (b'Location', b'/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/config.json?%2Fdeepseek-ai%2Fdeepseek-coder-1.3b-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%220035bf38c08936cc559eb607d220627ab6334c0c%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab083-471bfc071b7a19dd2d28baff;82dd8495-a16a-468f-9369-9cc3a600b668'), (b'RateLimit', b'"resolvers";r=2987;t=113'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"0035bf38c08936cc559eb607d220627ab6334c0c"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'vlwt3SKqDiPbruLLd1pcbQj94qmIO7V54fQIvKkcNnbBLSJv4Zzz5w==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'631'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 23 May 2026 12:41:08 GMT'), (b'ETag', b'"0035bf38c08936cc559eb607d220627ab6334c0c"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a11a064-70983be968eb256b71c29f94'), (b'RateLimit', b'"resolvers";r=2482;t=48'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'-bND2bQwkhgtchbRTkW3gQmAbA_vT4FPG5809Lr7zUzMzDAZU3gEgw=='), (b'Age', b'1642527')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'276'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:35 GMT'), (b'Location', b'/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/config.json?%2Fdeepseek-ai%2Fdeepseek-coder-1.3b-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%220035bf38c08936cc559eb607d220627ab6334c0c%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab083-34291b5b47a216fc276872fc;4bd7c06d-514c-46fb-9a79-b8cb1e478b67'), (b'RateLimit', b'"resolvers";r=2985;t=113'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"0035bf38c08936cc559eb607d220627ab6334c0c"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'pUFnvuCX7fZ1_wX-a4F5I6-VlTSFX8GsRs5MqrTt0zf_1ATh_TNYzQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'631'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 23 May 2026 12:41:08 GMT'), (b'ETag', b'"0035bf38c08936cc559eb607d220627ab6334c0c"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a11a064-70983be968eb256b71c29f94'), (b'RateLimit', b'"resolvers";r=2482;t=48'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'O6tt7uUSydIpRfOsGiw661dkGz79Uwh_ROoxNjZF0d1R-YEydecqWw=='), (b'Age', b'1642527')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'296'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:35 GMT'), (b'Location', b'/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/tokenizer_config.json?%2Fdeepseek-ai%2Fdeepseek-coder-1.3b-base%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22340b041b4df26ed5685d5a8ad8654dccdac838c2%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab083-74db38af39d4e9e166487f84;cc389cd7-c75e-4713-a8fd-017e8857411d'), (b'RateLimit', b'"resolvers";r=2983;t=113'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"340b041b4df26ed5685d5a8ad8654dccdac838c2"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'bvH3Pxjor83Ol7OXoqAxhzfkbDPT-mc7JKhrlhEzKQMwcsghj4fRkA==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'793'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 15 May 2026 22:10:43 GMT'), (b'ETag', b'"340b041b4df26ed5685d5a8ad8654dccdac838c2"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a0799e3-589d01c2692c23da17eb58ee;57a3d1dc-f29d-4505-8a61-fba29d9fb014'), (b'RateLimit', b'"resolvers";r=2862;t=197'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'32SMdsY5DHRPjxBkby_R1PZR4oiAztRScaisQ3FMuRhA2_nlD9kwxw=='), (b'Age', b'2299552')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/tokenizer_config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'64'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'ETag', b'W/"40-09f9IAqP13xarAhQxFS2W8rvRkM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab083-7a2dbb5a6d52c7f72d63b5b0;8fcd316b-8ff9-42ee-afb9-5bf3abc65a37'), (b'RateLimit', b'"api";r=491;t=113'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'additional_chat_templates does not exist on "main"'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'I5ucLxxrpRhAcuDPTREBWS9FNvZR7o44LDpjv6FlSVv7vBZbWQCfUQ==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"462-f+R6Hj+SM0DC8qbduno3JsbKYHs"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-5b5dadae3b934b1f53c4ae9b;6471de95-7dfd-4fc4-a600-01e2314599b5'), (b'RateLimit', b'"api";r=489;t=112'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'w-4I5szOqXux_XMk1yV0cgxTqLS2ahUYjDBqQ3C91aMS0V2E4WAM_Q==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'276'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'Location', b'/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/config.json?%2Fdeepseek-ai%2Fdeepseek-coder-1.3b-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%220035bf38c08936cc559eb607d220627ab6334c0c%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-2495ff735c055e201385ef5e;516ab871-e741-4cb6-bada-0c49866aba1a'), (b'RateLimit', b'"resolvers";r=2979;t=112'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"0035bf38c08936cc559eb607d220627ab6334c0c"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'zPRu5Bet_ZwLUZ3NBuWwKnIJMSnVqRI1QyiIZDHxc2svcBpiG4uiAA==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'631'), (b'Connection', b'keep-alive'), (b'Date', b'Sat, 23 May 2026 12:41:08 GMT'), (b'ETag', b'"0035bf38c08936cc559eb607d220627ab6334c0c"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a11a064-70983be968eb256b71c29f94'), (b'RateLimit', b'"resolvers";r=2482;t=48'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'EyTHs9JqLRWc8KGuRGMXFnPPjwpGMGHVPahZMalGqrB81oPK1kJ1gA=='), (b'Age', b'1642528')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/deepseek-ai/deepseek-coder-1.3b-base/c919139c3a9b4070729c8b2cca4847ab29ca8d94/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-20a82134493162827633d2e6;34adaf87-fdac-4dd8-bdd4-edf066cee283'), (b'RateLimit', b'"resolvers";r=2977;t=112'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'c919139c3a9b4070729c8b2cca4847ab29ca8d94'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'tOLL0MdRf6WNL5dcZFGfmWL5MyRGnas0OMcVmgfPJwr2whlpYuLpoQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+Loading weights:   0%|          | 0/218 [00:00<?, ?it/s]Loading weights: 100%|██████████| 218/218 [00:00<00:00, 29100.23it/s]
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"e5c-TRsW6bQwxZ9V7N+/xJJRTBqSCWo"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-7cfd31ef7a5425023a3d1e6f;162b2735-d954-426b-b640-6b2dd7c8dc7a'), (b'RateLimit', b'"api";r=485;t=112'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'MyNCoZvOJjITs36hgF7IqlkqISSx23iT0RleQMGr-OPhzdmR32c7Vw==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"bf1-B1NuLEukOR2d8tgysHKMEWPhfac"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-7c1d84d31bf010266360edd5;ec0bef85-73cd-4710-8b49-b25999f98126'), (b'RateLimit', b'"api";r=483;t=112'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'11'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'1fqKz6btRPfTemVzGhynuxreA_eymYZk3A3xe-uzUkCDIk2_oIgNzg==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base/commits/main "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"14ae-CDFMMHKoMfJ6mMTzbYBF/5yTvk4"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-5f1914644a1e5dc77585e862;2c47d5de-176d-43c8-bbc6-f3ee79cf1c2a'), (b'RateLimit', b'"api";r=482;t=112'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'n4Nxi-FCW_vTUqwJSumi9wGmkn1ZkNcD22aFstKz9hIBRjjcPsthMw==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base/discussions?p=0 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:36 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"fb6-OxIa3UCyiCA5nKUozzEvOmBMfDI"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab084-0d9f3f5d6b0f803f282dc0c0;75cb24a7-4fa7-4338-9817-0cbc1ca6bad9'), (b'RateLimit', b'"api";r=481;t=112'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'12'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'ruezGuPoC1FhoogipMk-0kL2Ddu_8CHDpqppUfYbAWQTKLZq9MgyaA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base/commits/refs%2Fpr%2F3 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:37 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab085-7332535934b58ee173b6961c;a5d00a4b-e86b-4d22-9de9-830a6394d0c5'), (b'RateLimit', b'"resolvers";r=2972;t=111'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5c35001666790ef534566439e4976b0c275eeb48'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'n7ZeGn3eMoL__tMSxX3NHHUCxk1ro_UMEW1ehPpWz19M-rNlghjoYA==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/refs%2Fpr%2F3/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 302, b'Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1012'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 11 Jun 2026 12:56:37 GMT'), (b'Location', b'https://cas-bridge.xethub.hf.co/xet-bridge-us/653cbb4b7bd6a97439e7d29e/fdcb3af6412265e1a578f07566251e2a29e37cfd22ba6aa84daf72e04c552a11?Expires=1781186197&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYXMtYnJpZGdlLnhldGh1Yi5oZi5jby94ZXQtYnJpZGdlLXVzLzY1M2NiYjRiN2JkNmE5NzQzOWU3ZDI5ZS9mZGNiM2FmNjQxMjI2NWUxYTU3OGYwNzU2NjI1MWUyYTI5ZTM3Y2ZkMjJiYTZhYTg0ZGFmNzJlMDRjNTUyYTExKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MTE4NjE5N319fV19&Signature=MEYCIQDw4R0fYTyssfPIkMPMTaLaI7XoirSXW-FQoQe7i0NRywIhAI0RC7-z6%7Eobx8TPaDCZuTwNmhvSs1ED0VV7Ql77QwbB&Key-Pair-Id=K1LYXO563TGWFU&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=cas%2F20260611%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260611T125637Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=14a5124ffda63727adac229ee1e9c23738a27eaa10eb3df037a1723d632b9344'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2ab085-7a0bcece0ccba9fc6500dcab;43abb3e0-dc6e-498c-967e-75e405a63a5b'), (b'RateLimit', b'"resolvers";r=2971;t=111'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5c35001666790ef534566439e4976b0c275eeb48'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'X-Linked-Size', b'2692969128'), (b'X-Linked-ETag', b'"5acdd28cbcdd00145f70cdb5dbc7c78675944ae0365614a583ee0c719d6ff33a"'), (b'X-Xet-Hash', b'fdcb3af6412265e1a578f07566251e2a29e37cfd22ba6aa84daf72e04c552a11'), (b'Link', b'<https://huggingface.co/api/models/deepseek-ai/deepseek-coder-1.3b-base/xet-read-token/5c35001666790ef534566439e4976b0c275eeb48>; rel="xet-auth", <https://cas-server.xethub.hf.co/v1/reconstructions/fdcb3af6412265e1a578f07566251e2a29e37cfd22ba6aa84daf72e04c552a11>; rel="xet-reconstruction-info"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 d71acb203a3e8fc7db2c1cf9725d51da.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA60-P2'), (b'X-Amz-Cf-Id', b'2WJTc9sa6BynT3bWPXfIkHVVRMtQnzRxR_ctLn6qsmqkxfoFx-7wbQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base/resolve/refs%2Fpr%2F3/model.safetensors "HTTP/1.1 302 Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+root
+├── embed_tokens (Embedding) weight:[32256, 2048]
+├── layers (ModuleList)
+│   └── 0-23(LlamaDecoderLayer)
+│       ├── self_attn (LlamaAttention)
+│       │   ├── q_proj,k_proj,v_proj,o_proj(Linear) weight:[2048, 2048]
+│       │   └── adapter (AdapterLayer)
+│       │       └── modulelist (Sequential)
+│       │           ├── down_proj (Linear) weight:[64, 2048] bias:[64]
+│       │           └── up_proj (Linear) weight:[2048, 64] bias:[2048]
+│       ├── mlp (LlamaMLP)
+│       │   ├── gate_proj,up_proj(Linear) weight:[5504, 2048]
+│       │   ├── down_proj (Linear) weight:[2048, 5504]
+│       │   └── adapter (AdapterLayer)
+│       │       └── modulelist (Sequential)
+│       │           ├── down_proj (Linear) weight:[64, 2048] bias:[64]
+│       │           └── up_proj (Linear) weight:[2048, 64] bias:[2048]
+│       └── input_layernorm,post_attention_layernorm(LlamaRMSNorm) weight:[2048]
+└── norm (LlamaRMSNorm) weight:[2048]
+[INFO|(OpenDelta)basemodel:696]2026-06-11 12:56:40,970 >> Trainable Ratio: 12684288/1293095936=0.980924%
+[INFO|(OpenDelta)basemodel:698]2026-06-11 12:56:40,970 >> Delta Parameter Ratio: 12684288/1293095936=0.980924%
+[INFO|(OpenDelta)basemodel:700]2026-06-11 12:56:40,970 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Model:
+MultiTaskModel_MTL(
+  (encoder): LlamaModel(
+    (embed_tokens): Embedding(32256, 2048, padding_idx=32014)
+    (layers): ModuleList(
+      (0-23): 24 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (k_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (v_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=2048, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=2048, bias=True)
+            )
+          )
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+          (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+          (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+          (act_fn): SiLUActivation()
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=2048, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=2048, bias=True)
+            )
+          )
+        )
+        (input_layernorm): LlamaRMSNorm((2048,), eps=1e-06)
+        (post_attention_layernorm): LlamaRMSNorm((2048,), eps=1e-06)
+      )
+    )
+    (norm): LlamaRMSNorm((2048,), eps=1e-06)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (task_heads): ModuleDict(
+    (vul_detection): Sequential(
+      (0): Linear(in_features=2048, out_features=1024, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=1024, out_features=1, bias=True)
+    )
+    (flakiness_detect): Sequential(
+      (0): Linear(in_features=2048, out_features=1024, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=1024, out_features=1, bias=True)
+    )
+  )
+)
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Using TemperatureSampler  T=0.30  probs=['0.538', '0.462']
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:  Normalized weights: uniform for epoch 1, updated each epoch (w ∝ L_i).
+INFO:name:======================================================================
+INFO:name:***** Running Training *****
+INFO:name:  Model         : deepseek-ai/deepseek-coder-1.3b-base
+INFO:name:  PEFT          : adapter
+INFO:name:  Loss weighting: normalized
+INFO:name:  Epochs        : 10
+INFO:name:  Batch size    : 8  |  LR: 1.00e-04  |  GPUs: 1
+INFO:name:  Steps/epoch   : ~4367  |  Total steps: ~43670
+INFO:name:  Tasks & train sizes:
+INFO:name:    vul_detection           21854 examples
+INFO:name:    flakiness_detect        13081 examples
+INFO:name:======================================================================
+INFO:name:  pos_weight flakiness_detect       = 26.0  (pos=485  neg=12596)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E1/10  step 32/4367  total=1.0309  lr=7.33e-07  |  vul_detection=0.6928  flakiness_detect=1.2623
+INFO:name:E1/10  step 64/4367  total=1.0322  lr=1.47e-06  |  vul_detection=0.6935  flakiness_detect=1.3503
+INFO:name:E1/10  step 96/4367  total=1.0325  lr=2.20e-06  |  vul_detection=0.6931  flakiness_detect=1.4173
+INFO:name:E1/10  step 128/4367  total=0.9980  lr=2.93e-06  |  vul_detection=0.6925  flakiness_detect=1.3553
+INFO:name:E1/10  step 160/4367  total=0.9769  lr=3.66e-06  |  vul_detection=0.6929  flakiness_detect=1.3070
+INFO:name:E1/10  step 192/4367  total=0.9624  lr=4.40e-06  |  vul_detection=0.6926  flakiness_detect=1.2747
+INFO:name:E1/10  step 224/4367  total=0.9630  lr=5.13e-06  |  vul_detection=0.6905  flakiness_detect=1.2831
+INFO:name:E1/10  step 256/4367  total=0.9758  lr=5.86e-06  |  vul_detection=0.6899  flakiness_detect=1.3048
+INFO:name:E1/10  step 288/4367  total=0.9690  lr=6.59e-06  |  vul_detection=0.6905  flakiness_detect=1.3171
+INFO:name:E1/10  step 320/4367  total=0.9807  lr=7.33e-06  |  vul_detection=0.6903  flakiness_detect=1.3494
+INFO:name:E1/10  step 352/4367  total=1.0030  lr=8.06e-06  |  vul_detection=0.6902  flakiness_detect=1.3784
+INFO:name:E1/10  step 384/4367  total=1.0412  lr=8.79e-06  |  vul_detection=0.6900  flakiness_detect=1.4561
+INFO:name:E1/10  step 416/4367  total=1.0646  lr=9.53e-06  |  vul_detection=0.6890  flakiness_detect=1.4987
+INFO:name:E1/10  step 448/4367  total=1.1020  lr=1.03e-05  |  vul_detection=0.6890  flakiness_detect=1.5659
+INFO:name:E1/10  step 480/4367  total=1.0843  lr=1.10e-05  |  vul_detection=0.6898  flakiness_detect=1.5314
+INFO:name:E1/10  step 512/4367  total=1.0829  lr=1.17e-05  |  vul_detection=0.6902  flakiness_detect=1.5279
+INFO:name:E1/10  step 544/4367  total=1.0877  lr=1.25e-05  |  vul_detection=0.6901  flakiness_detect=1.5382
+INFO:name:E1/10  step 576/4367  total=1.1560  lr=1.32e-05  |  vul_detection=0.6902  flakiness_detect=1.6950
+INFO:name:E1/10  step 608/4367  total=1.1286  lr=1.39e-05  |  vul_detection=0.6899  flakiness_detect=1.6290
+INFO:name:E1/10  step 640/4367  total=1.1749  lr=1.47e-05  |  vul_detection=0.6902  flakiness_detect=1.7141
+INFO:name:E1/10  step 672/4367  total=1.2586  lr=1.54e-05  |  vul_detection=0.6904  flakiness_detect=1.8911
+INFO:name:E1/10  step 704/4367  total=1.2874  lr=1.61e-05  |  vul_detection=0.6907  flakiness_detect=1.9560
+INFO:name:E1/10  step 736/4367  total=1.2892  lr=1.69e-05  |  vul_detection=0.6908  flakiness_detect=1.9674
+INFO:name:E1/10  step 768/4367  total=1.2833  lr=1.76e-05  |  vul_detection=0.6909  flakiness_detect=1.9834
+INFO:name:E1/10  step 800/4367  total=1.2712  lr=1.83e-05  |  vul_detection=0.6902  flakiness_detect=1.9533
+INFO:name:E1/10  step 832/4367  total=1.3041  lr=1.91e-05  |  vul_detection=0.6901  flakiness_detect=2.0171
+INFO:name:E1/10  step 864/4367  total=1.3230  lr=1.98e-05  |  vul_detection=0.6904  flakiness_detect=2.0500
+INFO:name:E1/10  step 896/4367  total=1.3311  lr=2.05e-05  |  vul_detection=0.6903  flakiness_detect=2.0671
+INFO:name:E1/10  step 928/4367  total=1.3395  lr=2.13e-05  |  vul_detection=0.6902  flakiness_detect=2.0915
+INFO:name:E1/10  step 960/4367  total=1.3589  lr=2.20e-05  |  vul_detection=0.6896  flakiness_detect=2.1400
+INFO:name:E1/10  step 992/4367  total=1.3408  lr=2.27e-05  |  vul_detection=0.6898  flakiness_detect=2.1091
+INFO:name:E1/10  step 1024/4367  total=1.3440  lr=2.34e-05  |  vul_detection=0.6898  flakiness_detect=2.1150
+INFO:name:E1/10  step 1056/4367  total=1.3513  lr=2.42e-05  |  vul_detection=0.6898  flakiness_detect=2.1330
+INFO:name:E1/10  step 1088/4367  total=1.3520  lr=2.49e-05  |  vul_detection=0.6897  flakiness_detect=2.1167
+INFO:name:E1/10  step 1120/4367  total=1.3717  lr=2.56e-05  |  vul_detection=0.6898  flakiness_detect=2.1641
+INFO:name:E1/10  step 1152/4367  total=1.3978  lr=2.64e-05  |  vul_detection=0.6900  flakiness_detect=2.2142
+INFO:name:E1/10  step 1184/4367  total=1.3910  lr=2.71e-05  |  vul_detection=0.6901  flakiness_detect=2.2100
+INFO:name:E1/10  step 1216/4367  total=1.4000  lr=2.78e-05  |  vul_detection=0.6902  flakiness_detect=2.2260
+INFO:name:E1/10  step 1248/4367  total=1.4225  lr=2.86e-05  |  vul_detection=0.6900  flakiness_detect=2.2883
+INFO:name:E1/10  step 1280/4367  total=1.4304  lr=2.93e-05  |  vul_detection=0.6903  flakiness_detect=2.3043
+INFO:name:E1/10  step 1312/4367  total=1.4376  lr=3.00e-05  |  vul_detection=0.6898  flakiness_detect=2.3195
+INFO:name:E1/10  step 1344/4367  total=1.4851  lr=3.08e-05  |  vul_detection=0.6898  flakiness_detect=2.4194
+INFO:name:E1/10  step 1376/4367  total=1.4863  lr=3.15e-05  |  vul_detection=0.6895  flakiness_detect=2.4326
+INFO:name:E1/10  step 1408/4367  total=1.4866  lr=3.22e-05  |  vul_detection=0.6900  flakiness_detect=2.4343
+INFO:name:E1/10  step 1440/4367  total=1.5065  lr=3.30e-05  |  vul_detection=0.6895  flakiness_detect=2.4693
+INFO:name:E1/10  step 1472/4367  total=1.5176  lr=3.37e-05  |  vul_detection=0.6895  flakiness_detect=2.4953
+INFO:name:E1/10  step 1504/4367  total=1.5233  lr=3.44e-05  |  vul_detection=0.6895  flakiness_detect=2.5096
+INFO:name:E1/10  step 1536/4367  total=1.5195  lr=3.52e-05  |  vul_detection=0.6894  flakiness_detect=2.5084
+INFO:name:E1/10  step 1568/4367  total=1.5445  lr=3.59e-05  |  vul_detection=0.6895  flakiness_detect=2.5646
+INFO:name:E1/10  step 1600/4367  total=1.5344  lr=3.66e-05  |  vul_detection=0.6892  flakiness_detect=2.5417
+INFO:name:E1/10  step 1632/4367  total=1.5235  lr=3.74e-05  |  vul_detection=0.6889  flakiness_detect=2.5245
+INFO:name:E1/10  step 1664/4367  total=1.5422  lr=3.81e-05  |  vul_detection=0.6890  flakiness_detect=2.5695
+INFO:name:E1/10  step 1696/4367  total=1.5374  lr=3.88e-05  |  vul_detection=0.6889  flakiness_detect=2.5505
+INFO:name:E1/10  step 1728/4367  total=1.5544  lr=3.96e-05  |  vul_detection=0.6888  flakiness_detect=2.5799
+INFO:name:E1/10  step 1760/4367  total=1.5451  lr=4.03e-05  |  vul_detection=0.6886  flakiness_detect=2.5543
+INFO:name:E1/10  step 1792/4367  total=1.5379  lr=4.10e-05  |  vul_detection=0.6884  flakiness_detect=2.5426
+INFO:name:E1/10  step 1824/4367  total=1.5403  lr=4.18e-05  |  vul_detection=0.6887  flakiness_detect=2.5422
+INFO:name:E1/10  step 1856/4367  total=1.5297  lr=4.25e-05  |  vul_detection=0.6888  flakiness_detect=2.5205
+INFO:name:E1/10  step 1888/4367  total=1.5204  lr=4.32e-05  |  vul_detection=0.6889  flakiness_detect=2.4996
+INFO:name:E1/10  step 1920/4367  total=1.5137  lr=4.40e-05  |  vul_detection=0.6889  flakiness_detect=2.4844
+INFO:name:E1/10  step 1952/4367  total=1.5029  lr=4.47e-05  |  vul_detection=0.6891  flakiness_detect=2.4661
+INFO:name:E1/10  step 1984/4367  total=1.4923  lr=4.54e-05  |  vul_detection=0.6891  flakiness_detect=2.4364
+INFO:name:E1/10  step 2016/4367  total=1.4761  lr=4.62e-05  |  vul_detection=0.6892  flakiness_detect=2.4061
+INFO:name:E1/10  step 2048/4367  total=1.4712  lr=4.69e-05  |  vul_detection=0.6893  flakiness_detect=2.3983
+INFO:name:E1/10  step 2080/4367  total=1.4689  lr=4.76e-05  |  vul_detection=0.6892  flakiness_detect=2.4035
+INFO:name:E1/10  step 2112/4367  total=1.4731  lr=4.84e-05  |  vul_detection=0.6891  flakiness_detect=2.4156
+INFO:name:E1/10  step 2144/4367  total=1.4737  lr=4.91e-05  |  vul_detection=0.6889  flakiness_detect=2.4237
+INFO:name:E1/10  step 2176/4367  total=1.4662  lr=4.98e-05  |  vul_detection=0.6883  flakiness_detect=2.4138
+INFO:name:E1/10  step 2208/4367  total=1.4697  lr=5.06e-05  |  vul_detection=0.6882  flakiness_detect=2.4173
+INFO:name:E1/10  step 2240/4367  total=1.4694  lr=5.13e-05  |  vul_detection=0.6880  flakiness_detect=2.4210
+INFO:name:E1/10  step 2272/4367  total=1.4605  lr=5.20e-05  |  vul_detection=0.6881  flakiness_detect=2.4018
+INFO:name:E1/10  step 2304/4367  total=1.4612  lr=5.28e-05  |  vul_detection=0.6880  flakiness_detect=2.4010
+INFO:name:E1/10  step 2336/4367  total=1.4494  lr=5.35e-05  |  vul_detection=0.6881  flakiness_detect=2.3818
+INFO:name:E1/10  step 2368/4367  total=1.4465  lr=5.42e-05  |  vul_detection=0.6881  flakiness_detect=2.3759
+INFO:name:E1/10  step 2400/4367  total=1.4487  lr=5.50e-05  |  vul_detection=0.6882  flakiness_detect=2.3844
+INFO:name:E1/10  step 2432/4367  total=1.4347  lr=5.57e-05  |  vul_detection=0.6882  flakiness_detect=2.3477
+INFO:name:E1/10  step 2464/4367  total=1.4218  lr=5.64e-05  |  vul_detection=0.6879  flakiness_detect=2.3111
+INFO:name:E1/10  step 2496/4367  total=1.4156  lr=5.72e-05  |  vul_detection=0.6876  flakiness_detect=2.2986
+INFO:name:E1/10  step 2528/4367  total=1.4061  lr=5.79e-05  |  vul_detection=0.6880  flakiness_detect=2.2763
+INFO:name:E1/10  step 2560/4367  total=1.4058  lr=5.86e-05  |  vul_detection=0.6880  flakiness_detect=2.2776
+INFO:name:E1/10  step 2592/4367  total=1.3990  lr=5.94e-05  |  vul_detection=0.6879  flakiness_detect=2.2591
+INFO:name:E1/10  step 2624/4367  total=1.3996  lr=6.01e-05  |  vul_detection=0.6881  flakiness_detect=2.2571
+INFO:name:E1/10  step 2656/4367  total=1.3952  lr=6.08e-05  |  vul_detection=0.6879  flakiness_detect=2.2431
+INFO:name:E1/10  step 2688/4367  total=1.3938  lr=6.16e-05  |  vul_detection=0.6877  flakiness_detect=2.2408
+INFO:name:E1/10  step 2720/4367  total=1.3992  lr=6.23e-05  |  vul_detection=0.6878  flakiness_detect=2.2522
+INFO:name:E1/10  step 2752/4367  total=1.3905  lr=6.30e-05  |  vul_detection=0.6875  flakiness_detect=2.2378
+INFO:name:E1/10  step 2784/4367  total=1.4076  lr=6.38e-05  |  vul_detection=0.6870  flakiness_detect=2.2730
+INFO:name:E1/10  step 2816/4367  total=1.4026  lr=6.45e-05  |  vul_detection=0.6869  flakiness_detect=2.2579
+INFO:name:E1/10  step 2848/4367  total=1.4029  lr=6.52e-05  |  vul_detection=0.6867  flakiness_detect=2.2594
+INFO:name:E1/10  step 2880/4367  total=1.3974  lr=6.59e-05  |  vul_detection=0.6864  flakiness_detect=2.2544
+INFO:name:E1/10  step 2912/4367  total=1.3998  lr=6.67e-05  |  vul_detection=0.6861  flakiness_detect=2.2582
+INFO:name:E1/10  step 2944/4367  total=1.3932  lr=6.74e-05  |  vul_detection=0.6859  flakiness_detect=2.2433
+INFO:name:E1/10  step 2976/4367  total=1.3829  lr=6.81e-05  |  vul_detection=0.6855  flakiness_detect=2.2217
+INFO:name:E1/10  step 3008/4367  total=1.3948  lr=6.89e-05  |  vul_detection=0.6853  flakiness_detect=2.2431
+INFO:name:E1/10  step 3040/4367  total=1.3849  lr=6.96e-05  |  vul_detection=0.6853  flakiness_detect=2.2210
+INFO:name:E1/10  step 3072/4367  total=1.4106  lr=7.03e-05  |  vul_detection=0.6852  flakiness_detect=2.2769
+INFO:name:E1/10  step 3104/4367  total=1.3991  lr=7.11e-05  |  vul_detection=0.6849  flakiness_detect=2.2483
+INFO:name:E1/10  step 3136/4367  total=1.4010  lr=7.18e-05  |  vul_detection=0.6851  flakiness_detect=2.2529
+INFO:name:E1/10  step 3168/4367  total=1.4013  lr=7.25e-05  |  vul_detection=0.6849  flakiness_detect=2.2533
+INFO:name:E1/10  step 3200/4367  total=1.4001  lr=7.33e-05  |  vul_detection=0.6849  flakiness_detect=2.2504
+INFO:name:E1/10  step 3232/4367  total=1.4027  lr=7.40e-05  |  vul_detection=0.6847  flakiness_detect=2.2559
+INFO:name:E1/10  step 3264/4367  total=1.3970  lr=7.47e-05  |  vul_detection=0.6844  flakiness_detect=2.2466
+INFO:name:E1/10  step 3296/4367  total=1.4001  lr=7.55e-05  |  vul_detection=0.6844  flakiness_detect=2.2539
+INFO:name:E1/10  step 3328/4367  total=1.3933  lr=7.62e-05  |  vul_detection=0.6842  flakiness_detect=2.2388
+INFO:name:E1/10  step 3360/4367  total=1.3953  lr=7.69e-05  |  vul_detection=0.6839  flakiness_detect=2.2482
+INFO:name:E1/10  step 3392/4367  total=1.3936  lr=7.77e-05  |  vul_detection=0.6839  flakiness_detect=2.2440
+INFO:name:E1/10  step 3424/4367  total=1.3847  lr=7.84e-05  |  vul_detection=0.6842  flakiness_detect=2.2236
+INFO:name:E1/10  step 3456/4367  total=1.3872  lr=7.91e-05  |  vul_detection=0.6841  flakiness_detect=2.2279
+INFO:name:E1/10  step 3488/4367  total=1.3826  lr=7.99e-05  |  vul_detection=0.6841  flakiness_detect=2.2115
+INFO:name:E1/10  step 3520/4367  total=1.3856  lr=8.06e-05  |  vul_detection=0.6842  flakiness_detect=2.2111
+INFO:name:E1/10  step 3552/4367  total=1.3815  lr=8.13e-05  |  vul_detection=0.6841  flakiness_detect=2.2048
+INFO:name:E1/10  step 3584/4367  total=1.3771  lr=8.21e-05  |  vul_detection=0.6839  flakiness_detect=2.1952
+INFO:name:E1/10  step 3616/4367  total=1.3687  lr=8.28e-05  |  vul_detection=0.6837  flakiness_detect=2.1767
+INFO:name:E1/10  step 3648/4367  total=1.3711  lr=8.35e-05  |  vul_detection=0.6838  flakiness_detect=2.1816
+INFO:name:E1/10  step 3680/4367  total=1.3724  lr=8.43e-05  |  vul_detection=0.6838  flakiness_detect=2.1886
+INFO:name:E1/10  step 3712/4367  total=1.3676  lr=8.50e-05  |  vul_detection=0.6839  flakiness_detect=2.1795
+INFO:name:E1/10  step 3744/4367  total=1.3642  lr=8.57e-05  |  vul_detection=0.6838  flakiness_detect=2.1656
+INFO:name:E1/10  step 3776/4367  total=1.3604  lr=8.65e-05  |  vul_detection=0.6838  flakiness_detect=2.1588
+INFO:name:E1/10  step 3808/4367  total=1.3593  lr=8.72e-05  |  vul_detection=0.6837  flakiness_detect=2.1571
+INFO:name:E1/10  step 3840/4367  total=1.3556  lr=8.79e-05  |  vul_detection=0.6839  flakiness_detect=2.1486
+INFO:name:E1/10  step 3872/4367  total=1.3511  lr=8.87e-05  |  vul_detection=0.6838  flakiness_detect=2.1395
+INFO:name:E1/10  step 3904/4367  total=1.3495  lr=8.94e-05  |  vul_detection=0.6838  flakiness_detect=2.1366
+INFO:name:E1/10  step 3936/4367  total=1.3469  lr=9.01e-05  |  vul_detection=0.6839  flakiness_detect=2.1311
+INFO:name:E1/10  step 3968/4367  total=1.3408  lr=9.09e-05  |  vul_detection=0.6840  flakiness_detect=2.1207
+INFO:name:E1/10  step 4000/4367  total=1.3362  lr=9.16e-05  |  vul_detection=0.6839  flakiness_detect=2.1175
+INFO:name:E1/10  step 4032/4367  total=1.3326  lr=9.23e-05  |  vul_detection=0.6840  flakiness_detect=2.1107
+INFO:name:E1/10  step 4064/4367  total=1.3334  lr=9.31e-05  |  vul_detection=0.6840  flakiness_detect=2.1106
+INFO:name:E1/10  step 4096/4367  total=1.3283  lr=9.38e-05  |  vul_detection=0.6838  flakiness_detect=2.1008
+INFO:name:E1/10  step 4128/4367  total=1.3300  lr=9.45e-05  |  vul_detection=0.6836  flakiness_detect=2.1014
+INFO:name:E1/10  step 4160/4367  total=1.3263  lr=9.53e-05  |  vul_detection=0.6836  flakiness_detect=2.0968
+INFO:name:E1/10  step 4192/4367  total=1.3276  lr=9.60e-05  |  vul_detection=0.6832  flakiness_detect=2.0991
+INFO:name:E1/10  step 4224/4367  total=1.3305  lr=9.67e-05  |  vul_detection=0.6832  flakiness_detect=2.1071
+INFO:name:E1/10  step 4256/4367  total=1.3292  lr=9.75e-05  |  vul_detection=0.6832  flakiness_detect=2.1048
+INFO:name:E1/10  step 4288/4367  total=1.3250  lr=9.82e-05  |  vul_detection=0.6832  flakiness_detect=2.0945
+INFO:name:E1/10  step 4320/4367  total=1.3176  lr=9.89e-05  |  vul_detection=0.6831  flakiness_detect=2.0766
+INFO:name:E1/10  step 4352/4367  total=1.3134  lr=9.97e-05  |  vul_detection=0.6829  flakiness_detect=2.0666
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 1/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  vul_detection             0.6829    1.0000       5852951
+INFO:name:  flakiness_detect          2.0704    1.0000       1952589
+INFO:name:  TOTAL                     1.3158                 7805540  (epoch)  cumulative=7805540
+INFO:name:  epoch_time=1875.0s  peak_gpu_memory=9.678GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'vul_detection': '0.4961', 'flakiness_detect': '1.5039'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    vul_detection           grad_norm=  0.556205
+INFO:name:    flakiness_detect        grad_norm=  1.083080
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  vul_detection           flakiness_detect           -0.1259  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.5769   0.5270    0.5425      0.5123   0.6606        -
+INFO:name:  flakiness_detect         0.9768   0.6553    0.5926      0.7328   0.1046        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5912
+INFO:name:----------------------------------------------------------------------
+Saved 201 trainable params -> ./adapters/deepseek_vul_flak_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.5912) — checkpoint saved.
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.5809   0.5501    0.5578      0.5426        -        -
+INFO:name:  flakiness_detect         0.9718   0.5591    0.4815      0.6667        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E2/10  step 32/4367  total=2.0631  lr=9.99e-05  |  vul_detection=0.6866  flakiness_detect=2.1555
+INFO:name:E2/10  step 64/4367  total=1.6102  lr=9.98e-05  |  vul_detection=0.6840  flakiness_detect=1.8645
+INFO:name:E2/10  step 96/4367  total=1.5150  lr=9.98e-05  |  vul_detection=0.6795  flakiness_detect=1.8951
+INFO:name:E2/10  step 128/4367  total=1.5589  lr=9.97e-05  |  vul_detection=0.6720  flakiness_detect=1.9895
+INFO:name:E2/10  step 160/4367  total=1.2881  lr=9.96e-05  |  vul_detection=0.6698  flakiness_detect=1.5951
+INFO:name:E2/10  step 192/4367  total=1.1277  lr=9.95e-05  |  vul_detection=0.6696  flakiness_detect=1.3620
+INFO:name:E2/10  step 224/4367  total=1.2547  lr=9.94e-05  |  vul_detection=0.6662  flakiness_detect=1.5562
+INFO:name:E2/10  step 256/4367  total=1.4080  lr=9.93e-05  |  vul_detection=0.6656  flakiness_detect=1.7612
+INFO:name:E2/10  step 288/4367  total=1.2778  lr=9.93e-05  |  vul_detection=0.6639  flakiness_detect=1.6380
+INFO:name:E2/10  step 320/4367  total=1.3345  lr=9.92e-05  |  vul_detection=0.6648  flakiness_detect=1.7354
+INFO:name:E2/10  step 352/4367  total=1.3174  lr=9.91e-05  |  vul_detection=0.6661  flakiness_detect=1.6635
+INFO:name:E2/10  step 384/4367  total=1.2864  lr=9.90e-05  |  vul_detection=0.6662  flakiness_detect=1.6065
+INFO:name:E2/10  step 416/4367  total=1.2364  lr=9.89e-05  |  vul_detection=0.6659  flakiness_detect=1.5183
+INFO:name:E2/10  step 448/4367  total=1.1974  lr=9.89e-05  |  vul_detection=0.6665  flakiness_detect=1.4435
+INFO:name:E2/10  step 480/4367  total=1.2194  lr=9.88e-05  |  vul_detection=0.6661  flakiness_detect=1.4807
+INFO:name:E2/10  step 512/4367  total=1.2220  lr=9.87e-05  |  vul_detection=0.6648  flakiness_detect=1.4849
+INFO:name:E2/10  step 544/4367  total=1.2988  lr=9.86e-05  |  vul_detection=0.6623  flakiness_detect=1.5947
+INFO:name:E2/10  step 576/4367  total=1.2395  lr=9.85e-05  |  vul_detection=0.6653  flakiness_detect=1.5241
+INFO:name:E2/10  step 608/4367  total=1.3393  lr=9.85e-05  |  vul_detection=0.6656  flakiness_detect=1.6560
+INFO:name:E2/10  step 640/4367  total=1.3141  lr=9.84e-05  |  vul_detection=0.6668  flakiness_detect=1.6010
+INFO:name:E2/10  step 672/4367  total=1.3497  lr=9.83e-05  |  vul_detection=0.6663  flakiness_detect=1.6518
+INFO:name:E2/10  step 704/4367  total=1.2964  lr=9.82e-05  |  vul_detection=0.6648  flakiness_detect=1.5822
+INFO:name:E2/10  step 736/4367  total=1.3133  lr=9.81e-05  |  vul_detection=0.6636  flakiness_detect=1.6148
+INFO:name:E2/10  step 768/4367  total=1.2792  lr=9.80e-05  |  vul_detection=0.6620  flakiness_detect=1.5977
+INFO:name:E2/10  step 800/4367  total=1.2586  lr=9.80e-05  |  vul_detection=0.6617  flakiness_detect=1.5631
+INFO:name:E2/10  step 832/4367  total=1.2436  lr=9.79e-05  |  vul_detection=0.6619  flakiness_detect=1.5335
+INFO:name:E2/10  step 864/4367  total=1.2806  lr=9.78e-05  |  vul_detection=0.6621  flakiness_detect=1.5790
+INFO:name:E2/10  step 896/4367  total=1.2521  lr=9.77e-05  |  vul_detection=0.6626  flakiness_detect=1.5379
+INFO:name:E2/10  step 928/4367  total=1.2970  lr=9.76e-05  |  vul_detection=0.6617  flakiness_detect=1.6084
+INFO:name:E2/10  step 960/4367  total=1.3038  lr=9.76e-05  |  vul_detection=0.6620  flakiness_detect=1.6239
+INFO:name:E2/10  step 992/4367  total=1.2824  lr=9.75e-05  |  vul_detection=0.6620  flakiness_detect=1.6013
+INFO:name:E2/10  step 1024/4367  total=1.2610  lr=9.74e-05  |  vul_detection=0.6622  flakiness_detect=1.5694
+INFO:name:E2/10  step 1056/4367  total=1.2285  lr=9.73e-05  |  vul_detection=0.6615  flakiness_detect=1.5244
+INFO:name:E2/10  step 1088/4367  total=1.2199  lr=9.72e-05  |  vul_detection=0.6616  flakiness_detect=1.4956
+INFO:name:E2/10  step 1120/4367  total=1.2184  lr=9.72e-05  |  vul_detection=0.6616  flakiness_detect=1.4980
+INFO:name:E2/10  step 1152/4367  total=1.1925  lr=9.71e-05  |  vul_detection=0.6620  flakiness_detect=1.4555
+INFO:name:E2/10  step 1184/4367  total=1.1666  lr=9.70e-05  |  vul_detection=0.6616  flakiness_detect=1.4271
+INFO:name:E2/10  step 1216/4367  total=1.1895  lr=9.69e-05  |  vul_detection=0.6619  flakiness_detect=1.4573
+INFO:name:E2/10  step 1248/4367  total=1.1919  lr=9.68e-05  |  vul_detection=0.6617  flakiness_detect=1.4712
+INFO:name:E2/10  step 1280/4367  total=1.2063  lr=9.67e-05  |  vul_detection=0.6613  flakiness_detect=1.4916
+INFO:name:E2/10  step 1312/4367  total=1.1911  lr=9.67e-05  |  vul_detection=0.6601  flakiness_detect=1.4692
+INFO:name:E2/10  step 1344/4367  total=1.2133  lr=9.66e-05  |  vul_detection=0.6607  flakiness_detect=1.4985
+INFO:name:E2/10  step 1376/4367  total=1.2073  lr=9.65e-05  |  vul_detection=0.6609  flakiness_detect=1.4973
+INFO:name:E2/10  step 1408/4367  total=1.2326  lr=9.64e-05  |  vul_detection=0.6601  flakiness_detect=1.5356
+INFO:name:E2/10  step 1440/4367  total=1.2368  lr=9.63e-05  |  vul_detection=0.6589  flakiness_detect=1.5355
+INFO:name:E2/10  step 1472/4367  total=1.2280  lr=9.63e-05  |  vul_detection=0.6584  flakiness_detect=1.5242
+INFO:name:E2/10  step 1504/4367  total=1.2312  lr=9.62e-05  |  vul_detection=0.6580  flakiness_detect=1.5303
+INFO:name:E2/10  step 1536/4367  total=1.2209  lr=9.61e-05  |  vul_detection=0.6574  flakiness_detect=1.5205
+INFO:name:E2/10  step 1568/4367  total=1.2359  lr=9.60e-05  |  vul_detection=0.6570  flakiness_detect=1.5437
+INFO:name:E2/10  step 1600/4367  total=1.2347  lr=9.59e-05  |  vul_detection=0.6560  flakiness_detect=1.5416
+INFO:name:E2/10  step 1632/4367  total=1.2145  lr=9.58e-05  |  vul_detection=0.6560  flakiness_detect=1.5167
+INFO:name:E2/10  step 1664/4367  total=1.2053  lr=9.58e-05  |  vul_detection=0.6559  flakiness_detect=1.5058
+INFO:name:E2/10  step 1696/4367  total=1.2091  lr=9.57e-05  |  vul_detection=0.6559  flakiness_detect=1.5055
+INFO:name:E2/10  step 1728/4367  total=1.2002  lr=9.56e-05  |  vul_detection=0.6553  flakiness_detect=1.4873
+INFO:name:E2/10  step 1760/4367  total=1.1959  lr=9.55e-05  |  vul_detection=0.6555  flakiness_detect=1.4774
+INFO:name:E2/10  step 1792/4367  total=1.1831  lr=9.54e-05  |  vul_detection=0.6556  flakiness_detect=1.4613
+INFO:name:E2/10  step 1824/4367  total=1.1903  lr=9.54e-05  |  vul_detection=0.6557  flakiness_detect=1.4682
+INFO:name:E2/10  step 1856/4367  total=1.1896  lr=9.53e-05  |  vul_detection=0.6553  flakiness_detect=1.4684
+INFO:name:E2/10  step 1888/4367  total=1.1979  lr=9.52e-05  |  vul_detection=0.6551  flakiness_detect=1.4801
+INFO:name:E2/10  step 1920/4367  total=1.2030  lr=9.51e-05  |  vul_detection=0.6555  flakiness_detect=1.4868
+INFO:name:E2/10  step 1952/4367  total=1.2047  lr=9.50e-05  |  vul_detection=0.6554  flakiness_detect=1.4932
+INFO:name:E2/10  step 1984/4367  total=1.1947  lr=9.50e-05  |  vul_detection=0.6549  flakiness_detect=1.4742
+INFO:name:E2/10  step 2016/4367  total=1.1791  lr=9.49e-05  |  vul_detection=0.6553  flakiness_detect=1.4552
+INFO:name:E2/10  step 2048/4367  total=1.1770  lr=9.48e-05  |  vul_detection=0.6547  flakiness_detect=1.4545
+INFO:name:E2/10  step 2080/4367  total=1.1875  lr=9.47e-05  |  vul_detection=0.6544  flakiness_detect=1.4774
+INFO:name:E2/10  step 2112/4367  total=1.1884  lr=9.46e-05  |  vul_detection=0.6545  flakiness_detect=1.4807
+INFO:name:E2/10  step 2144/4367  total=1.1804  lr=9.45e-05  |  vul_detection=0.6546  flakiness_detect=1.4734
+INFO:name:E2/10  step 2176/4367  total=1.1662  lr=9.45e-05  |  vul_detection=0.6547  flakiness_detect=1.4569
+INFO:name:E2/10  step 2208/4367  total=1.1520  lr=9.44e-05  |  vul_detection=0.6550  flakiness_detect=1.4328
+INFO:name:E2/10  step 2240/4367  total=1.1501  lr=9.43e-05  |  vul_detection=0.6551  flakiness_detect=1.4329
+INFO:name:E2/10  step 2272/4367  total=1.1366  lr=9.42e-05  |  vul_detection=0.6546  flakiness_detect=1.4137
+INFO:name:E2/10  step 2304/4367  total=1.1274  lr=9.41e-05  |  vul_detection=0.6551  flakiness_detect=1.3981
+INFO:name:E2/10  step 2336/4367  total=1.1196  lr=9.41e-05  |  vul_detection=0.6544  flakiness_detect=1.3919
+INFO:name:E2/10  step 2368/4367  total=1.1280  lr=9.40e-05  |  vul_detection=0.6544  flakiness_detect=1.4046
+INFO:name:E2/10  step 2400/4367  total=1.1225  lr=9.39e-05  |  vul_detection=0.6542  flakiness_detect=1.3992
+INFO:name:E2/10  step 2432/4367  total=1.1312  lr=9.38e-05  |  vul_detection=0.6544  flakiness_detect=1.4082
+INFO:name:E2/10  step 2464/4367  total=1.1640  lr=9.37e-05  |  vul_detection=0.6544  flakiness_detect=1.4503
+INFO:name:E2/10  step 2496/4367  total=1.1565  lr=9.36e-05  |  vul_detection=0.6543  flakiness_detect=1.4398
+INFO:name:E2/10  step 2528/4367  total=1.1484  lr=9.36e-05  |  vul_detection=0.6543  flakiness_detect=1.4274
+INFO:name:E2/10  step 2560/4367  total=1.1379  lr=9.35e-05  |  vul_detection=0.6540  flakiness_detect=1.4135
+INFO:name:E2/10  step 2592/4367  total=1.1321  lr=9.34e-05  |  vul_detection=0.6543  flakiness_detect=1.4023
+INFO:name:E2/10  step 2624/4367  total=1.1442  lr=9.33e-05  |  vul_detection=0.6543  flakiness_detect=1.4175
+INFO:name:E2/10  step 2656/4367  total=1.1468  lr=9.32e-05  |  vul_detection=0.6543  flakiness_detect=1.4178
+INFO:name:E2/10  step 2688/4367  total=1.1686  lr=9.32e-05  |  vul_detection=0.6544  flakiness_detect=1.4502
+INFO:name:E2/10  step 2720/4367  total=1.1642  lr=9.31e-05  |  vul_detection=0.6544  flakiness_detect=1.4434
+INFO:name:E2/10  step 2752/4367  total=1.1637  lr=9.30e-05  |  vul_detection=0.6547  flakiness_detect=1.4461
+INFO:name:E2/10  step 2784/4367  total=1.1685  lr=9.29e-05  |  vul_detection=0.6549  flakiness_detect=1.4505
+INFO:name:E2/10  step 2816/4367  total=1.1689  lr=9.28e-05  |  vul_detection=0.6546  flakiness_detect=1.4480
+INFO:name:E2/10  step 2848/4367  total=1.1578  lr=9.28e-05  |  vul_detection=0.6544  flakiness_detect=1.4324
+INFO:name:E2/10  step 2880/4367  total=1.1477  lr=9.27e-05  |  vul_detection=0.6544  flakiness_detect=1.4228
+INFO:name:E2/10  step 2912/4367  total=1.1369  lr=9.26e-05  |  vul_detection=0.6541  flakiness_detect=1.4056
+INFO:name:E2/10  step 2944/4367  total=1.1415  lr=9.25e-05  |  vul_detection=0.6541  flakiness_detect=1.4120
+INFO:name:E2/10  step 2976/4367  total=1.1408  lr=9.24e-05  |  vul_detection=0.6536  flakiness_detect=1.4117
+INFO:name:E2/10  step 3008/4367  total=1.1319  lr=9.23e-05  |  vul_detection=0.6532  flakiness_detect=1.3949
+INFO:name:E2/10  step 3040/4367  total=1.1445  lr=9.23e-05  |  vul_detection=0.6533  flakiness_detect=1.4129
+INFO:name:E2/10  step 3072/4367  total=1.1462  lr=9.22e-05  |  vul_detection=0.6532  flakiness_detect=1.4151
+INFO:name:E2/10  step 3104/4367  total=1.1861  lr=9.21e-05  |  vul_detection=0.6533  flakiness_detect=1.4701
+INFO:name:E2/10  step 3136/4367  total=1.1762  lr=9.20e-05  |  vul_detection=0.6535  flakiness_detect=1.4563
+INFO:name:E2/10  step 3168/4367  total=1.1756  lr=9.19e-05  |  vul_detection=0.6535  flakiness_detect=1.4550
+INFO:name:E2/10  step 3200/4367  total=1.1743  lr=9.19e-05  |  vul_detection=0.6531  flakiness_detect=1.4529
+INFO:name:E2/10  step 3232/4367  total=1.1722  lr=9.18e-05  |  vul_detection=0.6530  flakiness_detect=1.4496
+INFO:name:E2/10  step 3264/4367  total=1.1767  lr=9.17e-05  |  vul_detection=0.6534  flakiness_detect=1.4582
+INFO:name:E2/10  step 3296/4367  total=1.1792  lr=9.16e-05  |  vul_detection=0.6530  flakiness_detect=1.4625
+INFO:name:E2/10  step 3328/4367  total=1.1928  lr=9.15e-05  |  vul_detection=0.6525  flakiness_detect=1.4821
+INFO:name:E2/10  step 3360/4367  total=1.1908  lr=9.15e-05  |  vul_detection=0.6524  flakiness_detect=1.4831
+INFO:name:E2/10  step 3392/4367  total=1.1815  lr=9.14e-05  |  vul_detection=0.6520  flakiness_detect=1.4692
+INFO:name:E2/10  step 3424/4367  total=1.1721  lr=9.13e-05  |  vul_detection=0.6516  flakiness_detect=1.4553
+INFO:name:E2/10  step 3456/4367  total=1.1684  lr=9.12e-05  |  vul_detection=0.6519  flakiness_detect=1.4487
+INFO:name:E2/10  step 3488/4367  total=1.1745  lr=9.11e-05  |  vul_detection=0.6517  flakiness_detect=1.4527
+INFO:name:E2/10  step 3520/4367  total=1.1745  lr=9.10e-05  |  vul_detection=0.6515  flakiness_detect=1.4472
+INFO:name:E2/10  step 3552/4367  total=1.1769  lr=9.10e-05  |  vul_detection=0.6512  flakiness_detect=1.4528
+INFO:name:E2/10  step 3584/4367  total=1.1726  lr=9.09e-05  |  vul_detection=0.6514  flakiness_detect=1.4463
+INFO:name:E2/10  step 3616/4367  total=1.1752  lr=9.08e-05  |  vul_detection=0.6513  flakiness_detect=1.4498
+INFO:name:E2/10  step 3648/4367  total=1.1679  lr=9.07e-05  |  vul_detection=0.6512  flakiness_detect=1.4390
+INFO:name:E2/10  step 3680/4367  total=1.1625  lr=9.06e-05  |  vul_detection=0.6515  flakiness_detect=1.4345
+INFO:name:E2/10  step 3712/4367  total=1.1547  lr=9.06e-05  |  vul_detection=0.6514  flakiness_detect=1.4243
+INFO:name:E2/10  step 3744/4367  total=1.1540  lr=9.05e-05  |  vul_detection=0.6514  flakiness_detect=1.4181
+INFO:name:E2/10  step 3776/4367  total=1.1581  lr=9.04e-05  |  vul_detection=0.6511  flakiness_detect=1.4254
+INFO:name:E2/10  step 3808/4367  total=1.1499  lr=9.03e-05  |  vul_detection=0.6510  flakiness_detect=1.4140
+INFO:name:E2/10  step 3840/4367  total=1.1448  lr=9.02e-05  |  vul_detection=0.6509  flakiness_detect=1.4064
+INFO:name:E2/10  step 3872/4367  total=1.1390  lr=9.01e-05  |  vul_detection=0.6511  flakiness_detect=1.3984
+INFO:name:E2/10  step 3904/4367  total=1.1314  lr=9.01e-05  |  vul_detection=0.6513  flakiness_detect=1.3877
+INFO:name:E2/10  step 3936/4367  total=1.1271  lr=9.00e-05  |  vul_detection=0.6512  flakiness_detect=1.3820
+INFO:name:E2/10  step 3968/4367  total=1.1199  lr=8.99e-05  |  vul_detection=0.6509  flakiness_detect=1.3740
+INFO:name:E2/10  step 4000/4367  total=1.1132  lr=8.98e-05  |  vul_detection=0.6512  flakiness_detect=1.3695
+INFO:name:E2/10  step 4032/4367  total=1.1085  lr=8.97e-05  |  vul_detection=0.6508  flakiness_detect=1.3637
+INFO:name:E2/10  step 4064/4367  total=1.1103  lr=8.97e-05  |  vul_detection=0.6509  flakiness_detect=1.3649
+INFO:name:E2/10  step 4096/4367  total=1.1032  lr=8.96e-05  |  vul_detection=0.6509  flakiness_detect=1.3554
+INFO:name:E2/10  step 4128/4367  total=1.0967  lr=8.95e-05  |  vul_detection=0.6507  flakiness_detect=1.3433
+INFO:name:E2/10  step 4160/4367  total=1.0923  lr=8.94e-05  |  vul_detection=0.6509  flakiness_detect=1.3396
+INFO:name:E2/10  step 4192/4367  total=1.0853  lr=8.93e-05  |  vul_detection=0.6510  flakiness_detect=1.3284
+INFO:name:E2/10  step 4224/4367  total=1.0794  lr=8.93e-05  |  vul_detection=0.6512  flakiness_detect=1.3212
+INFO:name:E2/10  step 4256/4367  total=1.0727  lr=8.92e-05  |  vul_detection=0.6512  flakiness_detect=1.3117
+INFO:name:E2/10  step 4288/4367  total=1.0737  lr=8.91e-05  |  vul_detection=0.6511  flakiness_detect=1.3124
+INFO:name:E2/10  step 4320/4367  total=1.0770  lr=8.90e-05  |  vul_detection=0.6509  flakiness_detect=1.3159
+INFO:name:E2/10  step 4352/4367  total=1.0749  lr=8.89e-05  |  vul_detection=0.6507  flakiness_detect=1.3121
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 2/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  vul_detection             0.6506    0.4961       5847369
+INFO:name:  flakiness_detect          1.3134    1.5039       1949400
+INFO:name:  TOTAL                     1.0766                 7796769  (epoch)  cumulative=15602309
+INFO:name:  epoch_time=1880.8s  peak_gpu_memory=9.678GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'vul_detection': '0.6625', 'flakiness_detect': '1.3375'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    vul_detection           grad_norm=  0.715065
+INFO:name:    flakiness_detect        grad_norm=  0.005713
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  vul_detection           flakiness_detect           +0.2037  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6157   0.5650    0.5746      0.5558   0.6324        -
+INFO:name:  flakiness_detect         0.9773   0.6935    0.6914      0.6957   0.1101        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6292
+INFO:name:----------------------------------------------------------------------
+Saved 201 trainable params -> ./adapters/deepseek_vul_flak_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.6292) — checkpoint saved.
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6094   0.5696    0.5625      0.5768        -        -
+INFO:name:  flakiness_detect         0.9773   0.6711    0.6235      0.7266        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E3/10  step 32/4367  total=1.3174  lr=8.88e-05  |  vul_detection=0.6351  flakiness_detect=1.4437
+INFO:name:E3/10  step 64/4367  total=0.7728  lr=8.87e-05  |  vul_detection=0.6169  flakiness_detect=0.8335
+INFO:name:E3/10  step 96/4367  total=0.6015  lr=8.86e-05  |  vul_detection=0.6136  flakiness_detect=0.6149
+INFO:name:E3/10  step 128/4367  total=0.8935  lr=8.86e-05  |  vul_detection=0.6122  flakiness_detect=1.0948
+INFO:name:E3/10  step 160/4367  total=0.7738  lr=8.85e-05  |  vul_detection=0.6102  flakiness_detect=0.8997
+INFO:name:E3/10  step 192/4367  total=0.6839  lr=8.84e-05  |  vul_detection=0.6174  flakiness_detect=0.7492
+INFO:name:E3/10  step 224/4367  total=0.6189  lr=8.83e-05  |  vul_detection=0.6155  flakiness_detect=0.6481
+INFO:name:E3/10  step 256/4367  total=0.7009  lr=8.82e-05  |  vul_detection=0.6152  flakiness_detect=0.7766
+INFO:name:E3/10  step 288/4367  total=0.7275  lr=8.82e-05  |  vul_detection=0.6195  flakiness_detect=0.8403
+INFO:name:E3/10  step 320/4367  total=0.6903  lr=8.81e-05  |  vul_detection=0.6225  flakiness_detect=0.7798
+INFO:name:E3/10  step 352/4367  total=0.7862  lr=8.80e-05  |  vul_detection=0.6208  flakiness_detect=0.9241
+INFO:name:E3/10  step 384/4367  total=0.8698  lr=8.79e-05  |  vul_detection=0.6201  flakiness_detect=1.0559
+INFO:name:E3/10  step 416/4367  total=1.0193  lr=8.78e-05  |  vul_detection=0.6216  flakiness_detect=1.2869
+INFO:name:E3/10  step 448/4367  total=0.9605  lr=8.77e-05  |  vul_detection=0.6236  flakiness_detect=1.1778
+INFO:name:E3/10  step 480/4367  total=0.9174  lr=8.77e-05  |  vul_detection=0.6186  flakiness_detect=1.1160
+INFO:name:E3/10  step 512/4367  total=0.9562  lr=8.76e-05  |  vul_detection=0.6198  flakiness_detect=1.1772
+INFO:name:E3/10  step 544/4367  total=0.9709  lr=8.75e-05  |  vul_detection=0.6218  flakiness_detect=1.1995
+INFO:name:E3/10  step 576/4367  total=0.9767  lr=8.74e-05  |  vul_detection=0.6233  flakiness_detect=1.2181
+INFO:name:E3/10  step 608/4367  total=0.9648  lr=8.73e-05  |  vul_detection=0.6221  flakiness_detect=1.1927
+INFO:name:E3/10  step 640/4367  total=0.9243  lr=8.73e-05  |  vul_detection=0.6198  flakiness_detect=1.1183
+INFO:name:E3/10  step 672/4367  total=0.8949  lr=8.72e-05  |  vul_detection=0.6202  flakiness_detect=1.0719
+INFO:name:E3/10  step 704/4367  total=0.9144  lr=8.71e-05  |  vul_detection=0.6189  flakiness_detect=1.1062
+INFO:name:E3/10  step 736/4367  total=0.8995  lr=8.70e-05  |  vul_detection=0.6173  flakiness_detect=1.0882
+INFO:name:E3/10  step 768/4367  total=0.8770  lr=8.69e-05  |  vul_detection=0.6192  flakiness_detect=1.0682
+INFO:name:E3/10  step 800/4367  total=0.9001  lr=8.69e-05  |  vul_detection=0.6207  flakiness_detect=1.1021
+INFO:name:E3/10  step 832/4367  total=0.8975  lr=8.68e-05  |  vul_detection=0.6201  flakiness_detect=1.0936
+INFO:name:E3/10  step 864/4367  total=0.8904  lr=8.67e-05  |  vul_detection=0.6201  flakiness_detect=1.0777
+INFO:name:E3/10  step 896/4367  total=0.8663  lr=8.66e-05  |  vul_detection=0.6196  flakiness_detect=1.0392
+INFO:name:E3/10  step 928/4367  total=0.8651  lr=8.65e-05  |  vul_detection=0.6211  flakiness_detect=1.0396
+INFO:name:E3/10  step 960/4367  total=0.8564  lr=8.64e-05  |  vul_detection=0.6205  flakiness_detect=1.0288
+INFO:name:E3/10  step 992/4367  total=0.8383  lr=8.64e-05  |  vul_detection=0.6217  flakiness_detect=1.0030
+INFO:name:E3/10  step 1024/4367  total=0.8342  lr=8.63e-05  |  vul_detection=0.6219  flakiness_detect=0.9958
+INFO:name:E3/10  step 1056/4367  total=0.8159  lr=8.62e-05  |  vul_detection=0.6216  flakiness_detect=0.9671
+INFO:name:E3/10  step 1088/4367  total=0.8195  lr=8.61e-05  |  vul_detection=0.6214  flakiness_detect=0.9647
+INFO:name:E3/10  step 1120/4367  total=0.8165  lr=8.60e-05  |  vul_detection=0.6206  flakiness_detect=0.9627
+INFO:name:E3/10  step 1152/4367  total=0.8012  lr=8.60e-05  |  vul_detection=0.6209  flakiness_detect=0.9352
+INFO:name:E3/10  step 1184/4367  total=0.7874  lr=8.59e-05  |  vul_detection=0.6209  flakiness_detect=0.9172
+INFO:name:E3/10  step 1216/4367  total=0.7956  lr=8.58e-05  |  vul_detection=0.6207  flakiness_detect=0.9293
+INFO:name:E3/10  step 1248/4367  total=0.7930  lr=8.57e-05  |  vul_detection=0.6197  flakiness_detect=0.9308
+INFO:name:E3/10  step 1280/4367  total=0.7820  lr=8.56e-05  |  vul_detection=0.6206  flakiness_detect=0.9120
+INFO:name:E3/10  step 1312/4367  total=0.7753  lr=8.56e-05  |  vul_detection=0.6205  flakiness_detect=0.9009
+INFO:name:E3/10  step 1344/4367  total=0.7845  lr=8.55e-05  |  vul_detection=0.6215  flakiness_detect=0.9140
+INFO:name:E3/10  step 1376/4367  total=0.7721  lr=8.54e-05  |  vul_detection=0.6201  flakiness_detect=0.8982
+INFO:name:E3/10  step 1408/4367  total=0.7791  lr=8.53e-05  |  vul_detection=0.6207  flakiness_detect=0.9097
+INFO:name:E3/10  step 1440/4367  total=0.7676  lr=8.52e-05  |  vul_detection=0.6206  flakiness_detect=0.8880
+INFO:name:E3/10  step 1472/4367  total=0.7655  lr=8.51e-05  |  vul_detection=0.6207  flakiness_detect=0.8850
+INFO:name:E3/10  step 1504/4367  total=0.7562  lr=8.51e-05  |  vul_detection=0.6207  flakiness_detect=0.8706
+INFO:name:E3/10  step 1536/4367  total=0.7703  lr=8.50e-05  |  vul_detection=0.6211  flakiness_detect=0.8954
+INFO:name:E3/10  step 1568/4367  total=0.7769  lr=8.49e-05  |  vul_detection=0.6207  flakiness_detect=0.9071
+INFO:name:E3/10  step 1600/4367  total=0.7830  lr=8.48e-05  |  vul_detection=0.6198  flakiness_detect=0.9172
+INFO:name:E3/10  step 1632/4367  total=0.7731  lr=8.47e-05  |  vul_detection=0.6208  flakiness_detect=0.9025
+INFO:name:E3/10  step 1664/4367  total=0.7634  lr=8.47e-05  |  vul_detection=0.6208  flakiness_detect=0.8876
+INFO:name:E3/10  step 1696/4367  total=0.7528  lr=8.46e-05  |  vul_detection=0.6212  flakiness_detect=0.8675
+INFO:name:E3/10  step 1728/4367  total=0.7509  lr=8.45e-05  |  vul_detection=0.6207  flakiness_detect=0.8623
+INFO:name:E3/10  step 1760/4367  total=0.7544  lr=8.44e-05  |  vul_detection=0.6202  flakiness_detect=0.8666
+INFO:name:E3/10  step 1792/4367  total=0.7497  lr=8.43e-05  |  vul_detection=0.6220  flakiness_detect=0.8591
+INFO:name:E3/10  step 1824/4367  total=0.7728  lr=8.42e-05  |  vul_detection=0.6221  flakiness_detect=0.8950
+INFO:name:E3/10  step 1856/4367  total=0.7635  lr=8.42e-05  |  vul_detection=0.6220  flakiness_detect=0.8805
+INFO:name:E3/10  step 1888/4367  total=0.7633  lr=8.41e-05  |  vul_detection=0.6213  flakiness_detect=0.8804
+INFO:name:E3/10  step 1920/4367  total=0.7570  lr=8.40e-05  |  vul_detection=0.6216  flakiness_detect=0.8698
+INFO:name:E3/10  step 1952/4367  total=0.7564  lr=8.39e-05  |  vul_detection=0.6219  flakiness_detect=0.8703
+INFO:name:E3/10  step 1984/4367  total=0.7471  lr=8.38e-05  |  vul_detection=0.6218  flakiness_detect=0.8531
+INFO:name:E3/10  step 2016/4367  total=0.7612  lr=8.38e-05  |  vul_detection=0.6214  flakiness_detect=0.8780
+INFO:name:E3/10  step 2048/4367  total=0.7530  lr=8.37e-05  |  vul_detection=0.6206  flakiness_detect=0.8660
+INFO:name:E3/10  step 2080/4367  total=0.7466  lr=8.36e-05  |  vul_detection=0.6208  flakiness_detect=0.8587
+INFO:name:E3/10  step 2112/4367  total=0.7408  lr=8.35e-05  |  vul_detection=0.6202  flakiness_detect=0.8504
+INFO:name:E3/10  step 2144/4367  total=0.7339  lr=8.34e-05  |  vul_detection=0.6199  flakiness_detect=0.8412
+INFO:name:E3/10  step 2176/4367  total=0.7272  lr=8.34e-05  |  vul_detection=0.6203  flakiness_detect=0.8318
+INFO:name:E3/10  step 2208/4367  total=0.7196  lr=8.33e-05  |  vul_detection=0.6204  flakiness_detect=0.8178
+INFO:name:E3/10  step 2240/4367  total=0.7139  lr=8.32e-05  |  vul_detection=0.6199  flakiness_detect=0.8099
+INFO:name:E3/10  step 2272/4367  total=0.7145  lr=8.31e-05  |  vul_detection=0.6199  flakiness_detect=0.8111
+INFO:name:E3/10  step 2304/4367  total=0.7405  lr=8.30e-05  |  vul_detection=0.6199  flakiness_detect=0.8534
+INFO:name:E3/10  step 2336/4367  total=0.7357  lr=8.29e-05  |  vul_detection=0.6191  flakiness_detect=0.8481
+INFO:name:E3/10  step 2368/4367  total=0.7404  lr=8.29e-05  |  vul_detection=0.6197  flakiness_detect=0.8558
+INFO:name:E3/10  step 2400/4367  total=0.7549  lr=8.28e-05  |  vul_detection=0.6196  flakiness_detect=0.8812
+INFO:name:E3/10  step 2432/4367  total=0.7592  lr=8.27e-05  |  vul_detection=0.6193  flakiness_detect=0.8867
+INFO:name:E3/10  step 2464/4367  total=0.7658  lr=8.26e-05  |  vul_detection=0.6191  flakiness_detect=0.8948
+INFO:name:E3/10  step 2496/4367  total=0.7594  lr=8.25e-05  |  vul_detection=0.6190  flakiness_detect=0.8845
+INFO:name:E3/10  step 2528/4367  total=0.7612  lr=8.25e-05  |  vul_detection=0.6189  flakiness_detect=0.8873
+INFO:name:E3/10  step 2560/4367  total=0.7647  lr=8.24e-05  |  vul_detection=0.6182  flakiness_detect=0.8942
+INFO:name:E3/10  step 2592/4367  total=0.7576  lr=8.23e-05  |  vul_detection=0.6181  flakiness_detect=0.8813
+INFO:name:E3/10  step 2624/4367  total=0.7508  lr=8.22e-05  |  vul_detection=0.6184  flakiness_detect=0.8688
+INFO:name:E3/10  step 2656/4367  total=0.7586  lr=8.21e-05  |  vul_detection=0.6182  flakiness_detect=0.8799
+INFO:name:E3/10  step 2688/4367  total=0.7555  lr=8.20e-05  |  vul_detection=0.6183  flakiness_detect=0.8752
+INFO:name:E3/10  step 2720/4367  total=0.7494  lr=8.20e-05  |  vul_detection=0.6181  flakiness_detect=0.8649
+INFO:name:E3/10  step 2752/4367  total=0.7438  lr=8.19e-05  |  vul_detection=0.6179  flakiness_detect=0.8574
+INFO:name:E3/10  step 2784/4367  total=0.7376  lr=8.18e-05  |  vul_detection=0.6175  flakiness_detect=0.8464
+INFO:name:E3/10  step 2816/4367  total=0.7347  lr=8.17e-05  |  vul_detection=0.6173  flakiness_detect=0.8404
+INFO:name:E3/10  step 2848/4367  total=0.7378  lr=8.16e-05  |  vul_detection=0.6173  flakiness_detect=0.8457
+INFO:name:E3/10  step 2880/4367  total=0.7327  lr=8.16e-05  |  vul_detection=0.6169  flakiness_detect=0.8399
+INFO:name:E3/10  step 2912/4367  total=0.7298  lr=8.15e-05  |  vul_detection=0.6169  flakiness_detect=0.8344
+INFO:name:E3/10  step 2944/4367  total=0.7250  lr=8.14e-05  |  vul_detection=0.6173  flakiness_detect=0.8261
+INFO:name:E3/10  step 2976/4367  total=0.7260  lr=8.13e-05  |  vul_detection=0.6176  flakiness_detect=0.8278
+INFO:name:E3/10  step 3008/4367  total=0.7308  lr=8.12e-05  |  vul_detection=0.6175  flakiness_detect=0.8339
+INFO:name:E3/10  step 3040/4367  total=0.7308  lr=8.12e-05  |  vul_detection=0.6173  flakiness_detect=0.8339
+INFO:name:E3/10  step 3072/4367  total=0.7268  lr=8.11e-05  |  vul_detection=0.6173  flakiness_detect=0.8272
+INFO:name:E3/10  step 3104/4367  total=0.7212  lr=8.10e-05  |  vul_detection=0.6173  flakiness_detect=0.8168
+INFO:name:E3/10  step 3136/4367  total=0.7221  lr=8.09e-05  |  vul_detection=0.6174  flakiness_detect=0.8184
+INFO:name:E3/10  step 3168/4367  total=0.7186  lr=8.08e-05  |  vul_detection=0.6171  flakiness_detect=0.8127
+INFO:name:E3/10  step 3200/4367  total=0.7135  lr=8.07e-05  |  vul_detection=0.6168  flakiness_detect=0.8044
+INFO:name:E3/10  step 3232/4367  total=0.7085  lr=8.07e-05  |  vul_detection=0.6166  flakiness_detect=0.7963
+INFO:name:E3/10  step 3264/4367  total=0.7041  lr=8.06e-05  |  vul_detection=0.6164  flakiness_detect=0.7899
+INFO:name:E3/10  step 3296/4367  total=0.7070  lr=8.05e-05  |  vul_detection=0.6161  flakiness_detect=0.7952
+INFO:name:E3/10  step 3328/4367  total=0.7199  lr=8.04e-05  |  vul_detection=0.6159  flakiness_detect=0.8162
+INFO:name:E3/10  step 3360/4367  total=0.7289  lr=8.03e-05  |  vul_detection=0.6155  flakiness_detect=0.8329
+INFO:name:E3/10  step 3392/4367  total=0.7247  lr=8.03e-05  |  vul_detection=0.6153  flakiness_detect=0.8260
+INFO:name:E3/10  step 3424/4367  total=0.7274  lr=8.02e-05  |  vul_detection=0.6151  flakiness_detect=0.8304
+INFO:name:E3/10  step 3456/4367  total=0.7389  lr=8.01e-05  |  vul_detection=0.6150  flakiness_detect=0.8487
+INFO:name:E3/10  step 3488/4367  total=0.7350  lr=8.00e-05  |  vul_detection=0.6149  flakiness_detect=0.8402
+INFO:name:E3/10  step 3520/4367  total=0.7305  lr=7.99e-05  |  vul_detection=0.6150  flakiness_detect=0.8305
+INFO:name:E3/10  step 3552/4367  total=0.7429  lr=7.99e-05  |  vul_detection=0.6152  flakiness_detect=0.8515
+INFO:name:E3/10  step 3584/4367  total=0.7382  lr=7.98e-05  |  vul_detection=0.6149  flakiness_detect=0.8439
+INFO:name:E3/10  step 3616/4367  total=0.7372  lr=7.97e-05  |  vul_detection=0.6150  flakiness_detect=0.8421
+INFO:name:E3/10  step 3648/4367  total=0.7383  lr=7.96e-05  |  vul_detection=0.6156  flakiness_detect=0.8433
+INFO:name:E3/10  step 3680/4367  total=0.7345  lr=7.95e-05  |  vul_detection=0.6160  flakiness_detect=0.8384
+INFO:name:E3/10  step 3712/4367  total=0.7448  lr=7.94e-05  |  vul_detection=0.6161  flakiness_detect=0.8557
+INFO:name:E3/10  step 3744/4367  total=0.7448  lr=7.94e-05  |  vul_detection=0.6162  flakiness_detect=0.8533
+INFO:name:E3/10  step 3776/4367  total=0.7436  lr=7.93e-05  |  vul_detection=0.6159  flakiness_detect=0.8520
+INFO:name:E3/10  step 3808/4367  total=0.7397  lr=7.92e-05  |  vul_detection=0.6157  flakiness_detect=0.8461
+INFO:name:E3/10  step 3840/4367  total=0.7430  lr=7.91e-05  |  vul_detection=0.6160  flakiness_detect=0.8512
+INFO:name:E3/10  step 3872/4367  total=0.7407  lr=7.90e-05  |  vul_detection=0.6160  flakiness_detect=0.8475
+INFO:name:E3/10  step 3904/4367  total=0.7451  lr=7.90e-05  |  vul_detection=0.6160  flakiness_detect=0.8550
+INFO:name:E3/10  step 3936/4367  total=0.7409  lr=7.89e-05  |  vul_detection=0.6158  flakiness_detect=0.8483
+INFO:name:E3/10  step 3968/4367  total=0.7372  lr=7.88e-05  |  vul_detection=0.6159  flakiness_detect=0.8434
+INFO:name:E3/10  step 4000/4367  total=0.7346  lr=7.87e-05  |  vul_detection=0.6158  flakiness_detect=0.8417
+INFO:name:E3/10  step 4032/4367  total=0.7307  lr=7.86e-05  |  vul_detection=0.6158  flakiness_detect=0.8358
+INFO:name:E3/10  step 4064/4367  total=0.7351  lr=7.85e-05  |  vul_detection=0.6155  flakiness_detect=0.8425
+INFO:name:E3/10  step 4096/4367  total=0.7312  lr=7.85e-05  |  vul_detection=0.6154  flakiness_detect=0.8366
+INFO:name:E3/10  step 4128/4367  total=0.7339  lr=7.84e-05  |  vul_detection=0.6151  flakiness_detect=0.8399
+INFO:name:E3/10  step 4160/4367  total=0.7322  lr=7.83e-05  |  vul_detection=0.6151  flakiness_detect=0.8384
+INFO:name:E3/10  step 4192/4367  total=0.7283  lr=7.82e-05  |  vul_detection=0.6152  flakiness_detect=0.8317
+INFO:name:E3/10  step 4224/4367  total=0.7251  lr=7.81e-05  |  vul_detection=0.6153  flakiness_detect=0.8269
+INFO:name:E3/10  step 4256/4367  total=0.7287  lr=7.81e-05  |  vul_detection=0.6154  flakiness_detect=0.8329
+INFO:name:E3/10  step 4288/4367  total=0.7284  lr=7.80e-05  |  vul_detection=0.6153  flakiness_detect=0.8321
+INFO:name:E3/10  step 4320/4367  total=0.7243  lr=7.79e-05  |  vul_detection=0.6150  flakiness_detect=0.8250
+INFO:name:E3/10  step 4352/4367  total=0.7286  lr=7.78e-05  |  vul_detection=0.6148  flakiness_detect=0.8318
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 3/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  vul_detection             0.6149    0.6625       5857534
+INFO:name:  flakiness_detect          0.8280    1.3375       1956473
+INFO:name:  TOTAL                     0.7267                 7814007  (epoch)  cumulative=23416316
+INFO:name:  epoch_time=1880.6s  peak_gpu_memory=9.678GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'vul_detection': '0.8523', 'flakiness_detect': '1.1477'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    vul_detection           grad_norm=  2.493977
+INFO:name:    flakiness_detect        grad_norm=  0.011220
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  vul_detection           flakiness_detect           +0.0225  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6248   0.5526    0.5333      0.5734   0.6500        -
+INFO:name:  flakiness_detect         0.9819   0.7427    0.7037      0.7862   0.1060        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6477
+INFO:name:----------------------------------------------------------------------
+Saved 201 trainable params -> ./adapters/deepseek_vul_flak_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.6477) — checkpoint saved.
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6204   0.5637    0.5339      0.5971        -        -
+INFO:name:  flakiness_detect         0.9794   0.6786    0.5864      0.8051        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E4/10  step 32/4367  total=0.1870  lr=7.77e-05  |  vul_detection=0.5316  flakiness_detect=0.0043
+INFO:name:E4/10  step 64/4367  total=0.2899  lr=7.76e-05  |  vul_detection=0.5539  flakiness_detect=0.1035
+INFO:name:E4/10  step 96/4367  total=0.2902  lr=7.75e-05  |  vul_detection=0.5508  flakiness_detect=0.0759
+INFO:name:E4/10  step 128/4367  total=0.3402  lr=7.75e-05  |  vul_detection=0.5596  flakiness_detect=0.1571
+INFO:name:E4/10  step 160/4367  total=0.4523  lr=7.74e-05  |  vul_detection=0.5528  flakiness_detect=0.3750
+INFO:name:E4/10  step 192/4367  total=0.4206  lr=7.73e-05  |  vul_detection=0.5570  flakiness_detect=0.3119
+INFO:name:E4/10  step 224/4367  total=0.5074  lr=7.72e-05  |  vul_detection=0.5606  flakiness_detect=0.4724
+INFO:name:E4/10  step 256/4367  total=0.6071  lr=7.71e-05  |  vul_detection=0.5594  flakiness_detect=0.6596
+INFO:name:E4/10  step 288/4367  total=0.5742  lr=7.70e-05  |  vul_detection=0.5519  flakiness_detect=0.6133
+INFO:name:E4/10  step 320/4367  total=0.5507  lr=7.70e-05  |  vul_detection=0.5640  flakiness_detect=0.5574
+INFO:name:E4/10  step 352/4367  total=0.5229  lr=7.69e-05  |  vul_detection=0.5658  flakiness_detect=0.4980
+INFO:name:E4/10  step 384/4367  total=0.5026  lr=7.68e-05  |  vul_detection=0.5629  flakiness_detect=0.4615
+INFO:name:E4/10  step 416/4367  total=0.4822  lr=7.67e-05  |  vul_detection=0.5647  flakiness_detect=0.4211
+INFO:name:E4/10  step 448/4367  total=0.4668  lr=7.66e-05  |  vul_detection=0.5709  flakiness_detect=0.3874
+INFO:name:E4/10  step 480/4367  total=0.4507  lr=7.66e-05  |  vul_detection=0.5637  flakiness_detect=0.3633
+INFO:name:E4/10  step 512/4367  total=0.4605  lr=7.65e-05  |  vul_detection=0.5648  flakiness_detect=0.3807
+INFO:name:E4/10  step 544/4367  total=0.4476  lr=7.64e-05  |  vul_detection=0.5629  flakiness_detect=0.3583
+INFO:name:E4/10  step 576/4367  total=0.4385  lr=7.63e-05  |  vul_detection=0.5610  flakiness_detect=0.3422
+INFO:name:E4/10  step 608/4367  total=0.4276  lr=7.62e-05  |  vul_detection=0.5606  flakiness_detect=0.3228
+INFO:name:E4/10  step 640/4367  total=0.4362  lr=7.61e-05  |  vul_detection=0.5643  flakiness_detect=0.3366
+INFO:name:E4/10  step 672/4367  total=0.4327  lr=7.61e-05  |  vul_detection=0.5625  flakiness_detect=0.3317
+INFO:name:E4/10  step 704/4367  total=0.4275  lr=7.60e-05  |  vul_detection=0.5623  flakiness_detect=0.3219
+INFO:name:E4/10  step 736/4367  total=0.4212  lr=7.59e-05  |  vul_detection=0.5599  flakiness_detect=0.3117
+INFO:name:E4/10  step 768/4367  total=0.4213  lr=7.58e-05  |  vul_detection=0.5644  flakiness_detect=0.3055
+INFO:name:E4/10  step 800/4367  total=0.4150  lr=7.57e-05  |  vul_detection=0.5664  flakiness_detect=0.2923
+INFO:name:E4/10  step 832/4367  total=0.4087  lr=7.57e-05  |  vul_detection=0.5646  flakiness_detect=0.2827
+INFO:name:E4/10  step 864/4367  total=0.4028  lr=7.56e-05  |  vul_detection=0.5624  flakiness_detect=0.2744
+INFO:name:E4/10  step 896/4367  total=0.4576  lr=7.55e-05  |  vul_detection=0.5630  flakiness_detect=0.3764
+INFO:name:E4/10  step 928/4367  total=0.4516  lr=7.54e-05  |  vul_detection=0.5626  flakiness_detect=0.3654
+INFO:name:E4/10  step 960/4367  total=0.4467  lr=7.53e-05  |  vul_detection=0.5620  flakiness_detect=0.3564
+INFO:name:E4/10  step 992/4367  total=0.4415  lr=7.53e-05  |  vul_detection=0.5611  flakiness_detect=0.3470
+INFO:name:E4/10  step 1024/4367  total=0.4443  lr=7.52e-05  |  vul_detection=0.5602  flakiness_detect=0.3531
+INFO:name:E4/10  step 1056/4367  total=0.4383  lr=7.51e-05  |  vul_detection=0.5586  flakiness_detect=0.3429
+INFO:name:E4/10  step 1088/4367  total=0.4428  lr=7.50e-05  |  vul_detection=0.5578  flakiness_detect=0.3531
+INFO:name:E4/10  step 1120/4367  total=0.4374  lr=7.49e-05  |  vul_detection=0.5558  flakiness_detect=0.3444
+INFO:name:E4/10  step 1152/4367  total=0.4456  lr=7.48e-05  |  vul_detection=0.5559  flakiness_detect=0.3598
+INFO:name:E4/10  step 1184/4367  total=0.4420  lr=7.48e-05  |  vul_detection=0.5560  flakiness_detect=0.3527
+INFO:name:E4/10  step 1216/4367  total=0.4390  lr=7.47e-05  |  vul_detection=0.5559  flakiness_detect=0.3472
+INFO:name:E4/10  step 1248/4367  total=0.4524  lr=7.46e-05  |  vul_detection=0.5551  flakiness_detect=0.3728
+INFO:name:E4/10  step 1280/4367  total=0.4758  lr=7.45e-05  |  vul_detection=0.5545  flakiness_detect=0.4179
+INFO:name:E4/10  step 1312/4367  total=0.4704  lr=7.44e-05  |  vul_detection=0.5540  flakiness_detect=0.4080
+INFO:name:E4/10  step 1344/4367  total=0.4851  lr=7.44e-05  |  vul_detection=0.5543  flakiness_detect=0.4357
+INFO:name:E4/10  step 1376/4367  total=0.4810  lr=7.43e-05  |  vul_detection=0.5541  flakiness_detect=0.4281
+INFO:name:E4/10  step 1408/4367  total=0.4766  lr=7.42e-05  |  vul_detection=0.5550  flakiness_detect=0.4189
+INFO:name:E4/10  step 1440/4367  total=0.4712  lr=7.41e-05  |  vul_detection=0.5562  flakiness_detect=0.4077
+INFO:name:E4/10  step 1472/4367  total=0.4705  lr=7.40e-05  |  vul_detection=0.5561  flakiness_detect=0.4064
+INFO:name:E4/10  step 1504/4367  total=0.4660  lr=7.40e-05  |  vul_detection=0.5553  flakiness_detect=0.3985
+INFO:name:E4/10  step 1536/4367  total=0.4765  lr=7.39e-05  |  vul_detection=0.5574  flakiness_detect=0.4168
+INFO:name:E4/10  step 1568/4367  total=0.4791  lr=7.38e-05  |  vul_detection=0.5577  flakiness_detect=0.4214
+INFO:name:E4/10  step 1600/4367  total=0.4826  lr=7.37e-05  |  vul_detection=0.5581  flakiness_detect=0.4276
+INFO:name:E4/10  step 1632/4367  total=0.4792  lr=7.36e-05  |  vul_detection=0.5583  flakiness_detect=0.4211
+INFO:name:E4/10  step 1664/4367  total=0.4753  lr=7.35e-05  |  vul_detection=0.5578  flakiness_detect=0.4140
+INFO:name:E4/10  step 1696/4367  total=0.4829  lr=7.35e-05  |  vul_detection=0.5584  flakiness_detect=0.4281
+INFO:name:E4/10  step 1728/4367  total=0.4937  lr=7.34e-05  |  vul_detection=0.5583  flakiness_detect=0.4485
+INFO:name:E4/10  step 1760/4367  total=0.4889  lr=7.33e-05  |  vul_detection=0.5586  flakiness_detect=0.4391
+INFO:name:E4/10  step 1792/4367  total=0.4924  lr=7.32e-05  |  vul_detection=0.5579  flakiness_detect=0.4464
+INFO:name:E4/10  step 1824/4367  total=0.4967  lr=7.31e-05  |  vul_detection=0.5580  flakiness_detect=0.4544
+INFO:name:E4/10  step 1856/4367  total=0.4924  lr=7.31e-05  |  vul_detection=0.5566  flakiness_detect=0.4475
+INFO:name:E4/10  step 1888/4367  total=0.4991  lr=7.30e-05  |  vul_detection=0.5558  flakiness_detect=0.4610
+INFO:name:E4/10  step 1920/4367  total=0.4952  lr=7.29e-05  |  vul_detection=0.5563  flakiness_detect=0.4531
+INFO:name:E4/10  step 1952/4367  total=0.4918  lr=7.28e-05  |  vul_detection=0.5558  flakiness_detect=0.4471
+INFO:name:E4/10  step 1984/4367  total=0.4983  lr=7.27e-05  |  vul_detection=0.5557  flakiness_detect=0.4595
+INFO:name:E4/10  step 2016/4367  total=0.4953  lr=7.26e-05  |  vul_detection=0.5560  flakiness_detect=0.4536
+INFO:name:E4/10  step 2048/4367  total=0.4997  lr=7.26e-05  |  vul_detection=0.5553  flakiness_detect=0.4626
+INFO:name:E4/10  step 2080/4367  total=0.4979  lr=7.25e-05  |  vul_detection=0.5566  flakiness_detect=0.4583
+INFO:name:E4/10  step 2112/4367  total=0.5076  lr=7.24e-05  |  vul_detection=0.5569  flakiness_detect=0.4769
+INFO:name:E4/10  step 2144/4367  total=0.5054  lr=7.23e-05  |  vul_detection=0.5562  flakiness_detect=0.4735
+INFO:name:E4/10  step 2176/4367  total=0.5091  lr=7.22e-05  |  vul_detection=0.5565  flakiness_detect=0.4806
+INFO:name:E4/10  step 2208/4367  total=0.5066  lr=7.22e-05  |  vul_detection=0.5578  flakiness_detect=0.4745
+INFO:name:E4/10  step 2240/4367  total=0.5039  lr=7.21e-05  |  vul_detection=0.5582  flakiness_detect=0.4689
+INFO:name:E4/10  step 2272/4367  total=0.5151  lr=7.20e-05  |  vul_detection=0.5590  flakiness_detect=0.4898
+INFO:name:E4/10  step 2304/4367  total=0.5151  lr=7.19e-05  |  vul_detection=0.5600  flakiness_detect=0.4889
+INFO:name:E4/10  step 2336/4367  total=0.5126  lr=7.18e-05  |  vul_detection=0.5599  flakiness_detect=0.4843
+INFO:name:E4/10  step 2368/4367  total=0.5129  lr=7.18e-05  |  vul_detection=0.5599  flakiness_detect=0.4849
+INFO:name:E4/10  step 2400/4367  total=0.5104  lr=7.17e-05  |  vul_detection=0.5605  flakiness_detect=0.4797
+INFO:name:E4/10  step 2432/4367  total=0.5162  lr=7.16e-05  |  vul_detection=0.5609  flakiness_detect=0.4904
+INFO:name:E4/10  step 2464/4367  total=0.5117  lr=7.15e-05  |  vul_detection=0.5607  flakiness_detect=0.4817
+INFO:name:E4/10  step 2496/4367  total=0.5086  lr=7.14e-05  |  vul_detection=0.5606  flakiness_detect=0.4757
+INFO:name:E4/10  step 2528/4367  total=0.5157  lr=7.13e-05  |  vul_detection=0.5602  flakiness_detect=0.4897
+INFO:name:E4/10  step 2560/4367  total=0.5126  lr=7.13e-05  |  vul_detection=0.5597  flakiness_detect=0.4843
+INFO:name:E4/10  step 2592/4367  total=0.5154  lr=7.12e-05  |  vul_detection=0.5595  flakiness_detect=0.4898
+INFO:name:E4/10  step 2624/4367  total=0.5142  lr=7.11e-05  |  vul_detection=0.5583  flakiness_detect=0.4882
+INFO:name:E4/10  step 2656/4367  total=0.5208  lr=7.10e-05  |  vul_detection=0.5574  flakiness_detect=0.5016
+INFO:name:E4/10  step 2688/4367  total=0.5306  lr=7.09e-05  |  vul_detection=0.5578  flakiness_detect=0.5201
+INFO:name:E4/10  step 2720/4367  total=0.5273  lr=7.09e-05  |  vul_detection=0.5575  flakiness_detect=0.5138
+INFO:name:E4/10  step 2752/4367  total=0.5310  lr=7.08e-05  |  vul_detection=0.5575  flakiness_detect=0.5213
+INFO:name:E4/10  step 2784/4367  total=0.5275  lr=7.07e-05  |  vul_detection=0.5571  flakiness_detect=0.5148
+INFO:name:E4/10  step 2816/4367  total=0.5268  lr=7.06e-05  |  vul_detection=0.5568  flakiness_detect=0.5134
+INFO:name:E4/10  step 2848/4367  total=0.5238  lr=7.05e-05  |  vul_detection=0.5566  flakiness_detect=0.5079
+INFO:name:E4/10  step 2880/4367  total=0.5215  lr=7.05e-05  |  vul_detection=0.5560  flakiness_detect=0.5044
+INFO:name:E4/10  step 2912/4367  total=0.5186  lr=7.04e-05  |  vul_detection=0.5563  flakiness_detect=0.4985
+INFO:name:E4/10  step 2944/4367  total=0.5157  lr=7.03e-05  |  vul_detection=0.5562  flakiness_detect=0.4929
+INFO:name:E4/10  step 2976/4367  total=0.5130  lr=7.02e-05  |  vul_detection=0.5563  flakiness_detect=0.4878
+INFO:name:E4/10  step 3008/4367  total=0.5242  lr=7.01e-05  |  vul_detection=0.5562  flakiness_detect=0.5089
+INFO:name:E4/10  step 3040/4367  total=0.5214  lr=7.00e-05  |  vul_detection=0.5563  flakiness_detect=0.5034
+INFO:name:E4/10  step 3072/4367  total=0.5186  lr=7.00e-05  |  vul_detection=0.5564  flakiness_detect=0.4981
+INFO:name:E4/10  step 3104/4367  total=0.5153  lr=6.99e-05  |  vul_detection=0.5562  flakiness_detect=0.4917
+INFO:name:E4/10  step 3136/4367  total=0.5126  lr=6.98e-05  |  vul_detection=0.5559  flakiness_detect=0.4869
+INFO:name:E4/10  step 3168/4367  total=0.5098  lr=6.97e-05  |  vul_detection=0.5555  flakiness_detect=0.4819
+INFO:name:E4/10  step 3200/4367  total=0.5148  lr=6.96e-05  |  vul_detection=0.5563  flakiness_detect=0.4906
+INFO:name:E4/10  step 3232/4367  total=0.5124  lr=6.96e-05  |  vul_detection=0.5558  flakiness_detect=0.4865
+INFO:name:E4/10  step 3264/4367  total=0.5101  lr=6.95e-05  |  vul_detection=0.5554  flakiness_detect=0.4827
+INFO:name:E4/10  step 3296/4367  total=0.5164  lr=6.94e-05  |  vul_detection=0.5557  flakiness_detect=0.4944
+INFO:name:E4/10  step 3328/4367  total=0.5206  lr=6.93e-05  |  vul_detection=0.5563  flakiness_detect=0.5019
+INFO:name:E4/10  step 3360/4367  total=0.5187  lr=6.92e-05  |  vul_detection=0.5563  flakiness_detect=0.4986
+INFO:name:E4/10  step 3392/4367  total=0.5163  lr=6.91e-05  |  vul_detection=0.5564  flakiness_detect=0.4938
+INFO:name:E4/10  step 3424/4367  total=0.5137  lr=6.91e-05  |  vul_detection=0.5562  flakiness_detect=0.4891
+INFO:name:E4/10  step 3456/4367  total=0.5111  lr=6.90e-05  |  vul_detection=0.5560  flakiness_detect=0.4841
+INFO:name:E4/10  step 3488/4367  total=0.5083  lr=6.89e-05  |  vul_detection=0.5557  flakiness_detect=0.4788
+INFO:name:E4/10  step 3520/4367  total=0.5109  lr=6.88e-05  |  vul_detection=0.5553  flakiness_detect=0.4837
+INFO:name:E4/10  step 3552/4367  total=0.5092  lr=6.87e-05  |  vul_detection=0.5558  flakiness_detect=0.4801
+INFO:name:E4/10  step 3584/4367  total=0.5070  lr=6.87e-05  |  vul_detection=0.5559  flakiness_detect=0.4758
+INFO:name:E4/10  step 3616/4367  total=0.5109  lr=6.86e-05  |  vul_detection=0.5557  flakiness_detect=0.4836
+INFO:name:E4/10  step 3648/4367  total=0.5097  lr=6.85e-05  |  vul_detection=0.5557  flakiness_detect=0.4812
+INFO:name:E4/10  step 3680/4367  total=0.5118  lr=6.84e-05  |  vul_detection=0.5559  flakiness_detect=0.4851
+INFO:name:E4/10  step 3712/4367  total=0.5174  lr=6.83e-05  |  vul_detection=0.5565  flakiness_detect=0.4955
+INFO:name:E4/10  step 3744/4367  total=0.5200  lr=6.83e-05  |  vul_detection=0.5566  flakiness_detect=0.5000
+INFO:name:E4/10  step 3776/4367  total=0.5181  lr=6.82e-05  |  vul_detection=0.5567  flakiness_detect=0.4963
+INFO:name:E4/10  step 3808/4367  total=0.5158  lr=6.81e-05  |  vul_detection=0.5563  flakiness_detect=0.4924
+INFO:name:E4/10  step 3840/4367  total=0.5157  lr=6.80e-05  |  vul_detection=0.5563  flakiness_detect=0.4921
+INFO:name:E4/10  step 3872/4367  total=0.5137  lr=6.79e-05  |  vul_detection=0.5563  flakiness_detect=0.4883
+INFO:name:E4/10  step 3904/4367  total=0.5124  lr=6.78e-05  |  vul_detection=0.5563  flakiness_detect=0.4858
+INFO:name:E4/10  step 3936/4367  total=0.5120  lr=6.78e-05  |  vul_detection=0.5560  flakiness_detect=0.4855
+INFO:name:E4/10  step 3968/4367  total=0.5109  lr=6.77e-05  |  vul_detection=0.5560  flakiness_detect=0.4833
+INFO:name:E4/10  step 4000/4367  total=0.5099  lr=6.76e-05  |  vul_detection=0.5560  flakiness_detect=0.4818
+INFO:name:E4/10  step 4032/4367  total=0.5128  lr=6.75e-05  |  vul_detection=0.5555  flakiness_detect=0.4878
+INFO:name:E4/10  step 4064/4367  total=0.5102  lr=6.74e-05  |  vul_detection=0.5548  flakiness_detect=0.4834
+INFO:name:E4/10  step 4096/4367  total=0.5123  lr=6.74e-05  |  vul_detection=0.5543  flakiness_detect=0.4879
+INFO:name:E4/10  step 4128/4367  total=0.5096  lr=6.73e-05  |  vul_detection=0.5539  flakiness_detect=0.4830
+INFO:name:E4/10  step 4160/4367  total=0.5081  lr=6.72e-05  |  vul_detection=0.5537  flakiness_detect=0.4805
+INFO:name:E4/10  step 4192/4367  total=0.5121  lr=6.71e-05  |  vul_detection=0.5537  flakiness_detect=0.4881
+INFO:name:E4/10  step 4224/4367  total=0.5139  lr=6.70e-05  |  vul_detection=0.5534  flakiness_detect=0.4919
+INFO:name:E4/10  step 4256/4367  total=0.5119  lr=6.69e-05  |  vul_detection=0.5531  flakiness_detect=0.4884
+INFO:name:E4/10  step 4288/4367  total=0.5117  lr=6.69e-05  |  vul_detection=0.5530  flakiness_detect=0.4880
+INFO:name:E4/10  step 4320/4367  total=0.5097  lr=6.68e-05  |  vul_detection=0.5532  flakiness_detect=0.4839
+INFO:name:E4/10  step 4352/4367  total=0.5077  lr=6.67e-05  |  vul_detection=0.5533  flakiness_detect=0.4800
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 4/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  vul_detection             0.5534    0.8523       5848294
+INFO:name:  flakiness_detect          0.4778    1.1477       1957257
+INFO:name:  TOTAL                     0.5067                 7805551  (epoch)  cumulative=31221867
+INFO:name:  epoch_time=1879.8s  peak_gpu_memory=9.678GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'vul_detection': '1.0733', 'flakiness_detect': '0.9267'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    vul_detection           grad_norm=  4.504394
+INFO:name:    flakiness_detect        grad_norm=  0.063103
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  vul_detection           flakiness_detect           +0.1306  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6091   0.6076    0.6967      0.5388   0.6625        -
+INFO:name:  flakiness_detect         0.9773   0.6972    0.7037      0.6909   0.1714        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6524
+INFO:name:----------------------------------------------------------------------
+Saved 201 trainable params -> ./adapters/deepseek_vul_flak_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.6524) — checkpoint saved.
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6248   0.6369    0.7163      0.5733        -        -
+INFO:name:  flakiness_detect         0.9773   0.6775    0.6420      0.7172        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E5/10  step 32/4367  total=0.2404  lr=6.66e-05  |  vul_detection=0.5510  flakiness_detect=0.0002
+INFO:name:E5/10  step 64/4367  total=0.2663  lr=6.65e-05  |  vul_detection=0.5119  flakiness_detect=0.0004
+INFO:name:E5/10  step 96/4367  total=0.3145  lr=6.64e-05  |  vul_detection=0.4997  flakiness_detect=0.0680
+INFO:name:E5/10  step 128/4367  total=0.4235  lr=6.63e-05  |  vul_detection=0.4939  flakiness_detect=0.3223
+INFO:name:E5/10  step 160/4367  total=0.4317  lr=6.63e-05  |  vul_detection=0.5023  flakiness_detect=0.3312
+INFO:name:E5/10  step 192/4367  total=0.5275  lr=6.62e-05  |  vul_detection=0.4946  flakiness_detect=0.5650
+INFO:name:E5/10  step 224/4367  total=0.4907  lr=6.61e-05  |  vul_detection=0.4851  flakiness_detect=0.4915
+INFO:name:E5/10  step 256/4367  total=0.4714  lr=6.60e-05  |  vul_detection=0.4793  flakiness_detect=0.4554
+INFO:name:E5/10  step 288/4367  total=0.4648  lr=6.59e-05  |  vul_detection=0.4870  flakiness_detect=0.4234
+INFO:name:E5/10  step 320/4367  total=0.4555  lr=6.59e-05  |  vul_detection=0.4973  flakiness_detect=0.3844
+INFO:name:E5/10  step 352/4367  total=0.4371  lr=6.58e-05  |  vul_detection=0.5026  flakiness_detect=0.3392
+INFO:name:E5/10  step 384/4367  total=0.4210  lr=6.57e-05  |  vul_detection=0.4988  flakiness_detect=0.3084
+INFO:name:E5/10  step 416/4367  total=0.4095  lr=6.56e-05  |  vul_detection=0.4992  flakiness_detect=0.2845
+INFO:name:E5/10  step 448/4367  total=0.3972  lr=6.55e-05  |  vul_detection=0.4990  flakiness_detect=0.2609
+INFO:name:E5/10  step 480/4367  total=0.3908  lr=6.54e-05  |  vul_detection=0.4987  flakiness_detect=0.2450
+INFO:name:E5/10  step 512/4367  total=0.3886  lr=6.54e-05  |  vul_detection=0.5065  flakiness_detect=0.2297
+INFO:name:E5/10  step 544/4367  total=0.3980  lr=6.53e-05  |  vul_detection=0.5079  flakiness_detect=0.2496
+INFO:name:E5/10  step 576/4367  total=0.3950  lr=6.52e-05  |  vul_detection=0.5083  flakiness_detect=0.2383
+INFO:name:E5/10  step 608/4367  total=0.3868  lr=6.51e-05  |  vul_detection=0.5066  flakiness_detect=0.2243
+INFO:name:E5/10  step 640/4367  total=0.3775  lr=6.50e-05  |  vul_detection=0.5047  flakiness_detect=0.2103
+INFO:name:E5/10  step 672/4367  total=0.3738  lr=6.50e-05  |  vul_detection=0.5029  flakiness_detect=0.2040
+INFO:name:E5/10  step 704/4367  total=0.4034  lr=6.49e-05  |  vul_detection=0.5019  flakiness_detect=0.2718
+INFO:name:E5/10  step 736/4367  total=0.4030  lr=6.48e-05  |  vul_detection=0.4974  flakiness_detect=0.2748
+INFO:name:E5/10  step 768/4367  total=0.4056  lr=6.47e-05  |  vul_detection=0.5009  flakiness_detect=0.2693
+INFO:name:E5/10  step 800/4367  total=0.3989  lr=6.46e-05  |  vul_detection=0.4987  flakiness_detect=0.2577
+INFO:name:E5/10  step 832/4367  total=0.3925  lr=6.45e-05  |  vul_detection=0.4974  flakiness_detect=0.2463
+INFO:name:E5/10  step 864/4367  total=0.3890  lr=6.45e-05  |  vul_detection=0.5005  flakiness_detect=0.2359
+INFO:name:E5/10  step 896/4367  total=0.3851  lr=6.44e-05  |  vul_detection=0.5002  flakiness_detect=0.2275
+INFO:name:E5/10  step 928/4367  total=0.3976  lr=6.43e-05  |  vul_detection=0.5012  flakiness_detect=0.2537
+INFO:name:E5/10  step 960/4367  total=0.3951  lr=6.42e-05  |  vul_detection=0.5013  flakiness_detect=0.2463
+INFO:name:E5/10  step 992/4367  total=0.3936  lr=6.41e-05  |  vul_detection=0.5021  flakiness_detect=0.2398
+INFO:name:E5/10  step 1024/4367  total=0.3908  lr=6.41e-05  |  vul_detection=0.5014  flakiness_detect=0.2344
+INFO:name:E5/10  step 1056/4367  total=0.3889  lr=6.40e-05  |  vul_detection=0.5017  flakiness_detect=0.2289
+INFO:name:E5/10  step 1088/4367  total=0.3819  lr=6.39e-05  |  vul_detection=0.4999  flakiness_detect=0.2195
+INFO:name:E5/10  step 1120/4367  total=0.3789  lr=6.38e-05  |  vul_detection=0.4978  flakiness_detect=0.2140
+INFO:name:E5/10  step 1152/4367  total=0.3783  lr=6.37e-05  |  vul_detection=0.4995  flakiness_detect=0.2118
+INFO:name:E5/10  step 1184/4367  total=0.3780  lr=6.37e-05  |  vul_detection=0.5002  flakiness_detect=0.2076
+INFO:name:E5/10  step 1216/4367  total=0.3748  lr=6.36e-05  |  vul_detection=0.4995  flakiness_detect=0.2017
+INFO:name:E5/10  step 1248/4367  total=0.3741  lr=6.35e-05  |  vul_detection=0.4987  flakiness_detect=0.1982
+INFO:name:E5/10  step 1280/4367  total=0.3751  lr=6.34e-05  |  vul_detection=0.4990  flakiness_detect=0.2004
+INFO:name:E5/10  step 1312/4367  total=0.3931  lr=6.33e-05  |  vul_detection=0.4988  flakiness_detect=0.2433
+INFO:name:E5/10  step 1344/4367  total=0.3927  lr=6.32e-05  |  vul_detection=0.4993  flakiness_detect=0.2422
+INFO:name:E5/10  step 1376/4367  total=0.3932  lr=6.32e-05  |  vul_detection=0.4999  flakiness_detect=0.2406
+INFO:name:E5/10  step 1408/4367  total=0.3912  lr=6.31e-05  |  vul_detection=0.5001  flakiness_detect=0.2354
+INFO:name:E5/10  step 1440/4367  total=0.3875  lr=6.30e-05  |  vul_detection=0.4996  flakiness_detect=0.2290
+INFO:name:E5/10  step 1472/4367  total=0.3867  lr=6.29e-05  |  vul_detection=0.5015  flakiness_detect=0.2243
+INFO:name:E5/10  step 1504/4367  total=0.3846  lr=6.28e-05  |  vul_detection=0.5006  flakiness_detect=0.2201
+INFO:name:E5/10  step 1536/4367  total=0.3845  lr=6.28e-05  |  vul_detection=0.5009  flakiness_detect=0.2181
+INFO:name:E5/10  step 1568/4367  total=0.3923  lr=6.27e-05  |  vul_detection=0.5017  flakiness_detect=0.2351
+INFO:name:E5/10  step 1600/4367  total=0.3908  lr=6.26e-05  |  vul_detection=0.5027  flakiness_detect=0.2304
+INFO:name:E5/10  step 1632/4367  total=0.4098  lr=6.25e-05  |  vul_detection=0.5023  flakiness_detect=0.2748
+INFO:name:E5/10  step 1664/4367  total=0.4070  lr=6.24e-05  |  vul_detection=0.5005  flakiness_detect=0.2700
+INFO:name:E5/10  step 1696/4367  total=0.4037  lr=6.24e-05  |  vul_detection=0.5004  flakiness_detect=0.2638
+INFO:name:E5/10  step 1728/4367  total=0.4001  lr=6.23e-05  |  vul_detection=0.4996  flakiness_detect=0.2578
+INFO:name:E5/10  step 1760/4367  total=0.3973  lr=6.22e-05  |  vul_detection=0.4994  flakiness_detect=0.2524
+INFO:name:E5/10  step 1792/4367  total=0.3957  lr=6.21e-05  |  vul_detection=0.4991  flakiness_detect=0.2484
+INFO:name:E5/10  step 1824/4367  total=0.4044  lr=6.20e-05  |  vul_detection=0.5007  flakiness_detect=0.2676
+INFO:name:E5/10  step 1856/4367  total=0.4166  lr=6.19e-05  |  vul_detection=0.5003  flakiness_detect=0.2964
+INFO:name:E5/10  step 1888/4367  total=0.4241  lr=6.19e-05  |  vul_detection=0.5016  flakiness_detect=0.3123
+INFO:name:E5/10  step 1920/4367  total=0.4221  lr=6.18e-05  |  vul_detection=0.5021  flakiness_detect=0.3070
+INFO:name:E5/10  step 1952/4367  total=0.4206  lr=6.17e-05  |  vul_detection=0.5020  flakiness_detect=0.3029
+INFO:name:E5/10  step 1984/4367  total=0.4179  lr=6.16e-05  |  vul_detection=0.5022  flakiness_detect=0.2972
+INFO:name:E5/10  step 2016/4367  total=0.4164  lr=6.15e-05  |  vul_detection=0.5018  flakiness_detect=0.2935
+INFO:name:E5/10  step 2048/4367  total=0.4155  lr=6.15e-05  |  vul_detection=0.5029  flakiness_detect=0.2894
+INFO:name:E5/10  step 2080/4367  total=0.4154  lr=6.14e-05  |  vul_detection=0.5034  flakiness_detect=0.2866
+INFO:name:E5/10  step 2112/4367  total=0.4130  lr=6.13e-05  |  vul_detection=0.5017  flakiness_detect=0.2828
+INFO:name:E5/10  step 2144/4367  total=0.4186  lr=6.12e-05  |  vul_detection=0.5010  flakiness_detect=0.2960
+INFO:name:E5/10  step 2176/4367  total=0.4174  lr=6.11e-05  |  vul_detection=0.5007  flakiness_detect=0.2927
+INFO:name:E5/10  step 2208/4367  total=0.4200  lr=6.10e-05  |  vul_detection=0.5008  flakiness_detect=0.2994
+INFO:name:E5/10  step 2240/4367  total=0.4186  lr=6.10e-05  |  vul_detection=0.5005  flakiness_detect=0.2958
+INFO:name:E5/10  step 2272/4367  total=0.4171  lr=6.09e-05  |  vul_detection=0.5007  flakiness_detect=0.2918
+INFO:name:E5/10  step 2304/4367  total=0.4147  lr=6.08e-05  |  vul_detection=0.5001  flakiness_detect=0.2873
+INFO:name:E5/10  step 2336/4367  total=0.4143  lr=6.07e-05  |  vul_detection=0.5006  flakiness_detect=0.2846
+INFO:name:E5/10  step 2368/4367  total=0.4128  lr=6.06e-05  |  vul_detection=0.5002  flakiness_detect=0.2813
+INFO:name:E5/10  step 2400/4367  total=0.4320  lr=6.06e-05  |  vul_detection=0.4991  flakiness_detect=0.3285
+INFO:name:E5/10  step 2432/4367  total=0.4407  lr=6.05e-05  |  vul_detection=0.4981  flakiness_detect=0.3515
+INFO:name:E5/10  step 2464/4367  total=0.4382  lr=6.04e-05  |  vul_detection=0.4992  flakiness_detect=0.3452
+INFO:name:E5/10  step 2496/4367  total=0.4362  lr=6.03e-05  |  vul_detection=0.4988  flakiness_detect=0.3409
+INFO:name:E5/10  step 2528/4367  total=0.4427  lr=6.02e-05  |  vul_detection=0.4997  flakiness_detect=0.3553
+INFO:name:E5/10  step 2560/4367  total=0.4417  lr=6.02e-05  |  vul_detection=0.5006  flakiness_detect=0.3513
+INFO:name:E5/10  step 2592/4367  total=0.4394  lr=6.01e-05  |  vul_detection=0.5005  flakiness_detect=0.3465
+INFO:name:E5/10  step 2624/4367  total=0.4372  lr=6.00e-05  |  vul_detection=0.4992  flakiness_detect=0.3436
+INFO:name:E5/10  step 2656/4367  total=0.4352  lr=5.99e-05  |  vul_detection=0.4987  flakiness_detect=0.3402
+INFO:name:E5/10  step 2688/4367  total=0.4373  lr=5.98e-05  |  vul_detection=0.4990  flakiness_detect=0.3446
+INFO:name:E5/10  step 2720/4367  total=0.4360  lr=5.97e-05  |  vul_detection=0.4997  flakiness_detect=0.3407
+INFO:name:E5/10  step 2752/4367  total=0.4348  lr=5.97e-05  |  vul_detection=0.4992  flakiness_detect=0.3377
+INFO:name:E5/10  step 2784/4367  total=0.4330  lr=5.96e-05  |  vul_detection=0.4998  flakiness_detect=0.3333
+INFO:name:E5/10  step 2816/4367  total=0.4307  lr=5.95e-05  |  vul_detection=0.4997  flakiness_detect=0.3286
+INFO:name:E5/10  step 2848/4367  total=0.4293  lr=5.94e-05  |  vul_detection=0.4997  flakiness_detect=0.3250
+INFO:name:E5/10  step 2880/4367  total=0.4348  lr=5.93e-05  |  vul_detection=0.5002  flakiness_detect=0.3365
+INFO:name:E5/10  step 2912/4367  total=0.4328  lr=5.93e-05  |  vul_detection=0.4999  flakiness_detect=0.3324
+INFO:name:E5/10  step 2944/4367  total=0.4323  lr=5.92e-05  |  vul_detection=0.4999  flakiness_detect=0.3313
+INFO:name:E5/10  step 2976/4367  total=0.4306  lr=5.91e-05  |  vul_detection=0.4990  flakiness_detect=0.3282
+INFO:name:E5/10  step 3008/4367  total=0.4283  lr=5.90e-05  |  vul_detection=0.4991  flakiness_detect=0.3237
+INFO:name:E5/10  step 3040/4367  total=0.4264  lr=5.89e-05  |  vul_detection=0.4983  flakiness_detect=0.3202
+INFO:name:E5/10  step 3072/4367  total=0.4249  lr=5.89e-05  |  vul_detection=0.4980  flakiness_detect=0.3173
+INFO:name:E5/10  step 3104/4367  total=0.4234  lr=5.88e-05  |  vul_detection=0.4983  flakiness_detect=0.3140
+INFO:name:E5/10  step 3136/4367  total=0.4221  lr=5.87e-05  |  vul_detection=0.4982  flakiness_detect=0.3109
+INFO:name:E5/10  step 3168/4367  total=0.4212  lr=5.86e-05  |  vul_detection=0.4991  flakiness_detect=0.3077
+INFO:name:E5/10  step 3200/4367  total=0.4197  lr=5.85e-05  |  vul_detection=0.4988  flakiness_detect=0.3045
+INFO:name:E5/10  step 3232/4367  total=0.4187  lr=5.84e-05  |  vul_detection=0.4988  flakiness_detect=0.3022
+INFO:name:E5/10  step 3264/4367  total=0.4184  lr=5.84e-05  |  vul_detection=0.4996  flakiness_detect=0.2998
+INFO:name:E5/10  step 3296/4367  total=0.4171  lr=5.83e-05  |  vul_detection=0.4994  flakiness_detect=0.2970
+INFO:name:E5/10  step 3328/4367  total=0.4159  lr=5.82e-05  |  vul_detection=0.4995  flakiness_detect=0.2941
+INFO:name:E5/10  step 3360/4367  total=0.4155  lr=5.81e-05  |  vul_detection=0.4997  flakiness_detect=0.2921
+INFO:name:E5/10  step 3392/4367  total=0.4143  lr=5.80e-05  |  vul_detection=0.4996  flakiness_detect=0.2893
+INFO:name:E5/10  step 3424/4367  total=0.4132  lr=5.80e-05  |  vul_detection=0.4998  flakiness_detect=0.2865
+INFO:name:E5/10  step 3456/4367  total=0.4117  lr=5.79e-05  |  vul_detection=0.4996  flakiness_detect=0.2836
+INFO:name:E5/10  step 3488/4367  total=0.4156  lr=5.78e-05  |  vul_detection=0.4991  flakiness_detect=0.2946
+INFO:name:E5/10  step 3520/4367  total=0.4134  lr=5.77e-05  |  vul_detection=0.4992  flakiness_detect=0.2906
+INFO:name:E5/10  step 3552/4367  total=0.4130  lr=5.76e-05  |  vul_detection=0.4997  flakiness_detect=0.2885
+INFO:name:E5/10  step 3584/4367  total=0.4119  lr=5.75e-05  |  vul_detection=0.4998  flakiness_detect=0.2859
+INFO:name:E5/10  step 3616/4367  total=0.4107  lr=5.75e-05  |  vul_detection=0.4998  flakiness_detect=0.2833
+INFO:name:E5/10  step 3648/4367  total=0.4145  lr=5.74e-05  |  vul_detection=0.4994  flakiness_detect=0.2927
+INFO:name:E5/10  step 3680/4367  total=0.4141  lr=5.73e-05  |  vul_detection=0.4993  flakiness_detect=0.2910
+INFO:name:E5/10  step 3712/4367  total=0.4140  lr=5.72e-05  |  vul_detection=0.4996  flakiness_detect=0.2901
+INFO:name:E5/10  step 3744/4367  total=0.4126  lr=5.71e-05  |  vul_detection=0.4999  flakiness_detect=0.2877
+INFO:name:E5/10  step 3776/4367  total=0.4118  lr=5.71e-05  |  vul_detection=0.4995  flakiness_detect=0.2862
+INFO:name:E5/10  step 3808/4367  total=0.4128  lr=5.70e-05  |  vul_detection=0.4984  flakiness_detect=0.2899
+INFO:name:E5/10  step 3840/4367  total=0.4119  lr=5.69e-05  |  vul_detection=0.4987  flakiness_detect=0.2874
+INFO:name:E5/10  step 3872/4367  total=0.4111  lr=5.68e-05  |  vul_detection=0.4988  flakiness_detect=0.2851
+INFO:name:E5/10  step 3904/4367  total=0.4132  lr=5.67e-05  |  vul_detection=0.4985  flakiness_detect=0.2905
+INFO:name:E5/10  step 3936/4367  total=0.4126  lr=5.67e-05  |  vul_detection=0.4990  flakiness_detect=0.2882
+INFO:name:E5/10  step 3968/4367  total=0.4120  lr=5.66e-05  |  vul_detection=0.4989  flakiness_detect=0.2865
+INFO:name:E5/10  step 4000/4367  total=0.4143  lr=5.65e-05  |  vul_detection=0.4988  flakiness_detect=0.2906
+INFO:name:E5/10  step 4032/4367  total=0.4179  lr=5.64e-05  |  vul_detection=0.4985  flakiness_detect=0.2993
+INFO:name:E5/10  step 4064/4367  total=0.4186  lr=5.63e-05  |  vul_detection=0.4985  flakiness_detect=0.3015
+INFO:name:E5/10  step 4096/4367  total=0.4178  lr=5.62e-05  |  vul_detection=0.4984  flakiness_detect=0.2994
+INFO:name:E5/10  step 4128/4367  total=0.4165  lr=5.62e-05  |  vul_detection=0.4987  flakiness_detect=0.2964
+INFO:name:E5/10  step 4160/4367  total=0.4161  lr=5.61e-05  |  vul_detection=0.4987  flakiness_detect=0.2948
+INFO:name:E5/10  step 4192/4367  total=0.4153  lr=5.60e-05  |  vul_detection=0.4991  flakiness_detect=0.2926
+INFO:name:E5/10  step 4224/4367  total=0.4180  lr=5.59e-05  |  vul_detection=0.4987  flakiness_detect=0.2992
+INFO:name:E5/10  step 4256/4367  total=0.4171  lr=5.58e-05  |  vul_detection=0.4987  flakiness_detect=0.2971
+INFO:name:E5/10  step 4288/4367  total=0.4250  lr=5.58e-05  |  vul_detection=0.4987  flakiness_detect=0.3159
+INFO:name:E5/10  step 4320/4367  total=0.4238  lr=5.57e-05  |  vul_detection=0.4989  flakiness_detect=0.3132
+INFO:name:E5/10  step 4352/4367  total=0.4232  lr=5.56e-05  |  vul_detection=0.4994  flakiness_detect=0.3113
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 5/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  vul_detection             0.4991    1.0733       5876499
+INFO:name:  flakiness_detect          0.3099    0.9267       1960472
+INFO:name:  TOTAL                     0.4224                 7836971  (epoch)  cumulative=39058838
+INFO:name:  epoch_time=1878.1s  peak_gpu_memory=9.678GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'vul_detection': '1.2338', 'flakiness_detect': '0.7662'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    vul_detection           grad_norm= 10.879450
+INFO:name:    flakiness_detect        grad_norm=  0.004535
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  vul_detection           flakiness_detect           -0.1946  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 5
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6248   0.5742    0.5821      0.5664   0.7312        -
+INFO:name:  flakiness_detect         0.9773   0.6972    0.7037      0.6909   0.1707        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6357
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E6/10  step 32/4367  total=0.1811  lr=5.55e-05  |  vul_detection=0.3610  flakiness_detect=0.0002
+INFO:name:E6/10  step 64/4367  total=0.2543  lr=5.54e-05  |  vul_detection=0.4254  flakiness_detect=0.0002
+INFO:name:E6/10  step 96/4367  total=0.2716  lr=5.53e-05  |  vul_detection=0.4142  flakiness_detect=0.0002
+INFO:name:E6/10  step 128/4367  total=0.2850  lr=5.52e-05  |  vul_detection=0.4284  flakiness_detect=0.0002
+INFO:name:E6/10  step 160/4367  total=0.2912  lr=5.51e-05  |  vul_detection=0.4385  flakiness_detect=0.0010
+INFO:name:E6/10  step 192/4367  total=0.2876  lr=5.51e-05  |  vul_detection=0.4341  flakiness_detect=0.0009
+INFO:name:E6/10  step 224/4367  total=0.2906  lr=5.50e-05  |  vul_detection=0.4356  flakiness_detect=0.0008
+INFO:name:E6/10  step 256/4367  total=0.2902  lr=5.49e-05  |  vul_detection=0.4390  flakiness_detect=0.0008
+INFO:name:E6/10  step 288/4367  total=0.3238  lr=5.48e-05  |  vul_detection=0.4421  flakiness_detect=0.0610
+INFO:name:E6/10  step 320/4367  total=0.3218  lr=5.47e-05  |  vul_detection=0.4391  flakiness_detect=0.0555
+INFO:name:E6/10  step 352/4367  total=0.3094  lr=5.47e-05  |  vul_detection=0.4344  flakiness_detect=0.0490
+INFO:name:E6/10  step 384/4367  total=0.3050  lr=5.46e-05  |  vul_detection=0.4330  flakiness_detect=0.0447
+INFO:name:E6/10  step 416/4367  total=0.3022  lr=5.45e-05  |  vul_detection=0.4344  flakiness_detect=0.0419
+INFO:name:E6/10  step 448/4367  total=0.2988  lr=5.44e-05  |  vul_detection=0.4365  flakiness_detect=0.0384
+INFO:name:E6/10  step 480/4367  total=0.3452  lr=5.43e-05  |  vul_detection=0.4408  flakiness_detect=0.1567
+INFO:name:E6/10  step 512/4367  total=0.3460  lr=5.43e-05  |  vul_detection=0.4472  flakiness_detect=0.1472
+INFO:name:E6/10  step 544/4367  total=0.3502  lr=5.42e-05  |  vul_detection=0.4581  flakiness_detect=0.1390
+INFO:name:E6/10  step 576/4367  total=0.3609  lr=5.41e-05  |  vul_detection=0.4555  flakiness_detect=0.1672
+INFO:name:E6/10  step 608/4367  total=0.3545  lr=5.40e-05  |  vul_detection=0.4536  flakiness_detect=0.1572
+INFO:name:E6/10  step 640/4367  total=0.3577  lr=5.39e-05  |  vul_detection=0.4539  flakiness_detect=0.1731
+INFO:name:E6/10  step 672/4367  total=0.3523  lr=5.38e-05  |  vul_detection=0.4498  flakiness_detect=0.1654
+INFO:name:E6/10  step 704/4367  total=0.3537  lr=5.38e-05  |  vul_detection=0.4534  flakiness_detect=0.1609
+INFO:name:E6/10  step 736/4367  total=0.3551  lr=5.37e-05  |  vul_detection=0.4568  flakiness_detect=0.1549
+INFO:name:E6/10  step 768/4367  total=0.3692  lr=5.36e-05  |  vul_detection=0.4556  flakiness_detect=0.1842
+INFO:name:E6/10  step 800/4367  total=0.3671  lr=5.35e-05  |  vul_detection=0.4578  flakiness_detect=0.1762
+INFO:name:E6/10  step 832/4367  total=0.3629  lr=5.34e-05  |  vul_detection=0.4574  flakiness_detect=0.1685
+INFO:name:E6/10  step 864/4367  total=0.3600  lr=5.34e-05  |  vul_detection=0.4584  flakiness_detect=0.1613
+INFO:name:E6/10  step 896/4367  total=0.3585  lr=5.33e-05  |  vul_detection=0.4595  flakiness_detect=0.1556
+INFO:name:E6/10  step 928/4367  total=0.3587  lr=5.32e-05  |  vul_detection=0.4609  flakiness_detect=0.1509
+INFO:name:E6/10  step 960/4367  total=0.3575  lr=5.31e-05  |  vul_detection=0.4601  flakiness_detect=0.1465
+INFO:name:E6/10  step 992/4367  total=0.3564  lr=5.30e-05  |  vul_detection=0.4585  flakiness_detect=0.1428
+INFO:name:E6/10  step 1024/4367  total=0.3554  lr=5.30e-05  |  vul_detection=0.4596  flakiness_detect=0.1383
+INFO:name:E6/10  step 1056/4367  total=0.3547  lr=5.29e-05  |  vul_detection=0.4600  flakiness_detect=0.1345
+INFO:name:E6/10  step 1088/4367  total=0.3772  lr=5.28e-05  |  vul_detection=0.4616  flakiness_detect=0.2025
+INFO:name:E6/10  step 1120/4367  total=0.3876  lr=5.27e-05  |  vul_detection=0.4595  flakiness_detect=0.2339
+INFO:name:E6/10  step 1152/4367  total=0.3834  lr=5.26e-05  |  vul_detection=0.4583  flakiness_detect=0.2265
+INFO:name:E6/10  step 1184/4367  total=0.3824  lr=5.25e-05  |  vul_detection=0.4573  flakiness_detect=0.2219
+INFO:name:E6/10  step 1216/4367  total=0.3917  lr=5.25e-05  |  vul_detection=0.4550  flakiness_detect=0.2535
+INFO:name:E6/10  step 1248/4367  total=0.3929  lr=5.24e-05  |  vul_detection=0.4570  flakiness_detect=0.2491
+INFO:name:E6/10  step 1280/4367  total=0.3907  lr=5.23e-05  |  vul_detection=0.4572  flakiness_detect=0.2429
+INFO:name:E6/10  step 1312/4367  total=0.3934  lr=5.22e-05  |  vul_detection=0.4567  flakiness_detect=0.2516
+INFO:name:E6/10  step 1344/4367  total=0.3923  lr=5.21e-05  |  vul_detection=0.4545  flakiness_detect=0.2536
+INFO:name:E6/10  step 1376/4367  total=0.3919  lr=5.21e-05  |  vul_detection=0.4547  flakiness_detect=0.2493
+INFO:name:E6/10  step 1408/4367  total=0.3899  lr=5.20e-05  |  vul_detection=0.4544  flakiness_detect=0.2439
+INFO:name:E6/10  step 1440/4367  total=0.3889  lr=5.19e-05  |  vul_detection=0.4540  flakiness_detect=0.2442
+INFO:name:E6/10  step 1472/4367  total=0.3875  lr=5.18e-05  |  vul_detection=0.4543  flakiness_detect=0.2392
+INFO:name:E6/10  step 1504/4367  total=0.3858  lr=5.17e-05  |  vul_detection=0.4540  flakiness_detect=0.2343
+INFO:name:E6/10  step 1536/4367  total=0.3845  lr=5.16e-05  |  vul_detection=0.4531  flakiness_detect=0.2303
+INFO:name:E6/10  step 1568/4367  total=0.3900  lr=5.16e-05  |  vul_detection=0.4530  flakiness_detect=0.2460
+INFO:name:E6/10  step 1600/4367  total=0.3884  lr=5.15e-05  |  vul_detection=0.4531  flakiness_detect=0.2415
+INFO:name:E6/10  step 1632/4367  total=0.3873  lr=5.14e-05  |  vul_detection=0.4527  flakiness_detect=0.2376
+INFO:name:E6/10  step 1664/4367  total=0.3857  lr=5.13e-05  |  vul_detection=0.4518  flakiness_detect=0.2335
+INFO:name:E6/10  step 1696/4367  total=0.3816  lr=5.12e-05  |  vul_detection=0.4496  flakiness_detect=0.2283
+INFO:name:E6/10  step 1728/4367  total=0.3859  lr=5.12e-05  |  vul_detection=0.4501  flakiness_detect=0.2416
+INFO:name:E6/10  step 1760/4367  total=0.3832  lr=5.11e-05  |  vul_detection=0.4495  flakiness_detect=0.2365
+INFO:name:E6/10  step 1792/4367  total=0.3815  lr=5.10e-05  |  vul_detection=0.4484  flakiness_detect=0.2328
+INFO:name:E6/10  step 1824/4367  total=0.3786  lr=5.09e-05  |  vul_detection=0.4473  flakiness_detect=0.2281
+INFO:name:E6/10  step 1856/4367  total=0.3868  lr=5.08e-05  |  vul_detection=0.4478  flakiness_detect=0.2500
+INFO:name:E6/10  step 1888/4367  total=0.3918  lr=5.08e-05  |  vul_detection=0.4485  flakiness_detect=0.2628
+INFO:name:E6/10  step 1920/4367  total=0.3914  lr=5.07e-05  |  vul_detection=0.4504  flakiness_detect=0.2584
+INFO:name:E6/10  step 1952/4367  total=0.3907  lr=5.06e-05  |  vul_detection=0.4505  flakiness_detect=0.2550
+INFO:name:E6/10  step 1984/4367  total=0.3882  lr=5.05e-05  |  vul_detection=0.4502  flakiness_detect=0.2500
+INFO:name:E6/10  step 2016/4367  total=0.3861  lr=5.04e-05  |  vul_detection=0.4479  flakiness_detect=0.2469
+INFO:name:E6/10  step 2048/4367  total=0.3852  lr=5.03e-05  |  vul_detection=0.4479  flakiness_detect=0.2435
+INFO:name:E6/10  step 2080/4367  total=0.3862  lr=5.03e-05  |  vul_detection=0.4491  flakiness_detect=0.2412
+INFO:name:E6/10  step 2112/4367  total=0.3852  lr=5.02e-05  |  vul_detection=0.4489  flakiness_detect=0.2380
+INFO:name:E6/10  step 2144/4367  total=0.3853  lr=5.01e-05  |  vul_detection=0.4493  flakiness_detect=0.2360
+INFO:name:E6/10  step 2176/4367  total=0.3847  lr=5.00e-05  |  vul_detection=0.4488  flakiness_detect=0.2333
+INFO:name:E6/10  step 2208/4367  total=0.3853  lr=4.99e-05  |  vul_detection=0.4490  flakiness_detect=0.2361
+INFO:name:E6/10  step 2240/4367  total=0.3848  lr=4.99e-05  |  vul_detection=0.4491  flakiness_detect=0.2333
+INFO:name:E6/10  step 2272/4367  total=0.3834  lr=4.98e-05  |  vul_detection=0.4485  flakiness_detect=0.2301
+INFO:name:E6/10  step 2304/4367  total=0.3828  lr=4.97e-05  |  vul_detection=0.4498  flakiness_detect=0.2266
+INFO:name:E6/10  step 2336/4367  total=0.3826  lr=4.96e-05  |  vul_detection=0.4495  flakiness_detect=0.2244
+INFO:name:E6/10  step 2368/4367  total=0.3820  lr=4.95e-05  |  vul_detection=0.4499  flakiness_detect=0.2217
+INFO:name:E6/10  step 2400/4367  total=0.3860  lr=4.94e-05  |  vul_detection=0.4511  flakiness_detect=0.2299
+INFO:name:E6/10  step 2432/4367  total=0.3839  lr=4.94e-05  |  vul_detection=0.4507  flakiness_detect=0.2261
+INFO:name:E6/10  step 2464/4367  total=0.3820  lr=4.93e-05  |  vul_detection=0.4513  flakiness_detect=0.2221
+INFO:name:E6/10  step 2496/4367  total=0.3856  lr=4.92e-05  |  vul_detection=0.4524  flakiness_detect=0.2301
+INFO:name:E6/10  step 2528/4367  total=0.3848  lr=4.91e-05  |  vul_detection=0.4529  flakiness_detect=0.2271
+INFO:name:E6/10  step 2560/4367  total=0.3839  lr=4.90e-05  |  vul_detection=0.4526  flakiness_detect=0.2245
+INFO:name:E6/10  step 2592/4367  total=0.3879  lr=4.90e-05  |  vul_detection=0.4529  flakiness_detect=0.2365
+INFO:name:E6/10  step 2624/4367  total=0.3895  lr=4.89e-05  |  vul_detection=0.4528  flakiness_detect=0.2423
+INFO:name:E6/10  step 2656/4367  total=0.3875  lr=4.88e-05  |  vul_detection=0.4523  flakiness_detect=0.2388
+INFO:name:E6/10  step 2688/4367  total=0.3862  lr=4.87e-05  |  vul_detection=0.4514  flakiness_detect=0.2366
+INFO:name:E6/10  step 2720/4367  total=0.3851  lr=4.86e-05  |  vul_detection=0.4513  flakiness_detect=0.2338
+INFO:name:E6/10  step 2752/4367  total=0.3852  lr=4.86e-05  |  vul_detection=0.4519  flakiness_detect=0.2317
+INFO:name:E6/10  step 2784/4367  total=0.3841  lr=4.85e-05  |  vul_detection=0.4524  flakiness_detect=0.2286
+INFO:name:E6/10  step 2816/4367  total=0.3831  lr=4.84e-05  |  vul_detection=0.4532  flakiness_detect=0.2254
+INFO:name:E6/10  step 2848/4367  total=0.3849  lr=4.83e-05  |  vul_detection=0.4534  flakiness_detect=0.2301
+INFO:name:E6/10  step 2880/4367  total=0.3856  lr=4.82e-05  |  vul_detection=0.4531  flakiness_detect=0.2305
+INFO:name:E6/10  step 2912/4367  total=0.3844  lr=4.81e-05  |  vul_detection=0.4530  flakiness_detect=0.2277
+INFO:name:E6/10  step 2944/4367  total=0.3828  lr=4.81e-05  |  vul_detection=0.4520  flakiness_detect=0.2253
+INFO:name:E6/10  step 2976/4367  total=0.3816  lr=4.80e-05  |  vul_detection=0.4514  flakiness_detect=0.2230
+INFO:name:E6/10  step 3008/4367  total=0.3806  lr=4.79e-05  |  vul_detection=0.4516  flakiness_detect=0.2210
+INFO:name:E6/10  step 3040/4367  total=0.3879  lr=4.78e-05  |  vul_detection=0.4518  flakiness_detect=0.2420
+INFO:name:E6/10  step 3072/4367  total=0.3894  lr=4.77e-05  |  vul_detection=0.4530  flakiness_detect=0.2439
+INFO:name:E6/10  step 3104/4367  total=0.3880  lr=4.77e-05  |  vul_detection=0.4532  flakiness_detect=0.2408
+INFO:name:E6/10  step 3136/4367  total=0.3874  lr=4.76e-05  |  vul_detection=0.4533  flakiness_detect=0.2386
+INFO:name:E6/10  step 3168/4367  total=0.3867  lr=4.75e-05  |  vul_detection=0.4536  flakiness_detect=0.2362
+INFO:name:E6/10  step 3200/4367  total=0.3862  lr=4.74e-05  |  vul_detection=0.4536  flakiness_detect=0.2347
+INFO:name:E6/10  step 3232/4367  total=0.3900  lr=4.73e-05  |  vul_detection=0.4527  flakiness_detect=0.2475
+INFO:name:E6/10  step 3264/4367  total=0.3903  lr=4.73e-05  |  vul_detection=0.4538  flakiness_detect=0.2456
+INFO:name:E6/10  step 3296/4367  total=0.3896  lr=4.72e-05  |  vul_detection=0.4538  flakiness_detect=0.2433
+INFO:name:E6/10  step 3328/4367  total=0.3886  lr=4.71e-05  |  vul_detection=0.4537  flakiness_detect=0.2409
+INFO:name:E6/10  step 3360/4367  total=0.3892  lr=4.70e-05  |  vul_detection=0.4546  flakiness_detect=0.2393
+INFO:name:E6/10  step 3392/4367  total=0.3890  lr=4.69e-05  |  vul_detection=0.4556  flakiness_detect=0.2370
+INFO:name:E6/10  step 3424/4367  total=0.3884  lr=4.68e-05  |  vul_detection=0.4559  flakiness_detect=0.2348
+INFO:name:E6/10  step 3456/4367  total=0.3874  lr=4.68e-05  |  vul_detection=0.4558  flakiness_detect=0.2324
+INFO:name:E6/10  step 3488/4367  total=0.3855  lr=4.67e-05  |  vul_detection=0.4557  flakiness_detect=0.2294
+INFO:name:E6/10  step 3520/4367  total=0.3853  lr=4.66e-05  |  vul_detection=0.4552  flakiness_detect=0.2321
+INFO:name:E6/10  step 3552/4367  total=0.3851  lr=4.65e-05  |  vul_detection=0.4553  flakiness_detect=0.2304
+INFO:name:E6/10  step 3584/4367  total=0.3842  lr=4.64e-05  |  vul_detection=0.4552  flakiness_detect=0.2283
+INFO:name:E6/10  step 3616/4367  total=0.3840  lr=4.64e-05  |  vul_detection=0.4555  flakiness_detect=0.2271
+INFO:name:E6/10  step 3648/4367  total=0.3833  lr=4.63e-05  |  vul_detection=0.4556  flakiness_detect=0.2251
+INFO:name:E6/10  step 3680/4367  total=0.3834  lr=4.62e-05  |  vul_detection=0.4557  flakiness_detect=0.2238
+INFO:name:E6/10  step 3712/4367  total=0.3832  lr=4.61e-05  |  vul_detection=0.4560  flakiness_detect=0.2221
+INFO:name:E6/10  step 3744/4367  total=0.3809  lr=4.60e-05  |  vul_detection=0.4553  flakiness_detect=0.2192
+INFO:name:E6/10  step 3776/4367  total=0.3803  lr=4.59e-05  |  vul_detection=0.4549  flakiness_detect=0.2176
+INFO:name:E6/10  step 3808/4367  total=0.3796  lr=4.59e-05  |  vul_detection=0.4547  flakiness_detect=0.2158
+INFO:name:E6/10  step 3840/4367  total=0.3790  lr=4.58e-05  |  vul_detection=0.4548  flakiness_detect=0.2140
+INFO:name:E6/10  step 3872/4367  total=0.3787  lr=4.57e-05  |  vul_detection=0.4551  flakiness_detect=0.2123
+INFO:name:E6/10  step 3904/4367  total=0.3783  lr=4.56e-05  |  vul_detection=0.4554  flakiness_detect=0.2106
+INFO:name:E6/10  step 3936/4367  total=0.3776  lr=4.55e-05  |  vul_detection=0.4549  flakiness_detect=0.2091
+INFO:name:E6/10  step 3968/4367  total=0.3772  lr=4.55e-05  |  vul_detection=0.4545  flakiness_detect=0.2078
+INFO:name:E6/10  step 4000/4367  total=0.3774  lr=4.54e-05  |  vul_detection=0.4539  flakiness_detect=0.2071
+INFO:name:E6/10  step 4032/4367  total=0.3773  lr=4.53e-05  |  vul_detection=0.4542  flakiness_detect=0.2057
+INFO:name:E6/10  step 4064/4367  total=0.3766  lr=4.52e-05  |  vul_detection=0.4546  flakiness_detect=0.2038
+INFO:name:E6/10  step 4096/4367  total=0.3762  lr=4.51e-05  |  vul_detection=0.4545  flakiness_detect=0.2024
+INFO:name:E6/10  step 4128/4367  total=0.3755  lr=4.51e-05  |  vul_detection=0.4552  flakiness_detect=0.2003
+INFO:name:E6/10  step 4160/4367  total=0.3753  lr=4.50e-05  |  vul_detection=0.4547  flakiness_detect=0.1993
+INFO:name:E6/10  step 4192/4367  total=0.3746  lr=4.49e-05  |  vul_detection=0.4547  flakiness_detect=0.1976
+INFO:name:E6/10  step 4224/4367  total=0.3797  lr=4.48e-05  |  vul_detection=0.4548  flakiness_detect=0.2113
+INFO:name:E6/10  step 4256/4367  total=0.3789  lr=4.47e-05  |  vul_detection=0.4544  flakiness_detect=0.2098
+INFO:name:E6/10  step 4288/4367  total=0.3780  lr=4.46e-05  |  vul_detection=0.4541  flakiness_detect=0.2081
+INFO:name:E6/10  step 4320/4367  total=0.3775  lr=4.46e-05  |  vul_detection=0.4546  flakiness_detect=0.2065
+INFO:name:E6/10  step 4352/4367  total=0.3769  lr=4.45e-05  |  vul_detection=0.4547  flakiness_detect=0.2048
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 6/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  vul_detection             0.4548    1.2338       5865253
+INFO:name:  flakiness_detect          0.2039    0.7662       1950114
+INFO:name:  TOTAL                     0.3764                 7815367  (epoch)  cumulative=46874205
+INFO:name:  epoch_time=1269.3s  peak_gpu_memory=9.678GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'vul_detection': '1.3808', 'flakiness_detect': '0.6192'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    vul_detection           grad_norm= 18.865059
+INFO:name:    flakiness_detect        grad_norm=  0.000236
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  vul_detection           flakiness_detect           +0.1069  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:Early stopping triggered at epoch 6 — halting training.
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Final Test — Epoch 10
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.6054   0.6007    0.6462      0.5612        -        -
+INFO:name:  flakiness_detect         0.9784   0.6928    0.6543      0.7361        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:======================================================================
+INFO:name:Gradient Conflict Summary (aggregated over 6 epochs)
+INFO:name:  Task A                  Task B                      mean     std  neg_freq  verdict
+INFO:name:  ------                  ------                      ----     ---  --------  -------
+INFO:name:  vul_detection           flakiness_detect         +0.0239  0.1419     33.3%  [neutral]
+INFO:name:======================================================================
+INFO:name:Train results:
+{'conflict_vul_detection_vs_flakiness_detect': [-0.1259,
+                                                0.2037,
+                                                0.0225,
+                                                0.1306,
+                                                -0.1946,
+                                                0.1069],
+ 'epoch_time_s': [1875.0, 1880.8, 1880.6, 1879.8, 1878.1, 1269.3],
+ 'flakiness_detect_grad_norm': [1.08308,
+                                0.005713,
+                                0.01122,
+                                0.063103,
+                                0.004535,
+                                0.000236],
+ 'flakiness_detect_tokens': [1952589,
+                             1949400,
+                             1956473,
+                             1957257,
+                             1960472,
+                             1950114],
+ 'flakiness_detect_train_loss': [2.0704, 1.3134, 0.828, 0.4778, 0.3099, 0.2039],
+ 'peak_gpu_memory_gb': [9.678, 9.678, 9.678, 9.678, 9.678, 9.678],
+ 'tokens_cumulative': [7805540,
+                       15602309,
+                       23416316,
+                       31221867,
+                       39058838,
+                       46874205],
+ 'tokens_epoch': [7805540, 7796769, 7814007, 7805551, 7836971, 7815367],
+ 'total_train_loss': [1.3158, 1.0766, 0.7267, 0.5067, 0.4224, 0.3764],
+ 'vul_detection_grad_norm': [0.556205,
+                             0.715065,
+                             2.493977,
+                             4.504394,
+                             10.87945,
+                             18.865059],
+ 'vul_detection_tokens': [5852951, 5847369, 5857534, 5848294, 5876499, 5865253],
+ 'vul_detection_train_loss': [0.6829, 0.6506, 0.6149, 0.5534, 0.4991, 0.4548]}
+INFO:name:Validation results:
+{'flakiness_detect': {'acc': [0.9768, 0.9773, 0.9819, 0.9773, 0.9773, 0.9761],
+                      'eval_loss': [0.1046,
+                                    0.1101,
+                                    0.106,
+                                    0.1714,
+                                    0.1707,
+                                    0.2012],
+                      'f1': [0.6553, 0.6935, 0.7427, 0.6972, 0.6972, 0.6829],
+                      'precision': [0.7328,
+                                    0.6957,
+                                    0.7862,
+                                    0.6909,
+                                    0.6909,
+                                    0.6747],
+                      'recall': [0.5926,
+                                 0.6914,
+                                 0.7037,
+                                 0.7037,
+                                 0.7037,
+                                 0.6914]},
+ 'vul_detection': {'acc': [0.5769, 0.6157, 0.6248, 0.6091, 0.6248, 0.6043],
+                   'eval_loss': [0.6606, 0.6324, 0.65, 0.6625, 0.7312, 0.8042],
+                   'f1': [0.527, 0.565, 0.5526, 0.6076, 0.5742, 0.5876],
+                   'precision': [0.5123, 0.5558, 0.5734, 0.5388, 0.5664, 0.537],
+                   'recall': [0.5425, 0.5746, 0.5333, 0.6967, 0.5821, 0.6487]}}
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete

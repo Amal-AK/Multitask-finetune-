@@ -1,0 +1,2008 @@
+INFO:name:device: cuda:0, n_gpu: 1
+DEBUG:httpcore.connection:connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7974a0a0bb50>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7974a0adf260> server_hostname='huggingface.co' timeout=10
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7974a09d9390>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'258'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:33 GMT'), (b'Location', b'/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json?%2Fanswerdotai%2FModernBERT-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%2242dbe7f4826f9479e2f2965806dd206d07a57495%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a5-13d9fe434c92d9f7296edb30;4eaeff18-666d-4277-9569-512d7929b3b8'), (b'RateLimit', b'"resolvers";r=2999;t=115'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"42dbe7f4826f9479e2f2965806dd206d07a57495"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'8DelipxEPtrWOuSt0TpphTIMM6SuME8ufPg7JzI6S5il2j7KSWg3zg==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/answerdotai/ModernBERT-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1193'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 03 Jun 2026 01:21:59 GMT'), (b'ETag', b'"42dbe7f4826f9479e2f2965806dd206d07a57495"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a1f81b7-4651738d55ce1277457e74a8'), (b'RateLimit', b'"resolvers";r=2998;t=244'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'b12Xv4hi-zoLDr1RKgOaLqAPsTnUoEYSLVnhD-shg16XgX98IUkzPA=='), (b'Age', b'827374')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'258'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:33 GMT'), (b'Location', b'/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json?%2Fanswerdotai%2FModernBERT-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%2242dbe7f4826f9479e2f2965806dd206d07a57495%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a5-3eaa2b1631623184061133f7;0105b826-c8a2-44d3-8cc6-8d5e83297f2b'), (b'RateLimit', b'"resolvers";r=2998;t=115'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"42dbe7f4826f9479e2f2965806dd206d07a57495"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'WjWirMgz2qqC2h4j_0veaHT4kkAl7p7bATVFWcGid0kbzNNH8tSWdQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/answerdotai/ModernBERT-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1193'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 03 Jun 2026 01:21:59 GMT'), (b'ETag', b'"42dbe7f4826f9479e2f2965806dd206d07a57495"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a1f81b7-4651738d55ce1277457e74a8'), (b'RateLimit', b'"resolvers";r=2998;t=244'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'D4oaoCHw4-O18HwOWGkASmm6S1UffYdH6Q4wSAqPVWEm108bJoeJ1w=='), (b'Age', b'827374')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'278'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:33 GMT'), (b'Location', b'/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/tokenizer_config.json?%2Fanswerdotai%2FModernBERT-base%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22d78aa50c890c167d8700301e5580164466e51fa5%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a5-78b34589155df6d121d1929a;d747893c-ec22-497a-a196-1f210fe8d09d'), (b'RateLimit', b'"resolvers";r=2997;t=115'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"d78aa50c890c167d8700301e5580164466e51fa5"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'mAC84SjQn5H08ew4eqH5ZOXB1UWTw-6rfL4fsa8Z3aRjBa7h4h5jFQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/answerdotai/ModernBERT-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'20810'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 19 May 2026 20:23:02 GMT'), (b'ETag', b'"d78aa50c890c167d8700301e5580164466e51fa5"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a0cc6a6-3c79b784342ae58b7f8409a6'), (b'RateLimit', b'"resolvers";r=2888;t=118'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'7V-kx0_Dt8HzNSpPpQtWg4yMk5k8JucYorGC4ffGya19a_q_e_vZFQ=='), (b'Age', b'2054911')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/tokenizer_config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'278'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:33 GMT'), (b'Location', b'/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/tokenizer_config.json?%2Fanswerdotai%2FModernBERT-base%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22d78aa50c890c167d8700301e5580164466e51fa5%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a5-71213cfe7bd318d917f8ecbd;c1a39b6d-0621-45cf-9377-bc37aa108334'), (b'RateLimit', b'"resolvers";r=2996;t=115'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"d78aa50c890c167d8700301e5580164466e51fa5"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'bHyxovt-u7X0cL5xQvZJ2SD8zBNK1EKl6VsLX-leKVtLFZh0580OGg==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/answerdotai/ModernBERT-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'20810'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 19 May 2026 20:23:02 GMT'), (b'ETag', b'"d78aa50c890c167d8700301e5580164466e51fa5"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a0cc6a6-3c79b784342ae58b7f8409a6'), (b'RateLimit', b'"resolvers";r=2888;t=118'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'lgffNaM87KLLrh_6AKQ942fF2qsHDEmxuwlG2FeQihRejP26N3UFbw=='), (b'Age', b'2054911')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/tokenizer_config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'64'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:33 GMT'), (b'ETag', b'W/"40-09f9IAqP13xarAhQxFS2W8rvRkM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a5-5a24b5f46ed8e949131090d8;9ffff7d8-9c76-481d-831e-0ce809aa5822'), (b'RateLimit', b'"api";r=499;t=115'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'additional_chat_templates does not exist on "main"'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'CL0MKrs1pzYRyrCb5K2J1Cq4vvJM9p57qm6XAYOEyjqA5RgPUAO2jg==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/answerdotai/ModernBERT-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:33 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"eab-RJRA8txVrY1MtRrbd28ZH2H3QFk"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a5-09abe7ad2807021d1194d2e0;fee3e9d7-2956-4e91-bfad-783b1a2eeb95'), (b'RateLimit', b'"api";r=498;t=115'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'EZknJ6RdxeU4eyw4IoEM6xGhY_7rHCf2md6S288idP9K8yhDS-JNhg==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/answerdotai/ModernBERT-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'258'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 12 Jun 2026 15:11:34 GMT'), (b'Location', b'/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json?%2Fanswerdotai%2FModernBERT-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%2242dbe7f4826f9479e2f2965806dd206d07a57495%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a2c21a6-2fd12ac2139b05387b62c2d7;62a7b225-800d-457a-a11d-a503ae830089'), (b'RateLimit', b'"resolvers";r=2995;t=114'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"42dbe7f4826f9479e2f2965806dd206d07a57495"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'M59sF5OMWkJ9sUG4nnIxWth5vCdsiF-c9BfUHL7C_qRsCsuRN_o0rA==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/answerdotai/ModernBERT-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1193'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 03 Jun 2026 01:21:59 GMT'), (b'ETag', b'"42dbe7f4826f9479e2f2965806dd206d07a57495"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a1f81b7-4651738d55ce1277457e74a8'), (b'RateLimit', b'"resolvers";r=2998;t=244'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'8949b909ec900327062f0ebf497f51aef5e6f0c8'), (b'Accept-Ranges', b'bytes'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 dc85053069397a282d87170bb1bcab4a.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA56-P6'), (b'X-Amz-Cf-Id', b'xmBpzG5WWihWaFjW-Q0x_F3Ehf4-w63Y6VzRshjQaN6qTWNU868n9g=='), (b'Age', b'827375')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 6718.35it/s]
+root
+├── embeddings (ModernBertEmbeddings)
+│   ├── tok_embeddings (Embedding) weight:[50368, 768]
+│   └── norm (LayerNorm) weight:[768]
+├── layers (ModuleList)
+│   ├── 0 (ModernBertEncoderLayer)
+│   │   ├── attn (ModernBertAttention)
+│   │   │   ├── Wqkv (Linear) weight:[2304, 768]
+│   │   │   ├── Wo (Linear) weight:[768, 768]
+│   │   │   └── adapter (AdapterLayer)
+│   │   │       └── modulelist (Sequential)
+│   │   │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│   │   │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│   │   ├── mlp_norm (LayerNorm) weight:[768]
+│   │   └── mlp (ModernBertMLP)
+│   │       ├── Wi (Linear) weight:[2304, 768]
+│   │       ├── Wo (Linear) weight:[768, 1152]
+│   │       └── adapter (AdapterLayer)
+│   │           └── modulelist (Sequential)
+│   │               ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│   │               └── up_proj (Linear) weight:[768, 64] bias:[768]
+│   └── 1-21(ModernBertEncoderLayer)
+│       ├── attn_norm,mlp_norm(LayerNorm) weight:[768]
+│       ├── attn (ModernBertAttention)
+│       │   ├── Wqkv (Linear) weight:[2304, 768]
+│       │   ├── Wo (Linear) weight:[768, 768]
+│       │   └── adapter (AdapterLayer)
+│       │       └── modulelist (Sequential)
+│       │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│       │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│       └── mlp (ModernBertMLP)
+│           ├── Wi (Linear) weight:[2304, 768]
+│           ├── Wo (Linear) weight:[768, 1152]
+│           └── adapter (AdapterLayer)
+│               └── modulelist (Sequential)
+│                   ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│                   └── up_proj (Linear) weight:[768, 64] bias:[768]
+└── final_norm (LayerNorm) weight:[768]
+[INFO|(OpenDelta)basemodel:696]2026-06-12 15:11:34,589 >> Trainable Ratio: 4361984/153376256=2.843976%
+[INFO|(OpenDelta)basemodel:698]2026-06-12 15:11:34,589 >> Delta Parameter Ratio: 4361984/153376256=2.843976%
+[INFO|(OpenDelta)basemodel:700]2026-06-12 15:11:34,589 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Model:
+MultiTaskModel_MTL(
+  (encoder): ModernBertModel(
+    (embeddings): ModernBertEmbeddings(
+      (tok_embeddings): Embedding(50368, 768, padding_idx=50283)
+      (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (drop): Dropout(p=0.0, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): ModernBertEncoderLayer(
+        (attn_norm): Identity()
+        (attn): ModernBertAttention(
+          (Wqkv): Linear(in_features=768, out_features=2304, bias=False)
+          (Wo): Linear(in_features=768, out_features=768, bias=False)
+          (out_drop): Identity()
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+        (mlp_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (mlp): ModernBertMLP(
+          (Wi): Linear(in_features=768, out_features=2304, bias=False)
+          (act): GELUActivation()
+          (drop): Dropout(p=0.0, inplace=False)
+          (Wo): Linear(in_features=1152, out_features=768, bias=False)
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+      )
+      (1-21): 21 x ModernBertEncoderLayer(
+        (attn_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (attn): ModernBertAttention(
+          (Wqkv): Linear(in_features=768, out_features=2304, bias=False)
+          (Wo): Linear(in_features=768, out_features=768, bias=False)
+          (out_drop): Identity()
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+        (mlp_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (mlp): ModernBertMLP(
+          (Wi): Linear(in_features=768, out_features=2304, bias=False)
+          (act): GELUActivation()
+          (drop): Dropout(p=0.0, inplace=False)
+          (Wo): Linear(in_features=1152, out_features=768, bias=False)
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+      )
+    )
+    (final_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (rotary_emb): ModernBertRotaryEmbedding()
+  )
+  (task_heads): ModuleDict(
+    (flakiness_detect): Sequential(
+      (0): Linear(in_features=768, out_features=384, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=384, out_features=1, bias=True)
+    )
+    (code_search): Sequential(
+      (0): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (1): Linear(in_features=768, out_features=768, bias=True)
+    )
+  )
+)
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Using TemperatureSampler  T=0.30  probs=['0.292', '0.708']
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:  Normalized weights: uniform for epoch 1, updated each epoch (w ∝ L_i).
+INFO:name:======================================================================
+INFO:name:***** Running Training *****
+INFO:name:  Model         : answerdotai/ModernBERT-base
+INFO:name:  PEFT          : adapter
+INFO:name:  Loss weighting: normalized
+INFO:name:  Epochs        : 10
+INFO:name:  Batch size    : 32  |  LR: 1.00e-04  |  GPUs: 1
+INFO:name:  Steps/epoch   : ~8279  |  Total steps: ~82790
+INFO:name:  Tasks & train sizes:
+INFO:name:    flakiness_detect        13081 examples
+INFO:name:    code_search             251820 examples
+INFO:name:======================================================================
+INFO:name:  pos_weight flakiness_detect       = 26.0  (pos=485  neg=12596)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E1/10  step 32/8279  total=3.1858  lr=3.87e-07  |  flakiness_detect=1.3450  code_search=3.7013
+INFO:name:E1/10  step 64/8279  total=3.2262  lr=7.73e-07  |  flakiness_detect=1.5638  code_search=3.7803
+INFO:name:E1/10  step 96/8279  total=3.1552  lr=1.16e-06  |  flakiness_detect=1.4765  code_search=3.7787
+INFO:name:E1/10  step 128/8279  total=3.1257  lr=1.55e-06  |  flakiness_detect=1.5400  code_search=3.7463
+INFO:name:E1/10  step 160/8279  total=3.1017  lr=1.93e-06  |  flakiness_detect=1.5414  code_search=3.7122
+INFO:name:E1/10  step 192/8279  total=3.0727  lr=2.32e-06  |  flakiness_detect=1.5234  code_search=3.6947
+INFO:name:E1/10  step 224/8279  total=3.0316  lr=2.71e-06  |  flakiness_detect=1.5306  code_search=3.6721
+INFO:name:E1/10  step 256/8279  total=3.0160  lr=3.09e-06  |  flakiness_detect=1.5134  code_search=3.6504
+INFO:name:E1/10  step 288/8279  total=2.9416  lr=3.48e-06  |  flakiness_detect=1.4871  code_search=3.6353
+INFO:name:E1/10  step 320/8279  total=2.9515  lr=3.87e-06  |  flakiness_detect=1.4927  code_search=3.6146
+INFO:name:E1/10  step 352/8279  total=2.9326  lr=4.25e-06  |  flakiness_detect=1.4510  code_search=3.5972
+INFO:name:E1/10  step 384/8279  total=2.9441  lr=4.64e-06  |  flakiness_detect=1.4491  code_search=3.5832
+INFO:name:E1/10  step 416/8279  total=2.9369  lr=5.02e-06  |  flakiness_detect=1.4392  code_search=3.5729
+INFO:name:E1/10  step 448/8279  total=2.9168  lr=5.41e-06  |  flakiness_detect=1.4524  code_search=3.5619
+INFO:name:E1/10  step 480/8279  total=2.9049  lr=5.80e-06  |  flakiness_detect=1.4440  code_search=3.5499
+INFO:name:E1/10  step 512/8279  total=2.9106  lr=6.18e-06  |  flakiness_detect=1.4370  code_search=3.5328
+INFO:name:E1/10  step 544/8279  total=2.8886  lr=6.57e-06  |  flakiness_detect=1.4177  code_search=3.5125
+INFO:name:E1/10  step 576/8279  total=2.8611  lr=6.96e-06  |  flakiness_detect=1.3996  code_search=3.4782
+INFO:name:E1/10  step 608/8279  total=2.8272  lr=7.34e-06  |  flakiness_detect=1.3921  code_search=3.4213
+INFO:name:E1/10  step 640/8279  total=2.7727  lr=7.73e-06  |  flakiness_detect=1.3905  code_search=3.3348
+INFO:name:E1/10  step 672/8279  total=2.7120  lr=8.12e-06  |  flakiness_detect=1.4048  code_search=3.2426
+INFO:name:E1/10  step 704/8279  total=2.6436  lr=8.50e-06  |  flakiness_detect=1.3954  code_search=3.1459
+INFO:name:E1/10  step 736/8279  total=2.5777  lr=8.89e-06  |  flakiness_detect=1.3913  code_search=3.0608
+INFO:name:E1/10  step 768/8279  total=2.5139  lr=9.28e-06  |  flakiness_detect=1.3821  code_search=2.9888
+INFO:name:E1/10  step 800/8279  total=2.4520  lr=9.66e-06  |  flakiness_detect=1.3830  code_search=2.9019
+INFO:name:E1/10  step 832/8279  total=2.3889  lr=1.00e-05  |  flakiness_detect=1.3649  code_search=2.8238
+INFO:name:E1/10  step 864/8279  total=2.3262  lr=1.04e-05  |  flakiness_detect=1.3610  code_search=2.7281
+INFO:name:E1/10  step 896/8279  total=2.2650  lr=1.08e-05  |  flakiness_detect=1.3429  code_search=2.6481
+INFO:name:E1/10  step 928/8279  total=2.2100  lr=1.12e-05  |  flakiness_detect=1.3246  code_search=2.5847
+INFO:name:E1/10  step 960/8279  total=2.1615  lr=1.16e-05  |  flakiness_detect=1.3366  code_search=2.5098
+INFO:name:E1/10  step 992/8279  total=2.1132  lr=1.20e-05  |  flakiness_detect=1.3324  code_search=2.4436
+INFO:name:E1/10  step 1024/8279  total=2.0673  lr=1.24e-05  |  flakiness_detect=1.3369  code_search=2.3742
+INFO:name:E1/10  step 1056/8279  total=2.0216  lr=1.28e-05  |  flakiness_detect=1.3307  code_search=2.3113
+INFO:name:E1/10  step 1088/8279  total=1.9749  lr=1.31e-05  |  flakiness_detect=1.3282  code_search=2.2396
+INFO:name:E1/10  step 1120/8279  total=1.9354  lr=1.35e-05  |  flakiness_detect=1.3125  code_search=2.1945
+INFO:name:E1/10  step 1152/8279  total=1.8975  lr=1.39e-05  |  flakiness_detect=1.3178  code_search=2.1342
+INFO:name:E1/10  step 1184/8279  total=1.8706  lr=1.43e-05  |  flakiness_detect=1.3275  code_search=2.0976
+INFO:name:E1/10  step 1216/8279  total=1.8340  lr=1.47e-05  |  flakiness_detect=1.3181  code_search=2.0493
+INFO:name:E1/10  step 1248/8279  total=1.8078  lr=1.51e-05  |  flakiness_detect=1.3219  code_search=2.0149
+INFO:name:E1/10  step 1280/8279  total=1.7760  lr=1.55e-05  |  flakiness_detect=1.3187  code_search=1.9706
+INFO:name:E1/10  step 1312/8279  total=1.7424  lr=1.58e-05  |  flakiness_detect=1.3144  code_search=1.9214
+INFO:name:E1/10  step 1344/8279  total=1.7118  lr=1.62e-05  |  flakiness_detect=1.3085  code_search=1.8797
+INFO:name:E1/10  step 1376/8279  total=1.6833  lr=1.66e-05  |  flakiness_detect=1.3009  code_search=1.8427
+INFO:name:E1/10  step 1408/8279  total=1.6584  lr=1.70e-05  |  flakiness_detect=1.3002  code_search=1.8081
+INFO:name:E1/10  step 1440/8279  total=1.6315  lr=1.74e-05  |  flakiness_detect=1.3002  code_search=1.7689
+INFO:name:E1/10  step 1472/8279  total=1.6080  lr=1.78e-05  |  flakiness_detect=1.2928  code_search=1.7398
+INFO:name:E1/10  step 1504/8279  total=1.5811  lr=1.82e-05  |  flakiness_detect=1.2877  code_search=1.7020
+INFO:name:E1/10  step 1536/8279  total=1.5580  lr=1.86e-05  |  flakiness_detect=1.2734  code_search=1.6767
+INFO:name:E1/10  step 1568/8279  total=1.5365  lr=1.89e-05  |  flakiness_detect=1.2733  code_search=1.6458
+INFO:name:E1/10  step 1600/8279  total=1.5145  lr=1.93e-05  |  flakiness_detect=1.2661  code_search=1.6176
+INFO:name:E1/10  step 1632/8279  total=1.4940  lr=1.97e-05  |  flakiness_detect=1.2564  code_search=1.5933
+INFO:name:E1/10  step 1664/8279  total=1.4751  lr=2.01e-05  |  flakiness_detect=1.2476  code_search=1.5712
+INFO:name:E1/10  step 1696/8279  total=1.4544  lr=2.05e-05  |  flakiness_detect=1.2429  code_search=1.5431
+INFO:name:E1/10  step 1728/8279  total=1.4330  lr=2.09e-05  |  flakiness_detect=1.2355  code_search=1.5150
+INFO:name:E1/10  step 1760/8279  total=1.4158  lr=2.13e-05  |  flakiness_detect=1.2364  code_search=1.4902
+INFO:name:E1/10  step 1792/8279  total=1.3982  lr=2.16e-05  |  flakiness_detect=1.2257  code_search=1.4703
+INFO:name:E1/10  step 1824/8279  total=1.3795  lr=2.20e-05  |  flakiness_detect=1.2185  code_search=1.4464
+INFO:name:E1/10  step 1856/8279  total=1.3633  lr=2.24e-05  |  flakiness_detect=1.2152  code_search=1.4247
+INFO:name:E1/10  step 1888/8279  total=1.3466  lr=2.28e-05  |  flakiness_detect=1.2095  code_search=1.4032
+INFO:name:E1/10  step 1920/8279  total=1.3318  lr=2.32e-05  |  flakiness_detect=1.2002  code_search=1.3867
+INFO:name:E1/10  step 1952/8279  total=1.3175  lr=2.36e-05  |  flakiness_detect=1.1951  code_search=1.3688
+INFO:name:E1/10  step 1984/8279  total=1.3025  lr=2.40e-05  |  flakiness_detect=1.1930  code_search=1.3481
+INFO:name:E1/10  step 2016/8279  total=1.2896  lr=2.44e-05  |  flakiness_detect=1.1890  code_search=1.3316
+INFO:name:E1/10  step 2048/8279  total=1.2767  lr=2.47e-05  |  flakiness_detect=1.1868  code_search=1.3143
+INFO:name:E1/10  step 2080/8279  total=1.2652  lr=2.51e-05  |  flakiness_detect=1.1863  code_search=1.2982
+INFO:name:E1/10  step 2112/8279  total=1.2524  lr=2.55e-05  |  flakiness_detect=1.1830  code_search=1.2814
+INFO:name:E1/10  step 2144/8279  total=1.2431  lr=2.59e-05  |  flakiness_detect=1.1836  code_search=1.2682
+INFO:name:E1/10  step 2176/8279  total=1.2302  lr=2.63e-05  |  flakiness_detect=1.1763  code_search=1.2530
+INFO:name:E1/10  step 2208/8279  total=1.2193  lr=2.67e-05  |  flakiness_detect=1.1754  code_search=1.2379
+INFO:name:E1/10  step 2240/8279  total=1.2077  lr=2.71e-05  |  flakiness_detect=1.1711  code_search=1.2233
+INFO:name:E1/10  step 2272/8279  total=1.1943  lr=2.74e-05  |  flakiness_detect=1.1642  code_search=1.2069
+INFO:name:E1/10  step 2304/8279  total=1.1821  lr=2.78e-05  |  flakiness_detect=1.1580  code_search=1.1923
+INFO:name:E1/10  step 2336/8279  total=1.1718  lr=2.82e-05  |  flakiness_detect=1.1542  code_search=1.1792
+INFO:name:E1/10  step 2368/8279  total=1.1633  lr=2.86e-05  |  flakiness_detect=1.1536  code_search=1.1675
+INFO:name:E1/10  step 2400/8279  total=1.1552  lr=2.90e-05  |  flakiness_detect=1.1525  code_search=1.1563
+INFO:name:E1/10  step 2432/8279  total=1.1465  lr=2.94e-05  |  flakiness_detect=1.1559  code_search=1.1425
+INFO:name:E1/10  step 2464/8279  total=1.1354  lr=2.98e-05  |  flakiness_detect=1.1526  code_search=1.1282
+INFO:name:E1/10  step 2496/8279  total=1.1264  lr=3.01e-05  |  flakiness_detect=1.1536  code_search=1.1149
+INFO:name:E1/10  step 2528/8279  total=1.1192  lr=3.05e-05  |  flakiness_detect=1.1549  code_search=1.1041
+INFO:name:E1/10  step 2560/8279  total=1.1092  lr=3.09e-05  |  flakiness_detect=1.1507  code_search=1.0916
+INFO:name:E1/10  step 2592/8279  total=1.1021  lr=3.13e-05  |  flakiness_detect=1.1540  code_search=1.0802
+INFO:name:E1/10  step 2624/8279  total=1.0919  lr=3.17e-05  |  flakiness_detect=1.1484  code_search=1.0681
+INFO:name:E1/10  step 2656/8279  total=1.0812  lr=3.21e-05  |  flakiness_detect=1.1426  code_search=1.0556
+INFO:name:E1/10  step 2688/8279  total=1.0722  lr=3.25e-05  |  flakiness_detect=1.1412  code_search=1.0434
+INFO:name:E1/10  step 2720/8279  total=1.0668  lr=3.29e-05  |  flakiness_detect=1.1467  code_search=1.0335
+INFO:name:E1/10  step 2752/8279  total=1.0592  lr=3.32e-05  |  flakiness_detect=1.1438  code_search=1.0239
+INFO:name:E1/10  step 2784/8279  total=1.0513  lr=3.36e-05  |  flakiness_detect=1.1394  code_search=1.0145
+INFO:name:E1/10  step 2816/8279  total=1.0453  lr=3.40e-05  |  flakiness_detect=1.1419  code_search=1.0050
+INFO:name:E1/10  step 2848/8279  total=1.0383  lr=3.44e-05  |  flakiness_detect=1.1384  code_search=0.9964
+INFO:name:E1/10  step 2880/8279  total=1.0310  lr=3.48e-05  |  flakiness_detect=1.1357  code_search=0.9871
+INFO:name:E1/10  step 2912/8279  total=1.0259  lr=3.52e-05  |  flakiness_detect=1.1368  code_search=0.9793
+INFO:name:E1/10  step 2944/8279  total=1.0202  lr=3.56e-05  |  flakiness_detect=1.1355  code_search=0.9715
+INFO:name:E1/10  step 2976/8279  total=1.0163  lr=3.59e-05  |  flakiness_detect=1.1410  code_search=0.9635
+INFO:name:E1/10  step 3008/8279  total=1.0096  lr=3.63e-05  |  flakiness_detect=1.1366  code_search=0.9556
+INFO:name:E1/10  step 3040/8279  total=1.0032  lr=3.67e-05  |  flakiness_detect=1.1342  code_search=0.9475
+INFO:name:E1/10  step 3072/8279  total=0.9962  lr=3.71e-05  |  flakiness_detect=1.1319  code_search=0.9387
+INFO:name:E1/10  step 3104/8279  total=0.9918  lr=3.75e-05  |  flakiness_detect=1.1363  code_search=0.9306
+INFO:name:E1/10  step 3136/8279  total=0.9858  lr=3.79e-05  |  flakiness_detect=1.1333  code_search=0.9232
+INFO:name:E1/10  step 3168/8279  total=0.9825  lr=3.83e-05  |  flakiness_detect=1.1380  code_search=0.9162
+INFO:name:E1/10  step 3200/8279  total=0.9772  lr=3.87e-05  |  flakiness_detect=1.1349  code_search=0.9096
+INFO:name:E1/10  step 3232/8279  total=0.9712  lr=3.90e-05  |  flakiness_detect=1.1319  code_search=0.9022
+INFO:name:E1/10  step 3264/8279  total=0.9660  lr=3.94e-05  |  flakiness_detect=1.1298  code_search=0.8955
+INFO:name:E1/10  step 3296/8279  total=0.9602  lr=3.98e-05  |  flakiness_detect=1.1280  code_search=0.8880
+INFO:name:E1/10  step 3328/8279  total=0.9550  lr=4.02e-05  |  flakiness_detect=1.1265  code_search=0.8813
+INFO:name:E1/10  step 3360/8279  total=0.9477  lr=4.06e-05  |  flakiness_detect=1.1195  code_search=0.8738
+INFO:name:E1/10  step 3392/8279  total=0.9447  lr=4.10e-05  |  flakiness_detect=1.1264  code_search=0.8668
+INFO:name:E1/10  step 3424/8279  total=0.9393  lr=4.14e-05  |  flakiness_detect=1.1231  code_search=0.8604
+INFO:name:E1/10  step 3456/8279  total=0.9331  lr=4.17e-05  |  flakiness_detect=1.1166  code_search=0.8543
+INFO:name:E1/10  step 3488/8279  total=0.9265  lr=4.21e-05  |  flakiness_detect=1.1156  code_search=0.8460
+INFO:name:E1/10  step 3520/8279  total=0.9199  lr=4.25e-05  |  flakiness_detect=1.1123  code_search=0.8385
+INFO:name:E1/10  step 3552/8279  total=0.9168  lr=4.29e-05  |  flakiness_detect=1.1162  code_search=0.8323
+INFO:name:E1/10  step 3584/8279  total=0.9111  lr=4.33e-05  |  flakiness_detect=1.1163  code_search=0.8248
+INFO:name:E1/10  step 3616/8279  total=0.9058  lr=4.37e-05  |  flakiness_detect=1.1123  code_search=0.8189
+INFO:name:E1/10  step 3648/8279  total=0.9019  lr=4.41e-05  |  flakiness_detect=1.1122  code_search=0.8133
+INFO:name:E1/10  step 3680/8279  total=0.8987  lr=4.44e-05  |  flakiness_detect=1.1136  code_search=0.8079
+INFO:name:E1/10  step 3712/8279  total=0.8943  lr=4.48e-05  |  flakiness_detect=1.1118  code_search=0.8023
+INFO:name:E1/10  step 3744/8279  total=0.8895  lr=4.52e-05  |  flakiness_detect=1.1125  code_search=0.7957
+INFO:name:E1/10  step 3776/8279  total=0.8852  lr=4.56e-05  |  flakiness_detect=1.1102  code_search=0.7906
+INFO:name:E1/10  step 3808/8279  total=0.8828  lr=4.60e-05  |  flakiness_detect=1.1114  code_search=0.7862
+INFO:name:E1/10  step 3840/8279  total=0.8774  lr=4.64e-05  |  flakiness_detect=1.1074  code_search=0.7805
+INFO:name:E1/10  step 3872/8279  total=0.8728  lr=4.68e-05  |  flakiness_detect=1.1054  code_search=0.7750
+INFO:name:E1/10  step 3904/8279  total=0.8687  lr=4.72e-05  |  flakiness_detect=1.1031  code_search=0.7699
+INFO:name:E1/10  step 3936/8279  total=0.8628  lr=4.75e-05  |  flakiness_detect=1.0991  code_search=0.7638
+INFO:name:E1/10  step 3968/8279  total=0.8615  lr=4.79e-05  |  flakiness_detect=1.1034  code_search=0.7597
+INFO:name:E1/10  step 4000/8279  total=0.8573  lr=4.83e-05  |  flakiness_detect=1.0960  code_search=0.7561
+INFO:name:E1/10  step 4032/8279  total=0.8550  lr=4.87e-05  |  flakiness_detect=1.0982  code_search=0.7517
+INFO:name:E1/10  step 4064/8279  total=0.8499  lr=4.91e-05  |  flakiness_detect=1.0954  code_search=0.7461
+INFO:name:E1/10  step 4096/8279  total=0.8458  lr=4.95e-05  |  flakiness_detect=1.0908  code_search=0.7419
+INFO:name:E1/10  step 4128/8279  total=0.8405  lr=4.99e-05  |  flakiness_detect=1.0884  code_search=0.7361
+INFO:name:E1/10  step 4160/8279  total=0.8359  lr=5.02e-05  |  flakiness_detect=1.0846  code_search=0.7314
+INFO:name:E1/10  step 4192/8279  total=0.8311  lr=5.06e-05  |  flakiness_detect=1.0807  code_search=0.7264
+INFO:name:E1/10  step 4224/8279  total=0.8288  lr=5.10e-05  |  flakiness_detect=1.0795  code_search=0.7230
+INFO:name:E1/10  step 4256/8279  total=0.8266  lr=5.14e-05  |  flakiness_detect=1.0796  code_search=0.7195
+INFO:name:E1/10  step 4288/8279  total=0.8233  lr=5.18e-05  |  flakiness_detect=1.0786  code_search=0.7152
+INFO:name:E1/10  step 4320/8279  total=0.8192  lr=5.22e-05  |  flakiness_detect=1.0771  code_search=0.7103
+INFO:name:E1/10  step 4352/8279  total=0.8156  lr=5.26e-05  |  flakiness_detect=1.0718  code_search=0.7070
+INFO:name:E1/10  step 4384/8279  total=0.8115  lr=5.30e-05  |  flakiness_detect=1.0671  code_search=0.7029
+INFO:name:E1/10  step 4416/8279  total=0.8076  lr=5.33e-05  |  flakiness_detect=1.0640  code_search=0.6986
+INFO:name:E1/10  step 4448/8279  total=0.8059  lr=5.37e-05  |  flakiness_detect=1.0675  code_search=0.6946
+INFO:name:E1/10  step 4480/8279  total=0.8026  lr=5.41e-05  |  flakiness_detect=1.0654  code_search=0.6906
+INFO:name:E1/10  step 4512/8279  total=0.8010  lr=5.45e-05  |  flakiness_detect=1.0693  code_search=0.6869
+INFO:name:E1/10  step 4544/8279  total=0.7987  lr=5.49e-05  |  flakiness_detect=1.0714  code_search=0.6828
+INFO:name:E1/10  step 4576/8279  total=0.7953  lr=5.53e-05  |  flakiness_detect=1.0666  code_search=0.6795
+INFO:name:E1/10  step 4608/8279  total=0.7920  lr=5.57e-05  |  flakiness_detect=1.0658  code_search=0.6755
+INFO:name:E1/10  step 4640/8279  total=0.7886  lr=5.60e-05  |  flakiness_detect=1.0618  code_search=0.6720
+INFO:name:E1/10  step 4672/8279  total=0.7866  lr=5.64e-05  |  flakiness_detect=1.0620  code_search=0.6687
+INFO:name:E1/10  step 4704/8279  total=0.7834  lr=5.68e-05  |  flakiness_detect=1.0610  code_search=0.6647
+INFO:name:E1/10  step 4736/8279  total=0.7829  lr=5.72e-05  |  flakiness_detect=1.0672  code_search=0.6613
+INFO:name:E1/10  step 4768/8279  total=0.7806  lr=5.76e-05  |  flakiness_detect=1.0662  code_search=0.6582
+INFO:name:E1/10  step 4800/8279  total=0.7799  lr=5.80e-05  |  flakiness_detect=1.0711  code_search=0.6549
+INFO:name:E1/10  step 4832/8279  total=0.7764  lr=5.84e-05  |  flakiness_detect=1.0705  code_search=0.6507
+INFO:name:E1/10  step 4864/8279  total=0.7735  lr=5.88e-05  |  flakiness_detect=1.0663  code_search=0.6479
+INFO:name:E1/10  step 4896/8279  total=0.7698  lr=5.91e-05  |  flakiness_detect=1.0625  code_search=0.6443
+INFO:name:E1/10  step 4928/8279  total=0.7658  lr=5.95e-05  |  flakiness_detect=1.0572  code_search=0.6410
+INFO:name:E1/10  step 4960/8279  total=0.7634  lr=5.99e-05  |  flakiness_detect=1.0566  code_search=0.6377
+INFO:name:E1/10  step 4992/8279  total=0.7616  lr=6.03e-05  |  flakiness_detect=1.0558  code_search=0.6351
+INFO:name:E1/10  step 5024/8279  total=0.7594  lr=6.07e-05  |  flakiness_detect=1.0556  code_search=0.6322
+INFO:name:E1/10  step 5056/8279  total=0.7568  lr=6.11e-05  |  flakiness_detect=1.0522  code_search=0.6294
+INFO:name:E1/10  step 5088/8279  total=0.7532  lr=6.15e-05  |  flakiness_detect=1.0483  code_search=0.6261
+INFO:name:E1/10  step 5120/8279  total=0.7511  lr=6.18e-05  |  flakiness_detect=1.0493  code_search=0.6229
+INFO:name:E1/10  step 5152/8279  total=0.7490  lr=6.22e-05  |  flakiness_detect=1.0498  code_search=0.6198
+INFO:name:E1/10  step 5184/8279  total=0.7484  lr=6.26e-05  |  flakiness_detect=1.0545  code_search=0.6168
+INFO:name:E1/10  step 5216/8279  total=0.7454  lr=6.30e-05  |  flakiness_detect=1.0501  code_search=0.6141
+INFO:name:E1/10  step 5248/8279  total=0.7496  lr=6.34e-05  |  flakiness_detect=1.0683  code_search=0.6117
+INFO:name:E1/10  step 5280/8279  total=0.7464  lr=6.38e-05  |  flakiness_detect=1.0661  code_search=0.6085
+INFO:name:E1/10  step 5312/8279  total=0.7437  lr=6.42e-05  |  flakiness_detect=1.0642  code_search=0.6055
+INFO:name:E1/10  step 5344/8279  total=0.7416  lr=6.45e-05  |  flakiness_detect=1.0643  code_search=0.6024
+INFO:name:E1/10  step 5376/8279  total=0.7389  lr=6.49e-05  |  flakiness_detect=1.0642  code_search=0.5991
+INFO:name:E1/10  step 5408/8279  total=0.7366  lr=6.53e-05  |  flakiness_detect=1.0623  code_search=0.5965
+INFO:name:E1/10  step 5440/8279  total=0.7340  lr=6.57e-05  |  flakiness_detect=1.0606  code_search=0.5935
+INFO:name:E1/10  step 5472/8279  total=0.7322  lr=6.61e-05  |  flakiness_detect=1.0591  code_search=0.5912
+INFO:name:E1/10  step 5504/8279  total=0.7296  lr=6.65e-05  |  flakiness_detect=1.0554  code_search=0.5888
+INFO:name:E1/10  step 5536/8279  total=0.7262  lr=6.69e-05  |  flakiness_detect=1.0506  code_search=0.5861
+INFO:name:E1/10  step 5568/8279  total=0.7232  lr=6.73e-05  |  flakiness_detect=1.0470  code_search=0.5833
+INFO:name:E1/10  step 5600/8279  total=0.7198  lr=6.76e-05  |  flakiness_detect=1.0446  code_search=0.5799
+INFO:name:E1/10  step 5632/8279  total=0.7170  lr=6.80e-05  |  flakiness_detect=1.0418  code_search=0.5773
+INFO:name:E1/10  step 5664/8279  total=0.7152  lr=6.84e-05  |  flakiness_detect=1.0405  code_search=0.5750
+INFO:name:E1/10  step 5696/8279  total=0.7149  lr=6.88e-05  |  flakiness_detect=1.0452  code_search=0.5726
+INFO:name:E1/10  step 5728/8279  total=0.7130  lr=6.92e-05  |  flakiness_detect=1.0435  code_search=0.5705
+INFO:name:E1/10  step 5760/8279  total=0.7108  lr=6.96e-05  |  flakiness_detect=1.0422  code_search=0.5680
+INFO:name:E1/10  step 5792/8279  total=0.7078  lr=7.00e-05  |  flakiness_detect=1.0399  code_search=0.5651
+INFO:name:E1/10  step 5824/8279  total=0.7050  lr=7.03e-05  |  flakiness_detect=1.0378  code_search=0.5623
+INFO:name:E1/10  step 5856/8279  total=0.7036  lr=7.07e-05  |  flakiness_detect=1.0387  code_search=0.5600
+INFO:name:E1/10  step 5888/8279  total=0.7033  lr=7.11e-05  |  flakiness_detect=1.0411  code_search=0.5580
+INFO:name:E1/10  step 5920/8279  total=0.7010  lr=7.15e-05  |  flakiness_detect=1.0388  code_search=0.5556
+INFO:name:E1/10  step 5952/8279  total=0.6991  lr=7.19e-05  |  flakiness_detect=1.0374  code_search=0.5534
+INFO:name:E1/10  step 5984/8279  total=0.6969  lr=7.23e-05  |  flakiness_detect=1.0355  code_search=0.5511
+INFO:name:E1/10  step 6016/8279  total=0.6952  lr=7.27e-05  |  flakiness_detect=1.0356  code_search=0.5488
+INFO:name:E1/10  step 6048/8279  total=0.6933  lr=7.31e-05  |  flakiness_detect=1.0337  code_search=0.5467
+INFO:name:E1/10  step 6080/8279  total=0.6912  lr=7.34e-05  |  flakiness_detect=1.0306  code_search=0.5448
+INFO:name:E1/10  step 6112/8279  total=0.6893  lr=7.38e-05  |  flakiness_detect=1.0282  code_search=0.5428
+INFO:name:E1/10  step 6144/8279  total=0.6897  lr=7.42e-05  |  flakiness_detect=1.0314  code_search=0.5412
+INFO:name:E1/10  step 6176/8279  total=0.6870  lr=7.46e-05  |  flakiness_detect=1.0306  code_search=0.5384
+INFO:name:E1/10  step 6208/8279  total=0.6858  lr=7.50e-05  |  flakiness_detect=1.0314  code_search=0.5363
+INFO:name:E1/10  step 6240/8279  total=0.6837  lr=7.54e-05  |  flakiness_detect=1.0290  code_search=0.5343
+INFO:name:E1/10  step 6272/8279  total=0.6823  lr=7.58e-05  |  flakiness_detect=1.0270  code_search=0.5327
+INFO:name:E1/10  step 6304/8279  total=0.6803  lr=7.61e-05  |  flakiness_detect=1.0252  code_search=0.5306
+INFO:name:E1/10  step 6336/8279  total=0.6777  lr=7.65e-05  |  flakiness_detect=1.0222  code_search=0.5285
+INFO:name:E1/10  step 6368/8279  total=0.6757  lr=7.69e-05  |  flakiness_detect=1.0226  code_search=0.5259
+INFO:name:E1/10  step 6400/8279  total=0.6752  lr=7.73e-05  |  flakiness_detect=1.0253  code_search=0.5240
+INFO:name:E1/10  step 6432/8279  total=0.6740  lr=7.77e-05  |  flakiness_detect=1.0241  code_search=0.5223
+INFO:name:E1/10  step 6464/8279  total=0.6714  lr=7.81e-05  |  flakiness_detect=1.0215  code_search=0.5201
+INFO:name:E1/10  step 6496/8279  total=0.6699  lr=7.85e-05  |  flakiness_detect=1.0214  code_search=0.5180
+INFO:name:E1/10  step 6528/8279  total=0.6679  lr=7.89e-05  |  flakiness_detect=1.0198  code_search=0.5159
+INFO:name:E1/10  step 6560/8279  total=0.6679  lr=7.92e-05  |  flakiness_detect=1.0226  code_search=0.5142
+INFO:name:E1/10  step 6592/8279  total=0.6658  lr=7.96e-05  |  flakiness_detect=1.0227  code_search=0.5118
+INFO:name:E1/10  step 6624/8279  total=0.6651  lr=8.00e-05  |  flakiness_detect=1.0207  code_search=0.5106
+INFO:name:E1/10  step 6656/8279  total=0.6642  lr=8.04e-05  |  flakiness_detect=1.0222  code_search=0.5087
+INFO:name:E1/10  step 6688/8279  total=0.6618  lr=8.08e-05  |  flakiness_detect=1.0201  code_search=0.5065
+INFO:name:E1/10  step 6720/8279  total=0.6599  lr=8.12e-05  |  flakiness_detect=1.0192  code_search=0.5044
+INFO:name:E1/10  step 6752/8279  total=0.6597  lr=8.16e-05  |  flakiness_detect=1.0221  code_search=0.5027
+INFO:name:E1/10  step 6784/8279  total=0.6572  lr=8.19e-05  |  flakiness_detect=1.0203  code_search=0.5005
+INFO:name:E1/10  step 6816/8279  total=0.6551  lr=8.23e-05  |  flakiness_detect=1.0189  code_search=0.4984
+INFO:name:E1/10  step 6848/8279  total=0.6529  lr=8.27e-05  |  flakiness_detect=1.0158  code_search=0.4967
+INFO:name:E1/10  step 6880/8279  total=0.6524  lr=8.31e-05  |  flakiness_detect=1.0179  code_search=0.4951
+INFO:name:E1/10  step 6912/8279  total=0.6505  lr=8.35e-05  |  flakiness_detect=1.0166  code_search=0.4931
+INFO:name:E1/10  step 6944/8279  total=0.6487  lr=8.39e-05  |  flakiness_detect=1.0160  code_search=0.4911
+INFO:name:E1/10  step 6976/8279  total=0.6467  lr=8.43e-05  |  flakiness_detect=1.0146  code_search=0.4892
+INFO:name:E1/10  step 7008/8279  total=0.6455  lr=8.46e-05  |  flakiness_detect=1.0154  code_search=0.4873
+INFO:name:E1/10  step 7040/8279  total=0.6440  lr=8.50e-05  |  flakiness_detect=1.0123  code_search=0.4860
+INFO:name:E1/10  step 7072/8279  total=0.6427  lr=8.54e-05  |  flakiness_detect=1.0113  code_search=0.4844
+INFO:name:E1/10  step 7104/8279  total=0.6408  lr=8.58e-05  |  flakiness_detect=1.0089  code_search=0.4828
+INFO:name:E1/10  step 7136/8279  total=0.6392  lr=8.62e-05  |  flakiness_detect=1.0083  code_search=0.4810
+INFO:name:E1/10  step 7168/8279  total=0.6385  lr=8.66e-05  |  flakiness_detect=1.0104  code_search=0.4794
+INFO:name:E1/10  step 7200/8279  total=0.6366  lr=8.70e-05  |  flakiness_detect=1.0082  code_search=0.4777
+INFO:name:E1/10  step 7232/8279  total=0.6362  lr=8.74e-05  |  flakiness_detect=1.0093  code_search=0.4763
+INFO:name:E1/10  step 7264/8279  total=0.6343  lr=8.77e-05  |  flakiness_detect=1.0082  code_search=0.4744
+INFO:name:E1/10  step 7296/8279  total=0.6325  lr=8.81e-05  |  flakiness_detect=1.0054  code_search=0.4730
+INFO:name:E1/10  step 7328/8279  total=0.6304  lr=8.85e-05  |  flakiness_detect=1.0029  code_search=0.4713
+INFO:name:E1/10  step 7360/8279  total=0.6288  lr=8.89e-05  |  flakiness_detect=1.0007  code_search=0.4698
+INFO:name:E1/10  step 7392/8279  total=0.6280  lr=8.93e-05  |  flakiness_detect=1.0006  code_search=0.4684
+INFO:name:E1/10  step 7424/8279  total=0.6268  lr=8.97e-05  |  flakiness_detect=1.0001  code_search=0.4669
+INFO:name:E1/10  step 7456/8279  total=0.6250  lr=9.01e-05  |  flakiness_detect=0.9980  code_search=0.4653
+INFO:name:E1/10  step 7488/8279  total=0.6230  lr=9.04e-05  |  flakiness_detect=0.9952  code_search=0.4638
+INFO:name:E1/10  step 7520/8279  total=0.6212  lr=9.08e-05  |  flakiness_detect=0.9937  code_search=0.4621
+INFO:name:E1/10  step 7552/8279  total=0.6206  lr=9.12e-05  |  flakiness_detect=0.9935  code_search=0.4609
+INFO:name:E1/10  step 7584/8279  total=0.6187  lr=9.16e-05  |  flakiness_detect=0.9907  code_search=0.4595
+INFO:name:E1/10  step 7616/8279  total=0.6168  lr=9.20e-05  |  flakiness_detect=0.9910  code_search=0.4574
+INFO:name:E1/10  step 7648/8279  total=0.6150  lr=9.24e-05  |  flakiness_detect=0.9886  code_search=0.4559
+INFO:name:E1/10  step 7680/8279  total=0.6143  lr=9.28e-05  |  flakiness_detect=0.9908  code_search=0.4543
+INFO:name:E1/10  step 7712/8279  total=0.6128  lr=9.32e-05  |  flakiness_detect=0.9898  code_search=0.4528
+INFO:name:E1/10  step 7744/8279  total=0.6114  lr=9.35e-05  |  flakiness_detect=0.9879  code_search=0.4516
+INFO:name:E1/10  step 7776/8279  total=0.6110  lr=9.39e-05  |  flakiness_detect=0.9892  code_search=0.4504
+INFO:name:E1/10  step 7808/8279  total=0.6097  lr=9.43e-05  |  flakiness_detect=0.9883  code_search=0.4489
+INFO:name:E1/10  step 7840/8279  total=0.6088  lr=9.47e-05  |  flakiness_detect=0.9888  code_search=0.4476
+INFO:name:E1/10  step 7872/8279  total=0.6076  lr=9.51e-05  |  flakiness_detect=0.9856  code_search=0.4466
+INFO:name:E1/10  step 7904/8279  total=0.6074  lr=9.55e-05  |  flakiness_detect=0.9878  code_search=0.4453
+INFO:name:E1/10  step 7936/8279  total=0.6054  lr=9.59e-05  |  flakiness_detect=0.9854  code_search=0.4437
+INFO:name:E1/10  step 7968/8279  total=0.6053  lr=9.62e-05  |  flakiness_detect=0.9870  code_search=0.4426
+INFO:name:E1/10  step 8000/8279  total=0.6043  lr=9.66e-05  |  flakiness_detect=0.9869  code_search=0.4413
+INFO:name:E1/10  step 8032/8279  total=0.6027  lr=9.70e-05  |  flakiness_detect=0.9858  code_search=0.4398
+INFO:name:E1/10  step 8064/8279  total=0.6008  lr=9.74e-05  |  flakiness_detect=0.9838  code_search=0.4383
+INFO:name:E1/10  step 8096/8279  total=0.6036  lr=9.78e-05  |  flakiness_detect=0.9946  code_search=0.4373
+INFO:name:E1/10  step 8128/8279  total=0.6022  lr=9.82e-05  |  flakiness_detect=0.9935  code_search=0.4359
+INFO:name:E1/10  step 8160/8279  total=0.6005  lr=9.86e-05  |  flakiness_detect=0.9908  code_search=0.4346
+INFO:name:E1/10  step 8192/8279  total=0.5988  lr=9.89e-05  |  flakiness_detect=0.9893  code_search=0.4331
+INFO:name:E1/10  step 8224/8279  total=0.5974  lr=9.93e-05  |  flakiness_detect=0.9888  code_search=0.4317
+INFO:name:E1/10  step 8256/8279  total=0.5962  lr=9.97e-05  |  flakiness_detect=0.9862  code_search=0.4306
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 1/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.9859    1.0000       9399382
+INFO:name:  code_search               0.4296    1.0000      31687368
+INFO:name:  TOTAL                     0.5952                41086750  (epoch)  cumulative=41086750
+INFO:name:  epoch_time=3700.2s  peak_gpu_memory=19.913GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.3930', 'code_search': '0.6070'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    flakiness_detect        grad_norm=  0.060086
+INFO:name:    code_search             grad_norm=  0.114904
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  flakiness_detect        code_search                +0.0078  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9778   0.6959    0.6852      0.7070   0.0797        -
+INFO:name:  code_search                   -        -         -         -        -   0.3322
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5141
+INFO:name:----------------------------------------------------------------------
+Saved 185 trainable params -> ./adapters/modernbert_flak_search_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.5141) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (19210 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9782   0.6735    0.6049      0.7597        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.2775
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E2/10  step 32/8279  total=0.0602  lr=1.00e-04  |  flakiness_detect=0.0945  code_search=0.0663
+INFO:name:E2/10  step 64/8279  total=0.1142  lr=9.99e-05  |  flakiness_detect=0.2269  code_search=0.0772
+INFO:name:E2/10  step 96/8279  total=0.1193  lr=9.99e-05  |  flakiness_detect=0.2262  code_search=0.0766
+INFO:name:E2/10  step 128/8279  total=0.1646  lr=9.98e-05  |  flakiness_detect=0.3231  code_search=0.0871
+INFO:name:E2/10  step 160/8279  total=0.3609  lr=9.98e-05  |  flakiness_detect=0.8184  code_search=0.0924
+INFO:name:E2/10  step 192/8279  total=0.3363  lr=9.97e-05  |  flakiness_detect=0.7402  code_search=0.0946
+INFO:name:E2/10  step 224/8279  total=0.3226  lr=9.97e-05  |  flakiness_detect=0.6770  code_search=0.0952
+INFO:name:E2/10  step 256/8279  total=0.3582  lr=9.97e-05  |  flakiness_detect=0.7654  code_search=0.0975
+INFO:name:E2/10  step 288/8279  total=0.3806  lr=9.96e-05  |  flakiness_detect=0.7525  code_search=0.1024
+INFO:name:E2/10  step 320/8279  total=0.3797  lr=9.96e-05  |  flakiness_detect=0.7740  code_search=0.1024
+INFO:name:E2/10  step 352/8279  total=0.3871  lr=9.95e-05  |  flakiness_detect=0.7989  code_search=0.1014
+INFO:name:E2/10  step 384/8279  total=0.3593  lr=9.95e-05  |  flakiness_detect=0.7578  code_search=0.1014
+INFO:name:E2/10  step 416/8279  total=0.3796  lr=9.94e-05  |  flakiness_detect=0.8106  code_search=0.1011
+INFO:name:E2/10  step 448/8279  total=0.3628  lr=9.94e-05  |  flakiness_detect=0.7524  code_search=0.1003
+INFO:name:E2/10  step 480/8279  total=0.3676  lr=9.94e-05  |  flakiness_detect=0.7638  code_search=0.0991
+INFO:name:E2/10  step 512/8279  total=0.3485  lr=9.93e-05  |  flakiness_detect=0.7412  code_search=0.0985
+INFO:name:E2/10  step 544/8279  total=0.3686  lr=9.93e-05  |  flakiness_detect=0.7882  code_search=0.0976
+INFO:name:E2/10  step 576/8279  total=0.3746  lr=9.92e-05  |  flakiness_detect=0.8062  code_search=0.0964
+INFO:name:E2/10  step 608/8279  total=0.3648  lr=9.92e-05  |  flakiness_detect=0.7926  code_search=0.0967
+INFO:name:E2/10  step 640/8279  total=0.3550  lr=9.91e-05  |  flakiness_detect=0.7791  code_search=0.0956
+INFO:name:E2/10  step 672/8279  total=0.3502  lr=9.91e-05  |  flakiness_detect=0.7689  code_search=0.0949
+INFO:name:E2/10  step 704/8279  total=0.3450  lr=9.91e-05  |  flakiness_detect=0.7603  code_search=0.0949
+INFO:name:E2/10  step 736/8279  total=0.3467  lr=9.90e-05  |  flakiness_detect=0.7589  code_search=0.0944
+INFO:name:E2/10  step 768/8279  total=0.3479  lr=9.90e-05  |  flakiness_detect=0.7462  code_search=0.0951
+INFO:name:E2/10  step 800/8279  total=0.3393  lr=9.89e-05  |  flakiness_detect=0.7234  code_search=0.0956
+INFO:name:E2/10  step 832/8279  total=0.3349  lr=9.89e-05  |  flakiness_detect=0.7062  code_search=0.0979
+INFO:name:E2/10  step 864/8279  total=0.3327  lr=9.88e-05  |  flakiness_detect=0.7105  code_search=0.0975
+INFO:name:E2/10  step 896/8279  total=0.3255  lr=9.88e-05  |  flakiness_detect=0.6927  code_search=0.0984
+INFO:name:E2/10  step 928/8279  total=0.3334  lr=9.88e-05  |  flakiness_detect=0.7027  code_search=0.0992
+INFO:name:E2/10  step 960/8279  total=0.3282  lr=9.87e-05  |  flakiness_detect=0.6920  code_search=0.0985
+INFO:name:E2/10  step 992/8279  total=0.3272  lr=9.87e-05  |  flakiness_detect=0.6889  code_search=0.0981
+INFO:name:E2/10  step 1024/8279  total=0.3225  lr=9.86e-05  |  flakiness_detect=0.6798  code_search=0.0989
+INFO:name:E2/10  step 1056/8279  total=0.3163  lr=9.86e-05  |  flakiness_detect=0.6656  code_search=0.0990
+INFO:name:E2/10  step 1088/8279  total=0.3208  lr=9.85e-05  |  flakiness_detect=0.6877  code_search=0.0988
+INFO:name:E2/10  step 1120/8279  total=0.3174  lr=9.85e-05  |  flakiness_detect=0.6715  code_search=0.0995
+INFO:name:E2/10  step 1152/8279  total=0.3167  lr=9.85e-05  |  flakiness_detect=0.6763  code_search=0.1011
+INFO:name:E2/10  step 1184/8279  total=0.3154  lr=9.84e-05  |  flakiness_detect=0.6617  code_search=0.1020
+INFO:name:E2/10  step 1216/8279  total=0.3341  lr=9.84e-05  |  flakiness_detect=0.7079  code_search=0.1023
+INFO:name:E2/10  step 1248/8279  total=0.3339  lr=9.83e-05  |  flakiness_detect=0.6975  code_search=0.1022
+INFO:name:E2/10  step 1280/8279  total=0.3345  lr=9.83e-05  |  flakiness_detect=0.7002  code_search=0.1019
+INFO:name:E2/10  step 1312/8279  total=0.3285  lr=9.82e-05  |  flakiness_detect=0.6933  code_search=0.1021
+INFO:name:E2/10  step 1344/8279  total=0.3270  lr=9.82e-05  |  flakiness_detect=0.6926  code_search=0.1014
+INFO:name:E2/10  step 1376/8279  total=0.3247  lr=9.82e-05  |  flakiness_detect=0.6859  code_search=0.1016
+INFO:name:E2/10  step 1408/8279  total=0.3305  lr=9.81e-05  |  flakiness_detect=0.6993  code_search=0.1013
+INFO:name:E2/10  step 1440/8279  total=0.3256  lr=9.81e-05  |  flakiness_detect=0.6902  code_search=0.1023
+INFO:name:E2/10  step 1472/8279  total=0.3252  lr=9.80e-05  |  flakiness_detect=0.6851  code_search=0.1023
+INFO:name:E2/10  step 1504/8279  total=0.3223  lr=9.80e-05  |  flakiness_detect=0.6842  code_search=0.1027
+INFO:name:E2/10  step 1536/8279  total=0.3237  lr=9.79e-05  |  flakiness_detect=0.6820  code_search=0.1029
+INFO:name:E2/10  step 1568/8279  total=0.3223  lr=9.79e-05  |  flakiness_detect=0.6802  code_search=0.1033
+INFO:name:E2/10  step 1600/8279  total=0.3313  lr=9.79e-05  |  flakiness_detect=0.7031  code_search=0.1030
+INFO:name:E2/10  step 1632/8279  total=0.3296  lr=9.78e-05  |  flakiness_detect=0.6958  code_search=0.1027
+INFO:name:E2/10  step 1664/8279  total=0.3244  lr=9.78e-05  |  flakiness_detect=0.6787  code_search=0.1023
+INFO:name:E2/10  step 1696/8279  total=0.3249  lr=9.77e-05  |  flakiness_detect=0.6834  code_search=0.1022
+INFO:name:E2/10  step 1728/8279  total=0.3203  lr=9.77e-05  |  flakiness_detect=0.6768  code_search=0.1018
+INFO:name:E2/10  step 1760/8279  total=0.3213  lr=9.76e-05  |  flakiness_detect=0.6799  code_search=0.1018
+INFO:name:E2/10  step 1792/8279  total=0.3195  lr=9.76e-05  |  flakiness_detect=0.6719  code_search=0.1020
+INFO:name:E2/10  step 1824/8279  total=0.3218  lr=9.76e-05  |  flakiness_detect=0.6809  code_search=0.1015
+INFO:name:E2/10  step 1856/8279  total=0.3195  lr=9.75e-05  |  flakiness_detect=0.6760  code_search=0.1014
+INFO:name:E2/10  step 1888/8279  total=0.3244  lr=9.75e-05  |  flakiness_detect=0.6897  code_search=0.1012
+INFO:name:E2/10  step 1920/8279  total=0.3249  lr=9.74e-05  |  flakiness_detect=0.6866  code_search=0.1014
+INFO:name:E2/10  step 1952/8279  total=0.3224  lr=9.74e-05  |  flakiness_detect=0.6793  code_search=0.1010
+INFO:name:E2/10  step 1984/8279  total=0.3223  lr=9.73e-05  |  flakiness_detect=0.6821  code_search=0.1005
+INFO:name:E2/10  step 2016/8279  total=0.3195  lr=9.73e-05  |  flakiness_detect=0.6737  code_search=0.1003
+INFO:name:E2/10  step 2048/8279  total=0.3163  lr=9.73e-05  |  flakiness_detect=0.6654  code_search=0.1004
+INFO:name:E2/10  step 2080/8279  total=0.3151  lr=9.72e-05  |  flakiness_detect=0.6616  code_search=0.1006
+INFO:name:E2/10  step 2112/8279  total=0.3132  lr=9.72e-05  |  flakiness_detect=0.6577  code_search=0.1004
+INFO:name:E2/10  step 2144/8279  total=0.3112  lr=9.71e-05  |  flakiness_detect=0.6493  code_search=0.1005
+INFO:name:E2/10  step 2176/8279  total=0.3131  lr=9.71e-05  |  flakiness_detect=0.6534  code_search=0.1004
+INFO:name:E2/10  step 2208/8279  total=0.3121  lr=9.70e-05  |  flakiness_detect=0.6505  code_search=0.1005
+INFO:name:E2/10  step 2240/8279  total=0.3104  lr=9.70e-05  |  flakiness_detect=0.6466  code_search=0.0999
+INFO:name:E2/10  step 2272/8279  total=0.3090  lr=9.70e-05  |  flakiness_detect=0.6455  code_search=0.1000
+INFO:name:E2/10  step 2304/8279  total=0.3114  lr=9.69e-05  |  flakiness_detect=0.6518  code_search=0.0998
+INFO:name:E2/10  step 2336/8279  total=0.3098  lr=9.69e-05  |  flakiness_detect=0.6467  code_search=0.0997
+INFO:name:E2/10  step 2368/8279  total=0.3073  lr=9.68e-05  |  flakiness_detect=0.6385  code_search=0.0997
+INFO:name:E2/10  step 2400/8279  total=0.3081  lr=9.68e-05  |  flakiness_detect=0.6376  code_search=0.0997
+INFO:name:E2/10  step 2432/8279  total=0.3050  lr=9.67e-05  |  flakiness_detect=0.6315  code_search=0.0997
+INFO:name:E2/10  step 2464/8279  total=0.3029  lr=9.67e-05  |  flakiness_detect=0.6292  code_search=0.0996
+INFO:name:E2/10  step 2496/8279  total=0.3061  lr=9.67e-05  |  flakiness_detect=0.6380  code_search=0.0998
+INFO:name:E2/10  step 2528/8279  total=0.3036  lr=9.66e-05  |  flakiness_detect=0.6300  code_search=0.0998
+INFO:name:E2/10  step 2560/8279  total=0.3083  lr=9.66e-05  |  flakiness_detect=0.6429  code_search=0.0994
+INFO:name:E2/10  step 2592/8279  total=0.3076  lr=9.65e-05  |  flakiness_detect=0.6418  code_search=0.0992
+INFO:name:E2/10  step 2624/8279  total=0.3052  lr=9.65e-05  |  flakiness_detect=0.6378  code_search=0.0986
+INFO:name:E2/10  step 2656/8279  total=0.3075  lr=9.64e-05  |  flakiness_detect=0.6458  code_search=0.0988
+INFO:name:E2/10  step 2688/8279  total=0.3055  lr=9.64e-05  |  flakiness_detect=0.6424  code_search=0.0991
+INFO:name:E2/10  step 2720/8279  total=0.3058  lr=9.63e-05  |  flakiness_detect=0.6424  code_search=0.0995
+INFO:name:E2/10  step 2752/8279  total=0.3055  lr=9.63e-05  |  flakiness_detect=0.6405  code_search=0.0995
+INFO:name:E2/10  step 2784/8279  total=0.3149  lr=9.63e-05  |  flakiness_detect=0.6637  code_search=0.0995
+INFO:name:E2/10  step 2816/8279  total=0.3141  lr=9.62e-05  |  flakiness_detect=0.6610  code_search=0.0997
+INFO:name:E2/10  step 2848/8279  total=0.3128  lr=9.62e-05  |  flakiness_detect=0.6567  code_search=0.0997
+INFO:name:E2/10  step 2880/8279  total=0.3112  lr=9.61e-05  |  flakiness_detect=0.6530  code_search=0.0999
+INFO:name:E2/10  step 2912/8279  total=0.3084  lr=9.61e-05  |  flakiness_detect=0.6443  code_search=0.1000
+INFO:name:E2/10  step 2944/8279  total=0.3087  lr=9.60e-05  |  flakiness_detect=0.6434  code_search=0.0998
+INFO:name:E2/10  step 2976/8279  total=0.3093  lr=9.60e-05  |  flakiness_detect=0.6438  code_search=0.0998
+INFO:name:E2/10  step 3008/8279  total=0.3083  lr=9.60e-05  |  flakiness_detect=0.6404  code_search=0.0998
+INFO:name:E2/10  step 3040/8279  total=0.3069  lr=9.59e-05  |  flakiness_detect=0.6360  code_search=0.0999
+INFO:name:E2/10  step 3072/8279  total=0.3075  lr=9.59e-05  |  flakiness_detect=0.6385  code_search=0.1000
+INFO:name:E2/10  step 3104/8279  total=0.3051  lr=9.58e-05  |  flakiness_detect=0.6328  code_search=0.1001
+INFO:name:E2/10  step 3136/8279  total=0.3038  lr=9.58e-05  |  flakiness_detect=0.6289  code_search=0.1000
+INFO:name:E2/10  step 3168/8279  total=0.3047  lr=9.57e-05  |  flakiness_detect=0.6294  code_search=0.1002
+INFO:name:E2/10  step 3200/8279  total=0.3058  lr=9.57e-05  |  flakiness_detect=0.6300  code_search=0.1002
+INFO:name:E2/10  step 3232/8279  total=0.3032  lr=9.57e-05  |  flakiness_detect=0.6231  code_search=0.0999
+INFO:name:E2/10  step 3264/8279  total=0.3031  lr=9.56e-05  |  flakiness_detect=0.6222  code_search=0.0998
+INFO:name:E2/10  step 3296/8279  total=0.3026  lr=9.56e-05  |  flakiness_detect=0.6213  code_search=0.0997
+INFO:name:E2/10  step 3328/8279  total=0.3003  lr=9.55e-05  |  flakiness_detect=0.6157  code_search=0.0997
+INFO:name:E2/10  step 3360/8279  total=0.2994  lr=9.55e-05  |  flakiness_detect=0.6139  code_search=0.0997
+INFO:name:E2/10  step 3392/8279  total=0.2971  lr=9.54e-05  |  flakiness_detect=0.6094  code_search=0.0995
+INFO:name:E2/10  step 3424/8279  total=0.2976  lr=9.54e-05  |  flakiness_detect=0.6102  code_search=0.0999
+INFO:name:E2/10  step 3456/8279  total=0.2994  lr=9.54e-05  |  flakiness_detect=0.6143  code_search=0.0999
+INFO:name:E2/10  step 3488/8279  total=0.2973  lr=9.53e-05  |  flakiness_detect=0.6129  code_search=0.0998
+INFO:name:E2/10  step 3520/8279  total=0.2959  lr=9.53e-05  |  flakiness_detect=0.6111  code_search=0.1001
+INFO:name:E2/10  step 3552/8279  total=0.2941  lr=9.52e-05  |  flakiness_detect=0.6064  code_search=0.1001
+INFO:name:E2/10  step 3584/8279  total=0.2920  lr=9.52e-05  |  flakiness_detect=0.6042  code_search=0.1002
+INFO:name:E2/10  step 3616/8279  total=0.2922  lr=9.51e-05  |  flakiness_detect=0.6043  code_search=0.1003
+INFO:name:E2/10  step 3648/8279  total=0.2909  lr=9.51e-05  |  flakiness_detect=0.6006  code_search=0.1007
+INFO:name:E2/10  step 3680/8279  total=0.2906  lr=9.51e-05  |  flakiness_detect=0.5986  code_search=0.1007
+INFO:name:E2/10  step 3712/8279  total=0.2890  lr=9.50e-05  |  flakiness_detect=0.5943  code_search=0.1008
+INFO:name:E2/10  step 3744/8279  total=0.2887  lr=9.50e-05  |  flakiness_detect=0.5960  code_search=0.1007
+INFO:name:E2/10  step 3776/8279  total=0.2884  lr=9.49e-05  |  flakiness_detect=0.5948  code_search=0.1008
+INFO:name:E2/10  step 3808/8279  total=0.2927  lr=9.49e-05  |  flakiness_detect=0.6034  code_search=0.1008
+INFO:name:E2/10  step 3840/8279  total=0.2924  lr=9.48e-05  |  flakiness_detect=0.6033  code_search=0.1010
+INFO:name:E2/10  step 3872/8279  total=0.2917  lr=9.48e-05  |  flakiness_detect=0.6026  code_search=0.1008
+INFO:name:E2/10  step 3904/8279  total=0.2897  lr=9.48e-05  |  flakiness_detect=0.5975  code_search=0.1006
+INFO:name:E2/10  step 3936/8279  total=0.2879  lr=9.47e-05  |  flakiness_detect=0.5952  code_search=0.1008
+INFO:name:E2/10  step 3968/8279  total=0.2881  lr=9.47e-05  |  flakiness_detect=0.5941  code_search=0.1007
+INFO:name:E2/10  step 4000/8279  total=0.2902  lr=9.46e-05  |  flakiness_detect=0.5961  code_search=0.1008
+INFO:name:E2/10  step 4032/8279  total=0.2885  lr=9.46e-05  |  flakiness_detect=0.5914  code_search=0.1008
+INFO:name:E2/10  step 4064/8279  total=0.2877  lr=9.45e-05  |  flakiness_detect=0.5909  code_search=0.1010
+INFO:name:E2/10  step 4096/8279  total=0.2872  lr=9.45e-05  |  flakiness_detect=0.5885  code_search=0.1010
+INFO:name:E2/10  step 4128/8279  total=0.2856  lr=9.45e-05  |  flakiness_detect=0.5871  code_search=0.1015
+INFO:name:E2/10  step 4160/8279  total=0.2841  lr=9.44e-05  |  flakiness_detect=0.5841  code_search=0.1014
+INFO:name:E2/10  step 4192/8279  total=0.2849  lr=9.44e-05  |  flakiness_detect=0.5867  code_search=0.1013
+INFO:name:E2/10  step 4224/8279  total=0.2863  lr=9.43e-05  |  flakiness_detect=0.5876  code_search=0.1015
+INFO:name:E2/10  step 4256/8279  total=0.2846  lr=9.43e-05  |  flakiness_detect=0.5823  code_search=0.1016
+INFO:name:E2/10  step 4288/8279  total=0.2846  lr=9.42e-05  |  flakiness_detect=0.5822  code_search=0.1015
+INFO:name:E2/10  step 4320/8279  total=0.2829  lr=9.42e-05  |  flakiness_detect=0.5793  code_search=0.1014
+INFO:name:E2/10  step 4352/8279  total=0.2820  lr=9.42e-05  |  flakiness_detect=0.5752  code_search=0.1018
+INFO:name:E2/10  step 4384/8279  total=0.2820  lr=9.41e-05  |  flakiness_detect=0.5744  code_search=0.1019
+INFO:name:E2/10  step 4416/8279  total=0.2810  lr=9.41e-05  |  flakiness_detect=0.5721  code_search=0.1017
+INFO:name:E2/10  step 4448/8279  total=0.2799  lr=9.40e-05  |  flakiness_detect=0.5691  code_search=0.1016
+INFO:name:E2/10  step 4480/8279  total=0.2801  lr=9.40e-05  |  flakiness_detect=0.5693  code_search=0.1015
+INFO:name:E2/10  step 4512/8279  total=0.2797  lr=9.39e-05  |  flakiness_detect=0.5688  code_search=0.1014
+INFO:name:E2/10  step 4544/8279  total=0.2788  lr=9.39e-05  |  flakiness_detect=0.5670  code_search=0.1012
+INFO:name:E2/10  step 4576/8279  total=0.2772  lr=9.39e-05  |  flakiness_detect=0.5618  code_search=0.1012
+INFO:name:E2/10  step 4608/8279  total=0.2792  lr=9.38e-05  |  flakiness_detect=0.5678  code_search=0.1011
+INFO:name:E2/10  step 4640/8279  total=0.2776  lr=9.38e-05  |  flakiness_detect=0.5633  code_search=0.1008
+INFO:name:E2/10  step 4672/8279  total=0.2788  lr=9.37e-05  |  flakiness_detect=0.5656  code_search=0.1006
+INFO:name:E2/10  step 4704/8279  total=0.2811  lr=9.37e-05  |  flakiness_detect=0.5712  code_search=0.1007
+INFO:name:E2/10  step 4736/8279  total=0.2795  lr=9.36e-05  |  flakiness_detect=0.5672  code_search=0.1007
+INFO:name:E2/10  step 4768/8279  total=0.2811  lr=9.36e-05  |  flakiness_detect=0.5705  code_search=0.1007
+INFO:name:E2/10  step 4800/8279  total=0.2817  lr=9.36e-05  |  flakiness_detect=0.5713  code_search=0.1006
+INFO:name:E2/10  step 4832/8279  total=0.2807  lr=9.35e-05  |  flakiness_detect=0.5702  code_search=0.1007
+INFO:name:E2/10  step 4864/8279  total=0.2795  lr=9.35e-05  |  flakiness_detect=0.5660  code_search=0.1008
+INFO:name:E2/10  step 4896/8279  total=0.2788  lr=9.34e-05  |  flakiness_detect=0.5646  code_search=0.1008
+INFO:name:E2/10  step 4928/8279  total=0.2779  lr=9.34e-05  |  flakiness_detect=0.5626  code_search=0.1009
+INFO:name:E2/10  step 4960/8279  total=0.2772  lr=9.33e-05  |  flakiness_detect=0.5607  code_search=0.1009
+INFO:name:E2/10  step 4992/8279  total=0.2760  lr=9.33e-05  |  flakiness_detect=0.5569  code_search=0.1008
+INFO:name:E2/10  step 5024/8279  total=0.2756  lr=9.33e-05  |  flakiness_detect=0.5561  code_search=0.1007
+INFO:name:E2/10  step 5056/8279  total=0.2754  lr=9.32e-05  |  flakiness_detect=0.5546  code_search=0.1007
+INFO:name:E2/10  step 5088/8279  total=0.2740  lr=9.32e-05  |  flakiness_detect=0.5514  code_search=0.1007
+INFO:name:E2/10  step 5120/8279  total=0.2737  lr=9.31e-05  |  flakiness_detect=0.5519  code_search=0.1005
+INFO:name:E2/10  step 5152/8279  total=0.2739  lr=9.31e-05  |  flakiness_detect=0.5526  code_search=0.1004
+INFO:name:E2/10  step 5184/8279  total=0.2730  lr=9.30e-05  |  flakiness_detect=0.5501  code_search=0.1003
+INFO:name:E2/10  step 5216/8279  total=0.2729  lr=9.30e-05  |  flakiness_detect=0.5491  code_search=0.1003
+INFO:name:E2/10  step 5248/8279  total=0.2733  lr=9.30e-05  |  flakiness_detect=0.5486  code_search=0.1004
+INFO:name:E2/10  step 5280/8279  total=0.2720  lr=9.29e-05  |  flakiness_detect=0.5462  code_search=0.1005
+INFO:name:E2/10  step 5312/8279  total=0.2712  lr=9.29e-05  |  flakiness_detect=0.5446  code_search=0.1004
+INFO:name:E2/10  step 5344/8279  total=0.2699  lr=9.28e-05  |  flakiness_detect=0.5416  code_search=0.1004
+INFO:name:E2/10  step 5376/8279  total=0.2685  lr=9.28e-05  |  flakiness_detect=0.5396  code_search=0.1003
+INFO:name:E2/10  step 5408/8279  total=0.2684  lr=9.27e-05  |  flakiness_detect=0.5389  code_search=0.1003
+INFO:name:E2/10  step 5440/8279  total=0.2674  lr=9.27e-05  |  flakiness_detect=0.5367  code_search=0.1003
+INFO:name:E2/10  step 5472/8279  total=0.2687  lr=9.27e-05  |  flakiness_detect=0.5387  code_search=0.1003
+INFO:name:E2/10  step 5504/8279  total=0.2694  lr=9.26e-05  |  flakiness_detect=0.5398  code_search=0.1002
+INFO:name:E2/10  step 5536/8279  total=0.2681  lr=9.26e-05  |  flakiness_detect=0.5372  code_search=0.1000
+INFO:name:E2/10  step 5568/8279  total=0.2680  lr=9.25e-05  |  flakiness_detect=0.5368  code_search=0.0999
+INFO:name:E2/10  step 5600/8279  total=0.2668  lr=9.25e-05  |  flakiness_detect=0.5353  code_search=0.0999
+INFO:name:E2/10  step 5632/8279  total=0.2656  lr=9.24e-05  |  flakiness_detect=0.5326  code_search=0.0999
+INFO:name:E2/10  step 5664/8279  total=0.2642  lr=9.24e-05  |  flakiness_detect=0.5290  code_search=0.0997
+INFO:name:E2/10  step 5696/8279  total=0.2629  lr=9.24e-05  |  flakiness_detect=0.5263  code_search=0.0995
+INFO:name:E2/10  step 5728/8279  total=0.2632  lr=9.23e-05  |  flakiness_detect=0.5265  code_search=0.0996
+INFO:name:E2/10  step 5760/8279  total=0.2630  lr=9.23e-05  |  flakiness_detect=0.5261  code_search=0.0996
+INFO:name:E2/10  step 5792/8279  total=0.2625  lr=9.22e-05  |  flakiness_detect=0.5262  code_search=0.0995
+INFO:name:E2/10  step 5824/8279  total=0.2613  lr=9.22e-05  |  flakiness_detect=0.5244  code_search=0.0994
+INFO:name:E2/10  step 5856/8279  total=0.2603  lr=9.21e-05  |  flakiness_detect=0.5217  code_search=0.0995
+INFO:name:E2/10  step 5888/8279  total=0.2599  lr=9.21e-05  |  flakiness_detect=0.5194  code_search=0.0996
+INFO:name:E2/10  step 5920/8279  total=0.2595  lr=9.21e-05  |  flakiness_detect=0.5185  code_search=0.0995
+INFO:name:E2/10  step 5952/8279  total=0.2587  lr=9.20e-05  |  flakiness_detect=0.5161  code_search=0.0996
+INFO:name:E2/10  step 5984/8279  total=0.2575  lr=9.20e-05  |  flakiness_detect=0.5136  code_search=0.0995
+INFO:name:E2/10  step 6016/8279  total=0.2564  lr=9.19e-05  |  flakiness_detect=0.5114  code_search=0.0995
+INFO:name:E2/10  step 6048/8279  total=0.2557  lr=9.19e-05  |  flakiness_detect=0.5093  code_search=0.0994
+INFO:name:E2/10  step 6080/8279  total=0.2546  lr=9.18e-05  |  flakiness_detect=0.5059  code_search=0.0993
+INFO:name:E2/10  step 6112/8279  total=0.2551  lr=9.18e-05  |  flakiness_detect=0.5066  code_search=0.0993
+INFO:name:E2/10  step 6144/8279  total=0.2554  lr=9.18e-05  |  flakiness_detect=0.5056  code_search=0.0994
+INFO:name:E2/10  step 6176/8279  total=0.2544  lr=9.17e-05  |  flakiness_detect=0.5048  code_search=0.0993
+INFO:name:E2/10  step 6208/8279  total=0.2533  lr=9.17e-05  |  flakiness_detect=0.5021  code_search=0.0994
+INFO:name:E2/10  step 6240/8279  total=0.2536  lr=9.16e-05  |  flakiness_detect=0.5026  code_search=0.0995
+INFO:name:E2/10  step 6272/8279  total=0.2529  lr=9.16e-05  |  flakiness_detect=0.5000  code_search=0.0995
+INFO:name:E2/10  step 6304/8279  total=0.2525  lr=9.15e-05  |  flakiness_detect=0.4989  code_search=0.0995
+INFO:name:E2/10  step 6336/8279  total=0.2530  lr=9.15e-05  |  flakiness_detect=0.5008  code_search=0.0996
+INFO:name:E2/10  step 6368/8279  total=0.2520  lr=9.15e-05  |  flakiness_detect=0.4996  code_search=0.0995
+INFO:name:E2/10  step 6400/8279  total=0.2518  lr=9.14e-05  |  flakiness_detect=0.4988  code_search=0.0995
+INFO:name:E2/10  step 6432/8279  total=0.2508  lr=9.14e-05  |  flakiness_detect=0.4955  code_search=0.0996
+INFO:name:E2/10  step 6464/8279  total=0.2503  lr=9.13e-05  |  flakiness_detect=0.4949  code_search=0.0996
+INFO:name:E2/10  step 6496/8279  total=0.2494  lr=9.13e-05  |  flakiness_detect=0.4929  code_search=0.0996
+INFO:name:E2/10  step 6528/8279  total=0.2490  lr=9.12e-05  |  flakiness_detect=0.4923  code_search=0.0995
+INFO:name:E2/10  step 6560/8279  total=0.2480  lr=9.12e-05  |  flakiness_detect=0.4888  code_search=0.0995
+INFO:name:E2/10  step 6592/8279  total=0.2470  lr=9.12e-05  |  flakiness_detect=0.4876  code_search=0.0995
+INFO:name:E2/10  step 6624/8279  total=0.2486  lr=9.11e-05  |  flakiness_detect=0.4895  code_search=0.0996
+INFO:name:E2/10  step 6656/8279  total=0.2476  lr=9.11e-05  |  flakiness_detect=0.4871  code_search=0.0995
+INFO:name:E2/10  step 6688/8279  total=0.2477  lr=9.10e-05  |  flakiness_detect=0.4881  code_search=0.0996
+INFO:name:E2/10  step 6720/8279  total=0.2470  lr=9.10e-05  |  flakiness_detect=0.4867  code_search=0.0995
+INFO:name:E2/10  step 6752/8279  total=0.2461  lr=9.09e-05  |  flakiness_detect=0.4843  code_search=0.0995
+INFO:name:E2/10  step 6784/8279  total=0.2452  lr=9.09e-05  |  flakiness_detect=0.4834  code_search=0.0994
+INFO:name:E2/10  step 6816/8279  total=0.2443  lr=9.09e-05  |  flakiness_detect=0.4823  code_search=0.0994
+INFO:name:E2/10  step 6848/8279  total=0.2434  lr=9.08e-05  |  flakiness_detect=0.4802  code_search=0.0993
+INFO:name:E2/10  step 6880/8279  total=0.2424  lr=9.08e-05  |  flakiness_detect=0.4777  code_search=0.0992
+INFO:name:E2/10  step 6912/8279  total=0.2416  lr=9.07e-05  |  flakiness_detect=0.4762  code_search=0.0993
+INFO:name:E2/10  step 6944/8279  total=0.2421  lr=9.07e-05  |  flakiness_detect=0.4780  code_search=0.0993
+INFO:name:E2/10  step 6976/8279  total=0.2417  lr=9.06e-05  |  flakiness_detect=0.4777  code_search=0.0994
+INFO:name:E2/10  step 7008/8279  total=0.2408  lr=9.06e-05  |  flakiness_detect=0.4760  code_search=0.0994
+INFO:name:E2/10  step 7040/8279  total=0.2399  lr=9.06e-05  |  flakiness_detect=0.4729  code_search=0.0993
+INFO:name:E2/10  step 7072/8279  total=0.2398  lr=9.05e-05  |  flakiness_detect=0.4723  code_search=0.0993
+INFO:name:E2/10  step 7104/8279  total=0.2395  lr=9.05e-05  |  flakiness_detect=0.4716  code_search=0.0993
+INFO:name:E2/10  step 7136/8279  total=0.2387  lr=9.04e-05  |  flakiness_detect=0.4704  code_search=0.0992
+INFO:name:E2/10  step 7168/8279  total=0.2396  lr=9.04e-05  |  flakiness_detect=0.4728  code_search=0.0993
+INFO:name:E2/10  step 7200/8279  total=0.2387  lr=9.03e-05  |  flakiness_detect=0.4709  code_search=0.0994
+INFO:name:E2/10  step 7232/8279  total=0.2393  lr=9.03e-05  |  flakiness_detect=0.4715  code_search=0.0993
+INFO:name:E2/10  step 7264/8279  total=0.2389  lr=9.03e-05  |  flakiness_detect=0.4715  code_search=0.0993
+INFO:name:E2/10  step 7296/8279  total=0.2380  lr=9.02e-05  |  flakiness_detect=0.4694  code_search=0.0991
+INFO:name:E2/10  step 7328/8279  total=0.2373  lr=9.02e-05  |  flakiness_detect=0.4684  code_search=0.0990
+INFO:name:E2/10  step 7360/8279  total=0.2373  lr=9.01e-05  |  flakiness_detect=0.4680  code_search=0.0989
+INFO:name:E2/10  step 7392/8279  total=0.2369  lr=9.01e-05  |  flakiness_detect=0.4667  code_search=0.0988
+INFO:name:E2/10  step 7424/8279  total=0.2368  lr=9.00e-05  |  flakiness_detect=0.4664  code_search=0.0989
+INFO:name:E2/10  step 7456/8279  total=0.2361  lr=9.00e-05  |  flakiness_detect=0.4648  code_search=0.0988
+INFO:name:E2/10  step 7488/8279  total=0.2353  lr=9.00e-05  |  flakiness_detect=0.4630  code_search=0.0988
+INFO:name:E2/10  step 7520/8279  total=0.2345  lr=8.99e-05  |  flakiness_detect=0.4616  code_search=0.0989
+INFO:name:E2/10  step 7552/8279  total=0.2338  lr=8.99e-05  |  flakiness_detect=0.4591  code_search=0.0989
+INFO:name:E2/10  step 7584/8279  total=0.2338  lr=8.98e-05  |  flakiness_detect=0.4594  code_search=0.0988
+INFO:name:E2/10  step 7616/8279  total=0.2330  lr=8.98e-05  |  flakiness_detect=0.4590  code_search=0.0987
+INFO:name:E2/10  step 7648/8279  total=0.2324  lr=8.97e-05  |  flakiness_detect=0.4576  code_search=0.0986
+INFO:name:E2/10  step 7680/8279  total=0.2317  lr=8.97e-05  |  flakiness_detect=0.4564  code_search=0.0986
+INFO:name:E2/10  step 7712/8279  total=0.2310  lr=8.96e-05  |  flakiness_detect=0.4555  code_search=0.0985
+INFO:name:E2/10  step 7744/8279  total=0.2303  lr=8.96e-05  |  flakiness_detect=0.4536  code_search=0.0985
+INFO:name:E2/10  step 7776/8279  total=0.2302  lr=8.96e-05  |  flakiness_detect=0.4534  code_search=0.0985
+INFO:name:E2/10  step 7808/8279  total=0.2296  lr=8.95e-05  |  flakiness_detect=0.4521  code_search=0.0984
+INFO:name:E2/10  step 7840/8279  total=0.2288  lr=8.95e-05  |  flakiness_detect=0.4504  code_search=0.0983
+INFO:name:E2/10  step 7872/8279  total=0.2283  lr=8.94e-05  |  flakiness_detect=0.4481  code_search=0.0983
+INFO:name:E2/10  step 7904/8279  total=0.2277  lr=8.94e-05  |  flakiness_detect=0.4466  code_search=0.0983
+INFO:name:E2/10  step 7936/8279  total=0.2271  lr=8.93e-05  |  flakiness_detect=0.4453  code_search=0.0984
+INFO:name:E2/10  step 7968/8279  total=0.2265  lr=8.93e-05  |  flakiness_detect=0.4434  code_search=0.0984
+INFO:name:E2/10  step 8000/8279  total=0.2257  lr=8.93e-05  |  flakiness_detect=0.4417  code_search=0.0983
+INFO:name:E2/10  step 8032/8279  total=0.2256  lr=8.92e-05  |  flakiness_detect=0.4421  code_search=0.0983
+INFO:name:E2/10  step 8064/8279  total=0.2249  lr=8.92e-05  |  flakiness_detect=0.4412  code_search=0.0982
+INFO:name:E2/10  step 8096/8279  total=0.2244  lr=8.91e-05  |  flakiness_detect=0.4393  code_search=0.0982
+INFO:name:E2/10  step 8128/8279  total=0.2252  lr=8.91e-05  |  flakiness_detect=0.4415  code_search=0.0982
+INFO:name:E2/10  step 8160/8279  total=0.2245  lr=8.90e-05  |  flakiness_detect=0.4398  code_search=0.0981
+INFO:name:E2/10  step 8192/8279  total=0.2249  lr=8.90e-05  |  flakiness_detect=0.4413  code_search=0.0981
+INFO:name:E2/10  step 8224/8279  total=0.2241  lr=8.90e-05  |  flakiness_detect=0.4400  code_search=0.0980
+INFO:name:E2/10  step 8256/8279  total=0.2239  lr=8.89e-05  |  flakiness_detect=0.4390  code_search=0.0979
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 2/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.4381    1.3930       9400399
+INFO:name:  code_search               0.0979    0.6070      31626656
+INFO:name:  TOTAL                     0.2235                41027055  (epoch)  cumulative=82113805
+INFO:name:  epoch_time=3698.1s  peak_gpu_memory=19.913GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.6346', 'code_search': '0.3654'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    flakiness_detect        grad_norm=  0.732218
+INFO:name:    code_search             grad_norm=  0.983707
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  flakiness_detect        code_search                -0.0098  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9800   0.7129    0.6667      0.7660   0.1278        -
+INFO:name:  code_search                   -        -         -         -        -   0.3246
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5188
+INFO:name:----------------------------------------------------------------------
+Saved 185 trainable params -> ./adapters/modernbert_flak_search_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.5188) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (19210 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9805   0.7038    0.6235      0.8080        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.2726
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E3/10  step 32/8279  total=0.0244  lr=8.88e-05  |  flakiness_detect=0.0009  code_search=0.0843
+INFO:name:E3/10  step 64/8279  total=0.0254  lr=8.88e-05  |  flakiness_detect=0.0096  code_search=0.0783
+INFO:name:E3/10  step 96/8279  total=0.0273  lr=8.88e-05  |  flakiness_detect=0.0123  code_search=0.0819
+INFO:name:E3/10  step 128/8279  total=0.0287  lr=8.87e-05  |  flakiness_detect=0.0149  code_search=0.0831
+INFO:name:E3/10  step 160/8279  total=0.0327  lr=8.87e-05  |  flakiness_detect=0.0243  code_search=0.0821
+INFO:name:E3/10  step 192/8279  total=0.0528  lr=8.86e-05  |  flakiness_detect=0.0689  code_search=0.0787
+INFO:name:E3/10  step 224/8279  total=0.0809  lr=8.86e-05  |  flakiness_detect=0.1240  code_search=0.0792
+INFO:name:E3/10  step 256/8279  total=0.1191  lr=8.85e-05  |  flakiness_detect=0.2032  code_search=0.0799
+INFO:name:E3/10  step 288/8279  total=0.1087  lr=8.85e-05  |  flakiness_detect=0.1685  code_search=0.0798
+INFO:name:E3/10  step 320/8279  total=0.1009  lr=8.85e-05  |  flakiness_detect=0.1587  code_search=0.0791
+INFO:name:E3/10  step 352/8279  total=0.0934  lr=8.84e-05  |  flakiness_detect=0.1462  code_search=0.0768
+INFO:name:E3/10  step 384/8279  total=0.0880  lr=8.84e-05  |  flakiness_detect=0.1401  code_search=0.0758
+INFO:name:E3/10  step 416/8279  total=0.0928  lr=8.83e-05  |  flakiness_detect=0.1504  code_search=0.0760
+INFO:name:E3/10  step 448/8279  total=0.0964  lr=8.83e-05  |  flakiness_detect=0.1545  code_search=0.0757
+INFO:name:E3/10  step 480/8279  total=0.0911  lr=8.82e-05  |  flakiness_detect=0.1442  code_search=0.0747
+INFO:name:E3/10  step 512/8279  total=0.0866  lr=8.82e-05  |  flakiness_detect=0.1395  code_search=0.0738
+INFO:name:E3/10  step 544/8279  total=0.0826  lr=8.82e-05  |  flakiness_detect=0.1310  code_search=0.0733
+INFO:name:E3/10  step 576/8279  total=0.0804  lr=8.81e-05  |  flakiness_detect=0.1267  code_search=0.0735
+INFO:name:E3/10  step 608/8279  total=0.0780  lr=8.81e-05  |  flakiness_detect=0.1233  code_search=0.0737
+INFO:name:E3/10  step 640/8279  total=0.0751  lr=8.80e-05  |  flakiness_detect=0.1188  code_search=0.0729
+INFO:name:E3/10  step 672/8279  total=0.0779  lr=8.80e-05  |  flakiness_detect=0.1253  code_search=0.0722
+INFO:name:E3/10  step 704/8279  total=0.0849  lr=8.79e-05  |  flakiness_detect=0.1409  code_search=0.0723
+INFO:name:E3/10  step 736/8279  total=0.0884  lr=8.79e-05  |  flakiness_detect=0.1466  code_search=0.0732
+INFO:name:E3/10  step 768/8279  total=0.0893  lr=8.79e-05  |  flakiness_detect=0.1459  code_search=0.0731
+INFO:name:E3/10  step 800/8279  total=0.0874  lr=8.78e-05  |  flakiness_detect=0.1417  code_search=0.0730
+INFO:name:E3/10  step 832/8279  total=0.0865  lr=8.78e-05  |  flakiness_detect=0.1394  code_search=0.0726
+INFO:name:E3/10  step 864/8279  total=0.0840  lr=8.77e-05  |  flakiness_detect=0.1361  code_search=0.0720
+INFO:name:E3/10  step 896/8279  total=0.0817  lr=8.77e-05  |  flakiness_detect=0.1317  code_search=0.0718
+INFO:name:E3/10  step 928/8279  total=0.0794  lr=8.76e-05  |  flakiness_detect=0.1255  code_search=0.0715
+INFO:name:E3/10  step 960/8279  total=0.0774  lr=8.76e-05  |  flakiness_detect=0.1216  code_search=0.0714
+INFO:name:E3/10  step 992/8279  total=0.0806  lr=8.76e-05  |  flakiness_detect=0.1281  code_search=0.0715
+INFO:name:E3/10  step 1024/8279  total=0.0809  lr=8.75e-05  |  flakiness_detect=0.1293  code_search=0.0713
+INFO:name:E3/10  step 1056/8279  total=0.0910  lr=8.75e-05  |  flakiness_detect=0.1503  code_search=0.0716
+INFO:name:E3/10  step 1088/8279  total=0.0891  lr=8.74e-05  |  flakiness_detect=0.1484  code_search=0.0721
+INFO:name:E3/10  step 1120/8279  total=0.0940  lr=8.74e-05  |  flakiness_detect=0.1570  code_search=0.0720
+INFO:name:E3/10  step 1152/8279  total=0.0930  lr=8.73e-05  |  flakiness_detect=0.1571  code_search=0.0717
+INFO:name:E3/10  step 1184/8279  total=0.0957  lr=8.73e-05  |  flakiness_detect=0.1601  code_search=0.0718
+INFO:name:E3/10  step 1216/8279  total=0.0967  lr=8.73e-05  |  flakiness_detect=0.1627  code_search=0.0716
+INFO:name:E3/10  step 1248/8279  total=0.0950  lr=8.72e-05  |  flakiness_detect=0.1569  code_search=0.0715
+INFO:name:E3/10  step 1280/8279  total=0.0950  lr=8.72e-05  |  flakiness_detect=0.1570  code_search=0.0721
+INFO:name:E3/10  step 1312/8279  total=0.0935  lr=8.71e-05  |  flakiness_detect=0.1556  code_search=0.0718
+INFO:name:E3/10  step 1344/8279  total=0.1025  lr=8.71e-05  |  flakiness_detect=0.1749  code_search=0.0717
+INFO:name:E3/10  step 1376/8279  total=0.1007  lr=8.70e-05  |  flakiness_detect=0.1706  code_search=0.0724
+INFO:name:E3/10  step 1408/8279  total=0.1034  lr=8.70e-05  |  flakiness_detect=0.1758  code_search=0.0724
+INFO:name:E3/10  step 1440/8279  total=0.1062  lr=8.70e-05  |  flakiness_detect=0.1828  code_search=0.0720
+INFO:name:E3/10  step 1472/8279  total=0.1090  lr=8.69e-05  |  flakiness_detect=0.1877  code_search=0.0720
+INFO:name:E3/10  step 1504/8279  total=0.1078  lr=8.69e-05  |  flakiness_detect=0.1869  code_search=0.0717
+INFO:name:E3/10  step 1536/8279  total=0.1062  lr=8.68e-05  |  flakiness_detect=0.1822  code_search=0.0719
+INFO:name:E3/10  step 1568/8279  total=0.1067  lr=8.68e-05  |  flakiness_detect=0.1837  code_search=0.0720
+INFO:name:E3/10  step 1600/8279  total=0.1052  lr=8.67e-05  |  flakiness_detect=0.1804  code_search=0.0724
+INFO:name:E3/10  step 1632/8279  total=0.1034  lr=8.67e-05  |  flakiness_detect=0.1759  code_search=0.0724
+INFO:name:E3/10  step 1664/8279  total=0.1020  lr=8.67e-05  |  flakiness_detect=0.1719  code_search=0.0722
+INFO:name:E3/10  step 1696/8279  total=0.1006  lr=8.66e-05  |  flakiness_detect=0.1697  code_search=0.0725
+INFO:name:E3/10  step 1728/8279  total=0.0996  lr=8.66e-05  |  flakiness_detect=0.1687  code_search=0.0723
+INFO:name:E3/10  step 1760/8279  total=0.1010  lr=8.65e-05  |  flakiness_detect=0.1716  code_search=0.0726
+INFO:name:E3/10  step 1792/8279  total=0.1010  lr=8.65e-05  |  flakiness_detect=0.1710  code_search=0.0724
+INFO:name:E3/10  step 1824/8279  total=0.1099  lr=8.64e-05  |  flakiness_detect=0.1902  code_search=0.0726
+INFO:name:E3/10  step 1856/8279  total=0.1107  lr=8.64e-05  |  flakiness_detect=0.1920  code_search=0.0722
+INFO:name:E3/10  step 1888/8279  total=0.1113  lr=8.64e-05  |  flakiness_detect=0.1941  code_search=0.0719
+INFO:name:E3/10  step 1920/8279  total=0.1146  lr=8.63e-05  |  flakiness_detect=0.1997  code_search=0.0717
+INFO:name:E3/10  step 1952/8279  total=0.1131  lr=8.63e-05  |  flakiness_detect=0.1960  code_search=0.0719
+INFO:name:E3/10  step 1984/8279  total=0.1120  lr=8.62e-05  |  flakiness_detect=0.1946  code_search=0.0720
+INFO:name:E3/10  step 2016/8279  total=0.1115  lr=8.62e-05  |  flakiness_detect=0.1932  code_search=0.0716
+INFO:name:E3/10  step 2048/8279  total=0.1109  lr=8.61e-05  |  flakiness_detect=0.1920  code_search=0.0713
+INFO:name:E3/10  step 2080/8279  total=0.1098  lr=8.61e-05  |  flakiness_detect=0.1896  code_search=0.0711
+INFO:name:E3/10  step 2112/8279  total=0.1083  lr=8.61e-05  |  flakiness_detect=0.1869  code_search=0.0707
+INFO:name:E3/10  step 2144/8279  total=0.1072  lr=8.60e-05  |  flakiness_detect=0.1833  code_search=0.0712
+INFO:name:E3/10  step 2176/8279  total=0.1059  lr=8.60e-05  |  flakiness_detect=0.1805  code_search=0.0714
+INFO:name:E3/10  step 2208/8279  total=0.1054  lr=8.59e-05  |  flakiness_detect=0.1794  code_search=0.0714
+INFO:name:E3/10  step 2240/8279  total=0.1050  lr=8.59e-05  |  flakiness_detect=0.1784  code_search=0.0713
+INFO:name:E3/10  step 2272/8279  total=0.1054  lr=8.58e-05  |  flakiness_detect=0.1800  code_search=0.0712
+INFO:name:E3/10  step 2304/8279  total=0.1063  lr=8.58e-05  |  flakiness_detect=0.1818  code_search=0.0715
+INFO:name:E3/10  step 2336/8279  total=0.1052  lr=8.58e-05  |  flakiness_detect=0.1790  code_search=0.0715
+INFO:name:E3/10  step 2368/8279  total=0.1091  lr=8.57e-05  |  flakiness_detect=0.1864  code_search=0.0718
+INFO:name:E3/10  step 2400/8279  total=0.1118  lr=8.57e-05  |  flakiness_detect=0.1909  code_search=0.0719
+INFO:name:E3/10  step 2432/8279  total=0.1117  lr=8.56e-05  |  flakiness_detect=0.1913  code_search=0.0715
+INFO:name:E3/10  step 2464/8279  total=0.1123  lr=8.56e-05  |  flakiness_detect=0.1936  code_search=0.0712
+INFO:name:E3/10  step 2496/8279  total=0.1142  lr=8.55e-05  |  flakiness_detect=0.1978  code_search=0.0714
+INFO:name:E3/10  step 2528/8279  total=0.1131  lr=8.55e-05  |  flakiness_detect=0.1950  code_search=0.0712
+INFO:name:E3/10  step 2560/8279  total=0.1133  lr=8.55e-05  |  flakiness_detect=0.1959  code_search=0.0711
+INFO:name:E3/10  step 2592/8279  total=0.1122  lr=8.54e-05  |  flakiness_detect=0.1940  code_search=0.0707
+INFO:name:E3/10  step 2624/8279  total=0.1113  lr=8.54e-05  |  flakiness_detect=0.1924  code_search=0.0707
+INFO:name:E3/10  step 2656/8279  total=0.1103  lr=8.53e-05  |  flakiness_detect=0.1911  code_search=0.0706
+INFO:name:E3/10  step 2688/8279  total=0.1093  lr=8.53e-05  |  flakiness_detect=0.1894  code_search=0.0707
+INFO:name:E3/10  step 2720/8279  total=0.1083  lr=8.52e-05  |  flakiness_detect=0.1874  code_search=0.0708
+INFO:name:E3/10  step 2752/8279  total=0.1078  lr=8.52e-05  |  flakiness_detect=0.1860  code_search=0.0708
+INFO:name:E3/10  step 2784/8279  total=0.1068  lr=8.52e-05  |  flakiness_detect=0.1839  code_search=0.0708
+INFO:name:E3/10  step 2816/8279  total=0.1060  lr=8.51e-05  |  flakiness_detect=0.1822  code_search=0.0706
+INFO:name:E3/10  step 2848/8279  total=0.1061  lr=8.51e-05  |  flakiness_detect=0.1821  code_search=0.0707
+INFO:name:E3/10  step 2880/8279  total=0.1051  lr=8.50e-05  |  flakiness_detect=0.1802  code_search=0.0707
+INFO:name:E3/10  step 2912/8279  total=0.1043  lr=8.50e-05  |  flakiness_detect=0.1778  code_search=0.0709
+INFO:name:E3/10  step 2944/8279  total=0.1035  lr=8.49e-05  |  flakiness_detect=0.1758  code_search=0.0709
+INFO:name:E3/10  step 2976/8279  total=0.1026  lr=8.49e-05  |  flakiness_detect=0.1737  code_search=0.0709
+INFO:name:E3/10  step 3008/8279  total=0.1017  lr=8.49e-05  |  flakiness_detect=0.1715  code_search=0.0710
+INFO:name:E3/10  step 3040/8279  total=0.1033  lr=8.48e-05  |  flakiness_detect=0.1745  code_search=0.0713
+INFO:name:E3/10  step 3072/8279  total=0.1025  lr=8.48e-05  |  flakiness_detect=0.1729  code_search=0.0713
+INFO:name:E3/10  step 3104/8279  total=0.1017  lr=8.47e-05  |  flakiness_detect=0.1713  code_search=0.0715
+INFO:name:E3/10  step 3136/8279  total=0.1023  lr=8.47e-05  |  flakiness_detect=0.1723  code_search=0.0715
+INFO:name:E3/10  step 3168/8279  total=0.1019  lr=8.46e-05  |  flakiness_detect=0.1709  code_search=0.0717
+INFO:name:E3/10  step 3200/8279  total=0.1010  lr=8.46e-05  |  flakiness_detect=0.1686  code_search=0.0715
+INFO:name:E3/10  step 3232/8279  total=0.1001  lr=8.46e-05  |  flakiness_detect=0.1667  code_search=0.0715
+INFO:name:E3/10  step 3264/8279  total=0.0993  lr=8.45e-05  |  flakiness_detect=0.1650  code_search=0.0713
+INFO:name:E3/10  step 3296/8279  total=0.1022  lr=8.45e-05  |  flakiness_detect=0.1710  code_search=0.0712
+INFO:name:E3/10  step 3328/8279  total=0.1025  lr=8.44e-05  |  flakiness_detect=0.1715  code_search=0.0710
+INFO:name:E3/10  step 3360/8279  total=0.1025  lr=8.44e-05  |  flakiness_detect=0.1717  code_search=0.0711
+INFO:name:E3/10  step 3392/8279  total=0.1024  lr=8.43e-05  |  flakiness_detect=0.1716  code_search=0.0711
+INFO:name:E3/10  step 3424/8279  total=0.1016  lr=8.43e-05  |  flakiness_detect=0.1700  code_search=0.0711
+INFO:name:E3/10  step 3456/8279  total=0.1009  lr=8.43e-05  |  flakiness_detect=0.1684  code_search=0.0712
+INFO:name:E3/10  step 3488/8279  total=0.1002  lr=8.42e-05  |  flakiness_detect=0.1679  code_search=0.0714
+INFO:name:E3/10  step 3520/8279  total=0.0995  lr=8.42e-05  |  flakiness_detect=0.1669  code_search=0.0713
+INFO:name:E3/10  step 3552/8279  total=0.0987  lr=8.41e-05  |  flakiness_detect=0.1653  code_search=0.0711
+INFO:name:E3/10  step 3584/8279  total=0.0980  lr=8.41e-05  |  flakiness_detect=0.1647  code_search=0.0710
+INFO:name:E3/10  step 3616/8279  total=0.0994  lr=8.40e-05  |  flakiness_detect=0.1676  code_search=0.0709
+INFO:name:E3/10  step 3648/8279  total=0.0987  lr=8.40e-05  |  flakiness_detect=0.1663  code_search=0.0708
+INFO:name:E3/10  step 3680/8279  total=0.0980  lr=8.40e-05  |  flakiness_detect=0.1644  code_search=0.0708
+INFO:name:E3/10  step 3712/8279  total=0.0979  lr=8.39e-05  |  flakiness_detect=0.1641  code_search=0.0708
+INFO:name:E3/10  step 3744/8279  total=0.0972  lr=8.39e-05  |  flakiness_detect=0.1634  code_search=0.0707
+INFO:name:E3/10  step 3776/8279  total=0.0966  lr=8.38e-05  |  flakiness_detect=0.1621  code_search=0.0706
+INFO:name:E3/10  step 3808/8279  total=0.0959  lr=8.38e-05  |  flakiness_detect=0.1602  code_search=0.0705
+INFO:name:E3/10  step 3840/8279  total=0.0957  lr=8.37e-05  |  flakiness_detect=0.1599  code_search=0.0705
+INFO:name:E3/10  step 3872/8279  total=0.0961  lr=8.37e-05  |  flakiness_detect=0.1610  code_search=0.0705
+INFO:name:E3/10  step 3904/8279  total=0.0955  lr=8.36e-05  |  flakiness_detect=0.1596  code_search=0.0705
+INFO:name:E3/10  step 3936/8279  total=0.0964  lr=8.36e-05  |  flakiness_detect=0.1623  code_search=0.0703
+INFO:name:E3/10  step 3968/8279  total=0.0958  lr=8.36e-05  |  flakiness_detect=0.1606  code_search=0.0703
+INFO:name:E3/10  step 4000/8279  total=0.0982  lr=8.35e-05  |  flakiness_detect=0.1647  code_search=0.0703
+INFO:name:E3/10  step 4032/8279  total=0.0987  lr=8.35e-05  |  flakiness_detect=0.1655  code_search=0.0705
+INFO:name:E3/10  step 4064/8279  total=0.0982  lr=8.34e-05  |  flakiness_detect=0.1647  code_search=0.0707
+INFO:name:E3/10  step 4096/8279  total=0.0976  lr=8.34e-05  |  flakiness_detect=0.1631  code_search=0.0708
+INFO:name:E3/10  step 4128/8279  total=0.0970  lr=8.33e-05  |  flakiness_detect=0.1627  code_search=0.0707
+INFO:name:E3/10  step 4160/8279  total=0.0977  lr=8.33e-05  |  flakiness_detect=0.1644  code_search=0.0708
+INFO:name:E3/10  step 4192/8279  total=0.0972  lr=8.33e-05  |  flakiness_detect=0.1633  code_search=0.0709
+INFO:name:E3/10  step 4224/8279  total=0.0966  lr=8.32e-05  |  flakiness_detect=0.1614  code_search=0.0710
+INFO:name:E3/10  step 4256/8279  total=0.0961  lr=8.32e-05  |  flakiness_detect=0.1601  code_search=0.0710
+INFO:name:E3/10  step 4288/8279  total=0.0955  lr=8.31e-05  |  flakiness_detect=0.1590  code_search=0.0710
+INFO:name:E3/10  step 4320/8279  total=0.0954  lr=8.31e-05  |  flakiness_detect=0.1590  code_search=0.0710
+INFO:name:E3/10  step 4352/8279  total=0.0949  lr=8.30e-05  |  flakiness_detect=0.1574  code_search=0.0710
+INFO:name:E3/10  step 4384/8279  total=0.0947  lr=8.30e-05  |  flakiness_detect=0.1568  code_search=0.0712
+INFO:name:E3/10  step 4416/8279  total=0.0950  lr=8.30e-05  |  flakiness_detect=0.1574  code_search=0.0712
+INFO:name:E3/10  step 4448/8279  total=0.0949  lr=8.29e-05  |  flakiness_detect=0.1570  code_search=0.0712
+INFO:name:E3/10  step 4480/8279  total=0.0948  lr=8.29e-05  |  flakiness_detect=0.1568  code_search=0.0712
+INFO:name:E3/10  step 4512/8279  total=0.0942  lr=8.28e-05  |  flakiness_detect=0.1557  code_search=0.0710
+INFO:name:E3/10  step 4544/8279  total=0.0946  lr=8.28e-05  |  flakiness_detect=0.1566  code_search=0.0710
+INFO:name:E3/10  step 4576/8279  total=0.0940  lr=8.27e-05  |  flakiness_detect=0.1551  code_search=0.0708
+INFO:name:E3/10  step 4608/8279  total=0.0935  lr=8.27e-05  |  flakiness_detect=0.1543  code_search=0.0709
+INFO:name:E3/10  step 4640/8279  total=0.0932  lr=8.27e-05  |  flakiness_detect=0.1535  code_search=0.0709
+INFO:name:E3/10  step 4672/8279  total=0.0928  lr=8.26e-05  |  flakiness_detect=0.1524  code_search=0.0708
+INFO:name:E3/10  step 4704/8279  total=0.0925  lr=8.26e-05  |  flakiness_detect=0.1519  code_search=0.0709
+INFO:name:E3/10  step 4736/8279  total=0.0933  lr=8.25e-05  |  flakiness_detect=0.1533  code_search=0.0710
+INFO:name:E3/10  step 4768/8279  total=0.0927  lr=8.25e-05  |  flakiness_detect=0.1521  code_search=0.0709
+INFO:name:E3/10  step 4800/8279  total=0.0922  lr=8.24e-05  |  flakiness_detect=0.1510  code_search=0.0709
+INFO:name:E3/10  step 4832/8279  total=0.0918  lr=8.24e-05  |  flakiness_detect=0.1504  code_search=0.0709
+INFO:name:E3/10  step 4864/8279  total=0.0914  lr=8.24e-05  |  flakiness_detect=0.1493  code_search=0.0709
+INFO:name:E3/10  step 4896/8279  total=0.0918  lr=8.23e-05  |  flakiness_detect=0.1502  code_search=0.0711
+INFO:name:E3/10  step 4928/8279  total=0.0921  lr=8.23e-05  |  flakiness_detect=0.1507  code_search=0.0712
+INFO:name:E3/10  step 4960/8279  total=0.0924  lr=8.22e-05  |  flakiness_detect=0.1512  code_search=0.0713
+INFO:name:E3/10  step 4992/8279  total=0.0921  lr=8.22e-05  |  flakiness_detect=0.1504  code_search=0.0711
+INFO:name:E3/10  step 5024/8279  total=0.0921  lr=8.21e-05  |  flakiness_detect=0.1503  code_search=0.0713
+INFO:name:E3/10  step 5056/8279  total=0.0918  lr=8.21e-05  |  flakiness_detect=0.1495  code_search=0.0713
+INFO:name:E3/10  step 5088/8279  total=0.0917  lr=8.21e-05  |  flakiness_detect=0.1493  code_search=0.0713
+INFO:name:E3/10  step 5120/8279  total=0.0912  lr=8.20e-05  |  flakiness_detect=0.1486  code_search=0.0712
+INFO:name:E3/10  step 5152/8279  total=0.0909  lr=8.20e-05  |  flakiness_detect=0.1479  code_search=0.0713
+INFO:name:E3/10  step 5184/8279  total=0.0908  lr=8.19e-05  |  flakiness_detect=0.1475  code_search=0.0714
+INFO:name:E3/10  step 5216/8279  total=0.0904  lr=8.19e-05  |  flakiness_detect=0.1465  code_search=0.0716
+INFO:name:E3/10  step 5248/8279  total=0.0900  lr=8.18e-05  |  flakiness_detect=0.1453  code_search=0.0716
+INFO:name:E3/10  step 5280/8279  total=0.0896  lr=8.18e-05  |  flakiness_detect=0.1447  code_search=0.0717
+INFO:name:E3/10  step 5312/8279  total=0.0891  lr=8.18e-05  |  flakiness_detect=0.1438  code_search=0.0716
+INFO:name:E3/10  step 5344/8279  total=0.0888  lr=8.17e-05  |  flakiness_detect=0.1431  code_search=0.0716
+INFO:name:E3/10  step 5376/8279  total=0.0884  lr=8.17e-05  |  flakiness_detect=0.1427  code_search=0.0715
+INFO:name:E3/10  step 5408/8279  total=0.0885  lr=8.16e-05  |  flakiness_detect=0.1428  code_search=0.0715
+INFO:name:E3/10  step 5440/8279  total=0.0881  lr=8.16e-05  |  flakiness_detect=0.1421  code_search=0.0716
+INFO:name:E3/10  step 5472/8279  total=0.0885  lr=8.15e-05  |  flakiness_detect=0.1427  code_search=0.0715
+INFO:name:E3/10  step 5504/8279  total=0.0887  lr=8.15e-05  |  flakiness_detect=0.1428  code_search=0.0716
+INFO:name:E3/10  step 5536/8279  total=0.0883  lr=8.15e-05  |  flakiness_detect=0.1421  code_search=0.0717
+INFO:name:E3/10  step 5568/8279  total=0.0880  lr=8.14e-05  |  flakiness_detect=0.1413  code_search=0.0716
+INFO:name:E3/10  step 5600/8279  total=0.0876  lr=8.14e-05  |  flakiness_detect=0.1409  code_search=0.0715
+INFO:name:E3/10  step 5632/8279  total=0.0873  lr=8.13e-05  |  flakiness_detect=0.1404  code_search=0.0716
+INFO:name:E3/10  step 5664/8279  total=0.0870  lr=8.13e-05  |  flakiness_detect=0.1395  code_search=0.0716
+INFO:name:E3/10  step 5696/8279  total=0.0866  lr=8.12e-05  |  flakiness_detect=0.1388  code_search=0.0717
+INFO:name:E3/10  step 5728/8279  total=0.0862  lr=8.12e-05  |  flakiness_detect=0.1379  code_search=0.0717
+INFO:name:E3/10  step 5760/8279  total=0.0866  lr=8.12e-05  |  flakiness_detect=0.1387  code_search=0.0716
+INFO:name:E3/10  step 5792/8279  total=0.0862  lr=8.11e-05  |  flakiness_detect=0.1382  code_search=0.0715
+INFO:name:E3/10  step 5824/8279  total=0.0858  lr=8.11e-05  |  flakiness_detect=0.1377  code_search=0.0716
+INFO:name:E3/10  step 5856/8279  total=0.0855  lr=8.10e-05  |  flakiness_detect=0.1369  code_search=0.0716
+INFO:name:E3/10  step 5888/8279  total=0.0853  lr=8.10e-05  |  flakiness_detect=0.1364  code_search=0.0716
+INFO:name:E3/10  step 5920/8279  total=0.0850  lr=8.09e-05  |  flakiness_detect=0.1356  code_search=0.0717
+INFO:name:E3/10  step 5952/8279  total=0.0847  lr=8.09e-05  |  flakiness_detect=0.1348  code_search=0.0718
+INFO:name:E3/10  step 5984/8279  total=0.0843  lr=8.09e-05  |  flakiness_detect=0.1341  code_search=0.0716
+INFO:name:E3/10  step 6016/8279  total=0.0840  lr=8.08e-05  |  flakiness_detect=0.1337  code_search=0.0717
+INFO:name:E3/10  step 6048/8279  total=0.0837  lr=8.08e-05  |  flakiness_detect=0.1329  code_search=0.0717
+INFO:name:E3/10  step 6080/8279  total=0.0833  lr=8.07e-05  |  flakiness_detect=0.1319  code_search=0.0717
+INFO:name:E3/10  step 6112/8279  total=0.0830  lr=8.07e-05  |  flakiness_detect=0.1311  code_search=0.0717
+INFO:name:E3/10  step 6144/8279  total=0.0829  lr=8.06e-05  |  flakiness_detect=0.1305  code_search=0.0716
+INFO:name:E3/10  step 6176/8279  total=0.0826  lr=8.06e-05  |  flakiness_detect=0.1303  code_search=0.0716
+INFO:name:E3/10  step 6208/8279  total=0.0826  lr=8.06e-05  |  flakiness_detect=0.1302  code_search=0.0717
+INFO:name:E3/10  step 6240/8279  total=0.0824  lr=8.05e-05  |  flakiness_detect=0.1300  code_search=0.0716
+INFO:name:E3/10  step 6272/8279  total=0.0830  lr=8.05e-05  |  flakiness_detect=0.1309  code_search=0.0716
+INFO:name:E3/10  step 6304/8279  total=0.0827  lr=8.04e-05  |  flakiness_detect=0.1302  code_search=0.0717
+INFO:name:E3/10  step 6336/8279  total=0.0824  lr=8.04e-05  |  flakiness_detect=0.1298  code_search=0.0718
+INFO:name:E3/10  step 6368/8279  total=0.0824  lr=8.03e-05  |  flakiness_detect=0.1299  code_search=0.0719
+INFO:name:E3/10  step 6400/8279  total=0.0828  lr=8.03e-05  |  flakiness_detect=0.1306  code_search=0.0721
+INFO:name:E3/10  step 6432/8279  total=0.0825  lr=8.03e-05  |  flakiness_detect=0.1299  code_search=0.0721
+INFO:name:E3/10  step 6464/8279  total=0.0823  lr=8.02e-05  |  flakiness_detect=0.1295  code_search=0.0722
+INFO:name:E3/10  step 6496/8279  total=0.0820  lr=8.02e-05  |  flakiness_detect=0.1290  code_search=0.0722
+INFO:name:E3/10  step 6528/8279  total=0.0826  lr=8.01e-05  |  flakiness_detect=0.1301  code_search=0.0722
+INFO:name:E3/10  step 6560/8279  total=0.0822  lr=8.01e-05  |  flakiness_detect=0.1292  code_search=0.0722
+INFO:name:E3/10  step 6592/8279  total=0.0819  lr=8.00e-05  |  flakiness_detect=0.1289  code_search=0.0721
+INFO:name:E3/10  step 6624/8279  total=0.0818  lr=8.00e-05  |  flakiness_detect=0.1281  code_search=0.0721
+INFO:name:E3/10  step 6656/8279  total=0.0815  lr=8.00e-05  |  flakiness_detect=0.1275  code_search=0.0721
+INFO:name:E3/10  step 6688/8279  total=0.0813  lr=7.99e-05  |  flakiness_detect=0.1273  code_search=0.0721
+INFO:name:E3/10  step 6720/8279  total=0.0810  lr=7.99e-05  |  flakiness_detect=0.1268  code_search=0.0721
+INFO:name:E3/10  step 6752/8279  total=0.0807  lr=7.98e-05  |  flakiness_detect=0.1261  code_search=0.0722
+INFO:name:E3/10  step 6784/8279  total=0.0805  lr=7.98e-05  |  flakiness_detect=0.1259  code_search=0.0723
+INFO:name:E3/10  step 6816/8279  total=0.0802  lr=7.97e-05  |  flakiness_detect=0.1255  code_search=0.0722
+INFO:name:E3/10  step 6848/8279  total=0.0799  lr=7.97e-05  |  flakiness_detect=0.1250  code_search=0.0722
+INFO:name:E3/10  step 6880/8279  total=0.0796  lr=7.97e-05  |  flakiness_detect=0.1243  code_search=0.0722
+INFO:name:E3/10  step 6912/8279  total=0.0794  lr=7.96e-05  |  flakiness_detect=0.1241  code_search=0.0722
+INFO:name:E3/10  step 6944/8279  total=0.0792  lr=7.96e-05  |  flakiness_detect=0.1237  code_search=0.0722
+INFO:name:E3/10  step 6976/8279  total=0.0792  lr=7.95e-05  |  flakiness_detect=0.1239  code_search=0.0721
+INFO:name:E3/10  step 7008/8279  total=0.0789  lr=7.95e-05  |  flakiness_detect=0.1235  code_search=0.0720
+INFO:name:E3/10  step 7040/8279  total=0.0788  lr=7.94e-05  |  flakiness_detect=0.1230  code_search=0.0721
+INFO:name:E3/10  step 7072/8279  total=0.0786  lr=7.94e-05  |  flakiness_detect=0.1224  code_search=0.0722
+INFO:name:E3/10  step 7104/8279  total=0.0784  lr=7.94e-05  |  flakiness_detect=0.1222  code_search=0.0722
+INFO:name:E3/10  step 7136/8279  total=0.0782  lr=7.93e-05  |  flakiness_detect=0.1218  code_search=0.0722
+INFO:name:E3/10  step 7168/8279  total=0.0779  lr=7.93e-05  |  flakiness_detect=0.1214  code_search=0.0721
+INFO:name:E3/10  step 7200/8279  total=0.0780  lr=7.92e-05  |  flakiness_detect=0.1216  code_search=0.0721
+INFO:name:E3/10  step 7232/8279  total=0.0777  lr=7.92e-05  |  flakiness_detect=0.1209  code_search=0.0721
+INFO:name:E3/10  step 7264/8279  total=0.0775  lr=7.91e-05  |  flakiness_detect=0.1206  code_search=0.0721
+INFO:name:E3/10  step 7296/8279  total=0.0772  lr=7.91e-05  |  flakiness_detect=0.1200  code_search=0.0721
+INFO:name:E3/10  step 7328/8279  total=0.0770  lr=7.91e-05  |  flakiness_detect=0.1196  code_search=0.0722
+INFO:name:E3/10  step 7360/8279  total=0.0768  lr=7.90e-05  |  flakiness_detect=0.1191  code_search=0.0722
+INFO:name:E3/10  step 7392/8279  total=0.0765  lr=7.90e-05  |  flakiness_detect=0.1184  code_search=0.0723
+INFO:name:E3/10  step 7424/8279  total=0.0763  lr=7.89e-05  |  flakiness_detect=0.1179  code_search=0.0723
+INFO:name:E3/10  step 7456/8279  total=0.0760  lr=7.89e-05  |  flakiness_detect=0.1175  code_search=0.0722
+INFO:name:E3/10  step 7488/8279  total=0.0758  lr=7.88e-05  |  flakiness_detect=0.1170  code_search=0.0721
+INFO:name:E3/10  step 7520/8279  total=0.0755  lr=7.88e-05  |  flakiness_detect=0.1167  code_search=0.0721
+INFO:name:E3/10  step 7552/8279  total=0.0756  lr=7.88e-05  |  flakiness_detect=0.1166  code_search=0.0720
+INFO:name:E3/10  step 7584/8279  total=0.0755  lr=7.87e-05  |  flakiness_detect=0.1164  code_search=0.0720
+INFO:name:E3/10  step 7616/8279  total=0.0752  lr=7.87e-05  |  flakiness_detect=0.1163  code_search=0.0720
+INFO:name:E3/10  step 7648/8279  total=0.0750  lr=7.86e-05  |  flakiness_detect=0.1159  code_search=0.0720
+INFO:name:E3/10  step 7680/8279  total=0.0748  lr=7.86e-05  |  flakiness_detect=0.1155  code_search=0.0719
+INFO:name:E3/10  step 7712/8279  total=0.0745  lr=7.85e-05  |  flakiness_detect=0.1152  code_search=0.0719
+INFO:name:E3/10  step 7744/8279  total=0.0747  lr=7.85e-05  |  flakiness_detect=0.1154  code_search=0.0719
+INFO:name:E3/10  step 7776/8279  total=0.0745  lr=7.85e-05  |  flakiness_detect=0.1149  code_search=0.0719
+INFO:name:E3/10  step 7808/8279  total=0.0747  lr=7.84e-05  |  flakiness_detect=0.1155  code_search=0.0719
+INFO:name:E3/10  step 7840/8279  total=0.0744  lr=7.84e-05  |  flakiness_detect=0.1151  code_search=0.0717
+INFO:name:E3/10  step 7872/8279  total=0.0748  lr=7.83e-05  |  flakiness_detect=0.1155  code_search=0.0717
+INFO:name:E3/10  step 7904/8279  total=0.0745  lr=7.83e-05  |  flakiness_detect=0.1150  code_search=0.0717
+INFO:name:E3/10  step 7936/8279  total=0.0743  lr=7.82e-05  |  flakiness_detect=0.1146  code_search=0.0716
+INFO:name:E3/10  step 7968/8279  total=0.0743  lr=7.82e-05  |  flakiness_detect=0.1145  code_search=0.0716
+INFO:name:E3/10  step 8000/8279  total=0.0741  lr=7.82e-05  |  flakiness_detect=0.1141  code_search=0.0715
+INFO:name:E3/10  step 8032/8279  total=0.0748  lr=7.81e-05  |  flakiness_detect=0.1158  code_search=0.0715
+INFO:name:E3/10  step 8064/8279  total=0.0753  lr=7.81e-05  |  flakiness_detect=0.1170  code_search=0.0715
+INFO:name:E3/10  step 8096/8279  total=0.0751  lr=7.80e-05  |  flakiness_detect=0.1163  code_search=0.0715
+INFO:name:E3/10  step 8128/8279  total=0.0748  lr=7.80e-05  |  flakiness_detect=0.1159  code_search=0.0715
+INFO:name:E3/10  step 8160/8279  total=0.0755  lr=7.79e-05  |  flakiness_detect=0.1174  code_search=0.0714
+INFO:name:E3/10  step 8192/8279  total=0.0753  lr=7.79e-05  |  flakiness_detect=0.1171  code_search=0.0714
+INFO:name:E3/10  step 8224/8279  total=0.0764  lr=7.79e-05  |  flakiness_detect=0.1193  code_search=0.0714
+INFO:name:E3/10  step 8256/8279  total=0.0762  lr=7.78e-05  |  flakiness_detect=0.1188  code_search=0.0714
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 3/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.1186    1.6346       9396957
+INFO:name:  code_search               0.0713    0.3654      31625427
+INFO:name:  TOTAL                     0.0760                41022384  (epoch)  cumulative=123136189
+INFO:name:  epoch_time=3695.3s  peak_gpu_memory=19.913GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.2492', 'code_search': '0.7508'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    flakiness_detect        grad_norm=  0.003345
+INFO:name:    code_search             grad_norm=  0.229123
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  flakiness_detect        code_search                +0.0127  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9803   0.7095    0.6481      0.7836   0.1931        -
+INFO:name:  code_search                   -        -         -         -        -   0.3513
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5304
+INFO:name:----------------------------------------------------------------------
+Saved 185 trainable params -> ./adapters/modernbert_flak_search_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.5304) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (19210 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9780   0.6620    0.5802      0.7705        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.3008
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E4/10  step 32/8279  total=0.0389  lr=7.77e-05  |  flakiness_detect=0.0002  code_search=0.0662
+INFO:name:E4/10  step 64/8279  total=0.0356  lr=7.77e-05  |  flakiness_detect=0.0001  code_search=0.0631
+INFO:name:E4/10  step 96/8279  total=0.0305  lr=7.76e-05  |  flakiness_detect=0.0003  code_search=0.0556
+INFO:name:E4/10  step 128/8279  total=0.0333  lr=7.76e-05  |  flakiness_detect=0.0003  code_search=0.0615
+INFO:name:E4/10  step 160/8279  total=0.0351  lr=7.76e-05  |  flakiness_detect=0.0098  code_search=0.0587
+INFO:name:E4/10  step 192/8279  total=0.0363  lr=7.75e-05  |  flakiness_detect=0.0086  code_search=0.0620
+INFO:name:E4/10  step 224/8279  total=0.0376  lr=7.75e-05  |  flakiness_detect=0.0084  code_search=0.0655
+INFO:name:E4/10  step 256/8279  total=0.0436  lr=7.74e-05  |  flakiness_detect=0.0247  code_search=0.0652
+INFO:name:E4/10  step 288/8279  total=0.0410  lr=7.74e-05  |  flakiness_detect=0.0203  code_search=0.0646
+INFO:name:E4/10  step 320/8279  total=0.0406  lr=7.73e-05  |  flakiness_detect=0.0189  code_search=0.0643
+INFO:name:E4/10  step 352/8279  total=0.0407  lr=7.73e-05  |  flakiness_detect=0.0180  code_search=0.0650
+INFO:name:E4/10  step 384/8279  total=0.0412  lr=7.73e-05  |  flakiness_detect=0.0171  code_search=0.0662
+INFO:name:E4/10  step 416/8279  total=0.0410  lr=7.72e-05  |  flakiness_detect=0.0168  code_search=0.0660
+INFO:name:E4/10  step 448/8279  total=0.0439  lr=7.72e-05  |  flakiness_detect=0.0260  code_search=0.0652
+INFO:name:E4/10  step 480/8279  total=0.0429  lr=7.71e-05  |  flakiness_detect=0.0246  code_search=0.0643
+INFO:name:E4/10  step 512/8279  total=0.0427  lr=7.71e-05  |  flakiness_detect=0.0238  code_search=0.0641
+INFO:name:E4/10  step 544/8279  total=0.0428  lr=7.70e-05  |  flakiness_detect=0.0224  code_search=0.0654
+INFO:name:E4/10  step 576/8279  total=0.0424  lr=7.70e-05  |  flakiness_detect=0.0213  code_search=0.0655
+INFO:name:E4/10  step 608/8279  total=0.0419  lr=7.70e-05  |  flakiness_detect=0.0205  code_search=0.0648
+INFO:name:E4/10  step 640/8279  total=0.0414  lr=7.69e-05  |  flakiness_detect=0.0199  code_search=0.0642
+INFO:name:E4/10  step 672/8279  total=0.0411  lr=7.69e-05  |  flakiness_detect=0.0202  code_search=0.0633
+INFO:name:E4/10  step 704/8279  total=0.0605  lr=7.68e-05  |  flakiness_detect=0.0717  code_search=0.0650
+INFO:name:E4/10  step 736/8279  total=0.0616  lr=7.68e-05  |  flakiness_detect=0.0753  code_search=0.0645
+INFO:name:E4/10  step 768/8279  total=0.0604  lr=7.67e-05  |  flakiness_detect=0.0711  code_search=0.0645
+INFO:name:E4/10  step 800/8279  total=0.0587  lr=7.67e-05  |  flakiness_detect=0.0681  code_search=0.0634
+INFO:name:E4/10  step 832/8279  total=0.0577  lr=7.67e-05  |  flakiness_detect=0.0654  code_search=0.0633
+INFO:name:E4/10  step 864/8279  total=0.0569  lr=7.66e-05  |  flakiness_detect=0.0639  code_search=0.0631
+INFO:name:E4/10  step 896/8279  total=0.0559  lr=7.66e-05  |  flakiness_detect=0.0617  code_search=0.0628
+INFO:name:E4/10  step 928/8279  total=0.0572  lr=7.65e-05  |  flakiness_detect=0.0648  code_search=0.0628
+INFO:name:E4/10  step 960/8279  total=0.0563  lr=7.65e-05  |  flakiness_detect=0.0627  code_search=0.0626
+INFO:name:E4/10  step 992/8279  total=0.0593  lr=7.64e-05  |  flakiness_detect=0.0708  code_search=0.0626
+INFO:name:E4/10  step 1024/8279  total=0.0598  lr=7.64e-05  |  flakiness_detect=0.0718  code_search=0.0630
+INFO:name:E4/10  step 1056/8279  total=0.0606  lr=7.64e-05  |  flakiness_detect=0.0748  code_search=0.0625
+INFO:name:E4/10  step 1088/8279  total=0.0602  lr=7.63e-05  |  flakiness_detect=0.0738  code_search=0.0628
+INFO:name:E4/10  step 1120/8279  total=0.0596  lr=7.63e-05  |  flakiness_detect=0.0714  code_search=0.0631
+INFO:name:E4/10  step 1152/8279  total=0.0591  lr=7.62e-05  |  flakiness_detect=0.0703  code_search=0.0631
+INFO:name:E4/10  step 1184/8279  total=0.0582  lr=7.62e-05  |  flakiness_detect=0.0674  code_search=0.0630
+INFO:name:E4/10  step 1216/8279  total=0.0576  lr=7.61e-05  |  flakiness_detect=0.0659  code_search=0.0629
+INFO:name:E4/10  step 1248/8279  total=0.0569  lr=7.61e-05  |  flakiness_detect=0.0640  code_search=0.0627
+INFO:name:E4/10  step 1280/8279  total=0.0562  lr=7.61e-05  |  flakiness_detect=0.0625  code_search=0.0625
+INFO:name:E4/10  step 1312/8279  total=0.0562  lr=7.60e-05  |  flakiness_detect=0.0624  code_search=0.0627
+INFO:name:E4/10  step 1344/8279  total=0.0556  lr=7.60e-05  |  flakiness_detect=0.0612  code_search=0.0625
+INFO:name:E4/10  step 1376/8279  total=0.0553  lr=7.59e-05  |  flakiness_detect=0.0598  code_search=0.0628
+INFO:name:E4/10  step 1408/8279  total=0.0566  lr=7.59e-05  |  flakiness_detect=0.0640  code_search=0.0624
+INFO:name:E4/10  step 1440/8279  total=0.0562  lr=7.58e-05  |  flakiness_detect=0.0635  code_search=0.0621
+INFO:name:E4/10  step 1472/8279  total=0.0557  lr=7.58e-05  |  flakiness_detect=0.0618  code_search=0.0622
+INFO:name:E4/10  step 1504/8279  total=0.0553  lr=7.58e-05  |  flakiness_detect=0.0611  code_search=0.0622
+INFO:name:E4/10  step 1536/8279  total=0.0548  lr=7.57e-05  |  flakiness_detect=0.0593  code_search=0.0623
+INFO:name:E4/10  step 1568/8279  total=0.0543  lr=7.57e-05  |  flakiness_detect=0.0583  code_search=0.0621
+INFO:name:E4/10  step 1600/8279  total=0.0539  lr=7.56e-05  |  flakiness_detect=0.0572  code_search=0.0621
+INFO:name:E4/10  step 1632/8279  total=0.0533  lr=7.56e-05  |  flakiness_detect=0.0558  code_search=0.0619
+INFO:name:E4/10  step 1664/8279  total=0.0529  lr=7.55e-05  |  flakiness_detect=0.0544  code_search=0.0620
+INFO:name:E4/10  step 1696/8279  total=0.0526  lr=7.55e-05  |  flakiness_detect=0.0536  code_search=0.0620
+INFO:name:E4/10  step 1728/8279  total=0.0522  lr=7.55e-05  |  flakiness_detect=0.0530  code_search=0.0618
+INFO:name:E4/10  step 1760/8279  total=0.0519  lr=7.54e-05  |  flakiness_detect=0.0521  code_search=0.0619
+INFO:name:E4/10  step 1792/8279  total=0.0520  lr=7.54e-05  |  flakiness_detect=0.0523  code_search=0.0618
+INFO:name:E4/10  step 1824/8279  total=0.0518  lr=7.53e-05  |  flakiness_detect=0.0516  code_search=0.0619
+INFO:name:E4/10  step 1856/8279  total=0.0518  lr=7.53e-05  |  flakiness_detect=0.0518  code_search=0.0618
+INFO:name:E4/10  step 1888/8279  total=0.0518  lr=7.52e-05  |  flakiness_detect=0.0511  code_search=0.0623
+INFO:name:E4/10  step 1920/8279  total=0.0515  lr=7.52e-05  |  flakiness_detect=0.0500  code_search=0.0624
+INFO:name:E4/10  step 1952/8279  total=0.0509  lr=7.52e-05  |  flakiness_detect=0.0490  code_search=0.0620
+INFO:name:E4/10  step 1984/8279  total=0.0506  lr=7.51e-05  |  flakiness_detect=0.0486  code_search=0.0618
+INFO:name:E4/10  step 2016/8279  total=0.0516  lr=7.51e-05  |  flakiness_detect=0.0515  code_search=0.0616
+INFO:name:E4/10  step 2048/8279  total=0.0512  lr=7.50e-05  |  flakiness_detect=0.0507  code_search=0.0614
+INFO:name:E4/10  step 2080/8279  total=0.0511  lr=7.50e-05  |  flakiness_detect=0.0507  code_search=0.0613
+INFO:name:E4/10  step 2112/8279  total=0.0511  lr=7.49e-05  |  flakiness_detect=0.0507  code_search=0.0612
+INFO:name:E4/10  step 2144/8279  total=0.0507  lr=7.49e-05  |  flakiness_detect=0.0498  code_search=0.0611
+INFO:name:E4/10  step 2176/8279  total=0.0517  lr=7.49e-05  |  flakiness_detect=0.0527  code_search=0.0609
+INFO:name:E4/10  step 2208/8279  total=0.0516  lr=7.48e-05  |  flakiness_detect=0.0522  code_search=0.0610
+INFO:name:E4/10  step 2240/8279  total=0.0515  lr=7.48e-05  |  flakiness_detect=0.0520  code_search=0.0609
+INFO:name:E4/10  step 2272/8279  total=0.0515  lr=7.47e-05  |  flakiness_detect=0.0515  code_search=0.0613
+INFO:name:E4/10  step 2304/8279  total=0.0513  lr=7.47e-05  |  flakiness_detect=0.0508  code_search=0.0615
+INFO:name:E4/10  step 2336/8279  total=0.0510  lr=7.46e-05  |  flakiness_detect=0.0502  code_search=0.0613
+INFO:name:E4/10  step 2368/8279  total=0.0507  lr=7.46e-05  |  flakiness_detect=0.0495  code_search=0.0612
+INFO:name:E4/10  step 2400/8279  total=0.0504  lr=7.46e-05  |  flakiness_detect=0.0488  code_search=0.0611
+INFO:name:E4/10  step 2432/8279  total=0.0503  lr=7.45e-05  |  flakiness_detect=0.0483  code_search=0.0613
+INFO:name:E4/10  step 2464/8279  total=0.0501  lr=7.45e-05  |  flakiness_detect=0.0479  code_search=0.0612
+INFO:name:E4/10  step 2496/8279  total=0.0505  lr=7.44e-05  |  flakiness_detect=0.0493  code_search=0.0610
+INFO:name:E4/10  step 2528/8279  total=0.0503  lr=7.44e-05  |  flakiness_detect=0.0488  code_search=0.0610
+INFO:name:E4/10  step 2560/8279  total=0.0499  lr=7.43e-05  |  flakiness_detect=0.0483  code_search=0.0607
+INFO:name:E4/10  step 2592/8279  total=0.0499  lr=7.43e-05  |  flakiness_detect=0.0482  code_search=0.0607
+INFO:name:E4/10  step 2624/8279  total=0.0498  lr=7.43e-05  |  flakiness_detect=0.0479  code_search=0.0608
+INFO:name:E4/10  step 2656/8279  total=0.0498  lr=7.42e-05  |  flakiness_detect=0.0477  code_search=0.0609
+INFO:name:E4/10  step 2688/8279  total=0.0498  lr=7.42e-05  |  flakiness_detect=0.0474  code_search=0.0610
+INFO:name:E4/10  step 2720/8279  total=0.0497  lr=7.41e-05  |  flakiness_detect=0.0468  code_search=0.0613
+INFO:name:E4/10  step 2752/8279  total=0.0496  lr=7.41e-05  |  flakiness_detect=0.0462  code_search=0.0615
+INFO:name:E4/10  step 2784/8279  total=0.0494  lr=7.40e-05  |  flakiness_detect=0.0459  code_search=0.0614
+INFO:name:E4/10  step 2816/8279  total=0.0490  lr=7.40e-05  |  flakiness_detect=0.0453  code_search=0.0611
+INFO:name:E4/10  step 2848/8279  total=0.0489  lr=7.40e-05  |  flakiness_detect=0.0448  code_search=0.0612
+INFO:name:E4/10  step 2880/8279  total=0.0488  lr=7.39e-05  |  flakiness_detect=0.0445  code_search=0.0612
+INFO:name:E4/10  step 2912/8279  total=0.0485  lr=7.39e-05  |  flakiness_detect=0.0440  code_search=0.0610
+INFO:name:E4/10  step 2944/8279  total=0.0484  lr=7.38e-05  |  flakiness_detect=0.0437  code_search=0.0610
+INFO:name:E4/10  step 2976/8279  total=0.0484  lr=7.38e-05  |  flakiness_detect=0.0432  code_search=0.0614
+INFO:name:E4/10  step 3008/8279  total=0.0483  lr=7.37e-05  |  flakiness_detect=0.0427  code_search=0.0615
+INFO:name:E4/10  step 3040/8279  total=0.0482  lr=7.37e-05  |  flakiness_detect=0.0422  code_search=0.0616
+INFO:name:E4/10  step 3072/8279  total=0.0481  lr=7.37e-05  |  flakiness_detect=0.0419  code_search=0.0617
+INFO:name:E4/10  step 3104/8279  total=0.0479  lr=7.36e-05  |  flakiness_detect=0.0416  code_search=0.0616
+INFO:name:E4/10  step 3136/8279  total=0.0477  lr=7.36e-05  |  flakiness_detect=0.0411  code_search=0.0615
+INFO:name:E4/10  step 3168/8279  total=0.0476  lr=7.35e-05  |  flakiness_detect=0.0410  code_search=0.0614
+INFO:name:E4/10  step 3200/8279  total=0.0473  lr=7.35e-05  |  flakiness_detect=0.0404  code_search=0.0612
+INFO:name:E4/10  step 3232/8279  total=0.0474  lr=7.34e-05  |  flakiness_detect=0.0407  code_search=0.0612
+INFO:name:E4/10  step 3264/8279  total=0.0473  lr=7.34e-05  |  flakiness_detect=0.0404  code_search=0.0612
+INFO:name:E4/10  step 3296/8279  total=0.0473  lr=7.34e-05  |  flakiness_detect=0.0403  code_search=0.0613
+INFO:name:E4/10  step 3328/8279  total=0.0476  lr=7.33e-05  |  flakiness_detect=0.0413  code_search=0.0611
+INFO:name:E4/10  step 3360/8279  total=0.0474  lr=7.33e-05  |  flakiness_detect=0.0409  code_search=0.0609
+INFO:name:E4/10  step 3392/8279  total=0.0474  lr=7.32e-05  |  flakiness_detect=0.0411  code_search=0.0609
+INFO:name:E4/10  step 3424/8279  total=0.0473  lr=7.32e-05  |  flakiness_detect=0.0408  code_search=0.0610
+INFO:name:E4/10  step 3456/8279  total=0.0471  lr=7.31e-05  |  flakiness_detect=0.0404  code_search=0.0609
+INFO:name:E4/10  step 3488/8279  total=0.0470  lr=7.31e-05  |  flakiness_detect=0.0402  code_search=0.0608
+INFO:name:E4/10  step 3520/8279  total=0.0469  lr=7.31e-05  |  flakiness_detect=0.0402  code_search=0.0607
+INFO:name:E4/10  step 3552/8279  total=0.0468  lr=7.30e-05  |  flakiness_detect=0.0398  code_search=0.0606
+INFO:name:E4/10  step 3584/8279  total=0.0467  lr=7.30e-05  |  flakiness_detect=0.0396  code_search=0.0607
+INFO:name:E4/10  step 3616/8279  total=0.0466  lr=7.29e-05  |  flakiness_detect=0.0393  code_search=0.0607
+INFO:name:E4/10  step 3648/8279  total=0.0464  lr=7.29e-05  |  flakiness_detect=0.0389  code_search=0.0606
+INFO:name:E4/10  step 3680/8279  total=0.0462  lr=7.28e-05  |  flakiness_detect=0.0385  code_search=0.0605
+INFO:name:E4/10  step 3712/8279  total=0.0461  lr=7.28e-05  |  flakiness_detect=0.0382  code_search=0.0605
+INFO:name:E4/10  step 3744/8279  total=0.0460  lr=7.28e-05  |  flakiness_detect=0.0382  code_search=0.0602
+INFO:name:E4/10  step 3776/8279  total=0.0458  lr=7.27e-05  |  flakiness_detect=0.0379  code_search=0.0601
+INFO:name:E4/10  step 3808/8279  total=0.0491  lr=7.27e-05  |  flakiness_detect=0.0466  code_search=0.0602
+INFO:name:E4/10  step 3840/8279  total=0.0489  lr=7.26e-05  |  flakiness_detect=0.0463  code_search=0.0602
+INFO:name:E4/10  step 3872/8279  total=0.0487  lr=7.26e-05  |  flakiness_detect=0.0460  code_search=0.0600
+INFO:name:E4/10  step 3904/8279  total=0.0487  lr=7.25e-05  |  flakiness_detect=0.0456  code_search=0.0603
+INFO:name:E4/10  step 3936/8279  total=0.0486  lr=7.25e-05  |  flakiness_detect=0.0454  code_search=0.0603
+INFO:name:E4/10  step 3968/8279  total=0.0484  lr=7.25e-05  |  flakiness_detect=0.0449  code_search=0.0601
+INFO:name:E4/10  step 4000/8279  total=0.0482  lr=7.24e-05  |  flakiness_detect=0.0444  code_search=0.0602
+INFO:name:E4/10  step 4032/8279  total=0.0480  lr=7.24e-05  |  flakiness_detect=0.0440  code_search=0.0600
+INFO:name:E4/10  step 4064/8279  total=0.0480  lr=7.23e-05  |  flakiness_detect=0.0438  code_search=0.0601
+INFO:name:E4/10  step 4096/8279  total=0.0481  lr=7.23e-05  |  flakiness_detect=0.0442  code_search=0.0602
+INFO:name:E4/10  step 4128/8279  total=0.0480  lr=7.22e-05  |  flakiness_detect=0.0441  code_search=0.0601
+INFO:name:E4/10  step 4160/8279  total=0.0480  lr=7.22e-05  |  flakiness_detect=0.0438  code_search=0.0601
+INFO:name:E4/10  step 4192/8279  total=0.0480  lr=7.22e-05  |  flakiness_detect=0.0435  code_search=0.0603
+INFO:name:E4/10  step 4224/8279  total=0.0478  lr=7.21e-05  |  flakiness_detect=0.0430  code_search=0.0604
+INFO:name:E4/10  step 4256/8279  total=0.0478  lr=7.21e-05  |  flakiness_detect=0.0429  code_search=0.0604
+INFO:name:E4/10  step 4288/8279  total=0.0478  lr=7.20e-05  |  flakiness_detect=0.0428  code_search=0.0604
+INFO:name:E4/10  step 4320/8279  total=0.0477  lr=7.20e-05  |  flakiness_detect=0.0426  code_search=0.0605
+INFO:name:E4/10  step 4352/8279  total=0.0475  lr=7.19e-05  |  flakiness_detect=0.0421  code_search=0.0603
+INFO:name:E4/10  step 4384/8279  total=0.0474  lr=7.19e-05  |  flakiness_detect=0.0419  code_search=0.0603
+INFO:name:E4/10  step 4416/8279  total=0.0473  lr=7.19e-05  |  flakiness_detect=0.0416  code_search=0.0603
+INFO:name:E4/10  step 4448/8279  total=0.0472  lr=7.18e-05  |  flakiness_detect=0.0413  code_search=0.0604
+INFO:name:E4/10  step 4480/8279  total=0.0471  lr=7.18e-05  |  flakiness_detect=0.0410  code_search=0.0604
+INFO:name:E4/10  step 4512/8279  total=0.0470  lr=7.17e-05  |  flakiness_detect=0.0407  code_search=0.0604
+INFO:name:E4/10  step 4544/8279  total=0.0469  lr=7.17e-05  |  flakiness_detect=0.0404  code_search=0.0605
+INFO:name:E4/10  step 4576/8279  total=0.0469  lr=7.16e-05  |  flakiness_detect=0.0403  code_search=0.0606
+INFO:name:E4/10  step 4608/8279  total=0.0470  lr=7.16e-05  |  flakiness_detect=0.0401  code_search=0.0608
+INFO:name:E4/10  step 4640/8279  total=0.0468  lr=7.16e-05  |  flakiness_detect=0.0398  code_search=0.0607
+INFO:name:E4/10  step 4672/8279  total=0.0467  lr=7.15e-05  |  flakiness_detect=0.0394  code_search=0.0608
+INFO:name:E4/10  step 4704/8279  total=0.0475  lr=7.15e-05  |  flakiness_detect=0.0416  code_search=0.0607
+INFO:name:E4/10  step 4736/8279  total=0.0474  lr=7.14e-05  |  flakiness_detect=0.0414  code_search=0.0607
+INFO:name:E4/10  step 4768/8279  total=0.0474  lr=7.14e-05  |  flakiness_detect=0.0415  code_search=0.0607
+INFO:name:E4/10  step 4800/8279  total=0.0475  lr=7.13e-05  |  flakiness_detect=0.0415  code_search=0.0609
+INFO:name:E4/10  step 4832/8279  total=0.0474  lr=7.13e-05  |  flakiness_detect=0.0414  code_search=0.0607
+INFO:name:E4/10  step 4864/8279  total=0.0474  lr=7.12e-05  |  flakiness_detect=0.0412  code_search=0.0608
+INFO:name:E4/10  step 4896/8279  total=0.0473  lr=7.12e-05  |  flakiness_detect=0.0410  code_search=0.0607
+INFO:name:E4/10  step 4928/8279  total=0.0471  lr=7.12e-05  |  flakiness_detect=0.0407  code_search=0.0606
+INFO:name:E4/10  step 4960/8279  total=0.0471  lr=7.11e-05  |  flakiness_detect=0.0405  code_search=0.0607
+INFO:name:E4/10  step 4992/8279  total=0.0469  lr=7.11e-05  |  flakiness_detect=0.0401  code_search=0.0607
+INFO:name:E4/10  step 5024/8279  total=0.0475  lr=7.10e-05  |  flakiness_detect=0.0418  code_search=0.0606
+INFO:name:E4/10  step 5056/8279  total=0.0474  lr=7.10e-05  |  flakiness_detect=0.0416  code_search=0.0605
+INFO:name:E4/10  step 5088/8279  total=0.0473  lr=7.09e-05  |  flakiness_detect=0.0414  code_search=0.0605
+INFO:name:E4/10  step 5120/8279  total=0.0472  lr=7.09e-05  |  flakiness_detect=0.0412  code_search=0.0604
+INFO:name:E4/10  step 5152/8279  total=0.0471  lr=7.09e-05  |  flakiness_detect=0.0410  code_search=0.0604
+INFO:name:E4/10  step 5184/8279  total=0.0470  lr=7.08e-05  |  flakiness_detect=0.0407  code_search=0.0603
+INFO:name:E4/10  step 5216/8279  total=0.0469  lr=7.08e-05  |  flakiness_detect=0.0404  code_search=0.0603
+INFO:name:E4/10  step 5248/8279  total=0.0467  lr=7.07e-05  |  flakiness_detect=0.0400  code_search=0.0604
+INFO:name:E4/10  step 5280/8279  total=0.0468  lr=7.07e-05  |  flakiness_detect=0.0400  code_search=0.0605
+INFO:name:E4/10  step 5312/8279  total=0.0467  lr=7.06e-05  |  flakiness_detect=0.0397  code_search=0.0606
+INFO:name:E4/10  step 5344/8279  total=0.0467  lr=7.06e-05  |  flakiness_detect=0.0395  code_search=0.0607
+INFO:name:E4/10  step 5376/8279  total=0.0467  lr=7.06e-05  |  flakiness_detect=0.0395  code_search=0.0608
+INFO:name:E4/10  step 5408/8279  total=0.0470  lr=7.05e-05  |  flakiness_detect=0.0405  code_search=0.0606
+INFO:name:E4/10  step 5440/8279  total=0.0470  lr=7.05e-05  |  flakiness_detect=0.0402  code_search=0.0607
+INFO:name:E4/10  step 5472/8279  total=0.0468  lr=7.04e-05  |  flakiness_detect=0.0399  code_search=0.0606
+INFO:name:E4/10  step 5504/8279  total=0.0467  lr=7.04e-05  |  flakiness_detect=0.0397  code_search=0.0605
+INFO:name:E4/10  step 5536/8279  total=0.0466  lr=7.03e-05  |  flakiness_detect=0.0395  code_search=0.0605
+INFO:name:E4/10  step 5568/8279  total=0.0466  lr=7.03e-05  |  flakiness_detect=0.0392  code_search=0.0606
+INFO:name:E4/10  step 5600/8279  total=0.0465  lr=7.03e-05  |  flakiness_detect=0.0391  code_search=0.0607
+INFO:name:E4/10  step 5632/8279  total=0.0465  lr=7.02e-05  |  flakiness_detect=0.0390  code_search=0.0607
+INFO:name:E4/10  step 5664/8279  total=0.0465  lr=7.02e-05  |  flakiness_detect=0.0387  code_search=0.0609
+INFO:name:E4/10  step 5696/8279  total=0.0464  lr=7.01e-05  |  flakiness_detect=0.0385  code_search=0.0609
+INFO:name:E4/10  step 5728/8279  total=0.0463  lr=7.01e-05  |  flakiness_detect=0.0383  code_search=0.0608
+INFO:name:E4/10  step 5760/8279  total=0.0462  lr=7.00e-05  |  flakiness_detect=0.0381  code_search=0.0607
+INFO:name:E4/10  step 5792/8279  total=0.0461  lr=7.00e-05  |  flakiness_detect=0.0380  code_search=0.0606
+INFO:name:E4/10  step 5824/8279  total=0.0461  lr=7.00e-05  |  flakiness_detect=0.0379  code_search=0.0606
+INFO:name:E4/10  step 5856/8279  total=0.0460  lr=6.99e-05  |  flakiness_detect=0.0377  code_search=0.0606
+INFO:name:E4/10  step 5888/8279  total=0.0459  lr=6.99e-05  |  flakiness_detect=0.0374  code_search=0.0606
+INFO:name:E4/10  step 5920/8279  total=0.0458  lr=6.98e-05  |  flakiness_detect=0.0372  code_search=0.0606
+INFO:name:E4/10  step 5952/8279  total=0.0457  lr=6.98e-05  |  flakiness_detect=0.0371  code_search=0.0606
+INFO:name:E4/10  step 5984/8279  total=0.0457  lr=6.97e-05  |  flakiness_detect=0.0369  code_search=0.0605
+INFO:name:E4/10  step 6016/8279  total=0.0456  lr=6.97e-05  |  flakiness_detect=0.0368  code_search=0.0606
+INFO:name:E4/10  step 6048/8279  total=0.0455  lr=6.97e-05  |  flakiness_detect=0.0367  code_search=0.0605
+INFO:name:E4/10  step 6080/8279  total=0.0455  lr=6.96e-05  |  flakiness_detect=0.0366  code_search=0.0604
+INFO:name:E4/10  step 6112/8279  total=0.0456  lr=6.96e-05  |  flakiness_detect=0.0370  code_search=0.0604
+INFO:name:E4/10  step 6144/8279  total=0.0455  lr=6.95e-05  |  flakiness_detect=0.0367  code_search=0.0605
+INFO:name:E4/10  step 6176/8279  total=0.0455  lr=6.95e-05  |  flakiness_detect=0.0366  code_search=0.0605
+INFO:name:E4/10  step 6208/8279  total=0.0454  lr=6.94e-05  |  flakiness_detect=0.0364  code_search=0.0604
+INFO:name:E4/10  step 6240/8279  total=0.0454  lr=6.94e-05  |  flakiness_detect=0.0364  code_search=0.0604
+INFO:name:E4/10  step 6272/8279  total=0.0453  lr=6.94e-05  |  flakiness_detect=0.0362  code_search=0.0603
+INFO:name:E4/10  step 6304/8279  total=0.0454  lr=6.93e-05  |  flakiness_detect=0.0363  code_search=0.0604
+INFO:name:E4/10  step 6336/8279  total=0.0454  lr=6.93e-05  |  flakiness_detect=0.0362  code_search=0.0605
+INFO:name:E4/10  step 6368/8279  total=0.0453  lr=6.92e-05  |  flakiness_detect=0.0361  code_search=0.0606
+INFO:name:E4/10  step 6400/8279  total=0.0453  lr=6.92e-05  |  flakiness_detect=0.0361  code_search=0.0605
+INFO:name:E4/10  step 6432/8279  total=0.0452  lr=6.91e-05  |  flakiness_detect=0.0358  code_search=0.0605
+INFO:name:E4/10  step 6464/8279  total=0.0451  lr=6.91e-05  |  flakiness_detect=0.0357  code_search=0.0604
+INFO:name:E4/10  step 6496/8279  total=0.0450  lr=6.91e-05  |  flakiness_detect=0.0355  code_search=0.0604
+INFO:name:E4/10  step 6528/8279  total=0.0450  lr=6.90e-05  |  flakiness_detect=0.0354  code_search=0.0604
+INFO:name:E4/10  step 6560/8279  total=0.0449  lr=6.90e-05  |  flakiness_detect=0.0352  code_search=0.0604
+INFO:name:E4/10  step 6592/8279  total=0.0449  lr=6.89e-05  |  flakiness_detect=0.0351  code_search=0.0603
+INFO:name:E4/10  step 6624/8279  total=0.0448  lr=6.89e-05  |  flakiness_detect=0.0349  code_search=0.0603
+INFO:name:E4/10  step 6656/8279  total=0.0447  lr=6.88e-05  |  flakiness_detect=0.0348  code_search=0.0603
+INFO:name:E4/10  step 6688/8279  total=0.0446  lr=6.88e-05  |  flakiness_detect=0.0347  code_search=0.0602
+INFO:name:E4/10  step 6720/8279  total=0.0445  lr=6.88e-05  |  flakiness_detect=0.0345  code_search=0.0601
+INFO:name:E4/10  step 6752/8279  total=0.0445  lr=6.87e-05  |  flakiness_detect=0.0344  code_search=0.0602
+INFO:name:E4/10  step 6784/8279  total=0.0444  lr=6.87e-05  |  flakiness_detect=0.0345  code_search=0.0600
+INFO:name:E4/10  step 6816/8279  total=0.0444  lr=6.86e-05  |  flakiness_detect=0.0344  code_search=0.0599
+INFO:name:E4/10  step 6848/8279  total=0.0443  lr=6.86e-05  |  flakiness_detect=0.0342  code_search=0.0599
+INFO:name:E4/10  step 6880/8279  total=0.0443  lr=6.85e-05  |  flakiness_detect=0.0340  code_search=0.0600
+INFO:name:E4/10  step 6912/8279  total=0.0442  lr=6.85e-05  |  flakiness_detect=0.0339  code_search=0.0599
+INFO:name:E4/10  step 6944/8279  total=0.0442  lr=6.85e-05  |  flakiness_detect=0.0338  code_search=0.0600
+INFO:name:E4/10  step 6976/8279  total=0.0442  lr=6.84e-05  |  flakiness_detect=0.0337  code_search=0.0600
+INFO:name:E4/10  step 7008/8279  total=0.0441  lr=6.84e-05  |  flakiness_detect=0.0336  code_search=0.0600
+INFO:name:E4/10  step 7040/8279  total=0.0440  lr=6.83e-05  |  flakiness_detect=0.0335  code_search=0.0599
+INFO:name:E4/10  step 7072/8279  total=0.0439  lr=6.83e-05  |  flakiness_detect=0.0333  code_search=0.0599
+INFO:name:E4/10  step 7104/8279  total=0.0439  lr=6.82e-05  |  flakiness_detect=0.0332  code_search=0.0598
+INFO:name:E4/10  step 7136/8279  total=0.0439  lr=6.82e-05  |  flakiness_detect=0.0331  code_search=0.0599
+INFO:name:E4/10  step 7168/8279  total=0.0439  lr=6.82e-05  |  flakiness_detect=0.0330  code_search=0.0599
+INFO:name:E4/10  step 7200/8279  total=0.0438  lr=6.81e-05  |  flakiness_detect=0.0329  code_search=0.0599
+INFO:name:E4/10  step 7232/8279  total=0.0437  lr=6.81e-05  |  flakiness_detect=0.0327  code_search=0.0599
+INFO:name:E4/10  step 7264/8279  total=0.0437  lr=6.80e-05  |  flakiness_detect=0.0326  code_search=0.0599
+INFO:name:E4/10  step 7296/8279  total=0.0437  lr=6.80e-05  |  flakiness_detect=0.0327  code_search=0.0599
+INFO:name:E4/10  step 7328/8279  total=0.0436  lr=6.79e-05  |  flakiness_detect=0.0326  code_search=0.0598
+INFO:name:E4/10  step 7360/8279  total=0.0435  lr=6.79e-05  |  flakiness_detect=0.0324  code_search=0.0598
+INFO:name:E4/10  step 7392/8279  total=0.0435  lr=6.79e-05  |  flakiness_detect=0.0322  code_search=0.0599
+INFO:name:E4/10  step 7424/8279  total=0.0435  lr=6.78e-05  |  flakiness_detect=0.0321  code_search=0.0599
+INFO:name:E4/10  step 7456/8279  total=0.0435  lr=6.78e-05  |  flakiness_detect=0.0321  code_search=0.0599
+INFO:name:E4/10  step 7488/8279  total=0.0435  lr=6.77e-05  |  flakiness_detect=0.0320  code_search=0.0600
+INFO:name:E4/10  step 7520/8279  total=0.0435  lr=6.77e-05  |  flakiness_detect=0.0319  code_search=0.0600
+INFO:name:E4/10  step 7552/8279  total=0.0435  lr=6.76e-05  |  flakiness_detect=0.0318  code_search=0.0602
+INFO:name:E4/10  step 7584/8279  total=0.0434  lr=6.76e-05  |  flakiness_detect=0.0316  code_search=0.0601
+INFO:name:E4/10  step 7616/8279  total=0.0435  lr=6.76e-05  |  flakiness_detect=0.0316  code_search=0.0601
+INFO:name:E4/10  step 7648/8279  total=0.0434  lr=6.75e-05  |  flakiness_detect=0.0315  code_search=0.0601
+INFO:name:E4/10  step 7680/8279  total=0.0434  lr=6.75e-05  |  flakiness_detect=0.0314  code_search=0.0601
+INFO:name:E4/10  step 7712/8279  total=0.0434  lr=6.74e-05  |  flakiness_detect=0.0313  code_search=0.0602
+INFO:name:E4/10  step 7744/8279  total=0.0433  lr=6.74e-05  |  flakiness_detect=0.0312  code_search=0.0602
+INFO:name:E4/10  step 7776/8279  total=0.0439  lr=6.73e-05  |  flakiness_detect=0.0330  code_search=0.0601
+INFO:name:E4/10  step 7808/8279  total=0.0439  lr=6.73e-05  |  flakiness_detect=0.0330  code_search=0.0600
+INFO:name:E4/10  step 7840/8279  total=0.0439  lr=6.73e-05  |  flakiness_detect=0.0329  code_search=0.0600
+INFO:name:E4/10  step 7872/8279  total=0.0438  lr=6.72e-05  |  flakiness_detect=0.0329  code_search=0.0600
+INFO:name:E4/10  step 7904/8279  total=0.0438  lr=6.72e-05  |  flakiness_detect=0.0327  code_search=0.0601
+INFO:name:E4/10  step 7936/8279  total=0.0438  lr=6.71e-05  |  flakiness_detect=0.0327  code_search=0.0601
+INFO:name:E4/10  step 7968/8279  total=0.0438  lr=6.71e-05  |  flakiness_detect=0.0326  code_search=0.0601
+INFO:name:E4/10  step 8000/8279  total=0.0438  lr=6.70e-05  |  flakiness_detect=0.0326  code_search=0.0601
+INFO:name:E4/10  step 8032/8279  total=0.0438  lr=6.70e-05  |  flakiness_detect=0.0325  code_search=0.0601
+INFO:name:E4/10  step 8064/8279  total=0.0438  lr=6.70e-05  |  flakiness_detect=0.0324  code_search=0.0601
+INFO:name:E4/10  step 8096/8279  total=0.0437  lr=6.69e-05  |  flakiness_detect=0.0323  code_search=0.0602
+INFO:name:E4/10  step 8128/8279  total=0.0437  lr=6.69e-05  |  flakiness_detect=0.0322  code_search=0.0601
+INFO:name:E4/10  step 8160/8279  total=0.0436  lr=6.68e-05  |  flakiness_detect=0.0322  code_search=0.0601
+INFO:name:E4/10  step 8192/8279  total=0.0437  lr=6.68e-05  |  flakiness_detect=0.0321  code_search=0.0601
+INFO:name:E4/10  step 8224/8279  total=0.0436  lr=6.67e-05  |  flakiness_detect=0.0320  code_search=0.0601
+INFO:name:E4/10  step 8256/8279  total=0.0436  lr=6.67e-05  |  flakiness_detect=0.0319  code_search=0.0601
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 4/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.0318    1.2492       9395298
+INFO:name:  code_search               0.0601    0.7508      31619885
+INFO:name:  TOTAL                     0.0435                41015183  (epoch)  cumulative=164151372
+INFO:name:  epoch_time=3695.3s  peak_gpu_memory=19.913GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '0.6927', 'code_search': '1.3073'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    flakiness_detect        grad_norm=  0.006476
+INFO:name:    code_search             grad_norm=  0.105708
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  flakiness_detect        code_search                +0.0671  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9800   0.7256    0.7099      0.7419   0.1997        -
+INFO:name:  code_search                   -        -         -         -        -   0.3810
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5533
+INFO:name:----------------------------------------------------------------------
+Saved 185 trainable params -> ./adapters/modernbert_flak_search_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.5533) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (19210 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9787   0.6931    0.6481      0.7447        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.3250
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E5/10  step 32/8279  total=0.0372  lr=6.66e-05  |  flakiness_detect=0.0001  code_search=0.0364
+INFO:name:E5/10  step 64/8279  total=0.0429  lr=6.66e-05  |  flakiness_detect=0.0118  code_search=0.0417
+INFO:name:E5/10  step 96/8279  total=0.0401  lr=6.65e-05  |  flakiness_detect=0.0161  code_search=0.0389
+INFO:name:E5/10  step 128/8279  total=0.0448  lr=6.65e-05  |  flakiness_detect=0.0161  code_search=0.0443
+INFO:name:E5/10  step 160/8279  total=0.0422  lr=6.65e-05  |  flakiness_detect=0.0150  code_search=0.0418
+INFO:name:E5/10  step 192/8279  total=0.0427  lr=6.64e-05  |  flakiness_detect=0.0168  code_search=0.0422
+INFO:name:E5/10  step 224/8279  total=0.0426  lr=6.64e-05  |  flakiness_detect=0.0150  code_search=0.0431
+INFO:name:E5/10  step 256/8279  total=0.0424  lr=6.63e-05  |  flakiness_detect=0.0133  code_search=0.0432
+INFO:name:E5/10  step 288/8279  total=0.0410  lr=6.63e-05  |  flakiness_detect=0.0110  code_search=0.0436
+INFO:name:E5/10  step 320/8279  total=0.0417  lr=6.62e-05  |  flakiness_detect=0.0103  code_search=0.0439
+INFO:name:E5/10  step 352/8279  total=0.0408  lr=6.62e-05  |  flakiness_detect=0.0105  code_search=0.0428
+INFO:name:E5/10  step 384/8279  total=0.0413  lr=6.62e-05  |  flakiness_detect=0.0105  code_search=0.0428
+INFO:name:E5/10  step 416/8279  total=0.0412  lr=6.61e-05  |  flakiness_detect=0.0103  code_search=0.0426
+INFO:name:E5/10  step 448/8279  total=0.0407  lr=6.61e-05  |  flakiness_detect=0.0108  code_search=0.0423
+INFO:name:E5/10  step 480/8279  total=0.0400  lr=6.60e-05  |  flakiness_detect=0.0101  code_search=0.0418
+INFO:name:E5/10  step 512/8279  total=0.0422  lr=6.60e-05  |  flakiness_detect=0.0098  code_search=0.0437
+INFO:name:E5/10  step 544/8279  total=0.0417  lr=6.59e-05  |  flakiness_detect=0.0095  code_search=0.0433
+INFO:name:E5/10  step 576/8279  total=0.0416  lr=6.59e-05  |  flakiness_detect=0.0090  code_search=0.0432
+INFO:name:E5/10  step 608/8279  total=0.0428  lr=6.59e-05  |  flakiness_detect=0.0086  code_search=0.0445
+INFO:name:E5/10  step 640/8279  total=0.0430  lr=6.58e-05  |  flakiness_detect=0.0083  code_search=0.0445
+INFO:name:E5/10  step 672/8279  total=0.0436  lr=6.58e-05  |  flakiness_detect=0.0079  code_search=0.0452
+INFO:name:E5/10  step 704/8279  total=0.0428  lr=6.57e-05  |  flakiness_detect=0.0076  code_search=0.0443
+INFO:name:E5/10  step 736/8279  total=0.0421  lr=6.57e-05  |  flakiness_detect=0.0078  code_search=0.0436
+INFO:name:E5/10  step 768/8279  total=0.0418  lr=6.56e-05  |  flakiness_detect=0.0073  code_search=0.0438
+INFO:name:E5/10  step 800/8279  total=0.0413  lr=6.56e-05  |  flakiness_detect=0.0070  code_search=0.0433
+INFO:name:E5/10  step 832/8279  total=0.0405  lr=6.56e-05  |  flakiness_detect=0.0067  code_search=0.0427
+INFO:name:E5/10  step 864/8279  total=0.0406  lr=6.55e-05  |  flakiness_detect=0.0068  code_search=0.0425
+INFO:name:E5/10  step 896/8279  total=0.0405  lr=6.55e-05  |  flakiness_detect=0.0065  code_search=0.0425
+INFO:name:E5/10  step 928/8279  total=0.0406  lr=6.54e-05  |  flakiness_detect=0.0062  code_search=0.0428
+INFO:name:E5/10  step 960/8279  total=0.0406  lr=6.54e-05  |  flakiness_detect=0.0061  code_search=0.0428
+INFO:name:E5/10  step 992/8279  total=0.0408  lr=6.53e-05  |  flakiness_detect=0.0065  code_search=0.0430
+INFO:name:E5/10  step 1024/8279  total=0.0410  lr=6.53e-05  |  flakiness_detect=0.0073  code_search=0.0429
+INFO:name:E5/10  step 1056/8279  total=0.0411  lr=6.52e-05  |  flakiness_detect=0.0071  code_search=0.0431
+INFO:name:E5/10  step 1088/8279  total=0.0412  lr=6.52e-05  |  flakiness_detect=0.0070  code_search=0.0430
+INFO:name:E5/10  step 1120/8279  total=0.0412  lr=6.52e-05  |  flakiness_detect=0.0070  code_search=0.0431
+INFO:name:E5/10  step 1152/8279  total=0.0418  lr=6.51e-05  |  flakiness_detect=0.0072  code_search=0.0435
+INFO:name:E5/10  step 1184/8279  total=0.0415  lr=6.51e-05  |  flakiness_detect=0.0073  code_search=0.0434
+INFO:name:E5/10  step 1216/8279  total=0.0420  lr=6.50e-05  |  flakiness_detect=0.0071  code_search=0.0439
+INFO:name:E5/10  step 1248/8279  total=0.0416  lr=6.50e-05  |  flakiness_detect=0.0068  code_search=0.0438
+INFO:name:E5/10  step 1280/8279  total=0.0419  lr=6.49e-05  |  flakiness_detect=0.0067  code_search=0.0441
+INFO:name:E5/10  step 1312/8279  total=0.0423  lr=6.49e-05  |  flakiness_detect=0.0066  code_search=0.0445
+INFO:name:E5/10  step 1344/8279  total=0.0425  lr=6.49e-05  |  flakiness_detect=0.0064  code_search=0.0446
+INFO:name:E5/10  step 1376/8279  total=0.0425  lr=6.48e-05  |  flakiness_detect=0.0066  code_search=0.0446
+INFO:name:E5/10  step 1408/8279  total=0.0424  lr=6.48e-05  |  flakiness_detect=0.0064  code_search=0.0445
+INFO:name:E5/10  step 1440/8279  total=0.0429  lr=6.47e-05  |  flakiness_detect=0.0070  code_search=0.0449
+INFO:name:E5/10  step 1472/8279  total=0.0430  lr=6.47e-05  |  flakiness_detect=0.0068  code_search=0.0451
+INFO:name:E5/10  step 1504/8279  total=0.0430  lr=6.46e-05  |  flakiness_detect=0.0067  code_search=0.0450
+INFO:name:E5/10  step 1536/8279  total=0.0431  lr=6.46e-05  |  flakiness_detect=0.0068  code_search=0.0452
+INFO:name:E5/10  step 1568/8279  total=0.0433  lr=6.46e-05  |  flakiness_detect=0.0067  code_search=0.0454
+INFO:name:E5/10  step 1600/8279  total=0.0433  lr=6.45e-05  |  flakiness_detect=0.0066  code_search=0.0454
+INFO:name:E5/10  step 1632/8279  total=0.0431  lr=6.45e-05  |  flakiness_detect=0.0064  code_search=0.0453
+INFO:name:E5/10  step 1664/8279  total=0.0429  lr=6.44e-05  |  flakiness_detect=0.0063  code_search=0.0453
+INFO:name:E5/10  step 1696/8279  total=0.0429  lr=6.44e-05  |  flakiness_detect=0.0063  code_search=0.0452
+INFO:name:E5/10  step 1728/8279  total=0.0431  lr=6.43e-05  |  flakiness_detect=0.0062  code_search=0.0453
+INFO:name:E5/10  step 1760/8279  total=0.0432  lr=6.43e-05  |  flakiness_detect=0.0061  code_search=0.0454
+INFO:name:E5/10  step 1792/8279  total=0.0431  lr=6.43e-05  |  flakiness_detect=0.0060  code_search=0.0454
+INFO:name:E5/10  step 1824/8279  total=0.0433  lr=6.42e-05  |  flakiness_detect=0.0059  code_search=0.0456
+INFO:name:E5/10  step 1856/8279  total=0.0438  lr=6.42e-05  |  flakiness_detect=0.0058  code_search=0.0461
+INFO:name:E5/10  step 1888/8279  total=0.0438  lr=6.41e-05  |  flakiness_detect=0.0058  code_search=0.0461
+INFO:name:E5/10  step 1920/8279  total=0.0438  lr=6.41e-05  |  flakiness_detect=0.0056  code_search=0.0462
+INFO:name:E5/10  step 1952/8279  total=0.0437  lr=6.40e-05  |  flakiness_detect=0.0056  code_search=0.0462
+INFO:name:E5/10  step 1984/8279  total=0.0437  lr=6.40e-05  |  flakiness_detect=0.0058  code_search=0.0461
+INFO:name:E5/10  step 2016/8279  total=0.0437  lr=6.40e-05  |  flakiness_detect=0.0057  code_search=0.0461
+INFO:name:E5/10  step 2048/8279  total=0.0436  lr=6.39e-05  |  flakiness_detect=0.0056  code_search=0.0460
+INFO:name:E5/10  step 2080/8279  total=0.0437  lr=6.39e-05  |  flakiness_detect=0.0055  code_search=0.0462
+INFO:name:E5/10  step 2112/8279  total=0.0436  lr=6.38e-05  |  flakiness_detect=0.0054  code_search=0.0460
+INFO:name:E5/10  step 2144/8279  total=0.0434  lr=6.38e-05  |  flakiness_detect=0.0058  code_search=0.0459
+INFO:name:E5/10  step 2176/8279  total=0.0433  lr=6.37e-05  |  flakiness_detect=0.0059  code_search=0.0457
+INFO:name:E5/10  step 2208/8279  total=0.0431  lr=6.37e-05  |  flakiness_detect=0.0059  code_search=0.0456
+INFO:name:E5/10  step 2240/8279  total=0.0430  lr=6.37e-05  |  flakiness_detect=0.0059  code_search=0.0454
+INFO:name:E5/10  step 2272/8279  total=0.0431  lr=6.36e-05  |  flakiness_detect=0.0062  code_search=0.0455
+INFO:name:E5/10  step 2304/8279  total=0.0434  lr=6.36e-05  |  flakiness_detect=0.0062  code_search=0.0457
+INFO:name:E5/10  step 2336/8279  total=0.0431  lr=6.35e-05  |  flakiness_detect=0.0061  code_search=0.0455
+INFO:name:E5/10  step 2368/8279  total=0.0431  lr=6.35e-05  |  flakiness_detect=0.0060  code_search=0.0456
+INFO:name:E5/10  step 2400/8279  total=0.0430  lr=6.34e-05  |  flakiness_detect=0.0060  code_search=0.0456
+INFO:name:E5/10  step 2432/8279  total=0.0430  lr=6.34e-05  |  flakiness_detect=0.0060  code_search=0.0456
+INFO:name:E5/10  step 2464/8279  total=0.0429  lr=6.34e-05  |  flakiness_detect=0.0059  code_search=0.0454
+INFO:name:E5/10  step 2496/8279  total=0.0429  lr=6.33e-05  |  flakiness_detect=0.0059  code_search=0.0454
+INFO:name:E5/10  step 2528/8279  total=0.0429  lr=6.33e-05  |  flakiness_detect=0.0059  code_search=0.0453
+INFO:name:E5/10  step 2560/8279  total=0.0428  lr=6.32e-05  |  flakiness_detect=0.0059  code_search=0.0453
+INFO:name:E5/10  step 2592/8279  total=0.0428  lr=6.32e-05  |  flakiness_detect=0.0058  code_search=0.0452
+INFO:name:E5/10  step 2624/8279  total=0.0430  lr=6.31e-05  |  flakiness_detect=0.0062  code_search=0.0453
+INFO:name:E5/10  step 2656/8279  total=0.0429  lr=6.31e-05  |  flakiness_detect=0.0063  code_search=0.0452
+INFO:name:E5/10  step 2688/8279  total=0.0430  lr=6.31e-05  |  flakiness_detect=0.0064  code_search=0.0452
+INFO:name:E5/10  step 2720/8279  total=0.0431  lr=6.30e-05  |  flakiness_detect=0.0063  code_search=0.0453
+INFO:name:E5/10  step 2752/8279  total=0.0429  lr=6.30e-05  |  flakiness_detect=0.0062  code_search=0.0451
+INFO:name:E5/10  step 2784/8279  total=0.0428  lr=6.29e-05  |  flakiness_detect=0.0061  code_search=0.0451
+INFO:name:E5/10  step 2816/8279  total=0.0428  lr=6.29e-05  |  flakiness_detect=0.0062  code_search=0.0451
+INFO:name:E5/10  step 2848/8279  total=0.0429  lr=6.28e-05  |  flakiness_detect=0.0061  code_search=0.0452
+INFO:name:E5/10  step 2880/8279  total=0.0429  lr=6.28e-05  |  flakiness_detect=0.0061  code_search=0.0452
+INFO:name:E5/10  step 2912/8279  total=0.0428  lr=6.28e-05  |  flakiness_detect=0.0060  code_search=0.0452
+INFO:name:E5/10  step 2944/8279  total=0.0429  lr=6.27e-05  |  flakiness_detect=0.0060  code_search=0.0453
+INFO:name:E5/10  step 2976/8279  total=0.0428  lr=6.27e-05  |  flakiness_detect=0.0061  code_search=0.0452
+INFO:name:E5/10  step 3008/8279  total=0.0428  lr=6.26e-05  |  flakiness_detect=0.0060  code_search=0.0453
+INFO:name:E5/10  step 3040/8279  total=0.0428  lr=6.26e-05  |  flakiness_detect=0.0059  code_search=0.0453
+INFO:name:E5/10  step 3072/8279  total=0.0428  lr=6.25e-05  |  flakiness_detect=0.0059  code_search=0.0453
+INFO:name:E5/10  step 3104/8279  total=0.0428  lr=6.25e-05  |  flakiness_detect=0.0058  code_search=0.0453
+INFO:name:E5/10  step 3136/8279  total=0.0427  lr=6.25e-05  |  flakiness_detect=0.0059  code_search=0.0452
+INFO:name:E5/10  step 3168/8279  total=0.0427  lr=6.24e-05  |  flakiness_detect=0.0058  code_search=0.0453
+INFO:name:E5/10  step 3200/8279  total=0.0428  lr=6.24e-05  |  flakiness_detect=0.0059  code_search=0.0454
+INFO:name:E5/10  step 3232/8279  total=0.0427  lr=6.23e-05  |  flakiness_detect=0.0059  code_search=0.0454
+INFO:name:E5/10  step 3264/8279  total=0.0426  lr=6.23e-05  |  flakiness_detect=0.0059  code_search=0.0453
+INFO:name:E5/10  step 3296/8279  total=0.0426  lr=6.22e-05  |  flakiness_detect=0.0058  code_search=0.0452
+INFO:name:E5/10  step 3328/8279  total=0.0431  lr=6.22e-05  |  flakiness_detect=0.0083  code_search=0.0452
+INFO:name:E5/10  step 3360/8279  total=0.0431  lr=6.22e-05  |  flakiness_detect=0.0084  code_search=0.0452
+INFO:name:E5/10  step 3392/8279  total=0.0431  lr=6.21e-05  |  flakiness_detect=0.0083  code_search=0.0452
+INFO:name:E5/10  step 3424/8279  total=0.0431  lr=6.21e-05  |  flakiness_detect=0.0082  code_search=0.0452
+INFO:name:E5/10  step 3456/8279  total=0.0430  lr=6.20e-05  |  flakiness_detect=0.0082  code_search=0.0452
+INFO:name:E5/10  step 3488/8279  total=0.0431  lr=6.20e-05  |  flakiness_detect=0.0081  code_search=0.0451
+INFO:name:E5/10  step 3520/8279  total=0.0431  lr=6.19e-05  |  flakiness_detect=0.0084  code_search=0.0451
+INFO:name:E5/10  step 3552/8279  total=0.0430  lr=6.19e-05  |  flakiness_detect=0.0085  code_search=0.0450
+INFO:name:E5/10  step 3584/8279  total=0.0432  lr=6.19e-05  |  flakiness_detect=0.0085  code_search=0.0450
+INFO:name:E5/10  step 3616/8279  total=0.0431  lr=6.18e-05  |  flakiness_detect=0.0084  code_search=0.0450
+INFO:name:E5/10  step 3648/8279  total=0.0431  lr=6.18e-05  |  flakiness_detect=0.0084  code_search=0.0450
+INFO:name:E5/10  step 3680/8279  total=0.0430  lr=6.17e-05  |  flakiness_detect=0.0084  code_search=0.0449
+INFO:name:E5/10  step 3712/8279  total=0.0429  lr=6.17e-05  |  flakiness_detect=0.0084  code_search=0.0448
+INFO:name:E5/10  step 3744/8279  total=0.0428  lr=6.16e-05  |  flakiness_detect=0.0084  code_search=0.0446
+INFO:name:E5/10  step 3776/8279  total=0.0427  lr=6.16e-05  |  flakiness_detect=0.0084  code_search=0.0446
+INFO:name:E5/10  step 3808/8279  total=0.0427  lr=6.16e-05  |  flakiness_detect=0.0083  code_search=0.0446
+INFO:name:E5/10  step 3840/8279  total=0.0427  lr=6.15e-05  |  flakiness_detect=0.0082  code_search=0.0446
+INFO:name:E5/10  step 3872/8279  total=0.0429  lr=6.15e-05  |  flakiness_detect=0.0083  code_search=0.0447
+INFO:name:E5/10  step 3904/8279  total=0.0427  lr=6.14e-05  |  flakiness_detect=0.0082  code_search=0.0446
+INFO:name:E5/10  step 3936/8279  total=0.0427  lr=6.14e-05  |  flakiness_detect=0.0082  code_search=0.0445
+INFO:name:E5/10  step 3968/8279  total=0.0426  lr=6.13e-05  |  flakiness_detect=0.0081  code_search=0.0445
+INFO:name:E5/10  step 4000/8279  total=0.0426  lr=6.13e-05  |  flakiness_detect=0.0081  code_search=0.0445
+INFO:name:E5/10  step 4032/8279  total=0.0425  lr=6.13e-05  |  flakiness_detect=0.0081  code_search=0.0445
+INFO:name:E5/10  step 4064/8279  total=0.0425  lr=6.12e-05  |  flakiness_detect=0.0080  code_search=0.0445
+INFO:name:E5/10  step 4096/8279  total=0.0425  lr=6.12e-05  |  flakiness_detect=0.0081  code_search=0.0444
+INFO:name:E5/10  step 4128/8279  total=0.0424  lr=6.11e-05  |  flakiness_detect=0.0081  code_search=0.0443
+INFO:name:E5/10  step 4160/8279  total=0.0425  lr=6.11e-05  |  flakiness_detect=0.0081  code_search=0.0443
+INFO:name:E5/10  step 4192/8279  total=0.0424  lr=6.10e-05  |  flakiness_detect=0.0081  code_search=0.0443
+INFO:name:E5/10  step 4224/8279  total=0.0423  lr=6.10e-05  |  flakiness_detect=0.0080  code_search=0.0443
+INFO:name:E5/10  step 4256/8279  total=0.0423  lr=6.10e-05  |  flakiness_detect=0.0079  code_search=0.0442
+INFO:name:E5/10  step 4288/8279  total=0.0422  lr=6.09e-05  |  flakiness_detect=0.0078  code_search=0.0442
+INFO:name:E5/10  step 4320/8279  total=0.0422  lr=6.09e-05  |  flakiness_detect=0.0079  code_search=0.0441
+INFO:name:E5/10  step 4352/8279  total=0.0422  lr=6.08e-05  |  flakiness_detect=0.0078  code_search=0.0442
+INFO:name:E5/10  step 4384/8279  total=0.0422  lr=6.08e-05  |  flakiness_detect=0.0077  code_search=0.0443
+INFO:name:E5/10  step 4416/8279  total=0.0422  lr=6.07e-05  |  flakiness_detect=0.0077  code_search=0.0442
+INFO:name:E5/10  step 4448/8279  total=0.0423  lr=6.07e-05  |  flakiness_detect=0.0076  code_search=0.0444
+INFO:name:E5/10  step 4480/8279  total=0.0423  lr=6.07e-05  |  flakiness_detect=0.0076  code_search=0.0445
+INFO:name:E5/10  step 4512/8279  total=0.0423  lr=6.06e-05  |  flakiness_detect=0.0075  code_search=0.0445
+INFO:name:E5/10  step 4544/8279  total=0.0423  lr=6.06e-05  |  flakiness_detect=0.0075  code_search=0.0444
+INFO:name:E5/10  step 4576/8279  total=0.0422  lr=6.05e-05  |  flakiness_detect=0.0075  code_search=0.0443
+INFO:name:E5/10  step 4608/8279  total=0.0422  lr=6.05e-05  |  flakiness_detect=0.0074  code_search=0.0444
+INFO:name:E5/10  step 4640/8279  total=0.0422  lr=6.04e-05  |  flakiness_detect=0.0074  code_search=0.0444
+INFO:name:E5/10  step 4672/8279  total=0.0422  lr=6.04e-05  |  flakiness_detect=0.0073  code_search=0.0444
+INFO:name:E5/10  step 4704/8279  total=0.0422  lr=6.04e-05  |  flakiness_detect=0.0073  code_search=0.0444
+INFO:name:E5/10  step 4736/8279  total=0.0422  lr=6.03e-05  |  flakiness_detect=0.0072  code_search=0.0445
+INFO:name:E5/10  step 4768/8279  total=0.0424  lr=6.03e-05  |  flakiness_detect=0.0072  code_search=0.0447
+INFO:name:E5/10  step 4800/8279  total=0.0424  lr=6.02e-05  |  flakiness_detect=0.0071  code_search=0.0447
+INFO:name:E5/10  step 4832/8279  total=0.0424  lr=6.02e-05  |  flakiness_detect=0.0071  code_search=0.0447
+INFO:name:E5/10  step 4864/8279  total=0.0423  lr=6.01e-05  |  flakiness_detect=0.0071  code_search=0.0447
+INFO:name:E5/10  step 4896/8279  total=0.0424  lr=6.01e-05  |  flakiness_detect=0.0071  code_search=0.0447
+INFO:name:E5/10  step 4928/8279  total=0.0430  lr=6.01e-05  |  flakiness_detect=0.0101  code_search=0.0447
+INFO:name:E5/10  step 4960/8279  total=0.0429  lr=6.00e-05  |  flakiness_detect=0.0100  code_search=0.0447
+INFO:name:E5/10  step 4992/8279  total=0.0430  lr=6.00e-05  |  flakiness_detect=0.0099  code_search=0.0448
+INFO:name:E5/10  step 5024/8279  total=0.0431  lr=5.99e-05  |  flakiness_detect=0.0099  code_search=0.0449
+INFO:name:E5/10  step 5056/8279  total=0.0430  lr=5.99e-05  |  flakiness_detect=0.0099  code_search=0.0448
+INFO:name:E5/10  step 5088/8279  total=0.0430  lr=5.98e-05  |  flakiness_detect=0.0099  code_search=0.0448
+INFO:name:E5/10  step 5120/8279  total=0.0430  lr=5.98e-05  |  flakiness_detect=0.0098  code_search=0.0448
+INFO:name:E5/10  step 5152/8279  total=0.0430  lr=5.98e-05  |  flakiness_detect=0.0099  code_search=0.0448
+INFO:name:E5/10  step 5184/8279  total=0.0430  lr=5.97e-05  |  flakiness_detect=0.0098  code_search=0.0448
+INFO:name:E5/10  step 5216/8279  total=0.0429  lr=5.97e-05  |  flakiness_detect=0.0098  code_search=0.0447
+INFO:name:E5/10  step 5248/8279  total=0.0429  lr=5.96e-05  |  flakiness_detect=0.0097  code_search=0.0448
+INFO:name:E5/10  step 5280/8279  total=0.0430  lr=5.96e-05  |  flakiness_detect=0.0097  code_search=0.0448
+INFO:name:E5/10  step 5312/8279  total=0.0430  lr=5.95e-05  |  flakiness_detect=0.0098  code_search=0.0449
+INFO:name:E5/10  step 5344/8279  total=0.0431  lr=5.95e-05  |  flakiness_detect=0.0098  code_search=0.0450
+INFO:name:E5/10  step 5376/8279  total=0.0432  lr=5.95e-05  |  flakiness_detect=0.0098  code_search=0.0450
+INFO:name:E5/10  step 5408/8279  total=0.0432  lr=5.94e-05  |  flakiness_detect=0.0098  code_search=0.0450
+INFO:name:E5/10  step 5440/8279  total=0.0432  lr=5.94e-05  |  flakiness_detect=0.0098  code_search=0.0451
+INFO:name:E5/10  step 5472/8279  total=0.0432  lr=5.93e-05  |  flakiness_detect=0.0097  code_search=0.0451
+INFO:name:E5/10  step 5504/8279  total=0.0433  lr=5.93e-05  |  flakiness_detect=0.0097  code_search=0.0452
+INFO:name:E5/10  step 5536/8279  total=0.0432  lr=5.92e-05  |  flakiness_detect=0.0096  code_search=0.0451
+INFO:name:E5/10  step 5568/8279  total=0.0432  lr=5.92e-05  |  flakiness_detect=0.0096  code_search=0.0451
+INFO:name:E5/10  step 5600/8279  total=0.0432  lr=5.92e-05  |  flakiness_detect=0.0096  code_search=0.0451
+INFO:name:E5/10  step 5632/8279  total=0.0432  lr=5.91e-05  |  flakiness_detect=0.0096  code_search=0.0451
+INFO:name:E5/10  step 5664/8279  total=0.0432  lr=5.91e-05  |  flakiness_detect=0.0095  code_search=0.0451
+INFO:name:E5/10  step 5696/8279  total=0.0432  lr=5.90e-05  |  flakiness_detect=0.0095  code_search=0.0451
+INFO:name:E5/10  step 5728/8279  total=0.0431  lr=5.90e-05  |  flakiness_detect=0.0095  code_search=0.0450
+INFO:name:E5/10  step 5760/8279  total=0.0431  lr=5.89e-05  |  flakiness_detect=0.0095  code_search=0.0450
+INFO:name:E5/10  step 5792/8279  total=0.0432  lr=5.89e-05  |  flakiness_detect=0.0096  code_search=0.0451
+INFO:name:E5/10  step 5824/8279  total=0.0432  lr=5.89e-05  |  flakiness_detect=0.0096  code_search=0.0450
+INFO:name:E5/10  step 5856/8279  total=0.0432  lr=5.88e-05  |  flakiness_detect=0.0095  code_search=0.0450
+INFO:name:E5/10  step 5888/8279  total=0.0431  lr=5.88e-05  |  flakiness_detect=0.0094  code_search=0.0450
+INFO:name:E5/10  step 5920/8279  total=0.0431  lr=5.87e-05  |  flakiness_detect=0.0095  code_search=0.0450
+INFO:name:E5/10  step 5952/8279  total=0.0431  lr=5.87e-05  |  flakiness_detect=0.0096  code_search=0.0450
+INFO:name:E5/10  step 5984/8279  total=0.0431  lr=5.86e-05  |  flakiness_detect=0.0095  code_search=0.0450
+INFO:name:E5/10  step 6016/8279  total=0.0431  lr=5.86e-05  |  flakiness_detect=0.0095  code_search=0.0449
+INFO:name:E5/10  step 6048/8279  total=0.0430  lr=5.85e-05  |  flakiness_detect=0.0095  code_search=0.0449
+INFO:name:E5/10  step 6080/8279  total=0.0430  lr=5.85e-05  |  flakiness_detect=0.0094  code_search=0.0449
+INFO:name:E5/10  step 6112/8279  total=0.0430  lr=5.85e-05  |  flakiness_detect=0.0094  code_search=0.0450
+INFO:name:E5/10  step 6144/8279  total=0.0429  lr=5.84e-05  |  flakiness_detect=0.0094  code_search=0.0449
+INFO:name:E5/10  step 6176/8279  total=0.0429  lr=5.84e-05  |  flakiness_detect=0.0094  code_search=0.0449
+INFO:name:E5/10  step 6208/8279  total=0.0430  lr=5.83e-05  |  flakiness_detect=0.0094  code_search=0.0449
+INFO:name:E5/10  step 6240/8279  total=0.0430  lr=5.83e-05  |  flakiness_detect=0.0094  code_search=0.0450
+INFO:name:E5/10  step 6272/8279  total=0.0429  lr=5.82e-05  |  flakiness_detect=0.0093  code_search=0.0449
+INFO:name:E5/10  step 6304/8279  total=0.0429  lr=5.82e-05  |  flakiness_detect=0.0093  code_search=0.0449
+INFO:name:E5/10  step 6336/8279  total=0.0429  lr=5.82e-05  |  flakiness_detect=0.0093  code_search=0.0449
+INFO:name:E5/10  step 6368/8279  total=0.0430  lr=5.81e-05  |  flakiness_detect=0.0092  code_search=0.0450
+INFO:name:E5/10  step 6400/8279  total=0.0430  lr=5.81e-05  |  flakiness_detect=0.0092  code_search=0.0450
+INFO:name:E5/10  step 6432/8279  total=0.0430  lr=5.80e-05  |  flakiness_detect=0.0092  code_search=0.0450
+INFO:name:E5/10  step 6464/8279  total=0.0430  lr=5.80e-05  |  flakiness_detect=0.0091  code_search=0.0450
+INFO:name:E5/10  step 6496/8279  total=0.0430  lr=5.79e-05  |  flakiness_detect=0.0092  code_search=0.0451
+INFO:name:E5/10  step 6528/8279  total=0.0432  lr=5.79e-05  |  flakiness_detect=0.0092  code_search=0.0452
+INFO:name:E5/10  step 6560/8279  total=0.0431  lr=5.79e-05  |  flakiness_detect=0.0092  code_search=0.0451
+INFO:name:E5/10  step 6592/8279  total=0.0431  lr=5.78e-05  |  flakiness_detect=0.0092  code_search=0.0451
+INFO:name:E5/10  step 6624/8279  total=0.0431  lr=5.78e-05  |  flakiness_detect=0.0091  code_search=0.0452
+INFO:name:E5/10  step 6656/8279  total=0.0430  lr=5.77e-05  |  flakiness_detect=0.0091  code_search=0.0451
+INFO:name:E5/10  step 6688/8279  total=0.0431  lr=5.77e-05  |  flakiness_detect=0.0091  code_search=0.0452
+INFO:name:E5/10  step 6720/8279  total=0.0431  lr=5.76e-05  |  flakiness_detect=0.0090  code_search=0.0451
+INFO:name:E5/10  step 6752/8279  total=0.0431  lr=5.76e-05  |  flakiness_detect=0.0090  code_search=0.0452
+INFO:name:E5/10  step 6784/8279  total=0.0431  lr=5.76e-05  |  flakiness_detect=0.0090  code_search=0.0452
+INFO:name:E5/10  step 6816/8279  total=0.0432  lr=5.75e-05  |  flakiness_detect=0.0090  code_search=0.0452
+INFO:name:E5/10  step 6848/8279  total=0.0432  lr=5.75e-05  |  flakiness_detect=0.0089  code_search=0.0452
+INFO:name:E5/10  step 6880/8279  total=0.0433  lr=5.74e-05  |  flakiness_detect=0.0089  code_search=0.0454
+INFO:name:E5/10  step 6912/8279  total=0.0433  lr=5.74e-05  |  flakiness_detect=0.0089  code_search=0.0453
+INFO:name:E5/10  step 6944/8279  total=0.0433  lr=5.73e-05  |  flakiness_detect=0.0089  code_search=0.0454
+INFO:name:E5/10  step 6976/8279  total=0.0435  lr=5.73e-05  |  flakiness_detect=0.0088  code_search=0.0455
+INFO:name:E5/10  step 7008/8279  total=0.0434  lr=5.73e-05  |  flakiness_detect=0.0088  code_search=0.0454
+INFO:name:E5/10  step 7040/8279  total=0.0434  lr=5.72e-05  |  flakiness_detect=0.0088  code_search=0.0455
+INFO:name:E5/10  step 7072/8279  total=0.0434  lr=5.72e-05  |  flakiness_detect=0.0088  code_search=0.0454
+INFO:name:E5/10  step 7104/8279  total=0.0434  lr=5.71e-05  |  flakiness_detect=0.0088  code_search=0.0454
+INFO:name:E5/10  step 7136/8279  total=0.0434  lr=5.71e-05  |  flakiness_detect=0.0088  code_search=0.0454
+INFO:name:E5/10  step 7168/8279  total=0.0435  lr=5.70e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7200/8279  total=0.0435  lr=5.70e-05  |  flakiness_detect=0.0088  code_search=0.0456
+INFO:name:E5/10  step 7232/8279  total=0.0435  lr=5.70e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7264/8279  total=0.0434  lr=5.69e-05  |  flakiness_detect=0.0087  code_search=0.0454
+INFO:name:E5/10  step 7296/8279  total=0.0434  lr=5.69e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7328/8279  total=0.0435  lr=5.68e-05  |  flakiness_detect=0.0088  code_search=0.0455
+INFO:name:E5/10  step 7360/8279  total=0.0435  lr=5.68e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7392/8279  total=0.0435  lr=5.67e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7424/8279  total=0.0434  lr=5.67e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7456/8279  total=0.0434  lr=5.67e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7488/8279  total=0.0435  lr=5.66e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7520/8279  total=0.0435  lr=5.66e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7552/8279  total=0.0434  lr=5.65e-05  |  flakiness_detect=0.0086  code_search=0.0455
+INFO:name:E5/10  step 7584/8279  total=0.0435  lr=5.65e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7616/8279  total=0.0435  lr=5.64e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7648/8279  total=0.0435  lr=5.64e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7680/8279  total=0.0436  lr=5.64e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7712/8279  total=0.0435  lr=5.63e-05  |  flakiness_detect=0.0087  code_search=0.0455
+INFO:name:E5/10  step 7744/8279  total=0.0435  lr=5.63e-05  |  flakiness_detect=0.0086  code_search=0.0455
+INFO:name:E5/10  step 7776/8279  total=0.0434  lr=5.62e-05  |  flakiness_detect=0.0086  code_search=0.0454
+INFO:name:E5/10  step 7808/8279  total=0.0435  lr=5.62e-05  |  flakiness_detect=0.0086  code_search=0.0454
+INFO:name:E5/10  step 7840/8279  total=0.0434  lr=5.61e-05  |  flakiness_detect=0.0085  code_search=0.0454
+INFO:name:E5/10  step 7872/8279  total=0.0434  lr=5.61e-05  |  flakiness_detect=0.0085  code_search=0.0454
+INFO:name:E5/10  step 7904/8279  total=0.0433  lr=5.61e-05  |  flakiness_detect=0.0085  code_search=0.0453
+INFO:name:E5/10  step 7936/8279  total=0.0433  lr=5.60e-05  |  flakiness_detect=0.0085  code_search=0.0453
+INFO:name:E5/10  step 7968/8279  total=0.0433  lr=5.60e-05  |  flakiness_detect=0.0085  code_search=0.0454
+INFO:name:E5/10  step 8000/8279  total=0.0434  lr=5.59e-05  |  flakiness_detect=0.0085  code_search=0.0454
+INFO:name:E5/10  step 8032/8279  total=0.0434  lr=5.59e-05  |  flakiness_detect=0.0084  code_search=0.0454
+INFO:name:E5/10  step 8064/8279  total=0.0434  lr=5.58e-05  |  flakiness_detect=0.0084  code_search=0.0454
+INFO:name:E5/10  step 8096/8279  total=0.0434  lr=5.58e-05  |  flakiness_detect=0.0084  code_search=0.0454
+INFO:name:E5/10  step 8128/8279  total=0.0434  lr=5.58e-05  |  flakiness_detect=0.0084  code_search=0.0454
+INFO:name:E5/10  step 8160/8279  total=0.0434  lr=5.57e-05  |  flakiness_detect=0.0084  code_search=0.0455
+INFO:name:E5/10  step 8192/8279  total=0.0434  lr=5.57e-05  |  flakiness_detect=0.0084  code_search=0.0454
+INFO:name:E5/10  step 8224/8279  total=0.0434  lr=5.56e-05  |  flakiness_detect=0.0083  code_search=0.0454
+INFO:name:E5/10  step 8256/8279  total=0.0434  lr=5.56e-05  |  flakiness_detect=0.0083  code_search=0.0454
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 5/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.0083    0.6927       9401565
+INFO:name:  code_search               0.0454    1.3073      31632555
+INFO:name:  TOTAL                     0.0434                41034120  (epoch)  cumulative=205185492
+INFO:name:  epoch_time=3694.6s  peak_gpu_memory=19.913GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '0.3085', 'code_search': '1.6915'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    flakiness_detect        grad_norm=  0.122662
+INFO:name:    code_search             grad_norm=  0.564293
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  flakiness_detect        code_search                +0.0392  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:Early stopping triggered at epoch 5 — halting training.
+INFO:name:  Testing flakiness_detect (4361 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (19210 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Final Test — Epoch 10
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9778   0.6777    0.6296      0.7338        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.3068
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:======================================================================
+INFO:name:Gradient Conflict Summary (aggregated over 5 epochs)
+INFO:name:  Task A                  Task B                      mean     std  neg_freq  verdict
+INFO:name:  ------                  ------                      ----     ---  --------  -------
+INFO:name:  flakiness_detect        code_search              +0.0234  0.0269     20.0%  [neutral]
+INFO:name:======================================================================
+INFO:name:Train results:
+{'code_search_grad_norm': [0.114904, 0.983707, 0.229123, 0.105708, 0.564293],
+ 'code_search_tokens': [31687368, 31626656, 31625427, 31619885, 31632555],
+ 'code_search_train_loss': [0.4296, 0.0979, 0.0713, 0.0601, 0.0454],
+ 'conflict_flakiness_detect_vs_code_search': [0.0078,
+                                              -0.0098,
+                                              0.0127,
+                                              0.0671,
+                                              0.0392],
+ 'epoch_time_s': [3700.2, 3698.1, 3695.3, 3695.3, 3694.6],
+ 'flakiness_detect_grad_norm': [0.060086,
+                                0.732218,
+                                0.003345,
+                                0.006476,
+                                0.122662],
+ 'flakiness_detect_tokens': [9399382, 9400399, 9396957, 9395298, 9401565],
+ 'flakiness_detect_train_loss': [0.9859, 0.4381, 0.1186, 0.0318, 0.0083],
+ 'peak_gpu_memory_gb': [19.913, 19.913, 19.913, 19.913, 19.913],
+ 'tokens_cumulative': [41086750, 82113805, 123136189, 164151372, 205185492],
+ 'tokens_epoch': [41086750, 41027055, 41022384, 41015183, 41034120],
+ 'total_train_loss': [0.5952, 0.2235, 0.076, 0.0435, 0.0434]}
+INFO:name:Validation results:
+{'code_search': {'mrr': [0.3322, 0.3246, 0.3513, 0.381, 0.3613]},
+ 'flakiness_detect': {'acc': [0.9778, 0.98, 0.9803, 0.98, 0.98],
+                      'eval_loss': [0.0797, 0.1278, 0.1931, 0.1997, 0.2232],
+                      'f1': [0.6959, 0.7129, 0.7095, 0.7256, 0.7203],
+                      'precision': [0.707, 0.766, 0.7836, 0.7419, 0.7517],
+                      'recall': [0.6852, 0.6667, 0.6481, 0.7099, 0.6914]}}
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
