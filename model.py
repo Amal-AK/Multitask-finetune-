@@ -64,7 +64,7 @@ class  MultiTaskModel_MTL(nn.Module):
         # mean       — encoder-decoder (T5/CodeT5+): full bidirectional context,
         #              mean pool over non-padding encoder hidden states
         _ENCODER_ONLY   = {"roberta", "bert", "deberta", "deberta-v2", "albert",
-                           "xlm-roberta", "electra", "camembert"}
+                           "xlm-roberta", "electra", "camembert", "modernbert"}
         _ENCODER_DECODER = {"t5", "mt5", "bart", "mbart", "pegasus", "codet5p"}
         # Decoder-only models used as encoders (with adapters, not for generation):
         # mean pooling outperforms last_token here because the model wasn't trained
@@ -136,7 +136,7 @@ class  MultiTaskModel_MTL(nn.Module):
 
         if self._pooling == "cls":
             # Prefer explicit pooler output; fall back to raw [CLS] if absent
-            pooled = outputs.pooler_output
+            pooled = getattr(outputs, "pooler_output", None)
             if pooled is None:
                 pooled = outputs.last_hidden_state[:, 0, :]
             return pooled

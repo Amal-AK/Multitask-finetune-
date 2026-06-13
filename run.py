@@ -24,6 +24,7 @@ from transformers import (
 )
 from peft import LoraConfig, PrefixTuningConfig, get_peft_model, TaskType
 from opendelta import AdapterModel, ParallelAdapterModel
+
 from utilities import (
     TextDataset_vul_detect, TextDataset_clone_detect,
     TextDataset_code_search, TextDataset_flakyTest,
@@ -377,11 +378,31 @@ def train(args, model, tokenizer):
 
     m_ref = model.module if args.n_gpu > 1 else model
     sigma_ids = {id(m_ref.log_sigma2)}
-    main_params  = [p for p in model.parameters() if id(p) not in sigma_ids]
-    sigma_params = [p for p in model.parameters() if id(p) in sigma_ids]
-    param_groups = [{"params": main_params, "lr": args.learning_rate}]
-    if args.loss_weighting == "uncertainty" and sigma_params:
-        param_groups.append({"params": sigma_params, "lr": args.learning_rate * 10})
+
+    if args.peft_module == "full":
+        # Full finetuning: encoder gets a small LR to avoid catastrophic forgetting;
+        # task heads (randomly initialised) keep the normal LR.
+        encoder_ids = {id(p) for p in m_ref.encoder.parameters()}
+        head_ids    = {id(p) for p in m_ref.task_heads.parameters()}
+        param_groups = [
+            {"params": [p for p in model.parameters()
+                        if id(p) in encoder_ids and id(p) not in sigma_ids],
+             "lr": args.full_lr},
+            {"params": [p for p in model.parameters()
+                        if id(p) in head_ids],
+             "lr": args.learning_rate},
+        ]
+        if args.loss_weighting == "uncertainty":
+            param_groups.append({"params": [p for p in model.parameters()
+                                             if id(p) in sigma_ids],
+                                  "lr": args.learning_rate * 10})
+    else:
+        main_params  = [p for p in model.parameters() if id(p) not in sigma_ids]
+        sigma_params = [p for p in model.parameters() if id(p) in sigma_ids]
+        param_groups = [{"params": main_params, "lr": args.learning_rate}]
+        if args.loss_weighting == "uncertainty" and sigma_params:
+            param_groups.append({"params": sigma_params, "lr": args.learning_rate * 10})
+
     optimizer = torch.optim.AdamW(param_groups, lr=args.learning_rate, weight_decay=0.01)
     # steps_per_epoch already accounts for consuming n_tasks batches per step;
     # len(dataloader) counts raw batches (4× more), which would make warmup 4× too long.
@@ -564,8 +585,7 @@ def train(args, model, tokenizer):
                             n = len(active_keys)
                             famo_z -= args.famo_gamma * delta / n
                             famo_z[task_idx] += args.famo_gamma * delta
-                        famo_prev_losses[task_name] = (0.9 * famo_prev_losses[task_name]
-                                                       + 0.1 * curr_loss)
+                        famo_prev_losses[task_name] = curr_loss
                     else:
                         famo_prev_losses[task_name] = curr_loss
 
@@ -759,7 +779,9 @@ def train(args, model, tokenizer):
             logger.info("-" * 70)
 
         # ===== Gradient norms + conflict (cosine similarity between per-task gradients) =====
-        if len(active_keys) > 1:
+        # Full finetuning stores one gradient vector per task (~5 GB each for 1.3B models);
+        # 4 tasks × 5 GB exceeds GPU VRAM when combined with weights + activations.
+        if len(active_keys) > 1 and args.peft_module != "full":
             conflicts, grad_norms = _compute_gradient_conflicts(args, model, train_sets, active_keys)
             if grad_norms:
                 logger.info("  Gradient Norms (L2, shared encoder params):")
@@ -1076,6 +1098,9 @@ def main():
     parser.add_argument("--train_data_rate_flaky",       default=1.0, type=float)
 
     parser.add_argument("--learning_rate",  default=1e-4, type=float)
+    parser.add_argument("--full_lr", default=2e-5, type=float,
+                        help="Encoder LR for --peft_module full. Task heads always use "
+                             "--learning_rate. Ignored for PEFT modes.")
     parser.add_argument("--max_grad_norm",  default=1.0,  type=float)
     parser.add_argument("--num_train_epochs", default=3,  type=int)
     parser.add_argument('--seed', type=int, default=42)
@@ -1114,6 +1139,10 @@ def main():
                              "  T=1   → proportional to dataset size.\n"
                              "  T>1   → super-linear; largest dataset dominates.")
 
+    parser.add_argument("--force_fp32", action="store_true",
+                        help="Disable BF16/FP16 autocast; run entirely in float32. "
+                             "Workaround for NaN with T5-family models in pairwise runs.")
+
     # --- quick limits for smoke tests ---
     parser.add_argument("--max_train_samples", default=None, type=int,
                         help="Cap each training dataset to N examples. Useful for smoke tests.")
@@ -1134,7 +1163,11 @@ def main():
     args.device = device
     logger.info("device: %s, n_gpu: %s", device, args.n_gpu)
 
-    autocast_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+    if getattr(args, 'force_fp32', False):
+        autocast_dtype = torch.float32
+        logger.info("force_fp32=True: autocast disabled (float32 throughout)")
+    else:
+        autocast_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
     args.autocast_dtype = autocast_dtype
 
     config = AutoConfig.from_pretrained(args.model_name_or_path, trust_remote_code=True)
@@ -1160,11 +1193,12 @@ def main():
 
     try:
         base_model = AutoModel.from_pretrained(args.model_name_or_path, config=config,
-                                               trust_remote_code=True)
+                                               trust_remote_code=True, weights_only=False)
     except (ValueError, OSError, RuntimeError) as e:
         logger.warning("AutoModel failed (%s); retrying with AutoModelForSeq2SeqLM.", e)
         base_model = AutoModelForSeq2SeqLM.from_pretrained(args.model_name_or_path,
-                                                           trust_remote_code=True)
+                                                           trust_remote_code=True,
+                                                           weights_only=False)
 
     # ---- Extract encoder for seq2seq models BEFORE injecting adapters ----
     # Must happen first so PEFT targets the encoder directly, not the full
@@ -1209,6 +1243,11 @@ def main():
         "qwen3":       {"adapter":          ["self_attn", "mlp"],
                         "parallel_adapter": ["self_attn", "mlp"],
                         "lora":             ["q_proj", "k_proj", "v_proj"]},
+        # ModernBERT: encoder-only with fused QKV (Wqkv) and no separate pooler.
+        # Adapter targets attn/mlp sub-modules (hidden_size in/out).
+        "modernbert":  {"adapter":          ["attn", "mlp"],
+                        "parallel_adapter": ["attn", "mlp"],
+                        "lora":             ["Wqkv", "Wo"]},
     }
 
     model_type = config.model_type.lower()
@@ -1289,6 +1328,15 @@ def main():
                 al.device = args.device
             if not al.instantiated:
                 al.instantiate(_dummy)
+
+    # If the pretrained backbone loaded in fp16 (torch_dtype=float16 in config),
+    # OpenDelta creates adapter weights in fp16 too. Adam's second-moment v = β₂·v + (1-β₂)·g²
+    # then underflows to zero in fp16 (v ≈ 1e-10 < fp16 min denormal ~6e-8), making
+    # sqrt(v+ε) = 0 and the Adam update NaN. Cast all trainable params to float32 before
+    # the optimizer is built so m and v stay in float32 throughout training.
+    for p in MTLmodel.parameters():
+        if p.requires_grad and p.dtype != torch.float32:
+            p.data = p.data.float()
 
     # NOTE: torch.nn.DataParallel is used for simplicity but has known limitations
     # (GIL contention, GPU-0 memory imbalance). For large-scale training, migrating

@@ -440,10 +440,11 @@ class TemperatureSampler(torch.utils.data.sampler.Sampler):
     T = 1:  proportional to dataset size (no correction).
     T > 1:  super-linear; largest dataset dominates progressively more.
     """
-    def __init__(self, dataset, batch_size, temperature=0.5):
+    def __init__(self, dataset, batch_size, temperature=0.5, seed=42):
         self.dataset     = dataset
         self.batch_size  = batch_size
         self.temperature = temperature
+        self.seed        = seed
 
         datasets         = dataset.datasets
         self.task_sizes  = [len(d.examples) for d in datasets]
@@ -460,7 +461,7 @@ class TemperatureSampler(torch.utils.data.sampler.Sampler):
         return self.n_batches * self.batch_size
 
     def __iter__(self):
-        rng          = np.random.default_rng()
+        rng          = np.random.default_rng(self.seed)
         task_indices = [list(torch.randperm(sz).numpy()) for sz in self.task_sizes]
         cursors      = [0] * self.n_tasks
 
