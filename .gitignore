@@ -4,9 +4,6 @@
 # Ignore JSONL files
 *.jsonl
 
-# Ignore log files
-*.log
-
 # Ignore model files (.bin)
 *.bin
 
@@ -18,4 +15,3 @@
 ./models/
 ./vscode/
 ./adapters/
-./logs/
