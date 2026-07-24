@@ -55,6 +55,10 @@ class  MultiTaskModel_MTL(nn.Module):
                                         "xlm-roberta", "camembert", "electra"} else 0
         self.pad_token_id = _pad
 
+        # PromptTuning prepends N virtual tokens before the real [CLS]; use this
+        # offset to pick the right position in last_hidden_state for CLS pooling.
+        self.num_prefix_tokens = getattr(config, "num_prefix_tokens", 0)
+
         # ---- pooling strategy ----
         # cls        — encoder-only (BERT/RoBERTa): rich [CLS] pooler embedding
         # last_token — decoder-only (causal LM): the last non-padding token has
@@ -135,10 +139,14 @@ class  MultiTaskModel_MTL(nn.Module):
         outputs = self.encoder(input_ids, attention_mask=attention_mask)
 
         if self._pooling == "cls":
-            # Prefer explicit pooler output; fall back to raw [CLS] if absent
-            pooled = getattr(outputs, "pooler_output", None)
-            if pooled is None:
-                pooled = outputs.last_hidden_state[:, 0, :]
+            if self.num_prefix_tokens > 0:
+                # PromptTuning prepended N virtual tokens; real [CLS] is at offset N
+                pooled = outputs.last_hidden_state[:, self.num_prefix_tokens, :]
+            else:
+                # Prefer explicit pooler output; fall back to raw [CLS] if absent
+                pooled = getattr(outputs, "pooler_output", None)
+                if pooled is None:
+                    pooled = outputs.last_hidden_state[:, 0, :]
             return pooled
 
         last_hidden = outputs.last_hidden_state   # (B, T, H)

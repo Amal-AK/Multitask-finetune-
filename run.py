@@ -1291,10 +1291,29 @@ def main():
         delta_model = get_peft_model(base_model, lora_config)
         delta_model.print_trainable_parameters()
     elif args.peft_module == "prefix":
-        prefix_config = PrefixTuningConfig(
-            task_type=TaskType.FEATURE_EXTRACTION,
-            num_virtual_tokens=20,
-        )
+        _N_VT = 20
+        _is_modernbert = getattr(config, "model_type", "").lower() == "modernbert"
+        if _is_modernbert:
+            # PrefixTuningConfig injects prefix vectors via past_key_values at each
+            # attention layer, but ModernBERT has no past_key_values support — the
+            # prefix is silently ignored and the extended attention mask causes a
+            # shape mismatch.  Fall back to PromptTuningConfig which prepends virtual
+            # token embeddings to the INPUT (no KV-cache changes), so ModernBERT sees
+            # a clean [B, S+N_VT, H] sequence and builds a square attention mask.
+            from peft import PromptTuningConfig, PromptTuningInit
+            prefix_config = PromptTuningConfig(
+                task_type=TaskType.FEATURE_EXTRACTION,
+                num_virtual_tokens=_N_VT,
+                prompt_tuning_init=PromptTuningInit.RANDOM,
+            )
+            config.num_prefix_tokens = _N_VT  # CLS offset: real [CLS] is at position N_VT
+            logger.info("ModernBERT prefix: using PromptTuning (input-level) — "
+                        "ModernBERT lacks past_key_values needed by PrefixTuning")
+        else:
+            prefix_config = PrefixTuningConfig(
+                task_type=TaskType.FEATURE_EXTRACTION,
+                num_virtual_tokens=_N_VT,
+            )
         delta_model = get_peft_model(base_model, prefix_config)
         delta_model.print_trainable_parameters()
     elif args.peft_module == "full":

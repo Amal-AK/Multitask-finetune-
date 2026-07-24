@@ -1,0 +1,45 @@
+\textbf{Model} & \textbf{Method} & \textbf{Trainable\%} &
+\multicolumn{2}{c|}{\textbf{Clone F1 (\%)}} &
+\multicolumn{2}{c|}{\textbf{Vuln Acc (\%)}} &
+\multicolumn{2}{c|}{\textbf{Flakiness F1 (\%)}} &
+\multicolumn{2}{c|}{\textbf{Search MRR (\%)}} \\
+\hline
+\multicolumn{11}{|c|}{\bfseries MFT (multi-task)} \\ \hline
+
+\multirow{5}{*}{\bfseries UniXcoder-base}
+& Full                      & \multicolumn{1}{c|}{\textcolor{red}{100.00}} & \multicolumn{1}{c}{\textcolor{red}{90.73}} & & \multicolumn{1}{c}{\textcolor{red}{62.52}} & & \multicolumn{1}{c}{\textcolor{red}{61.48}} & & \multicolumn{1}{c}{\textcolor{red}{33.43}} & \\
+& Serial adapter ($d$=64)   & \multicolumn{1}{c|}{\textcolor{red}{1.41}} & \multicolumn{1}{c}{\textcolor{red}{92.00}} & \textcolor{red}{\UP{1.27}} & \multicolumn{1}{c}{\textcolor{red}{62.85}} & \textcolor{red}{\UP{0.33}} & \multicolumn{1}{c}{\textcolor{red}{68.61}} & \textcolor{red}{\UP{7.13}} & \multicolumn{1}{c}{\textcolor{red}{38.72}} & \textcolor{red}{\UP{5.29}} \\
+& Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{0.94}} & \multicolumn{1}{c}{\textcolor{red}{91.43}} & \textcolor{red}{\UP{0.70}} & \multicolumn{1}{c}{\textcolor{red}{61.27}} & \textcolor{red}{\DOWN{1.25}} & \multicolumn{1}{c}{\textcolor{red}{67.11}} & \textcolor{red}{\UP{5.63}} & \multicolumn{1}{c}{\textcolor{red}{34.29}} & \textcolor{red}{\UP{0.86}} \\
+& LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{1.84}} & \multicolumn{1}{c}{\textcolor{red}{93.18}} & \textcolor{red}{\UP{2.45}} & \multicolumn{1}{c}{\textcolor{red}{61.90}} & \textcolor{red}{\DOWN{0.62}} & \multicolumn{1}{c}{\textcolor{red}{71.92}} & \textcolor{red}{\UP{10.44}} & \multicolumn{1}{c}{\textcolor{red}{35.47}} & \textcolor{red}{\UP{2.04}} \\
+& MLoRA                     & \multicolumn{1}{c|}{\textcolor{red}{4.48}} & \multicolumn{1}{c}{\textcolor{red}{91.61}} & \textcolor{red}{\UP{0.88}} & \multicolumn{1}{c}{\textcolor{red}{62.59}} & \textcolor{red}{\UP{0.07}} & \multicolumn{1}{c}{\textcolor{red}{68.47}} & \textcolor{red}{\UP{6.99}} & \multicolumn{1}{c}{\textcolor{red}{37.64}} & \textcolor{red}{\UP{4.21}} \\
+\hline
+
+\multirow{5}{*}{\bfseries ModernBERT-base}
+& Full                      & \multicolumn{1}{c|}{\textcolor{red}{100.00}} & \multicolumn{1}{c}{\textcolor{red}{93.55}} & & \multicolumn{1}{c}{\textcolor{red}{60.65}} & & \multicolumn{1}{c}{\textcolor{red}{70.55}} & & \multicolumn{1}{c}{\textcolor{red}{30.41}} & \\
+& Serial adapter ($d$=64)   & \multicolumn{1}{c|}{\textcolor{red}{2.84}} & \multicolumn{1}{c}{\textcolor{red}{92.73}} & \textcolor{red}{\DOWN{0.82}} & \multicolumn{1}{c}{\textcolor{red}{60.65}} & \textcolor{red}{\UP{0.00}} & \multicolumn{1}{c}{\textcolor{red}{68.73}} & \textcolor{red}{\DOWN{1.82}} & \multicolumn{1}{c}{\textcolor{red}{26.14}} & \textcolor{red}{\DOWN{4.27}} \\
+& Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{1.44}} & \multicolumn{1}{c}{\textcolor{red}{91.80}} & \textcolor{red}{\DOWN{1.75}} & \multicolumn{1}{c}{\textcolor{red}{59.63}} & \textcolor{red}{\DOWN{1.02}} & \multicolumn{1}{c}{\textcolor{red}{66.01}} & \textcolor{red}{\DOWN{4.54}} & \multicolumn{1}{c}{\textcolor{red}{27.77}} & \textcolor{red}{\DOWN{2.64}} \\
+& LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{2.99}} & \multicolumn{1}{c}{\textcolor{red}{93.90}} & \textcolor{red}{\UP{0.35}} & \multicolumn{1}{c}{\textcolor{red}{60.98}} & \textcolor{red}{\UP{0.33}} & \multicolumn{1}{c}{\textcolor{red}{67.34}} & \textcolor{red}{\DOWN{3.21}} & \multicolumn{1}{c}{\textcolor{red}{28.58}} & \textcolor{red}{\DOWN{1.83}} \\
+& MLoRA                     & \multicolumn{1}{c|}{\textcolor{red}{7.86}} & \multicolumn{1}{c}{\textcolor{red}{93.37}} & \textcolor{red}{\DOWN{0.18}} & \multicolumn{1}{c}{\textcolor{red}{61.42}} & \textcolor{red}{\UP{0.77}} & \multicolumn{1}{c}{\textcolor{red}{68.85}} & \textcolor{red}{\DOWN{1.70}} & \multicolumn{1}{c}{\textcolor{red}{30.86}} & \textcolor{red}{\UP{0.45}} \\
+\hline
+\multirow{5}{*}{\bfseries CodeT5$^+$ 770M}
+& Full                      & \multicolumn{1}{c|}{\textcolor{red}{100.00}} & \multicolumn{1}{c}{\textcolor{red}{94.28}} & & \multicolumn{1}{c}{\textcolor{red}{62.81}} & & \multicolumn{1}{c}{\textcolor{red}{70.46}} & & \multicolumn{1}{c}{\textcolor{red}{23.72}} & \\
+& Serial adapter ($d$=64)   & \multicolumn{1}{c|}{\textcolor{red}{1.89}} & \multicolumn{1}{c}{\textcolor{red}{93.22}} & \textcolor{red}{\DOWN{1.06}} & \multicolumn{1}{c}{\textcolor{red}{62.59}} & \textcolor{red}{\DOWN{0.22}} & \multicolumn{1}{c}{\textcolor{red}{69.35}} & \textcolor{red}{\DOWN{1.11}} & \multicolumn{1}{c}{\textcolor{red}{27.69}} & \textcolor{red}{\UP{3.97}} \\
+& Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{0.95}} & \multicolumn{1}{c}{\textcolor{red}{92.38}} & \textcolor{red}{\DOWN{1.90}} & \multicolumn{1}{c}{\textcolor{red}{65.63}} & \textcolor{red}{\UP{2.82}} & \multicolumn{1}{c}{\textcolor{red}{68.53}} & \textcolor{red}{\DOWN{1.93}} & \multicolumn{1}{c}{\textcolor{red}{28.13}} & \textcolor{red}{\UP{4.41}} \\
+& LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{1.39}} & \multicolumn{1}{c}{\textcolor{red}{93.52}} & \textcolor{red}{\DOWN{0.76}} & \multicolumn{1}{c}{\textcolor{red}{62.30}} & \textcolor{red}{\DOWN{0.51}} & \multicolumn{1}{c}{\textcolor{red}{70.67}} & \textcolor{red}{\UP{0.21}} & \multicolumn{1}{c}{\textcolor{red}{30.28}} & \textcolor{red}{\UP{6.56}} \\
+& MLoRA$^{*}$                & \multicolumn{1}{c|}{\textcolor{red}{55.55}} & \multicolumn{1}{c}{\textcolor{red}{93.75}} & \textcolor{red}{\DOWN{0.53}} & \multicolumn{1}{c}{\textcolor{red}{61.97}} & \textcolor{red}{\DOWN{0.84}} & \multicolumn{1}{c}{\textcolor{red}{70.00}} & \textcolor{red}{\DOWN{0.46}} & \multicolumn{1}{c}{\textcolor{red}{35.07}} & \textcolor{red}{\UP{11.35}} \\
+\hline
+
+\multirow{4}{*}{\bfseries DeepSeek-Coder 1.3B}
+& Full                      & \multicolumn{1}{c|}{\textcolor{red}{100.00}} & \multicolumn{1}{c}{\textcolor{red}{92.58}} & & \multicolumn{1}{c}{\textcolor{red}{59.63}} & & \multicolumn{1}{c}{\textcolor{red}{64.56}} & & \multicolumn{1}{c}{\textcolor{red}{29.99}} & \\
+& Serial adapter ($d$=64)   & \multicolumn{1}{c|}{\textcolor{red}{0.99}} & \multicolumn{1}{c}{\textcolor{red}{92.31}} & \textcolor{red}{\DOWN{0.27}} & \multicolumn{1}{c}{\textcolor{red}{60.69}} & \textcolor{red}{\UP{1.06}} & \multicolumn{1}{c}{\textcolor{red}{70.42}} & \textcolor{red}{\UP{5.86}} & \multicolumn{1}{c}{\textcolor{red}{35.31}} & \textcolor{red}{\UP{5.32}} \\
+& Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{0.50}} & \multicolumn{1}{c}{\textcolor{red}{91.12}} & \textcolor{red}{\DOWN{1.46}} & \multicolumn{1}{c}{\textcolor{red}{61.97}} & \textcolor{red}{\UP{2.34}} & \multicolumn{1}{c}{\textcolor{red}{66.88}} & \textcolor{red}{\UP{2.32}} & \multicolumn{1}{c}{\textcolor{red}{24.49}} & \textcolor{red}{\DOWN{5.50}} \\
+& LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{0.73}} & \multicolumn{1}{c}{\textcolor{red}{92.79}} & \textcolor{red}{\UP{0.21}} & \multicolumn{1}{c}{\textcolor{red}{61.97}} & \textcolor{red}{\UP{2.34}} & \multicolumn{1}{c}{\textcolor{red}{68.59}} & \textcolor{red}{\UP{4.03}} & \multicolumn{1}{c}{\textcolor{red}{25.40}} & \textcolor{red}{\DOWN{4.59}} \\
+\hline
+
+\multirow{4}{*}{\bfseries Qwen2.5-Coder-1.5B}
+& Full                      & \multicolumn{1}{c|}{\textcolor{red}{100.00}} & \multicolumn{1}{c}{\textcolor{red}{93.46}} & & \multicolumn{1}{c}{\textcolor{red}{61.13}} & & \multicolumn{1}{c}{\textcolor{red}{69.74}} & & \multicolumn{1}{c}{\textcolor{red}{40.18}} & \\
+& Serial adapter ($d$=64)   & \multicolumn{1}{c|}{\textcolor{red}{0.71}} & \multicolumn{1}{c}{\textcolor{red}{91.44}} & \textcolor{red}{\DOWN{2.02}} & \multicolumn{1}{c}{\textcolor{red}{60.76}} & \textcolor{red}{\DOWN{0.37}} & \multicolumn{1}{c}{\textcolor{red}{71.15}} & \textcolor{red}{\UP{1.41}} & \multicolumn{1}{c}{\textcolor{red}{32.70}} & \textcolor{red}{\DOWN{7.48}} \\
+& Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{0.36}} & \multicolumn{1}{c}{\textcolor{red}{91.87}} & \textcolor{red}{\DOWN{1.59}} & \multicolumn{1}{c}{\textcolor{red}{60.87}} & \textcolor{red}{\DOWN{0.26}} & \multicolumn{1}{c}{\textcolor{red}{68.06}} & \textcolor{red}{\DOWN{1.68}} & \multicolumn{1}{c}{\textcolor{red}{33.20}} & \textcolor{red}{\DOWN{6.98}} \\
+& LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{0.38}} & \multicolumn{1}{c}{\textcolor{red}{92.90}} & \textcolor{red}{\DOWN{0.56}} & \multicolumn{1}{c}{\textcolor{red}{61.42}} & \textcolor{red}{\UP{0.29}} & \multicolumn{1}{c}{\textcolor{red}{69.72}} & \textcolor{red}{\DOWN{0.02}} & \multicolumn{1}{c}{\textcolor{red}{29.95}} & \textcolor{red}{\DOWN{10.23}} \\
+\hline
+\hline

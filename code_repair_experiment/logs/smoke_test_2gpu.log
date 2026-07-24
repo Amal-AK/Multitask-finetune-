@@ -1,0 +1,1067 @@
+INFO:name:device: cuda:0, n_gpu: 2
+DEBUG:httpcore.connection:connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fea7cef450>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x76fea7cfc050> server_hostname='huggingface.co' timeout=10
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fea47fc790>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'250'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:44 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Fconfig.json=&etag=%2205564ee645140947482e12fa785eab3aa5f789a8%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903c-152d4d9875d390423851defd;3d6ed470-012a-4cc1-b396-022ae8c02b43'), (b'RateLimit', b'"resolvers";r=2999;t=224'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'lrN2WTU-Ae76X2LWXnyWHFsDm5GuYzaQ0_1rkyIHZ1J1JLzR_Uq3ag==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'770'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 10 Apr 2026 17:41:04 GMT'), (b'ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-69d93630-22726a526280575e6d4e8997;485ad5c3-7f33-4185-b04e-cb1d357f2daa'), (b'RateLimit', b'"resolvers";r=2936;t=64'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'0Z4l5VCQFZtJPMH43t4Dqqu-C2ghfD11XYlZUstBphyRCfWXIYkh4Q=='), (b'Age', b'5790221')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'250'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Fconfig.json=&etag=%2205564ee645140947482e12fa785eab3aa5f789a8%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-707fcf83698c2ef429b9061e;b78a784b-ffde-46fe-a66a-dbd6f6822edd'), (b'RateLimit', b'"resolvers";r=2998;t=223'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'JyFxaPz_AZzKdJ6ZUB2XHY1NKpR7rPVmmRPBUh2wvs9-hOfyL7I8Mg==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'770'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 10 Apr 2026 17:41:04 GMT'), (b'ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-69d93630-22726a526280575e6d4e8997;485ad5c3-7f33-4185-b04e-cb1d357f2daa'), (b'RateLimit', b'"resolvers";r=2936;t=64'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'WOzlojYSKzLmKrzdeLaV_XdtZe_bMpQeNBZ82xr9ZgvKxpyXnJLZpQ=='), (b'Age', b'5790221')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'270'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/tokenizer_config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22263a6f72aceb1716442638a3bcf20afe1eb0de9a%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-408a736200bba6317c840bf6;809048ff-ddd8-4e81-bc8d-0353f81088ab'), (b'RateLimit', b'"resolvers";r=2997;t=223'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"263a6f72aceb1716442638a3bcf20afe1eb0de9a"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'HlgeyzVoK0KHyaJDmfOMcRSMtE3OgR7z675xh2TcOq8jKNxmm1FWHg==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1477'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 14 May 2026 15:37:39 GMT'), (b'ETag', b'"263a6f72aceb1716442638a3bcf20afe1eb0de9a"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a05ec43-52d6ca7d43bd7ffa2aefb5e6;5de17125-a937-41b2-830d-5e3843e3fcb3'), (b'RateLimit', b'"resolvers";r=2998;t=213'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'IssnL5DkjXfrOjzFYokMuFZpJ1iYC4zHqcon9drSAHWZf-_klhVuMg=='), (b'Age', b'2860026')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/tokenizer_config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'270'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/tokenizer_config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%22263a6f72aceb1716442638a3bcf20afe1eb0de9a%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-51157d4702ffa90d576447a3;31c7b716-a64a-4cf4-b04f-844d9cd53dac'), (b'RateLimit', b'"resolvers";r=2996;t=223'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"263a6f72aceb1716442638a3bcf20afe1eb0de9a"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'JwNomLyhbZ2mZljgE8w4VwTr-nLOOr9Y84EecVTYHSzXhD3DJbvgcw==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1477'), (b'Connection', b'keep-alive'), (b'Date', b'Thu, 14 May 2026 15:37:39 GMT'), (b'ETag', b'"263a6f72aceb1716442638a3bcf20afe1eb0de9a"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a05ec43-52d6ca7d43bd7ffa2aefb5e6;5de17125-a937-41b2-830d-5e3843e3fcb3'), (b'RateLimit', b'"resolvers";r=2998;t=213'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'dgANfow4vTk6EoOUqPNfjSWp5dWyukWoLjCtoBNJnslxgRJg3mwv8A=='), (b'Age', b'2860026')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/tokenizer_config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'64'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'ETag', b'W/"40-09f9IAqP13xarAhQxFS2W8rvRkM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-49a11f0c621d239f6c124439;b6c35d39-e2c2-4b2c-b388-72dc4a90d60a'), (b'RateLimit', b'"api";r=499;t=223'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'additional_chat_templates does not exist on "main"'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'-cKop7C5vAo09TgIzVHcDZrrTPM7rxkzN7GXBG-1sYnBz8N-p1LtaQ==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"45d-Xf2JP7yU1trbWTBO2oOkG2BVR+8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-03f5a3153b594538348f1fbb;fe1e765b-f134-4ff0-886c-4d44de80ab75'), (b'RateLimit', b'"api";r=498;t=223'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'A_HTaRqN3MVNIOlz0k9v3tgL5QiwkK6UeYz82Rgyp055OmFVwup1Dw==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'250'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Fconfig.json=&etag=%2205564ee645140947482e12fa785eab3aa5f789a8%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-22d41eef0b0837dd6f797953;984414b0-85ea-43f2-a568-d70d43f3c44e'), (b'RateLimit', b'"resolvers";r=2995;t=223'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'kM6grpTjXabydVBRSE3pT9e9oURgaxXQ3Jx7HeTtYqIB9cgCvde-lA==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'770'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 10 Apr 2026 17:41:04 GMT'), (b'ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-69d93630-22726a526280575e6d4e8997;485ad5c3-7f33-4185-b04e-cb1d357f2daa'), (b'RateLimit', b'"resolvers";r=2936;t=64'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'PsVeE4ewkbFHNmuZ9OfMj-_uBivIBj5oA6O0_-IK_4FCy5K2Vq2aEA=='), (b'Age', b'5790221')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'250'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:45 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Fconfig.json=&etag=%2205564ee645140947482e12fa785eab3aa5f789a8%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903d-31f3df5577db6791056cf19b;83493bbe-fd71-4c4c-ae6d-f0f2d4fde92f'), (b'RateLimit', b'"resolvers";r=2994;t=223'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'jD3OTmfekerk73naX_tYW1BLbYrERFzS-U7RFkOR9On3F6kYg1CYrw==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'770'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 10 Apr 2026 17:41:04 GMT'), (b'ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-69d93630-22726a526280575e6d4e8997;485ad5c3-7f33-4185-b04e-cb1d357f2daa'), (b'RateLimit', b'"resolvers";r=2936;t=64'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'EbfY2HGoi13gxac0RrIV2dCllefZLHoeBRtScxZq5PQf-V-_bIg2Zw=='), (b'Age', b'5790221')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-30361e1135bdbff44bc0be95;c744c78a-c89b-4ca5-8f47-6f00235b81d9'), (b'RateLimit', b'"resolvers";r=2993;t=222'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'yYSU9Q4r234VKmnOLDoO1YEarMnonb89UN9WuM_lKXKfVGXn3kU99g==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"942-9m4QhQQ+Q0EvXUesATQ/OCfSUOg"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-3450d6e255d482033f09cf37;49826cad-9833-47b1-a8f8-fd743ecc8466'), (b'RateLimit', b'"api";r=497;t=222'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'1_Z0woUZ0PMbu_JzfQPwjTv2Z0TmIImzlwgIlnq3eAbZiGIOiyxAjA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+Loading weights:   0%|          | 0/512 [00:00<?, ?it/s]Loading weights: 100%|██████████| 512/512 [00:00<00:00, 8270.85it/s]
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"a26-sLvHmsfvNLI78LLa4jCyGt93XMc"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-34c8f3cc0fcd74775b5b9bbd;e9990ef0-6014-4a57-ba59-9f8de6ab17b4'), (b'RateLimit', b'"api";r=496;t=222'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'9'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'jtNIci7npIOJNnLWcH6x8xZbVqo6iC-W-Yf1PISj6hAwk59LyNZpHA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/commits/main "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.connection:connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fe982da210>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x76fea7cfc050> server_hostname='huggingface.co' timeout=10
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fea40dff50>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"82c-uaE1jDhmnSaEXC+nFJacb6S3wW8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-48a1520509c8fa31718d6c74;06bf598a-3250-4147-acb6-d42b20c1fa2a'), (b'RateLimit', b'"api";r=495;t=222'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'-ZOn_LRj7vTtK_VrWyWYUjt-1quuI7j9zQQGt_PjWDdrpMNdbsacWA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/discussions?p=0 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-65a4cbae1815d36578a6db85;c9d44f32-18c0-4b82-8dfb-20c81a224720'), (b'RateLimit', b'"resolvers";r=2992;t=222'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 611ca6d7a586f9a7ac13f280c5d6da36.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'NcKJ_mORpl0tbC27qi_Ni6BbHXMVZKxTIlKkSiu2adXc6Ifs-TriSg==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'250'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'Location', b'/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json?%2FSalesforce%2Fcodet5p-770m%2Fresolve%2Fmain%2Fconfig.json=&etag=%2205564ee645140947482e12fa785eab3aa5f789a8%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-012b120e52f118a105024c26;04a893ca-8f69-415a-a4fe-f8211608ee80'), (b'RateLimit', b'"resolvers";r=2991;t=222'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 611ca6d7a586f9a7ac13f280c5d6da36.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'CEw1uCQ2o_Kv9nKVEv1UhZYddkKvZHnyUa9Hp91uVvn6BouVAvNDJg==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"bad-diANLH5VsmMslHiME547Ak7mfuE"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-6e36562d52c5a4cf11aa27e5;fdad757d-bb0c-427e-a51b-cfdc6f5e3cdb'), (b'RateLimit', b'"api";r=494;t=222'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'9'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'piIscgk7qEQje7tNIwwAO0o05Bz_QAEIw6pdtYv8Vf5mXewXtJbD9A==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/commits/refs%2Fpr%2F2 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'770'), (b'Connection', b'keep-alive'), (b'Date', b'Fri, 10 Apr 2026 17:41:04 GMT'), (b'ETag', b'"05564ee645140947482e12fa785eab3aa5f789a8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-69d93630-22726a526280575e6d4e8997;485ad5c3-7f33-4185-b04e-cb1d357f2daa'), (b'RateLimit', b'"resolvers";r=2936;t=64'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 611ca6d7a586f9a7ac13f280c5d6da36.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'g5_jd0e8oZgkypeY6GHbq5VhyuLSmwpfN0nwVRGEvLpCDJ5KQltV1w=='), (b'Age', b'5790222')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Salesforce/codet5p-770m/3f7cc6e80aee6612f41253b5ee28f09f86faa35f/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.connection:connect_tcp.started host='safetensors-convert.hf.space' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fe98381150>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x76fea7cfd2e0> server_hostname='safetensors-convert.hf.space' timeout=5.0
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a31903e-67051fe20098648303f24cac;1cb182d2-3a1e-449e-9476-3b660d04440b'), (b'RateLimit', b'"resolvers";r=2990;t=222'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'3f7cc6e80aee6612f41253b5ee28f09f86faa35f'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'9-Uhiujuce34OttCEYgb8whgd6XJ1-GNGwSyRmcTG4gRboAwvlDwuQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/Salesforce/codet5p-770m/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fe98381710>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 16 Jun 2026 18:04:46 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'47'), (b'Connection', b'keep-alive'), (b'server', b'uvicorn'), (b'x-proxied-host', b'http://10.114.138.66'), (b'x-proxied-replica', b'eemwhv21-5klc6'), (b'x-proxied-path', b'/call/run'), (b'link', b'<https://huggingface.co/spaces/safetensors/convert>;rel="canonical"'), (b'x-request-id', b'2lb50U'), (b'vary', b'origin, access-control-request-method, access-control-request-headers'), (b'access-control-allow-credentials', b'true')])
+INFO:httpx:HTTP Request: POST https://safetensors-convert.hf.space/call/run "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:connect_tcp.started host='safetensors-convert.hf.space' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fe2867a410>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x76fea7cfcf80> server_hostname='safetensors-convert.hf.space' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x76fe983aff10>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 16 Jun 2026 18:04:47 GMT'), (b'Content-Type', b'text/event-stream; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'server', b'uvicorn'), (b'x-proxied-host', b'http://10.114.138.66'), (b'x-proxied-replica', b'eemwhv21-5klc6'), (b'x-proxied-path', b'/call/run/b1fd7811564d47c0b72ce06732127db8'), (b'link', b'<https://huggingface.co/spaces/safetensors/convert>;rel="canonical"'), (b'x-request-id', b'wiTHu3'), (b'vary', b'origin, access-control-request-method, access-control-request-headers'), (b'access-control-allow-credentials', b'true')])
+INFO:httpx:HTTP Request: GET https://safetensors-convert.hf.space/call/run/b1fd7811564d47c0b72ce06732127db8 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+root
+├── shared(Embedding),lm_head(Linear) weight:[32100, 1024]
+├── encoder (T5Stack)
+│   ├── embed_tokens (Embedding) weight:[32100, 1024]
+│   ├── block (ModuleList)
+│   │   ├── 0 (T5Block)
+│   │   │   └── layer (ModuleList)
+│   │   │       ├── 0 (T5LayerSelfAttention)
+│   │   │       │   ├── SelfAttention (T5Attention)
+│   │   │       │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+│   │   │       │   │   ├── relative_attention_bias (Embedding) weight:[32, 16]
+│   │   │       │   │   └── adapter (AdapterLayer)
+│   │   │       │   │       └── modulelist (Sequential)
+│   │   │       │   │           ├── down_proj (Linear) weight:[64, 1024] 
+│   │   │       │   │           │   bias:[64]
+│   │   │       │   │           └── up_proj (Linear) weight:[1024, 64] 
+│   │   │       │   │               bias:[1024]
+│   │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+│   │   │       └── 1 (T5LayerFF)
+│   │   │           ├── DenseReluDense (T5DenseActDense)
+│   │   │           │   ├── wi (Linear) weight:[4096, 1024]
+│   │   │           │   ├── wo (Linear) weight:[1024, 4096]
+│   │   │           │   └── adapter (AdapterLayer)
+│   │   │           │       └── modulelist (Sequential)
+│   │   │           │           ├── down_proj (Linear) weight:[64, 1024] 
+│   │   │           │           │   bias:[64]
+│   │   │           │           └── up_proj (Linear) weight:[1024, 64] 
+│   │   │           │               bias:[1024]
+│   │   │           └── layer_norm (T5LayerNorm) weight:[1024]
+│   │   └── 1-23(T5Block)
+│   │       └── layer (ModuleList)
+│   │           ├── 0 (T5LayerSelfAttention)
+│   │           │   ├── SelfAttention (T5Attention)
+│   │           │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+│   │           │   │   └── adapter (AdapterLayer)
+│   │           │   │       └── modulelist (Sequential)
+│   │           │   │           ├── down_proj (Linear) weight:[64, 1024] 
+│   │           │   │           │   bias:[64]
+│   │           │   │           └── up_proj (Linear) weight:[1024, 64] 
+│   │           │   │               bias:[1024]
+│   │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+│   │           └── 1 (T5LayerFF)
+│   │               ├── DenseReluDense (T5DenseActDense)
+│   │               │   ├── wi (Linear) weight:[4096, 1024]
+│   │               │   ├── wo (Linear) weight:[1024, 4096]
+│   │               │   └── adapter (AdapterLayer)
+│   │               │       └── modulelist (Sequential)
+│   │               │           ├── down_proj (Linear) weight:[64, 1024] 
+│   │               │           │   bias:[64]
+│   │               │           └── up_proj (Linear) weight:[1024, 64] 
+│   │               │               bias:[1024]
+│   │               └── layer_norm (T5LayerNorm) weight:[1024]
+│   └── final_layer_norm (T5LayerNorm) weight:[1024]
+└── decoder (T5Stack)
+    ├── embed_tokens (Embedding) weight:[32100, 1024]
+    ├── block (ModuleList)
+    │   ├── 0 (T5Block)
+    │   │   └── layer (ModuleList)
+    │   │       ├── 0 (T5LayerSelfAttention)
+    │   │       │   ├── SelfAttention (T5Attention)
+    │   │       │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+    │   │       │   │   ├── relative_attention_bias (Embedding) weight:[32, 16]
+    │   │       │   │   └── adapter (AdapterLayer)
+    │   │       │   │       └── modulelist (Sequential)
+    │   │       │   │           ├── down_proj (Linear) weight:[64, 1024] 
+    │   │       │   │           │   bias:[64]
+    │   │       │   │           └── up_proj (Linear) weight:[1024, 64] 
+    │   │       │   │               bias:[1024]
+    │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │   │       ├── 1 (T5LayerCrossAttention)
+    │   │       │   ├── EncDecAttention (T5Attention)
+    │   │       │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+    │   │       │   │   └── adapter (AdapterLayer)
+    │   │       │   │       └── modulelist (Sequential)
+    │   │       │   │           ├── down_proj (Linear) weight:[64, 1024] 
+    │   │       │   │           │   bias:[64]
+    │   │       │   │           └── up_proj (Linear) weight:[1024, 64] 
+    │   │       │   │               bias:[1024]
+    │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │   │       └── 2 (T5LayerFF)
+    │   │           ├── DenseReluDense (T5DenseActDense)
+    │   │           │   ├── wi (Linear) weight:[4096, 1024]
+    │   │           │   ├── wo (Linear) weight:[1024, 4096]
+    │   │           │   └── adapter (AdapterLayer)
+    │   │           │       └── modulelist (Sequential)
+    │   │           │           ├── down_proj (Linear) weight:[64, 1024] 
+    │   │           │           │   bias:[64]
+    │   │           │           └── up_proj (Linear) weight:[1024, 64] 
+    │   │           │               bias:[1024]
+    │   │           └── layer_norm (T5LayerNorm) weight:[1024]
+    │   └── 1-23(T5Block)
+    │       └── layer (ModuleList)
+    │           ├── 0 (T5LayerSelfAttention)
+    │           │   ├── SelfAttention (T5Attention)
+    │           │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+    │           │   │   └── adapter (AdapterLayer)
+    │           │   │       └── modulelist (Sequential)
+    │           │   │           ├── down_proj (Linear) weight:[64, 1024] 
+    │           │   │           │   bias:[64]
+    │           │   │           └── up_proj (Linear) weight:[1024, 64] 
+    │           │   │               bias:[1024]
+    │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │           ├── 1 (T5LayerCrossAttention)
+    │           │   ├── EncDecAttention (T5Attention)
+    │           │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+    │           │   │   └── adapter (AdapterLayer)
+    │           │   │       └── modulelist (Sequential)
+    │           │   │           ├── down_proj (Linear) weight:[64, 1024] 
+    │           │   │           │   bias:[64]
+    │           │   │           └── up_proj (Linear) weight:[1024, 64] 
+    │           │   │               bias:[1024]
+    │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │           └── 2 (T5LayerFF)
+    │               ├── DenseReluDense (T5DenseActDense)
+    │               │   ├── wi (Linear) weight:[4096, 1024]
+    │               │   ├── wo (Linear) weight:[1024, 4096]
+    │               │   └── adapter (AdapterLayer)
+    │               │       └── modulelist (Sequential)
+    │               │           ├── down_proj (Linear) weight:[64, 1024] 
+    │               │           │   bias:[64]
+    │               │           └── up_proj (Linear) weight:[1024, 64] 
+    │               │               bias:[1024]
+    │               └── layer_norm (T5LayerNorm) weight:[1024]
+    └── final_layer_norm (T5LayerNorm) weight:[1024]
+[INFO|(OpenDelta)basemodel:696]2026-06-16 18:04:48,949 >> Trainable Ratio: 15859200/753498624=2.104742%
+[INFO|(OpenDelta)basemodel:698]2026-06-16 18:04:48,949 >> Delta Parameter Ratio: 15859200/753498624=2.104742%
+[INFO|(OpenDelta)basemodel:700]2026-06-16 18:04:48,949 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Wrapped in DataParallel across 2 GPUs.
+INFO:name:Model:
+DataParallel(
+  (module): MultiTaskModelWithRepair(
+    (encoder): T5Stack(
+      (embed_tokens): Embedding(32100, 1024)
+      (block): ModuleList(
+        (0): T5Block(
+          (layer): ModuleList(
+            (0): T5LayerSelfAttention(
+              (SelfAttention): T5Attention(
+                (q): Linear(in_features=1024, out_features=1024, bias=False)
+                (k): Linear(in_features=1024, out_features=1024, bias=False)
+                (v): Linear(in_features=1024, out_features=1024, bias=False)
+                (o): Linear(in_features=1024, out_features=1024, bias=False)
+                (relative_attention_bias): Embedding(32, 16)
+                (adapter): AdapterLayer(
+                  (modulelist): Sequential(
+                    (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                    (non_linear): gelu_new
+                    (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                  )
+                )
+              )
+              (layer_norm): T5LayerNorm()
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (1): T5LayerFF(
+              (DenseReluDense): T5DenseActDense(
+                (wi): Linear(in_features=1024, out_features=4096, bias=False)
+                (wo): Linear(in_features=4096, out_features=1024, bias=False)
+                (dropout): Dropout(p=0.1, inplace=False)
+                (act): ReLU()
+                (adapter): AdapterLayer(
+                  (modulelist): Sequential(
+                    (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                    (non_linear): gelu_new
+                    (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                  )
+                )
+              )
+              (layer_norm): T5LayerNorm()
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+        )
+        (1-23): 23 x T5Block(
+          (layer): ModuleList(
+            (0): T5LayerSelfAttention(
+              (SelfAttention): T5Attention(
+                (q): Linear(in_features=1024, out_features=1024, bias=False)
+                (k): Linear(in_features=1024, out_features=1024, bias=False)
+                (v): Linear(in_features=1024, out_features=1024, bias=False)
+                (o): Linear(in_features=1024, out_features=1024, bias=False)
+                (adapter): AdapterLayer(
+                  (modulelist): Sequential(
+                    (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                    (non_linear): gelu_new
+                    (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                  )
+                )
+              )
+              (layer_norm): T5LayerNorm()
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (1): T5LayerFF(
+              (DenseReluDense): T5DenseActDense(
+                (wi): Linear(in_features=1024, out_features=4096, bias=False)
+                (wo): Linear(in_features=4096, out_features=1024, bias=False)
+                (dropout): Dropout(p=0.1, inplace=False)
+                (act): ReLU()
+                (adapter): AdapterLayer(
+                  (modulelist): Sequential(
+                    (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                    (non_linear): gelu_new
+                    (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                  )
+                )
+              )
+              (layer_norm): T5LayerNorm()
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+      (final_layer_norm): T5LayerNorm()
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (full_model): T5ForConditionalGeneration(
+      (shared): Embedding(32100, 1024)
+      (encoder): T5Stack(
+        (embed_tokens): Embedding(32100, 1024)
+        (block): ModuleList(
+          (0): T5Block(
+            (layer): ModuleList(
+              (0): T5LayerSelfAttention(
+                (SelfAttention): T5Attention(
+                  (q): Linear(in_features=1024, out_features=1024, bias=False)
+                  (k): Linear(in_features=1024, out_features=1024, bias=False)
+                  (v): Linear(in_features=1024, out_features=1024, bias=False)
+                  (o): Linear(in_features=1024, out_features=1024, bias=False)
+                  (relative_attention_bias): Embedding(32, 16)
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (1): T5LayerFF(
+                (DenseReluDense): T5DenseActDense(
+                  (wi): Linear(in_features=1024, out_features=4096, bias=False)
+                  (wo): Linear(in_features=4096, out_features=1024, bias=False)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                  (act): ReLU()
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+          (1-23): 23 x T5Block(
+            (layer): ModuleList(
+              (0): T5LayerSelfAttention(
+                (SelfAttention): T5Attention(
+                  (q): Linear(in_features=1024, out_features=1024, bias=False)
+                  (k): Linear(in_features=1024, out_features=1024, bias=False)
+                  (v): Linear(in_features=1024, out_features=1024, bias=False)
+                  (o): Linear(in_features=1024, out_features=1024, bias=False)
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (1): T5LayerFF(
+                (DenseReluDense): T5DenseActDense(
+                  (wi): Linear(in_features=1024, out_features=4096, bias=False)
+                  (wo): Linear(in_features=4096, out_features=1024, bias=False)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                  (act): ReLU()
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (final_layer_norm): T5LayerNorm()
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (decoder): T5Stack(
+        (embed_tokens): Embedding(32100, 1024)
+        (block): ModuleList(
+          (0): T5Block(
+            (layer): ModuleList(
+              (0): T5LayerSelfAttention(
+                (SelfAttention): T5Attention(
+                  (q): Linear(in_features=1024, out_features=1024, bias=False)
+                  (k): Linear(in_features=1024, out_features=1024, bias=False)
+                  (v): Linear(in_features=1024, out_features=1024, bias=False)
+                  (o): Linear(in_features=1024, out_features=1024, bias=False)
+                  (relative_attention_bias): Embedding(32, 16)
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (1): T5LayerCrossAttention(
+                (EncDecAttention): T5Attention(
+                  (q): Linear(in_features=1024, out_features=1024, bias=False)
+                  (k): Linear(in_features=1024, out_features=1024, bias=False)
+                  (v): Linear(in_features=1024, out_features=1024, bias=False)
+                  (o): Linear(in_features=1024, out_features=1024, bias=False)
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (2): T5LayerFF(
+                (DenseReluDense): T5DenseActDense(
+                  (wi): Linear(in_features=1024, out_features=4096, bias=False)
+                  (wo): Linear(in_features=4096, out_features=1024, bias=False)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                  (act): ReLU()
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+          (1-23): 23 x T5Block(
+            (layer): ModuleList(
+              (0): T5LayerSelfAttention(
+                (SelfAttention): T5Attention(
+                  (q): Linear(in_features=1024, out_features=1024, bias=False)
+                  (k): Linear(in_features=1024, out_features=1024, bias=False)
+                  (v): Linear(in_features=1024, out_features=1024, bias=False)
+                  (o): Linear(in_features=1024, out_features=1024, bias=False)
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (1): T5LayerCrossAttention(
+                (EncDecAttention): T5Attention(
+                  (q): Linear(in_features=1024, out_features=1024, bias=False)
+                  (k): Linear(in_features=1024, out_features=1024, bias=False)
+                  (v): Linear(in_features=1024, out_features=1024, bias=False)
+                  (o): Linear(in_features=1024, out_features=1024, bias=False)
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (2): T5LayerFF(
+                (DenseReluDense): T5DenseActDense(
+                  (wi): Linear(in_features=1024, out_features=4096, bias=False)
+                  (wo): Linear(in_features=4096, out_features=1024, bias=False)
+                  (dropout): Dropout(p=0.1, inplace=False)
+                  (act): ReLU()
+                  (adapter): AdapterLayer(
+                    (modulelist): Sequential(
+                      (down_proj): Linear(in_features=1024, out_features=64, bias=True)
+                      (non_linear): gelu_new
+                      (up_proj): Linear(in_features=64, out_features=1024, bias=True)
+                    )
+                  )
+                )
+                (layer_norm): T5LayerNorm()
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (final_layer_norm): T5LayerNorm()
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (lm_head): Linear(in_features=1024, out_features=32100, bias=False)
+    )
+    (task_heads): ModuleDict(
+      (vul_detection): Sequential(
+        (0): Linear(in_features=1024, out_features=512, bias=True)
+        (1): GELU(approximate='none')
+        (2): Dropout(p=0.1, inplace=False)
+        (3): Linear(in_features=512, out_features=1, bias=True)
+      )
+      (clone_detection): Sequential(
+        (0): Linear(in_features=1024, out_features=512, bias=True)
+        (1): GELU(approximate='none')
+        (2): Dropout(p=0.1, inplace=False)
+        (3): Linear(in_features=512, out_features=1, bias=True)
+      )
+      (flakiness_detect): Sequential(
+        (0): Linear(in_features=1024, out_features=512, bias=True)
+        (1): GELU(approximate='none')
+        (2): Dropout(p=0.1, inplace=False)
+        (3): Linear(in_features=512, out_features=1, bias=True)
+      )
+      (code_search): Sequential(
+        (0): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (1): Linear(in_features=1024, out_features=1024, bias=True)
+      )
+    )
+  )
+)
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the code repair Dataset...
+
+INFO:name:Using TemperatureSampler  T=0.30  probs=['0.200', '0.200', '0.200', '0.200', '0.200']
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the code repair Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the code repair Dataset...
+
+INFO:name:  Normalized weights: uniform for epoch 1, updated each epoch (w ~ L_i).
+INFO:name:======================================================================
+INFO:name:***** Running Training (code_repair 5-task experiment) *****
+INFO:name:  Model      : Salesforce/codet5p-770m
+INFO:name:  Epochs     : 1
+INFO:name:  Batch size : 8  |  LR: 1.00e-04
+INFO:name:  Steps/epoch: ~32  |  Total steps: ~32
+INFO:name:    vul_detection           50 examples
+INFO:name:    clone_detection         50 examples
+INFO:name:    code_search             50 examples
+INFO:name:    flakiness_detect        50 examples
+INFO:name:    code_repair             50 examples
+INFO:name:======================================================================
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.http11:receive_response_body.failed exception=GeneratorExit()
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:51 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"a26-sLvHmsfvNLI78LLa4jCyGt93XMc"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a319043-194d252362c4a97f1e4feeee;be2d34ee-fbff-4a89-89fc-14cab2367cfa'), (b'RateLimit', b'"api";r=493;t=217'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'9'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'eisVRxQ1JM6Xlk1YY-D1RCW8NmMWGXFIVQhRVFi3qSDHBz87HNLhaA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/commits/main "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:51 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"82c-uaE1jDhmnSaEXC+nFJacb6S3wW8"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a319043-2c9288165dbf7d830210705f;f55fbba7-1867-464d-b404-4c3c8b05f706'), (b'RateLimit', b'"api";r=492;t=217'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'Nz1-DgieJ0MGdjFaaN2x4e9LLciwFpWsQojJuLtsaIAlISA44hpgPA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/discussions?p=0 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Tue, 16 Jun 2026 18:04:51 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"bad-diANLH5VsmMslHiME547Ak7mfuE"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a319043-611aca076f561f3f79bf39e6;ee5adc2e-1c8e-449e-8717-c9d0be503250'), (b'RateLimit', b'"api";r=491;t=217'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'9'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'dy3Ohe-Hw6RvL7s34gPhAanIMGVKNDBgcLMZY8zCOMSqjjm7EwjKVQ==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/Salesforce/codet5p-770m/commits/refs%2Fpr%2F2 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+Exception in thread Thread-auto_conversion:
+Traceback (most recent call last):
+  File "/home/aakli/.conda/envs/multitask/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/home/aakli/.conda/envs/multitask/lib/python3.11/threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/transformers/safetensors_conversion.py", line 117, in auto_conversion
+    raise e
+  File "/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/transformers/safetensors_conversion.py", line 96, in auto_conversion
+    sha = get_conversion_pr_reference(api, pretrained_model_name_or_path, **cached_file_kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/transformers/safetensors_conversion.py", line 77, in get_conversion_pr_reference
+    raise OSError(
+OSError: Could not create safetensors conversion PR. The repo does not appear to have a file named pytorch_model.bin or model.safetensors.If you are loading with variant, use `use_safetensors=False` to load the original model.
+INFO:name:E1/1  step 32/32  total=0.8122  lr=0.00e+00  |  vul_detection=0.6959  clone_detection=0.6933  code_search=1.4809  flakiness_detect=0.5746  code_repair=0.8229
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 1/1 — Train Summary
+INFO:name:  vul_detection           loss=  0.6959  weight=  1.0000
+INFO:name:  clone_detection         loss=  0.6933  weight=  1.0000
+INFO:name:  code_search             loss=  1.4809  weight=  1.0000
+INFO:name:  flakiness_detect        loss=  0.5746  weight=  1.0000
+INFO:name:  code_repair             loss=  0.8229  weight=  1.0000
+INFO:name:                          TOTAL=  0.8122  epoch_time=13.6s  peak_gpu_mem=6.985GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights -> next epoch: {'vul_detection': '0.8154', 'clone_detection': '0.8123', 'code_search': '1.7351', 'flakiness_detect': '0.6732', 'code_repair': '0.9641'}
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.4200   0.0000    0.0000      0.0000   0.6949        -
+INFO:name:  clone_detection          0.4800   0.2353    0.5714      0.1481   0.6938        -
+INFO:name:  code_search                   -        -         -         -        -   0.2138
+INFO:name:  flakiness_detect         0.9600   0.0000    0.0000      0.0000   0.5230        -
+INFO:name:  code_repair              0.0000      nan       nan         nan   0.5816        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.0898
+INFO:name:----------------------------------------------------------------------
+Saved 497 trainable params -> ./adapters/smoke_codet5p_repair_5task_2gpu/model.bin
+INFO:name:  >> New best (0.0898) — checkpoint saved.
+INFO:name:  Testing vul_detection (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing clone_detection (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 due to no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+INFO:name:  Testing code_repair (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.4000   0.0000    0.0000      0.0000        -        -
+INFO:name:  clone_detection          0.3200   0.1500    0.7500      0.0833        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.2992
+INFO:name:  flakiness_detect         1.0000   0.0000    0.0000      0.0000        -        -
+INFO:name:  code_repair              0.0000      nan       nan         nan   0.5100        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Testing vul_detection (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing clone_detection (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing code_search (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing flakiness_detect (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/aakli/.conda/envs/multitask/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 due to no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+INFO:name:  Testing code_repair (50 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Final Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  vul_detection            0.4000   0.0000    0.0000      0.0000        -        -
+INFO:name:  clone_detection          0.3200   0.1500    0.7500      0.0833        -        -
+INFO:name:  code_search                   -        -         -         -        -   0.2992
+INFO:name:  flakiness_detect         1.0000   0.0000    0.0000      0.0000        -        -
+INFO:name:  code_repair              0.0000      nan       nan         nan   0.5100        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Train results:
+{'clone_detection_train_loss': [0.6933],
+ 'code_repair_train_loss': [0.8229],
+ 'code_search_train_loss': [1.4809],
+ 'epoch_time_s': [13.6],
+ 'flakiness_detect_train_loss': [0.5746],
+ 'peak_gpu_memory_gb': [6.985],
+ 'total_train_loss': [0.8122],
+ 'vul_detection_train_loss': [0.6959]}
+INFO:name:Validation results:
+{'clone_detection': {'acc': [0.48],
+                     'eval_loss': [0.6938],
+                     'f1': [0.2353],
+                     'precision': [0.1481],
+                     'recall': [0.5714]},
+ 'code_repair': {'acc': [0.0], 'eval_loss': [0.5816]},
+ 'code_search': {'mrr': [0.2138]},
+ 'flakiness_detect': {'acc': [0.96],
+                      'eval_loss': [0.523],
+                      'f1': [0.0],
+                      'precision': [0.0],
+                      'recall': [0.0]},
+ 'vul_detection': {'acc': [0.42],
+                   'eval_loss': [0.6949],
+                   'f1': [0.0],
+                   'precision': [0.0],
+                   'recall': [0.0]}}
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete

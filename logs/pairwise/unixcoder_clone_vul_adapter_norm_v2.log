@@ -1,0 +1,1335 @@
+INFO:name:device: cuda:0, n_gpu: 1
+DEBUG:httpcore.connection:connect_tcp.started host='huggingface.co' port=443 local_address=None timeout=10 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x70ea0b20a690>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x70ea0b2f3260> server_hostname='huggingface.co' timeout=10
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x70ea0b1d44d0>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'252'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:47 GMT'), (b'Location', b'/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/config.json?%2Fmicrosoft%2Funixcoder-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%22e65703ddf947d05150f3ba637d8592d669caceaf%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301363-2cb3420176490cd433603428;da2c8f3b-ec04-4f37-8d8e-c6b8907e1e25'), (b'RateLimit', b'"resolvers";r=2999;t=221'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"e65703ddf947d05150f3ba637d8592d669caceaf"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'jqlxDGjpPcXk_D3Ydp-vfA0FqsOVnQZEDok-p7jYiS3x357cbY_onQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'691'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 25 Jun 2025 12:48:59 GMT'), (b'ETag', b'"e65703ddf947d05150f3ba637d8592d669caceaf"'), (b'X-Powered-By', b'huggingface-moon'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'X-Request-Id', b'Root=1-685bf03b-086c1ff677ab34431fd79e32;131b9bdb-68fb-4620-9d55-583dd869d66d'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'6b23i2cSSPJ7iKTEviEGRpQffYb2E378mQ4gZXS8-ZwuoKh9K0_7Gw=='), (b'Age', b'30679848')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'252'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:47 GMT'), (b'Location', b'/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/config.json?%2Fmicrosoft%2Funixcoder-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%22e65703ddf947d05150f3ba637d8592d669caceaf%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301363-201939ff79d65ff37fe45091;58c15e42-40d0-42ca-aa19-66d79750a41d'), (b'RateLimit', b'"resolvers";r=2998;t=221'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"e65703ddf947d05150f3ba637d8592d669caceaf"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'pwlhOGXMI013kNkZgQRG_0EtKWd5qVVUNrqCFGk9ph2QLYtXXmlhGw==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'691'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 25 Jun 2025 12:48:59 GMT'), (b'ETag', b'"e65703ddf947d05150f3ba637d8592d669caceaf"'), (b'X-Powered-By', b'huggingface-moon'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'X-Request-Id', b'Root=1-685bf03b-086c1ff677ab34431fd79e32;131b9bdb-68fb-4620-9d55-583dd869d66d'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'QwhGjVx_ca20zguiszNm4brH5kP1xyBDX23ku-7xACdNrW3XG4_2KA=='), (b'Age', b'30679848')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'272'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:47 GMT'), (b'Location', b'/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/tokenizer_config.json?%2Fmicrosoft%2Funixcoder-base%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%225fa4f3ad23f71b576620081b14a2b0514578f29c%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301363-7670f7030df6e0760a486af3;5d57b7ae-e2e6-4ab2-a7a7-4e907dab17b8'), (b'RateLimit', b'"resolvers";r=2997;t=221'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"5fa4f3ad23f71b576620081b14a2b0514578f29c"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'Ss5Vd8iOknj-XRL45XSx40dOiZD_WL8rzzg2wtaghcbsgbTQH28h0A==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1113'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 25 Jun 2025 12:48:59 GMT'), (b'ETag', b'"5fa4f3ad23f71b576620081b14a2b0514578f29c"'), (b'X-Powered-By', b'huggingface-moon'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'X-Request-Id', b'Root=1-685bf03b-5e2a68c40baed7214f0bef72;c133a46a-07ea-4641-b118-1563cb294a03'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'MISS'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'tokenizer_config.json; filename="tokenizer_config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'Oc3-GcuGeiTV4fAr4vWYiaZiUFDA-4DoVSRObKbXgY0OLkgDnu3ZFQ=='), (b'Age', b'30679848')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/tokenizer_config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'64'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:47 GMT'), (b'ETag', b'W/"40-09f9IAqP13xarAhQxFS2W8rvRkM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301363-139f2a3209dbe38761771a22;a538fbfc-4da5-4e5a-9f0d-e601117ebadd'), (b'RateLimit', b'"api";r=499;t=221'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'additional_chat_templates does not exist on "main"'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'nzhtB6JCADIrCVPP3qlsBw1JX_nqHwD9QHVz-t-qh17X-McWIcYVqA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/microsoft/unixcoder-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:47 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"3f4-yIENJE6O72qf8gQeaH6KieoW/ms"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301363-370092556e0b589d78f90fd0;bab306df-c14f-4790-9d13-396748b6787e'), (b'RateLimit', b'"api";r=498;t=221'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'vb-KF-bAzd28XXqb0Q-giLbJvRgLa-ZEtwj2hpEmOpkTz4PztsYpJg==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/microsoft/unixcoder-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 307, b'Temporary Redirect', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'252'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:47 GMT'), (b'Location', b'/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/config.json?%2Fmicrosoft%2Funixcoder-base%2Fresolve%2Fmain%2Fconfig.json=&etag=%22e65703ddf947d05150f3ba637d8592d669caceaf%22'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301363-75726dcd69a87d4b6035e8e1;84881034-f59d-4740-a809-c18b5aaceec7'), (b'RateLimit', b'"resolvers";r=2996;t=221'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'X-Linked-ETag', b'"e65703ddf947d05150f3ba637d8592d669caceaf"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'RPaNI2fyNwV86nV2kr7xCuDE-6BZLTZbh5WV1Gv7kO6rkzqP1xwUZQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'691'), (b'Connection', b'keep-alive'), (b'Date', b'Wed, 25 Jun 2025 12:48:59 GMT'), (b'ETag', b'"e65703ddf947d05150f3ba637d8592d669caceaf"'), (b'X-Powered-By', b'huggingface-moon'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'X-Request-Id', b'Root=1-685bf03b-086c1ff677ab34431fd79e32;131b9bdb-68fb-4620-9d55-583dd869d66d'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-Hub-Cache', b'HIT'), (b'Content-Disposition', b'inline; filename*=UTF-8\'\'config.json; filename="config.json";'), (b'Content-Security-Policy', b"default-src 'none'; sandbox"), (b'Vary', b'Origin'), (b'X-Cache', b'Hit from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'x2YukINb9brtT7YvWBu9iuysNB0ccuQfqfTvB9jftd-FPO4rREbomw=='), (b'Age', b'30679849')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/unixcoder-base/5604afdc964f6c53782a6813140ade5216b99006/config.json "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-262d72fe60fd81c46dcb4508;039a6378-0f1c-4254-aecc-f099fa71e434'), (b'RateLimit', b'"resolvers";r=2995;t=220'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'5604afdc964f6c53782a6813140ade5216b99006'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'TcJyX4WODgOiCPH8S5CHF_mp4fyHL7xioZ-nkC8RDWq8_PpeOqZKgQ==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 28857.23it/s]
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"8d1-1eikbuOBCXqy4axdSoV7F8QwOzk"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-7df108f35bed31e64650e6c4;ac4b36c3-5352-4ff4-a1f5-b6b87327ac57'), (b'RateLimit', b'"api";r=497;t=220'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'mJnrOOiIQvKXRjss7Wii646OvZwpP3GaSogvoXPd1OtmYv4FVZSVpg==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/microsoft/unixcoder-base "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"990-jJMqaHtQHynbbQbh1qV5y/eKhaM"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-1674588c3bf189300c6dff78;1b3005c9-150a-4606-b837-074b08cb5aab'), (b'RateLimit', b'"api";r=496;t=220'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'10'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'oTSdSHLr8KsdLSJEv9v01QCh4HOqmoMTJ-2RsX39V4Hc1mLqwSfxiA==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/microsoft/unixcoder-base/commits/main "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+root
+├── embeddings (RobertaEmbeddings)
+│   ├── word_embeddings (Embedding) weight:[51416, 768]
+│   ├── token_type_embeddings (Embedding) weight:[10, 768]
+│   ├── LayerNorm (LayerNorm) weight:[768] bias:[768]
+│   └── position_embeddings (Embedding) weight:[1026, 768]
+├── encoder (RobertaEncoder)
+│   └── layer (ModuleList)
+│       └── 0-11(RobertaLayer)
+│           ├── attention (RobertaAttention)
+│           │   ├── self (RobertaSelfAttention)
+│           │   │   └── query,key,value(Linear) weight:[768, 768] bias:[768]
+│           │   ├── output (RobertaSelfOutput)
+│           │   │   ├── dense (Linear) weight:[768, 768] bias:[768]
+│           │   │   └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+│           │   └── adapter (AdapterLayer)
+│           │       └── modulelist (Sequential)
+│           │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│           │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│           ├── intermediate (RobertaIntermediate)
+│           │   └── dense (Linear) weight:[3072, 768] bias:[3072]
+│           └── output (RobertaOutput)
+│               ├── dense (Linear) weight:[768, 3072] bias:[768]
+│               └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+└── pooler (RobertaPooler)
+    └── dense (Linear) weight:[768, 768] bias:[768]
+[INFO|(OpenDelta)basemodel:696]2026-06-15 14:59:48,443 >> Trainable Ratio: 1189632/127119360=0.935839%
+[INFO|(OpenDelta)basemodel:698]2026-06-15 14:59:48,443 >> Delta Parameter Ratio: 1189632/127119360=0.935839%
+[INFO|(OpenDelta)basemodel:700]2026-06-15 14:59:48,443 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"149b-FdANnhEZVJIENrTPBYgPKgzV8Rs"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-1a80bdec55bdd49c584cf50d;9364b089-ec8a-4355-881a-dd3e5fd0ed01'), (b'RateLimit', b'"api";r=495;t=220'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'FxQN3w28J0gyjPqGGJH1-KPTGbQA0MB8WKlz3uEYiu_ynh-Cru6XLw==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/microsoft/unixcoder-base/discussions?p=0 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+INFO:name:Model:
+MultiTaskModel_MTL(
+  (encoder): RobertaModel(
+    (embeddings): RobertaEmbeddings(
+      (word_embeddings): Embedding(51416, 768, padding_idx=1)
+      (token_type_embeddings): Embedding(10, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (position_embeddings): Embedding(1026, 768, padding_idx=1)
+    )
+    (encoder): RobertaEncoder(
+      (layer): ModuleList(
+        (0-11): 12 x RobertaLayer(
+          (attention): RobertaAttention(
+            (self): RobertaSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): RobertaSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (adapter): AdapterLayer(
+              (modulelist): Sequential(
+                (down_proj): Linear(in_features=768, out_features=64, bias=True)
+                (non_linear): gelu_new
+                (up_proj): Linear(in_features=64, out_features=768, bias=True)
+              )
+            )
+          )
+          (intermediate): RobertaIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): RobertaOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+    (pooler): RobertaPooler(
+      (dense): Linear(in_features=768, out_features=768, bias=True)
+      (activation): Tanh()
+    )
+  )
+  (task_heads): ModuleDict(
+    (clone_detection): Sequential(
+      (0): Linear(in_features=768, out_features=384, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=384, out_features=1, bias=True)
+    )
+    (vul_detection): Sequential(
+      (0): Linear(in_features=768, out_features=384, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=384, out_features=1, bias=True)
+    )
+  )
+)
+INFO:name:Preparing the clone detection Dataset...
+
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'content-encoding', b'gzip'), (b'ETag', b'W/"d55-sNL7sdptvaXHu/vVR0p6u/B8RS4"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-24bb1bf91f2cd1d8116792b9;0e878a6d-3456-4098-a399-516a499fe21d'), (b'RateLimit', b'"api";r=494;t=220'), (b'RateLimit-Policy', b'"fixed window";"api";q=500;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'vary', b'Accept-Encoding'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Total-Count', b'11'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'XpfcSt-yjGUw8W4XZBjAGtdb3qUWr6-FQAE3GTDFvwCTHq_LhB5eOg==')])
+INFO:httpx:HTTP Request: GET https://huggingface.co/api/models/microsoft/unixcoder-base/commits/refs%2Fpr%2F8 "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'15'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'ETag', b'W/"f-mY2VvLxuxB7KhsoOdQTlMTccuAQ"'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-01d5142b07c537c13b07f6b0;9da3d162-dc7b-4002-99ce-1a568e952118'), (b'RateLimit', b'"resolvers";r=2994;t=220'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'558aa506226b13a7e83f66cb38c53e61b9603eac'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'X-Error-Code', b'EntryNotFound'), (b'X-Error-Message', b'Entry not found'), (b'X-Cache', b'Error from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'2AA8g4CGv7OFWDHUKqld7pztXdthLZbdriO_sx9hm-sdmbTAhuDEiA==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/refs%2Fpr%2F8/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 302, b'Found', [(b'Content-Type', b'text/plain; charset=utf-8'), (b'Content-Length', b'1010'), (b'Connection', b'keep-alive'), (b'Date', b'Mon, 15 Jun 2026 14:59:48 GMT'), (b'Location', b'https://cas-bridge.xethub.hf.co/xet-bridge-us/623ab47a312891f86fcb8b87/74b7004f2ae9c9e17c67a0ccabaaa5eebe1381a0c6439712b7d52c71328b73ed?Expires=1781539188&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jYXMtYnJpZGdlLnhldGh1Yi5oZi5jby94ZXQtYnJpZGdlLXVzLzYyM2FiNDdhMzEyODkxZjg2ZmNiOGI4Ny83NGI3MDA0ZjJhZTljOWUxN2M2N2EwY2NhYmFhYTVlZWJlMTM4MWEwYzY0Mzk3MTJiN2Q1MmM3MTMyOGI3M2VkKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc4MTUzOTE4OH19fV19&Signature=MEYCIQCLZ4eawc7Hq8P2WTpJNmBlCh2MDGaqAnndCe7H4kjGzAIhAIXJAlDR5e3jFWTdO4u-ZHhzC1eohLbq1jgSzvputjve&Key-Pair-Id=K1LYXO563TGWFU&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=cas%2F20260615%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260615T145948Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0c90cf9e74a616002178de2dd037405aa4486fe24a02144dc92a85db8e6e02f4'), (b'X-Powered-By', b'huggingface-moon'), (b'X-Request-Id', b'Root=1-6a301364-790e8c2368f3cd8004642258;e1e6eab3-eaa8-411c-9237-123e0239d6b8'), (b'RateLimit', b'"resolvers";r=2993;t=220'), (b'RateLimit-Policy', b'"fixed window";"resolvers";q=3000;w=300'), (b'cross-origin-opener-policy', b'same-origin'), (b'Referrer-Policy', b'strict-origin-when-cross-origin'), (b'Access-Control-Max-Age', b'86400'), (b'Access-Control-Allow-Origin', b'https://huggingface.co'), (b'Vary', b'Origin, Accept'), (b'Access-Control-Expose-Headers', b'X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash'), (b'X-Repo-Commit', b'558aa506226b13a7e83f66cb38c53e61b9603eac'), (b'Accept-Ranges', b'bytes'), (b'X-HF-Warning', b'unauthenticated; Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'), (b'X-Hub-Cache', b'MISS'), (b'X-Linked-Size', b'503749592'), (b'X-Linked-ETag', b'"b5a4aa079e24e6f520fa8bc4ba436ebc3266fdbf9c88607f6b0ad95f6e243b2c"'), (b'X-Xet-Hash', b'74b7004f2ae9c9e17c67a0ccabaaa5eebe1381a0c6439712b7d52c71328b73ed'), (b'Link', b'<https://huggingface.co/api/models/microsoft/unixcoder-base/xet-read-token/558aa506226b13a7e83f66cb38c53e61b9603eac>; rel="xet-auth", <https://cas-server.xethub.hf.co/v1/reconstructions/74b7004f2ae9c9e17c67a0ccabaaa5eebe1381a0c6439712b7d52c71328b73ed>; rel="xet-reconstruction-info"'), (b'X-Cache', b'Miss from cloudfront'), (b'Via', b'1.1 79006a1b1266ae3c597864512702ebf8.cloudfront.net (CloudFront)'), (b'X-Amz-Cf-Pop', b'FRA50-P2'), (b'X-Amz-Cf-Id', b'qG9LhnZgjzG7Nw_-e0rTd3E0S4KrBLBJ5u-XH7QxsSS87E3bpJK09A==')])
+INFO:httpx:HTTP Request: HEAD https://huggingface.co/microsoft/unixcoder-base/resolve/refs%2Fpr%2F8/model.safetensors "HTTP/1.1 302 Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'HEAD']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Using TemperatureSampler  T=0.30  probs=['0.687', '0.313']
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:  Normalized weights: uniform for epoch 1, updated each epoch (w ∝ L_i).
+INFO:name:======================================================================
+INFO:name:***** Running Training *****
+INFO:name:  Model         : microsoft/unixcoder-base
+INFO:name:  PEFT          : adapter
+INFO:name:  Loss weighting: normalized
+INFO:name:  Epochs        : 10
+INFO:name:  Batch size    : 128  |  LR: 1.00e-04  |  GPUs: 1
+INFO:name:  Steps/epoch   : ~2515  |  Total steps: ~25150
+INFO:name:  Tasks & train sizes:
+INFO:name:    clone_detection         300000 examples
+INFO:name:    vul_detection           21854 examples
+INFO:name:======================================================================
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E1/10  step 32/2515  total=0.6965  lr=1.27e-06  |  clone_detection=0.6927  vul_detection=0.7007
+INFO:name:E1/10  step 64/2515  total=0.6951  lr=2.54e-06  |  clone_detection=0.6918  vul_detection=0.7011
+INFO:name:E1/10  step 96/2515  total=0.6932  lr=3.82e-06  |  clone_detection=0.6903  vul_detection=0.7004
+INFO:name:E1/10  step 128/2515  total=0.6925  lr=5.09e-06  |  clone_detection=0.6892  vul_detection=0.7006
+INFO:name:E1/10  step 160/2515  total=0.6906  lr=6.36e-06  |  clone_detection=0.6869  vul_detection=0.6997
+INFO:name:E1/10  step 192/2515  total=0.6890  lr=7.63e-06  |  clone_detection=0.6849  vul_detection=0.6982
+INFO:name:E1/10  step 224/2515  total=0.6863  lr=8.91e-06  |  clone_detection=0.6814  vul_detection=0.6974
+INFO:name:E1/10  step 256/2515  total=0.6833  lr=1.02e-05  |  clone_detection=0.6775  vul_detection=0.6965
+INFO:name:E1/10  step 288/2515  total=0.6788  lr=1.15e-05  |  clone_detection=0.6717  vul_detection=0.6960
+INFO:name:E1/10  step 320/2515  total=0.6751  lr=1.27e-05  |  clone_detection=0.6666  vul_detection=0.6956
+INFO:name:E1/10  step 352/2515  total=0.6710  lr=1.40e-05  |  clone_detection=0.6605  vul_detection=0.6952
+INFO:name:E1/10  step 384/2515  total=0.6641  lr=1.53e-05  |  clone_detection=0.6509  vul_detection=0.6943
+INFO:name:E1/10  step 416/2515  total=0.6577  lr=1.65e-05  |  clone_detection=0.6415  vul_detection=0.6939
+INFO:name:E1/10  step 448/2515  total=0.6506  lr=1.78e-05  |  clone_detection=0.6307  vul_detection=0.6932
+INFO:name:E1/10  step 480/2515  total=0.6406  lr=1.91e-05  |  clone_detection=0.6169  vul_detection=0.6929
+INFO:name:E1/10  step 512/2515  total=0.6311  lr=2.04e-05  |  clone_detection=0.6036  vul_detection=0.6927
+INFO:name:E1/10  step 544/2515  total=0.6234  lr=2.16e-05  |  clone_detection=0.5921  vul_detection=0.6923
+INFO:name:E1/10  step 576/2515  total=0.6128  lr=2.29e-05  |  clone_detection=0.5777  vul_detection=0.6919
+INFO:name:E1/10  step 608/2515  total=0.6049  lr=2.42e-05  |  clone_detection=0.5659  vul_detection=0.6912
+INFO:name:E1/10  step 640/2515  total=0.5987  lr=2.54e-05  |  clone_detection=0.5557  vul_detection=0.6908
+INFO:name:E1/10  step 672/2515  total=0.5900  lr=2.67e-05  |  clone_detection=0.5431  vul_detection=0.6903
+INFO:name:E1/10  step 704/2515  total=0.5803  lr=2.80e-05  |  clone_detection=0.5293  vul_detection=0.6902
+INFO:name:E1/10  step 736/2515  total=0.5709  lr=2.93e-05  |  clone_detection=0.5163  vul_detection=0.6898
+INFO:name:E1/10  step 768/2515  total=0.5602  lr=3.05e-05  |  clone_detection=0.5020  vul_detection=0.6896
+INFO:name:E1/10  step 800/2515  total=0.5526  lr=3.18e-05  |  clone_detection=0.4912  vul_detection=0.6893
+INFO:name:E1/10  step 832/2515  total=0.5443  lr=3.31e-05  |  clone_detection=0.4796  vul_detection=0.6892
+INFO:name:E1/10  step 864/2515  total=0.5388  lr=3.44e-05  |  clone_detection=0.4706  vul_detection=0.6888
+INFO:name:E1/10  step 896/2515  total=0.5325  lr=3.56e-05  |  clone_detection=0.4612  vul_detection=0.6886
+INFO:name:E1/10  step 928/2515  total=0.5254  lr=3.69e-05  |  clone_detection=0.4513  vul_detection=0.6884
+INFO:name:E1/10  step 960/2515  total=0.5203  lr=3.82e-05  |  clone_detection=0.4434  vul_detection=0.6880
+INFO:name:E1/10  step 992/2515  total=0.5140  lr=3.94e-05  |  clone_detection=0.4346  vul_detection=0.6879
+INFO:name:E1/10  step 1024/2515  total=0.5081  lr=4.07e-05  |  clone_detection=0.4262  vul_detection=0.6876
+INFO:name:E1/10  step 1056/2515  total=0.5008  lr=4.20e-05  |  clone_detection=0.4170  vul_detection=0.6876
+INFO:name:E1/10  step 1088/2515  total=0.4971  lr=4.33e-05  |  clone_detection=0.4103  vul_detection=0.6872
+INFO:name:E1/10  step 1120/2515  total=0.4917  lr=4.45e-05  |  clone_detection=0.4026  vul_detection=0.6871
+INFO:name:E1/10  step 1152/2515  total=0.4878  lr=4.58e-05  |  clone_detection=0.3964  vul_detection=0.6867
+INFO:name:E1/10  step 1184/2515  total=0.4826  lr=4.71e-05  |  clone_detection=0.3893  vul_detection=0.6865
+INFO:name:E1/10  step 1216/2515  total=0.4780  lr=4.83e-05  |  clone_detection=0.3826  vul_detection=0.6862
+INFO:name:E1/10  step 1248/2515  total=0.4705  lr=4.96e-05  |  clone_detection=0.3740  vul_detection=0.6861
+INFO:name:E1/10  step 1280/2515  total=0.4671  lr=5.09e-05  |  clone_detection=0.3687  vul_detection=0.6859
+INFO:name:E1/10  step 1312/2515  total=0.4624  lr=5.22e-05  |  clone_detection=0.3627  vul_detection=0.6857
+INFO:name:E1/10  step 1344/2515  total=0.4587  lr=5.34e-05  |  clone_detection=0.3573  vul_detection=0.6856
+INFO:name:E1/10  step 1376/2515  total=0.4542  lr=5.47e-05  |  clone_detection=0.3516  vul_detection=0.6854
+INFO:name:E1/10  step 1408/2515  total=0.4509  lr=5.60e-05  |  clone_detection=0.3465  vul_detection=0.6852
+INFO:name:E1/10  step 1440/2515  total=0.4495  lr=5.73e-05  |  clone_detection=0.3429  vul_detection=0.6849
+INFO:name:E1/10  step 1472/2515  total=0.4452  lr=5.85e-05  |  clone_detection=0.3373  vul_detection=0.6847
+INFO:name:E1/10  step 1504/2515  total=0.4406  lr=5.98e-05  |  clone_detection=0.3317  vul_detection=0.6846
+INFO:name:E1/10  step 1536/2515  total=0.4373  lr=6.11e-05  |  clone_detection=0.3270  vul_detection=0.6844
+INFO:name:E1/10  step 1568/2515  total=0.4350  lr=6.23e-05  |  clone_detection=0.3230  vul_detection=0.6841
+INFO:name:E1/10  step 1600/2515  total=0.4324  lr=6.36e-05  |  clone_detection=0.3193  vul_detection=0.6840
+INFO:name:E1/10  step 1632/2515  total=0.4294  lr=6.49e-05  |  clone_detection=0.3151  vul_detection=0.6839
+INFO:name:E1/10  step 1664/2515  total=0.4270  lr=6.62e-05  |  clone_detection=0.3114  vul_detection=0.6835
+INFO:name:E1/10  step 1696/2515  total=0.4260  lr=6.74e-05  |  clone_detection=0.3085  vul_detection=0.6832
+INFO:name:E1/10  step 1728/2515  total=0.4247  lr=6.87e-05  |  clone_detection=0.3055  vul_detection=0.6828
+INFO:name:E1/10  step 1760/2515  total=0.4237  lr=7.00e-05  |  clone_detection=0.3030  vul_detection=0.6825
+INFO:name:E1/10  step 1792/2515  total=0.4208  lr=7.13e-05  |  clone_detection=0.2992  vul_detection=0.6822
+INFO:name:E1/10  step 1824/2515  total=0.4178  lr=7.25e-05  |  clone_detection=0.2958  vul_detection=0.6821
+INFO:name:E1/10  step 1856/2515  total=0.4155  lr=7.38e-05  |  clone_detection=0.2924  vul_detection=0.6818
+INFO:name:E1/10  step 1888/2515  total=0.4132  lr=7.51e-05  |  clone_detection=0.2891  vul_detection=0.6817
+INFO:name:E1/10  step 1920/2515  total=0.4104  lr=7.63e-05  |  clone_detection=0.2856  vul_detection=0.6815
+INFO:name:E1/10  step 1952/2515  total=0.4080  lr=7.76e-05  |  clone_detection=0.2825  vul_detection=0.6814
+INFO:name:E1/10  step 1984/2515  total=0.4071  lr=7.89e-05  |  clone_detection=0.2802  vul_detection=0.6812
+INFO:name:E1/10  step 2016/2515  total=0.4048  lr=8.02e-05  |  clone_detection=0.2772  vul_detection=0.6811
+INFO:name:E1/10  step 2048/2515  total=0.4019  lr=8.14e-05  |  clone_detection=0.2738  vul_detection=0.6810
+INFO:name:E1/10  step 2080/2515  total=0.3997  lr=8.27e-05  |  clone_detection=0.2710  vul_detection=0.6809
+INFO:name:E1/10  step 2112/2515  total=0.3974  lr=8.40e-05  |  clone_detection=0.2681  vul_detection=0.6807
+INFO:name:E1/10  step 2144/2515  total=0.3957  lr=8.52e-05  |  clone_detection=0.2657  vul_detection=0.6806
+INFO:name:E1/10  step 2176/2515  total=0.3933  lr=8.65e-05  |  clone_detection=0.2628  vul_detection=0.6805
+INFO:name:E1/10  step 2208/2515  total=0.3923  lr=8.78e-05  |  clone_detection=0.2609  vul_detection=0.6802
+INFO:name:E1/10  step 2240/2515  total=0.3906  lr=8.91e-05  |  clone_detection=0.2585  vul_detection=0.6799
+INFO:name:E1/10  step 2272/2515  total=0.3888  lr=9.03e-05  |  clone_detection=0.2563  vul_detection=0.6797
+INFO:name:E1/10  step 2304/2515  total=0.3879  lr=9.16e-05  |  clone_detection=0.2543  vul_detection=0.6795
+INFO:name:E1/10  step 2336/2515  total=0.3854  lr=9.29e-05  |  clone_detection=0.2516  vul_detection=0.6793
+INFO:name:E1/10  step 2368/2515  total=0.3839  lr=9.42e-05  |  clone_detection=0.2495  vul_detection=0.6791
+INFO:name:E1/10  step 2400/2515  total=0.3818  lr=9.54e-05  |  clone_detection=0.2470  vul_detection=0.6790
+INFO:name:E1/10  step 2432/2515  total=0.3813  lr=9.67e-05  |  clone_detection=0.2454  vul_detection=0.6787
+INFO:name:E1/10  step 2464/2515  total=0.3791  lr=9.80e-05  |  clone_detection=0.2430  vul_detection=0.6785
+INFO:name:E1/10  step 2496/2515  total=0.3779  lr=9.92e-05  |  clone_detection=0.2411  vul_detection=0.6783
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 1/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.2397    1.0000      88660309
+INFO:name:  vul_detection             0.6781    1.0000      29347166
+INFO:name:  TOTAL                     0.3767               118007475  (epoch)  cumulative=118007475
+INFO:name:  epoch_time=1171.0s  peak_gpu_memory=18.533GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '0.5223', 'vul_detection': '1.4777'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    clone_detection         grad_norm=  0.321064
+INFO:name:    vul_detection           grad_norm=  0.529489
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  clone_detection         vul_detection              -0.0438  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9606   0.8640    0.9659      0.7815   0.1166        -
+INFO:name:  vul_detection            0.5824   0.3030    0.2089      0.5511   0.6620        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5835
+INFO:name:----------------------------------------------------------------------
+Saved 57 trainable params -> ./adapters/unixcoder_clone_vul_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.5835) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9687   0.8935    0.9612      0.8348        -        -
+INFO:name:  vul_detection            0.5802   0.3233    0.2183      0.6227        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E2/10  step 32/2515  total=0.4875  lr=9.99e-05  |  clone_detection=0.0838  vul_detection=0.6702
+INFO:name:E2/10  step 64/2515  total=0.3786  lr=9.97e-05  |  clone_detection=0.0730  vul_detection=0.6669
+INFO:name:E2/10  step 96/2515  total=0.3154  lr=9.96e-05  |  clone_detection=0.0771  vul_detection=0.6657
+INFO:name:E2/10  step 128/2515  total=0.3185  lr=9.94e-05  |  clone_detection=0.0768  vul_detection=0.6617
+INFO:name:E2/10  step 160/2515  total=0.3103  lr=9.93e-05  |  clone_detection=0.0795  vul_detection=0.6608
+INFO:name:E2/10  step 192/2515  total=0.3281  lr=9.92e-05  |  clone_detection=0.0790  vul_detection=0.6597
+INFO:name:E2/10  step 224/2515  total=0.3282  lr=9.90e-05  |  clone_detection=0.0783  vul_detection=0.6590
+INFO:name:E2/10  step 256/2515  total=0.3287  lr=9.89e-05  |  clone_detection=0.0764  vul_detection=0.6603
+INFO:name:E2/10  step 288/2515  total=0.3134  lr=9.87e-05  |  clone_detection=0.0778  vul_detection=0.6604
+INFO:name:E2/10  step 320/2515  total=0.3145  lr=9.86e-05  |  clone_detection=0.0765  vul_detection=0.6595
+INFO:name:E2/10  step 352/2515  total=0.3248  lr=9.84e-05  |  clone_detection=0.0776  vul_detection=0.6603
+INFO:name:E2/10  step 384/2515  total=0.3255  lr=9.83e-05  |  clone_detection=0.0772  vul_detection=0.6608
+INFO:name:E2/10  step 416/2515  total=0.3302  lr=9.82e-05  |  clone_detection=0.0767  vul_detection=0.6603
+INFO:name:E2/10  step 448/2515  total=0.3382  lr=9.80e-05  |  clone_detection=0.0762  vul_detection=0.6597
+INFO:name:E2/10  step 480/2515  total=0.3324  lr=9.79e-05  |  clone_detection=0.0771  vul_detection=0.6599
+INFO:name:E2/10  step 512/2515  total=0.3284  lr=9.77e-05  |  clone_detection=0.0762  vul_detection=0.6598
+INFO:name:E2/10  step 544/2515  total=0.3321  lr=9.76e-05  |  clone_detection=0.0764  vul_detection=0.6597
+INFO:name:E2/10  step 576/2515  total=0.3266  lr=9.75e-05  |  clone_detection=0.0754  vul_detection=0.6591
+INFO:name:E2/10  step 608/2515  total=0.3294  lr=9.73e-05  |  clone_detection=0.0749  vul_detection=0.6584
+INFO:name:E2/10  step 640/2515  total=0.3364  lr=9.72e-05  |  clone_detection=0.0746  vul_detection=0.6578
+INFO:name:E2/10  step 672/2515  total=0.3358  lr=9.70e-05  |  clone_detection=0.0747  vul_detection=0.6571
+INFO:name:E2/10  step 704/2515  total=0.3339  lr=9.69e-05  |  clone_detection=0.0739  vul_detection=0.6569
+INFO:name:E2/10  step 736/2515  total=0.3319  lr=9.67e-05  |  clone_detection=0.0735  vul_detection=0.6561
+INFO:name:E2/10  step 768/2515  total=0.3266  lr=9.66e-05  |  clone_detection=0.0733  vul_detection=0.6555
+INFO:name:E2/10  step 800/2515  total=0.3267  lr=9.65e-05  |  clone_detection=0.0730  vul_detection=0.6558
+INFO:name:E2/10  step 832/2515  total=0.3256  lr=9.63e-05  |  clone_detection=0.0731  vul_detection=0.6554
+INFO:name:E2/10  step 864/2515  total=0.3289  lr=9.62e-05  |  clone_detection=0.0731  vul_detection=0.6553
+INFO:name:E2/10  step 896/2515  total=0.3297  lr=9.60e-05  |  clone_detection=0.0730  vul_detection=0.6551
+INFO:name:E2/10  step 928/2515  total=0.3286  lr=9.59e-05  |  clone_detection=0.0732  vul_detection=0.6547
+INFO:name:E2/10  step 960/2515  total=0.3302  lr=9.58e-05  |  clone_detection=0.0730  vul_detection=0.6542
+INFO:name:E2/10  step 992/2515  total=0.3290  lr=9.56e-05  |  clone_detection=0.0726  vul_detection=0.6539
+INFO:name:E2/10  step 1024/2515  total=0.3286  lr=9.55e-05  |  clone_detection=0.0720  vul_detection=0.6536
+INFO:name:E2/10  step 1056/2515  total=0.3247  lr=9.53e-05  |  clone_detection=0.0715  vul_detection=0.6533
+INFO:name:E2/10  step 1088/2515  total=0.3281  lr=9.52e-05  |  clone_detection=0.0714  vul_detection=0.6532
+INFO:name:E2/10  step 1120/2515  total=0.3275  lr=9.51e-05  |  clone_detection=0.0711  vul_detection=0.6522
+INFO:name:E2/10  step 1152/2515  total=0.3289  lr=9.49e-05  |  clone_detection=0.0710  vul_detection=0.6518
+INFO:name:E2/10  step 1184/2515  total=0.3278  lr=9.48e-05  |  clone_detection=0.0708  vul_detection=0.6515
+INFO:name:E2/10  step 1216/2515  total=0.3276  lr=9.46e-05  |  clone_detection=0.0707  vul_detection=0.6512
+INFO:name:E2/10  step 1248/2515  total=0.3229  lr=9.45e-05  |  clone_detection=0.0702  vul_detection=0.6510
+INFO:name:E2/10  step 1280/2515  total=0.3232  lr=9.43e-05  |  clone_detection=0.0699  vul_detection=0.6502
+INFO:name:E2/10  step 1312/2515  total=0.3215  lr=9.42e-05  |  clone_detection=0.0694  vul_detection=0.6499
+INFO:name:E2/10  step 1344/2515  total=0.3214  lr=9.41e-05  |  clone_detection=0.0694  vul_detection=0.6495
+INFO:name:E2/10  step 1376/2515  total=0.3201  lr=9.39e-05  |  clone_detection=0.0693  vul_detection=0.6495
+INFO:name:E2/10  step 1408/2515  total=0.3207  lr=9.38e-05  |  clone_detection=0.0691  vul_detection=0.6492
+INFO:name:E2/10  step 1440/2515  total=0.3237  lr=9.36e-05  |  clone_detection=0.0691  vul_detection=0.6487
+INFO:name:E2/10  step 1472/2515  total=0.3223  lr=9.35e-05  |  clone_detection=0.0686  vul_detection=0.6487
+INFO:name:E2/10  step 1504/2515  total=0.3204  lr=9.34e-05  |  clone_detection=0.0684  vul_detection=0.6486
+INFO:name:E2/10  step 1536/2515  total=0.3204  lr=9.32e-05  |  clone_detection=0.0683  vul_detection=0.6485
+INFO:name:E2/10  step 1568/2515  total=0.3214  lr=9.31e-05  |  clone_detection=0.0681  vul_detection=0.6481
+INFO:name:E2/10  step 1600/2515  total=0.3214  lr=9.29e-05  |  clone_detection=0.0678  vul_detection=0.6482
+INFO:name:E2/10  step 1632/2515  total=0.3213  lr=9.28e-05  |  clone_detection=0.0677  vul_detection=0.6481
+INFO:name:E2/10  step 1664/2515  total=0.3217  lr=9.26e-05  |  clone_detection=0.0674  vul_detection=0.6479
+INFO:name:E2/10  step 1696/2515  total=0.3242  lr=9.25e-05  |  clone_detection=0.0673  vul_detection=0.6473
+INFO:name:E2/10  step 1728/2515  total=0.3259  lr=9.24e-05  |  clone_detection=0.0670  vul_detection=0.6468
+INFO:name:E2/10  step 1760/2515  total=0.3276  lr=9.22e-05  |  clone_detection=0.0667  vul_detection=0.6463
+INFO:name:E2/10  step 1792/2515  total=0.3268  lr=9.21e-05  |  clone_detection=0.0666  vul_detection=0.6459
+INFO:name:E2/10  step 1824/2515  total=0.3250  lr=9.19e-05  |  clone_detection=0.0664  vul_detection=0.6455
+INFO:name:E2/10  step 1856/2515  total=0.3253  lr=9.18e-05  |  clone_detection=0.0661  vul_detection=0.6454
+INFO:name:E2/10  step 1888/2515  total=0.3250  lr=9.17e-05  |  clone_detection=0.0660  vul_detection=0.6451
+INFO:name:E2/10  step 1920/2515  total=0.3238  lr=9.15e-05  |  clone_detection=0.0659  vul_detection=0.6447
+INFO:name:E2/10  step 1952/2515  total=0.3231  lr=9.14e-05  |  clone_detection=0.0658  vul_detection=0.6445
+INFO:name:E2/10  step 1984/2515  total=0.3247  lr=9.12e-05  |  clone_detection=0.0657  vul_detection=0.6441
+INFO:name:E2/10  step 2016/2515  total=0.3241  lr=9.11e-05  |  clone_detection=0.0657  vul_detection=0.6439
+INFO:name:E2/10  step 2048/2515  total=0.3226  lr=9.10e-05  |  clone_detection=0.0655  vul_detection=0.6438
+INFO:name:E2/10  step 2080/2515  total=0.3219  lr=9.08e-05  |  clone_detection=0.0653  vul_detection=0.6435
+INFO:name:E2/10  step 2112/2515  total=0.3212  lr=9.07e-05  |  clone_detection=0.0650  vul_detection=0.6432
+INFO:name:E2/10  step 2144/2515  total=0.3211  lr=9.05e-05  |  clone_detection=0.0649  vul_detection=0.6431
+INFO:name:E2/10  step 2176/2515  total=0.3201  lr=9.04e-05  |  clone_detection=0.0645  vul_detection=0.6430
+INFO:name:E2/10  step 2208/2515  total=0.3207  lr=9.02e-05  |  clone_detection=0.0643  vul_detection=0.6426
+INFO:name:E2/10  step 2240/2515  total=0.3205  lr=9.01e-05  |  clone_detection=0.0643  vul_detection=0.6422
+INFO:name:E2/10  step 2272/2515  total=0.3199  lr=9.00e-05  |  clone_detection=0.0642  vul_detection=0.6420
+INFO:name:E2/10  step 2304/2515  total=0.3207  lr=8.98e-05  |  clone_detection=0.0639  vul_detection=0.6414
+INFO:name:E2/10  step 2336/2515  total=0.3193  lr=8.97e-05  |  clone_detection=0.0638  vul_detection=0.6411
+INFO:name:E2/10  step 2368/2515  total=0.3191  lr=8.95e-05  |  clone_detection=0.0636  vul_detection=0.6407
+INFO:name:E2/10  step 2400/2515  total=0.3182  lr=8.94e-05  |  clone_detection=0.0634  vul_detection=0.6405
+INFO:name:E2/10  step 2432/2515  total=0.3194  lr=8.93e-05  |  clone_detection=0.0632  vul_detection=0.6400
+INFO:name:E2/10  step 2464/2515  total=0.3180  lr=8.91e-05  |  clone_detection=0.0629  vul_detection=0.6397
+INFO:name:E2/10  step 2496/2515  total=0.3180  lr=8.90e-05  |  clone_detection=0.0628  vul_detection=0.6391
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 2/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0628    0.5223      88694021
+INFO:name:  vul_detection             0.6390    1.4777      29320368
+INFO:name:  TOTAL                     0.3177               118014389  (epoch)  cumulative=236021864
+INFO:name:  epoch_time=1171.2s  peak_gpu_memory=18.533GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '0.1790', 'vul_detection': '1.8210'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    clone_detection         grad_norm=  0.718375
+INFO:name:    vul_detection           grad_norm=  0.448552
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  clone_detection         vul_detection              +0.0237  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9732   0.9029    0.9608      0.8516   0.0815        -
+INFO:name:  vul_detection            0.6387   0.4894    0.3985      0.6340   0.6326        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6962
+INFO:name:----------------------------------------------------------------------
+Saved 57 trainable params -> ./adapters/unixcoder_clone_vul_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.6962) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9765   0.9173    0.9518      0.8852        -        -
+INFO:name:  vul_detection            0.6153   0.4732    0.3761      0.6378        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E3/10  step 32/2515  total=0.5312  lr=8.87e-05  |  clone_detection=0.0568  vul_detection=0.6160
+INFO:name:E3/10  step 64/2515  total=0.4104  lr=8.86e-05  |  clone_detection=0.0518  vul_detection=0.6180
+INFO:name:E3/10  step 96/2515  total=0.3319  lr=8.85e-05  |  clone_detection=0.0487  vul_detection=0.6133
+INFO:name:E3/10  step 128/2515  total=0.3360  lr=8.83e-05  |  clone_detection=0.0463  vul_detection=0.6108
+INFO:name:E3/10  step 160/2515  total=0.3256  lr=8.82e-05  |  clone_detection=0.0453  vul_detection=0.6110
+INFO:name:E3/10  step 192/2515  total=0.3468  lr=8.80e-05  |  clone_detection=0.0448  vul_detection=0.6098
+INFO:name:E3/10  step 224/2515  total=0.3482  lr=8.79e-05  |  clone_detection=0.0459  vul_detection=0.6107
+INFO:name:E3/10  step 256/2515  total=0.3485  lr=8.78e-05  |  clone_detection=0.0459  vul_detection=0.6100
+INFO:name:E3/10  step 288/2515  total=0.3302  lr=8.76e-05  |  clone_detection=0.0453  vul_detection=0.6110
+INFO:name:E3/10  step 320/2515  total=0.3317  lr=8.75e-05  |  clone_detection=0.0448  vul_detection=0.6095
+INFO:name:E3/10  step 352/2515  total=0.3430  lr=8.73e-05  |  clone_detection=0.0447  vul_detection=0.6096
+INFO:name:E3/10  step 384/2515  total=0.3439  lr=8.72e-05  |  clone_detection=0.0448  vul_detection=0.6098
+INFO:name:E3/10  step 416/2515  total=0.3491  lr=8.71e-05  |  clone_detection=0.0444  vul_detection=0.6085
+INFO:name:E3/10  step 448/2515  total=0.3604  lr=8.69e-05  |  clone_detection=0.0447  vul_detection=0.6107
+INFO:name:E3/10  step 480/2515  total=0.3530  lr=8.68e-05  |  clone_detection=0.0454  vul_detection=0.6105
+INFO:name:E3/10  step 512/2515  total=0.3494  lr=8.66e-05  |  clone_detection=0.0457  vul_detection=0.6117
+INFO:name:E3/10  step 544/2515  total=0.3537  lr=8.65e-05  |  clone_detection=0.0458  vul_detection=0.6116
+INFO:name:E3/10  step 576/2515  total=0.3475  lr=8.63e-05  |  clone_detection=0.0453  vul_detection=0.6109
+INFO:name:E3/10  step 608/2515  total=0.3506  lr=8.62e-05  |  clone_detection=0.0450  vul_detection=0.6095
+INFO:name:E3/10  step 640/2515  total=0.3584  lr=8.61e-05  |  clone_detection=0.0449  vul_detection=0.6081
+INFO:name:E3/10  step 672/2515  total=0.3578  lr=8.59e-05  |  clone_detection=0.0452  vul_detection=0.6075
+INFO:name:E3/10  step 704/2515  total=0.3561  lr=8.58e-05  |  clone_detection=0.0455  vul_detection=0.6077
+INFO:name:E3/10  step 736/2515  total=0.3542  lr=8.56e-05  |  clone_detection=0.0455  vul_detection=0.6074
+INFO:name:E3/10  step 768/2515  total=0.3483  lr=8.55e-05  |  clone_detection=0.0457  vul_detection=0.6072
+INFO:name:E3/10  step 800/2515  total=0.3482  lr=8.54e-05  |  clone_detection=0.0458  vul_detection=0.6067
+INFO:name:E3/10  step 832/2515  total=0.3461  lr=8.52e-05  |  clone_detection=0.0461  vul_detection=0.6052
+INFO:name:E3/10  step 864/2515  total=0.3496  lr=8.51e-05  |  clone_detection=0.0460  vul_detection=0.6043
+INFO:name:E3/10  step 896/2515  total=0.3506  lr=8.49e-05  |  clone_detection=0.0458  vul_detection=0.6040
+INFO:name:E3/10  step 928/2515  total=0.3494  lr=8.48e-05  |  clone_detection=0.0455  vul_detection=0.6041
+INFO:name:E3/10  step 960/2515  total=0.3516  lr=8.46e-05  |  clone_detection=0.0457  vul_detection=0.6040
+INFO:name:E3/10  step 992/2515  total=0.3503  lr=8.45e-05  |  clone_detection=0.0462  vul_detection=0.6037
+INFO:name:E3/10  step 1024/2515  total=0.3501  lr=8.44e-05  |  clone_detection=0.0464  vul_detection=0.6033
+INFO:name:E3/10  step 1056/2515  total=0.3459  lr=8.42e-05  |  clone_detection=0.0462  vul_detection=0.6033
+INFO:name:E3/10  step 1088/2515  total=0.3496  lr=8.41e-05  |  clone_detection=0.0461  vul_detection=0.6025
+INFO:name:E3/10  step 1120/2515  total=0.3494  lr=8.39e-05  |  clone_detection=0.0461  vul_detection=0.6023
+INFO:name:E3/10  step 1152/2515  total=0.3507  lr=8.38e-05  |  clone_detection=0.0463  vul_detection=0.6013
+INFO:name:E3/10  step 1184/2515  total=0.3493  lr=8.37e-05  |  clone_detection=0.0463  vul_detection=0.6007
+INFO:name:E3/10  step 1216/2515  total=0.3489  lr=8.35e-05  |  clone_detection=0.0463  vul_detection=0.6000
+INFO:name:E3/10  step 1248/2515  total=0.3436  lr=8.34e-05  |  clone_detection=0.0461  vul_detection=0.6000
+INFO:name:E3/10  step 1280/2515  total=0.3443  lr=8.32e-05  |  clone_detection=0.0459  vul_detection=0.5997
+INFO:name:E3/10  step 1312/2515  total=0.3426  lr=8.31e-05  |  clone_detection=0.0459  vul_detection=0.5994
+INFO:name:E3/10  step 1344/2515  total=0.3424  lr=8.30e-05  |  clone_detection=0.0459  vul_detection=0.5989
+INFO:name:E3/10  step 1376/2515  total=0.3405  lr=8.28e-05  |  clone_detection=0.0458  vul_detection=0.5981
+INFO:name:E3/10  step 1408/2515  total=0.3411  lr=8.27e-05  |  clone_detection=0.0460  vul_detection=0.5975
+INFO:name:E3/10  step 1440/2515  total=0.3448  lr=8.25e-05  |  clone_detection=0.0460  vul_detection=0.5972
+INFO:name:E3/10  step 1472/2515  total=0.3430  lr=8.24e-05  |  clone_detection=0.0461  vul_detection=0.5966
+INFO:name:E3/10  step 1504/2515  total=0.3410  lr=8.22e-05  |  clone_detection=0.0459  vul_detection=0.5968
+INFO:name:E3/10  step 1536/2515  total=0.3408  lr=8.21e-05  |  clone_detection=0.0461  vul_detection=0.5964
+INFO:name:E3/10  step 1568/2515  total=0.3422  lr=8.20e-05  |  clone_detection=0.0461  vul_detection=0.5961
+INFO:name:E3/10  step 1600/2515  total=0.3422  lr=8.18e-05  |  clone_detection=0.0462  vul_detection=0.5961
+INFO:name:E3/10  step 1632/2515  total=0.3422  lr=8.17e-05  |  clone_detection=0.0462  vul_detection=0.5960
+INFO:name:E3/10  step 1664/2515  total=0.3426  lr=8.15e-05  |  clone_detection=0.0460  vul_detection=0.5955
+INFO:name:E3/10  step 1696/2515  total=0.3453  lr=8.14e-05  |  clone_detection=0.0460  vul_detection=0.5947
+INFO:name:E3/10  step 1728/2515  total=0.3473  lr=8.13e-05  |  clone_detection=0.0458  vul_detection=0.5939
+INFO:name:E3/10  step 1760/2515  total=0.3495  lr=8.11e-05  |  clone_detection=0.0457  vul_detection=0.5935
+INFO:name:E3/10  step 1792/2515  total=0.3484  lr=8.10e-05  |  clone_detection=0.0457  vul_detection=0.5930
+INFO:name:E3/10  step 1824/2515  total=0.3466  lr=8.08e-05  |  clone_detection=0.0457  vul_detection=0.5930
+INFO:name:E3/10  step 1856/2515  total=0.3468  lr=8.07e-05  |  clone_detection=0.0458  vul_detection=0.5924
+INFO:name:E3/10  step 1888/2515  total=0.3466  lr=8.05e-05  |  clone_detection=0.0457  vul_detection=0.5922
+INFO:name:E3/10  step 1920/2515  total=0.3452  lr=8.04e-05  |  clone_detection=0.0458  vul_detection=0.5918
+INFO:name:E3/10  step 1952/2515  total=0.3443  lr=8.03e-05  |  clone_detection=0.0456  vul_detection=0.5914
+INFO:name:E3/10  step 1984/2515  total=0.3461  lr=8.01e-05  |  clone_detection=0.0456  vul_detection=0.5908
+INFO:name:E3/10  step 2016/2515  total=0.3454  lr=8.00e-05  |  clone_detection=0.0456  vul_detection=0.5906
+INFO:name:E3/10  step 2048/2515  total=0.3436  lr=7.98e-05  |  clone_detection=0.0455  vul_detection=0.5902
+INFO:name:E3/10  step 2080/2515  total=0.3428  lr=7.97e-05  |  clone_detection=0.0457  vul_detection=0.5897
+INFO:name:E3/10  step 2112/2515  total=0.3422  lr=7.96e-05  |  clone_detection=0.0455  vul_detection=0.5897
+INFO:name:E3/10  step 2144/2515  total=0.3421  lr=7.94e-05  |  clone_detection=0.0455  vul_detection=0.5897
+INFO:name:E3/10  step 2176/2515  total=0.3411  lr=7.93e-05  |  clone_detection=0.0454  vul_detection=0.5896
+INFO:name:E3/10  step 2208/2515  total=0.3416  lr=7.91e-05  |  clone_detection=0.0454  vul_detection=0.5889
+INFO:name:E3/10  step 2240/2515  total=0.3414  lr=7.90e-05  |  clone_detection=0.0455  vul_detection=0.5885
+INFO:name:E3/10  step 2272/2515  total=0.3406  lr=7.89e-05  |  clone_detection=0.0454  vul_detection=0.5879
+INFO:name:E3/10  step 2304/2515  total=0.3417  lr=7.87e-05  |  clone_detection=0.0454  vul_detection=0.5874
+INFO:name:E3/10  step 2336/2515  total=0.3401  lr=7.86e-05  |  clone_detection=0.0454  vul_detection=0.5870
+INFO:name:E3/10  step 2368/2515  total=0.3397  lr=7.84e-05  |  clone_detection=0.0452  vul_detection=0.5863
+INFO:name:E3/10  step 2400/2515  total=0.3387  lr=7.83e-05  |  clone_detection=0.0452  vul_detection=0.5861
+INFO:name:E3/10  step 2432/2515  total=0.3398  lr=7.81e-05  |  clone_detection=0.0452  vul_detection=0.5851
+INFO:name:E3/10  step 2464/2515  total=0.3383  lr=7.80e-05  |  clone_detection=0.0453  vul_detection=0.5848
+INFO:name:E3/10  step 2496/2515  total=0.3385  lr=7.79e-05  |  clone_detection=0.0452  vul_detection=0.5843
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 3/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0451    0.1790      88653897
+INFO:name:  vul_detection             0.5840    1.8210      29323890
+INFO:name:  TOTAL                     0.3379               117977787  (epoch)  cumulative=353999651
+INFO:name:  epoch_time=1172.8s  peak_gpu_memory=18.533GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '0.1434', 'vul_detection': '1.8566'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    clone_detection         grad_norm=  0.576167
+INFO:name:    vul_detection           grad_norm=  0.944171
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  clone_detection         vul_detection              -0.1182  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9706   0.8941    0.9588      0.8375   0.0892        -
+INFO:name:  vul_detection            0.6321   0.5732    0.5687      0.5779   0.6471        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.7337
+INFO:name:----------------------------------------------------------------------
+Saved 57 trainable params -> ./adapters/unixcoder_clone_vul_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.7337) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9762   0.9166    0.9545      0.8815        -        -
+INFO:name:  vul_detection            0.6226   0.5790    0.5649      0.5938        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E4/10  step 32/2515  total=0.4869  lr=7.76e-05  |  clone_detection=0.0389  vul_detection=0.5561
+INFO:name:E4/10  step 64/2515  total=0.3735  lr=7.75e-05  |  clone_detection=0.0417  vul_detection=0.5540
+INFO:name:E4/10  step 96/2515  total=0.3050  lr=7.74e-05  |  clone_detection=0.0398  vul_detection=0.5558
+INFO:name:E4/10  step 128/2515  total=0.3096  lr=7.72e-05  |  clone_detection=0.0395  vul_detection=0.5544
+INFO:name:E4/10  step 160/2515  total=0.3000  lr=7.71e-05  |  clone_detection=0.0409  vul_detection=0.5542
+INFO:name:E4/10  step 192/2515  total=0.3195  lr=7.69e-05  |  clone_detection=0.0402  vul_detection=0.5531
+INFO:name:E4/10  step 224/2515  total=0.3183  lr=7.68e-05  |  clone_detection=0.0389  vul_detection=0.5498
+INFO:name:E4/10  step 256/2515  total=0.3182  lr=7.66e-05  |  clone_detection=0.0393  vul_detection=0.5486
+INFO:name:E4/10  step 288/2515  total=0.3007  lr=7.65e-05  |  clone_detection=0.0399  vul_detection=0.5478
+INFO:name:E4/10  step 320/2515  total=0.3027  lr=7.64e-05  |  clone_detection=0.0409  vul_detection=0.5475
+INFO:name:E4/10  step 352/2515  total=0.3141  lr=7.62e-05  |  clone_detection=0.0413  vul_detection=0.5492
+INFO:name:E4/10  step 384/2515  total=0.3154  lr=7.61e-05  |  clone_detection=0.0417  vul_detection=0.5502
+INFO:name:E4/10  step 416/2515  total=0.3210  lr=7.59e-05  |  clone_detection=0.0419  vul_detection=0.5503
+INFO:name:E4/10  step 448/2515  total=0.3295  lr=7.58e-05  |  clone_detection=0.0417  vul_detection=0.5491
+INFO:name:E4/10  step 480/2515  total=0.3224  lr=7.57e-05  |  clone_detection=0.0414  vul_detection=0.5486
+INFO:name:E4/10  step 512/2515  total=0.3179  lr=7.55e-05  |  clone_detection=0.0411  vul_detection=0.5477
+INFO:name:E4/10  step 544/2515  total=0.3215  lr=7.54e-05  |  clone_detection=0.0411  vul_detection=0.5471
+INFO:name:E4/10  step 576/2515  total=0.3158  lr=7.52e-05  |  clone_detection=0.0413  vul_detection=0.5464
+INFO:name:E4/10  step 608/2515  total=0.3179  lr=7.51e-05  |  clone_detection=0.0413  vul_detection=0.5437
+INFO:name:E4/10  step 640/2515  total=0.3264  lr=7.50e-05  |  clone_detection=0.0414  vul_detection=0.5447
+INFO:name:E4/10  step 672/2515  total=0.3258  lr=7.48e-05  |  clone_detection=0.0414  vul_detection=0.5442
+INFO:name:E4/10  step 704/2515  total=0.3239  lr=7.47e-05  |  clone_detection=0.0411  vul_detection=0.5440
+INFO:name:E4/10  step 736/2515  total=0.3222  lr=7.45e-05  |  clone_detection=0.0410  vul_detection=0.5436
+INFO:name:E4/10  step 768/2515  total=0.3171  lr=7.44e-05  |  clone_detection=0.0408  vul_detection=0.5441
+INFO:name:E4/10  step 800/2515  total=0.3172  lr=7.42e-05  |  clone_detection=0.0407  vul_detection=0.5441
+INFO:name:E4/10  step 832/2515  total=0.3156  lr=7.41e-05  |  clone_detection=0.0407  vul_detection=0.5433
+INFO:name:E4/10  step 864/2515  total=0.3190  lr=7.40e-05  |  clone_detection=0.0407  vul_detection=0.5429
+INFO:name:E4/10  step 896/2515  total=0.3203  lr=7.38e-05  |  clone_detection=0.0404  vul_detection=0.5433
+INFO:name:E4/10  step 928/2515  total=0.3193  lr=7.37e-05  |  clone_detection=0.0405  vul_detection=0.5434
+INFO:name:E4/10  step 960/2515  total=0.3217  lr=7.35e-05  |  clone_detection=0.0404  vul_detection=0.5441
+INFO:name:E4/10  step 992/2515  total=0.3205  lr=7.34e-05  |  clone_detection=0.0404  vul_detection=0.5439
+INFO:name:E4/10  step 1024/2515  total=0.3203  lr=7.33e-05  |  clone_detection=0.0405  vul_detection=0.5435
+INFO:name:E4/10  step 1056/2515  total=0.3164  lr=7.31e-05  |  clone_detection=0.0405  vul_detection=0.5434
+INFO:name:E4/10  step 1088/2515  total=0.3200  lr=7.30e-05  |  clone_detection=0.0404  vul_detection=0.5431
+INFO:name:E4/10  step 1120/2515  total=0.3196  lr=7.28e-05  |  clone_detection=0.0404  vul_detection=0.5424
+INFO:name:E4/10  step 1152/2515  total=0.3209  lr=7.27e-05  |  clone_detection=0.0403  vul_detection=0.5418
+INFO:name:E4/10  step 1184/2515  total=0.3201  lr=7.25e-05  |  clone_detection=0.0403  vul_detection=0.5420
+INFO:name:E4/10  step 1216/2515  total=0.3197  lr=7.24e-05  |  clone_detection=0.0404  vul_detection=0.5414
+INFO:name:E4/10  step 1248/2515  total=0.3147  lr=7.23e-05  |  clone_detection=0.0405  vul_detection=0.5411
+INFO:name:E4/10  step 1280/2515  total=0.3153  lr=7.21e-05  |  clone_detection=0.0403  vul_detection=0.5406
+INFO:name:E4/10  step 1312/2515  total=0.3135  lr=7.20e-05  |  clone_detection=0.0403  vul_detection=0.5400
+INFO:name:E4/10  step 1344/2515  total=0.3134  lr=7.18e-05  |  clone_detection=0.0405  vul_detection=0.5398
+INFO:name:E4/10  step 1376/2515  total=0.3121  lr=7.17e-05  |  clone_detection=0.0406  vul_detection=0.5397
+INFO:name:E4/10  step 1408/2515  total=0.3126  lr=7.16e-05  |  clone_detection=0.0405  vul_detection=0.5392
+INFO:name:E4/10  step 1440/2515  total=0.3158  lr=7.14e-05  |  clone_detection=0.0407  vul_detection=0.5386
+INFO:name:E4/10  step 1472/2515  total=0.3144  lr=7.13e-05  |  clone_detection=0.0406  vul_detection=0.5385
+INFO:name:E4/10  step 1504/2515  total=0.3126  lr=7.11e-05  |  clone_detection=0.0407  vul_detection=0.5387
+INFO:name:E4/10  step 1536/2515  total=0.3125  lr=7.10e-05  |  clone_detection=0.0409  vul_detection=0.5384
+INFO:name:E4/10  step 1568/2515  total=0.3138  lr=7.09e-05  |  clone_detection=0.0408  vul_detection=0.5382
+INFO:name:E4/10  step 1600/2515  total=0.3137  lr=7.07e-05  |  clone_detection=0.0408  vul_detection=0.5380
+INFO:name:E4/10  step 1632/2515  total=0.3137  lr=7.06e-05  |  clone_detection=0.0409  vul_detection=0.5379
+INFO:name:E4/10  step 1664/2515  total=0.3143  lr=7.04e-05  |  clone_detection=0.0408  vul_detection=0.5379
+INFO:name:E4/10  step 1696/2515  total=0.3170  lr=7.03e-05  |  clone_detection=0.0409  vul_detection=0.5374
+INFO:name:E4/10  step 1728/2515  total=0.3190  lr=7.01e-05  |  clone_detection=0.0407  vul_detection=0.5370
+INFO:name:E4/10  step 1760/2515  total=0.3209  lr=7.00e-05  |  clone_detection=0.0408  vul_detection=0.5364
+INFO:name:E4/10  step 1792/2515  total=0.3200  lr=6.99e-05  |  clone_detection=0.0407  vul_detection=0.5361
+INFO:name:E4/10  step 1824/2515  total=0.3179  lr=6.97e-05  |  clone_detection=0.0406  vul_detection=0.5354
+INFO:name:E4/10  step 1856/2515  total=0.3183  lr=6.96e-05  |  clone_detection=0.0405  vul_detection=0.5353
+INFO:name:E4/10  step 1888/2515  total=0.3180  lr=6.94e-05  |  clone_detection=0.0405  vul_detection=0.5349
+INFO:name:E4/10  step 1920/2515  total=0.3168  lr=6.93e-05  |  clone_detection=0.0405  vul_detection=0.5347
+INFO:name:E4/10  step 1952/2515  total=0.3161  lr=6.92e-05  |  clone_detection=0.0405  vul_detection=0.5344
+INFO:name:E4/10  step 1984/2515  total=0.3180  lr=6.90e-05  |  clone_detection=0.0406  vul_detection=0.5343
+INFO:name:E4/10  step 2016/2515  total=0.3172  lr=6.89e-05  |  clone_detection=0.0406  vul_detection=0.5340
+INFO:name:E4/10  step 2048/2515  total=0.3156  lr=6.87e-05  |  clone_detection=0.0406  vul_detection=0.5338
+INFO:name:E4/10  step 2080/2515  total=0.3150  lr=6.86e-05  |  clone_detection=0.0407  vul_detection=0.5336
+INFO:name:E4/10  step 2112/2515  total=0.3143  lr=6.84e-05  |  clone_detection=0.0407  vul_detection=0.5332
+INFO:name:E4/10  step 2144/2515  total=0.3141  lr=6.83e-05  |  clone_detection=0.0407  vul_detection=0.5328
+INFO:name:E4/10  step 2176/2515  total=0.3128  lr=6.82e-05  |  clone_detection=0.0406  vul_detection=0.5323
+INFO:name:E4/10  step 2208/2515  total=0.3134  lr=6.80e-05  |  clone_detection=0.0407  vul_detection=0.5317
+INFO:name:E4/10  step 2240/2515  total=0.3129  lr=6.79e-05  |  clone_detection=0.0407  vul_detection=0.5309
+INFO:name:E4/10  step 2272/2515  total=0.3124  lr=6.77e-05  |  clone_detection=0.0406  vul_detection=0.5308
+INFO:name:E4/10  step 2304/2515  total=0.3133  lr=6.76e-05  |  clone_detection=0.0406  vul_detection=0.5302
+INFO:name:E4/10  step 2336/2515  total=0.3118  lr=6.75e-05  |  clone_detection=0.0405  vul_detection=0.5299
+INFO:name:E4/10  step 2368/2515  total=0.3117  lr=6.73e-05  |  clone_detection=0.0405  vul_detection=0.5296
+INFO:name:E4/10  step 2400/2515  total=0.3106  lr=6.72e-05  |  clone_detection=0.0404  vul_detection=0.5292
+INFO:name:E4/10  step 2432/2515  total=0.3120  lr=6.70e-05  |  clone_detection=0.0404  vul_detection=0.5288
+INFO:name:E4/10  step 2464/2515  total=0.3108  lr=6.69e-05  |  clone_detection=0.0403  vul_detection=0.5288
+INFO:name:E4/10  step 2496/2515  total=0.3110  lr=6.68e-05  |  clone_detection=0.0404  vul_detection=0.5285
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 4/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0404    0.1434      88630995
+INFO:name:  vul_detection             0.5282    1.8566      29304319
+INFO:name:  TOTAL                     0.3104               117935314  (epoch)  cumulative=471934965
+INFO:name:  epoch_time=1171.2s  peak_gpu_memory=18.533GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '0.1421', 'vul_detection': '1.8579'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    clone_detection         grad_norm=  0.267749
+INFO:name:    vul_detection           grad_norm=  1.499509
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  clone_detection         vul_detection              -0.0289  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9723   0.9002    0.9621      0.8457   0.0837        -
+INFO:name:  vul_detection            0.6460   0.5808    0.5644      0.5982   0.6681        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.7405
+INFO:name:----------------------------------------------------------------------
+Saved 57 trainable params -> ./adapters/unixcoder_clone_vul_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.7405) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9753   0.9134    0.9536      0.8764        -        -
+INFO:name:  vul_detection            0.6245   0.5792    0.5625      0.5968        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E5/10  step 32/2515  total=0.4322  lr=6.65e-05  |  clone_detection=0.0321  vul_detection=0.4934
+INFO:name:E5/10  step 64/2515  total=0.3340  lr=6.64e-05  |  clone_detection=0.0366  vul_detection=0.4953
+INFO:name:E5/10  step 96/2515  total=0.2741  lr=6.62e-05  |  clone_detection=0.0369  vul_detection=0.4990
+INFO:name:E5/10  step 128/2515  total=0.2793  lr=6.61e-05  |  clone_detection=0.0355  vul_detection=0.4999
+INFO:name:E5/10  step 160/2515  total=0.2702  lr=6.60e-05  |  clone_detection=0.0344  vul_detection=0.4994
+INFO:name:E5/10  step 192/2515  total=0.2847  lr=6.58e-05  |  clone_detection=0.0346  vul_detection=0.4928
+INFO:name:E5/10  step 224/2515  total=0.2868  lr=6.57e-05  |  clone_detection=0.0340  vul_detection=0.4953
+INFO:name:E5/10  step 256/2515  total=0.2875  lr=6.55e-05  |  clone_detection=0.0345  vul_detection=0.4956
+INFO:name:E5/10  step 288/2515  total=0.2721  lr=6.54e-05  |  clone_detection=0.0345  vul_detection=0.4957
+INFO:name:E5/10  step 320/2515  total=0.2741  lr=6.53e-05  |  clone_detection=0.0345  vul_detection=0.4960
+INFO:name:E5/10  step 352/2515  total=0.2831  lr=6.51e-05  |  clone_detection=0.0345  vul_detection=0.4952
+INFO:name:E5/10  step 384/2515  total=0.2848  lr=6.50e-05  |  clone_detection=0.0338  vul_detection=0.4972
+INFO:name:E5/10  step 416/2515  total=0.2898  lr=6.48e-05  |  clone_detection=0.0343  vul_detection=0.4971
+INFO:name:E5/10  step 448/2515  total=0.2985  lr=6.47e-05  |  clone_detection=0.0342  vul_detection=0.4977
+INFO:name:E5/10  step 480/2515  total=0.2929  lr=6.45e-05  |  clone_detection=0.0353  vul_detection=0.4985
+INFO:name:E5/10  step 512/2515  total=0.2891  lr=6.44e-05  |  clone_detection=0.0353  vul_detection=0.4982
+INFO:name:E5/10  step 544/2515  total=0.2931  lr=6.43e-05  |  clone_detection=0.0351  vul_detection=0.4989
+INFO:name:E5/10  step 576/2515  total=0.2878  lr=6.41e-05  |  clone_detection=0.0349  vul_detection=0.4981
+INFO:name:E5/10  step 608/2515  total=0.2901  lr=6.40e-05  |  clone_detection=0.0352  vul_detection=0.4964
+INFO:name:E5/10  step 640/2515  total=0.2969  lr=6.38e-05  |  clone_detection=0.0357  vul_detection=0.4956
+INFO:name:E5/10  step 672/2515  total=0.2964  lr=6.37e-05  |  clone_detection=0.0354  vul_detection=0.4952
+INFO:name:E5/10  step 704/2515  total=0.2950  lr=6.36e-05  |  clone_detection=0.0356  vul_detection=0.4953
+INFO:name:E5/10  step 736/2515  total=0.2930  lr=6.34e-05  |  clone_detection=0.0361  vul_detection=0.4942
+INFO:name:E5/10  step 768/2515  total=0.2881  lr=6.33e-05  |  clone_detection=0.0367  vul_detection=0.4941
+INFO:name:E5/10  step 800/2515  total=0.2881  lr=6.31e-05  |  clone_detection=0.0367  vul_detection=0.4940
+INFO:name:E5/10  step 832/2515  total=0.2872  lr=6.30e-05  |  clone_detection=0.0368  vul_detection=0.4941
+INFO:name:E5/10  step 864/2515  total=0.2902  lr=6.28e-05  |  clone_detection=0.0369  vul_detection=0.4936
+INFO:name:E5/10  step 896/2515  total=0.2908  lr=6.27e-05  |  clone_detection=0.0368  vul_detection=0.4929
+INFO:name:E5/10  step 928/2515  total=0.2898  lr=6.26e-05  |  clone_detection=0.0369  vul_detection=0.4929
+INFO:name:E5/10  step 960/2515  total=0.2916  lr=6.24e-05  |  clone_detection=0.0368  vul_detection=0.4927
+INFO:name:E5/10  step 992/2515  total=0.2907  lr=6.23e-05  |  clone_detection=0.0367  vul_detection=0.4929
+INFO:name:E5/10  step 1024/2515  total=0.2906  lr=6.21e-05  |  clone_detection=0.0366  vul_detection=0.4928
+INFO:name:E5/10  step 1056/2515  total=0.2871  lr=6.20e-05  |  clone_detection=0.0364  vul_detection=0.4928
+INFO:name:E5/10  step 1088/2515  total=0.2906  lr=6.19e-05  |  clone_detection=0.0365  vul_detection=0.4929
+INFO:name:E5/10  step 1120/2515  total=0.2902  lr=6.17e-05  |  clone_detection=0.0365  vul_detection=0.4923
+INFO:name:E5/10  step 1152/2515  total=0.2915  lr=6.16e-05  |  clone_detection=0.0367  vul_detection=0.4918
+INFO:name:E5/10  step 1184/2515  total=0.2904  lr=6.14e-05  |  clone_detection=0.0368  vul_detection=0.4914
+INFO:name:E5/10  step 1216/2515  total=0.2900  lr=6.13e-05  |  clone_detection=0.0367  vul_detection=0.4908
+INFO:name:E5/10  step 1248/2515  total=0.2856  lr=6.12e-05  |  clone_detection=0.0365  vul_detection=0.4908
+INFO:name:E5/10  step 1280/2515  total=0.2866  lr=6.10e-05  |  clone_detection=0.0367  vul_detection=0.4912
+INFO:name:E5/10  step 1312/2515  total=0.2854  lr=6.09e-05  |  clone_detection=0.0367  vul_detection=0.4914
+INFO:name:E5/10  step 1344/2515  total=0.2854  lr=6.07e-05  |  clone_detection=0.0366  vul_detection=0.4912
+INFO:name:E5/10  step 1376/2515  total=0.2839  lr=6.06e-05  |  clone_detection=0.0366  vul_detection=0.4908
+INFO:name:E5/10  step 1408/2515  total=0.2844  lr=6.04e-05  |  clone_detection=0.0367  vul_detection=0.4903
+INFO:name:E5/10  step 1440/2515  total=0.2875  lr=6.03e-05  |  clone_detection=0.0367  vul_detection=0.4901
+INFO:name:E5/10  step 1472/2515  total=0.2861  lr=6.02e-05  |  clone_detection=0.0368  vul_detection=0.4897
+INFO:name:E5/10  step 1504/2515  total=0.2839  lr=6.00e-05  |  clone_detection=0.0369  vul_detection=0.4891
+INFO:name:E5/10  step 1536/2515  total=0.2840  lr=5.99e-05  |  clone_detection=0.0369  vul_detection=0.4890
+INFO:name:E5/10  step 1568/2515  total=0.2849  lr=5.97e-05  |  clone_detection=0.0367  vul_detection=0.4885
+INFO:name:E5/10  step 1600/2515  total=0.2857  lr=5.96e-05  |  clone_detection=0.0368  vul_detection=0.4897
+INFO:name:E5/10  step 1632/2515  total=0.2856  lr=5.95e-05  |  clone_detection=0.0368  vul_detection=0.4896
+INFO:name:E5/10  step 1664/2515  total=0.2860  lr=5.93e-05  |  clone_detection=0.0367  vul_detection=0.4893
+INFO:name:E5/10  step 1696/2515  total=0.2884  lr=5.92e-05  |  clone_detection=0.0368  vul_detection=0.4887
+INFO:name:E5/10  step 1728/2515  total=0.2898  lr=5.90e-05  |  clone_detection=0.0367  vul_detection=0.4876
+INFO:name:E5/10  step 1760/2515  total=0.2914  lr=5.89e-05  |  clone_detection=0.0367  vul_detection=0.4870
+INFO:name:E5/10  step 1792/2515  total=0.2906  lr=5.87e-05  |  clone_detection=0.0367  vul_detection=0.4865
+INFO:name:E5/10  step 1824/2515  total=0.2890  lr=5.86e-05  |  clone_detection=0.0369  vul_detection=0.4864
+INFO:name:E5/10  step 1856/2515  total=0.2893  lr=5.85e-05  |  clone_detection=0.0370  vul_detection=0.4862
+INFO:name:E5/10  step 1888/2515  total=0.2888  lr=5.83e-05  |  clone_detection=0.0369  vul_detection=0.4855
+INFO:name:E5/10  step 1920/2515  total=0.2878  lr=5.82e-05  |  clone_detection=0.0369  vul_detection=0.4854
+INFO:name:E5/10  step 1952/2515  total=0.2872  lr=5.80e-05  |  clone_detection=0.0368  vul_detection=0.4853
+INFO:name:E5/10  step 1984/2515  total=0.2888  lr=5.79e-05  |  clone_detection=0.0369  vul_detection=0.4850
+INFO:name:E5/10  step 2016/2515  total=0.2882  lr=5.78e-05  |  clone_detection=0.0370  vul_detection=0.4848
+INFO:name:E5/10  step 2048/2515  total=0.2867  lr=5.76e-05  |  clone_detection=0.0369  vul_detection=0.4846
+INFO:name:E5/10  step 2080/2515  total=0.2863  lr=5.75e-05  |  clone_detection=0.0368  vul_detection=0.4847
+INFO:name:E5/10  step 2112/2515  total=0.2857  lr=5.73e-05  |  clone_detection=0.0368  vul_detection=0.4845
+INFO:name:E5/10  step 2144/2515  total=0.2858  lr=5.72e-05  |  clone_detection=0.0369  vul_detection=0.4847
+INFO:name:E5/10  step 2176/2515  total=0.2847  lr=5.71e-05  |  clone_detection=0.0368  vul_detection=0.4842
+INFO:name:E5/10  step 2208/2515  total=0.2850  lr=5.69e-05  |  clone_detection=0.0369  vul_detection=0.4833
+INFO:name:E5/10  step 2240/2515  total=0.2848  lr=5.68e-05  |  clone_detection=0.0369  vul_detection=0.4829
+INFO:name:E5/10  step 2272/2515  total=0.2843  lr=5.66e-05  |  clone_detection=0.0367  vul_detection=0.4829
+INFO:name:E5/10  step 2304/2515  total=0.2853  lr=5.65e-05  |  clone_detection=0.0368  vul_detection=0.4825
+INFO:name:E5/10  step 2336/2515  total=0.2838  lr=5.63e-05  |  clone_detection=0.0367  vul_detection=0.4820
+INFO:name:E5/10  step 2368/2515  total=0.2835  lr=5.62e-05  |  clone_detection=0.0368  vul_detection=0.4815
+INFO:name:E5/10  step 2400/2515  total=0.2828  lr=5.61e-05  |  clone_detection=0.0367  vul_detection=0.4815
+INFO:name:E5/10  step 2432/2515  total=0.2839  lr=5.59e-05  |  clone_detection=0.0365  vul_detection=0.4809
+INFO:name:E5/10  step 2464/2515  total=0.2826  lr=5.58e-05  |  clone_detection=0.0365  vul_detection=0.4806
+INFO:name:E5/10  step 2496/2515  total=0.2827  lr=5.56e-05  |  clone_detection=0.0366  vul_detection=0.4801
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 5/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0366    0.1421      88687116
+INFO:name:  vul_detection             0.4800    1.8579      29330339
+INFO:name:  TOTAL                     0.2823               118017455  (epoch)  cumulative=589952420
+INFO:name:  epoch_time=1170.5s  peak_gpu_memory=18.533GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '0.1415', 'vul_detection': '1.8585'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    clone_detection         grad_norm=  1.028051
+INFO:name:    vul_detection           grad_norm=  2.128577
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  clone_detection         vul_detection              -0.0110  [CONFLICT]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 5
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9804   0.9267    0.9563      0.8989   0.0597        -
+INFO:name:  vul_detection            0.6263   0.6226    0.7094      0.5547   0.7107        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.7747
+INFO:name:----------------------------------------------------------------------
+Saved 57 trainable params -> ./adapters/unixcoder_clone_vul_adapter_norm_v2/model.bin
+INFO:name:  >> New best (0.7747) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 5
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9810   0.9317    0.9458      0.9181        -        -
+INFO:name:  vul_detection            0.6186   0.6284    0.7020      0.5688        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:E6/10  step 32/2515  total=0.3961  lr=5.54e-05  |  clone_detection=0.0281  vul_detection=0.4522
+INFO:name:E6/10  step 64/2515  total=0.3060  lr=5.53e-05  |  clone_detection=0.0364  vul_detection=0.4532
+INFO:name:E6/10  step 96/2515  total=0.2492  lr=5.51e-05  |  clone_detection=0.0369  vul_detection=0.4529
+INFO:name:E6/10  step 128/2515  total=0.2523  lr=5.50e-05  |  clone_detection=0.0372  vul_detection=0.4506
+INFO:name:E6/10  step 160/2515  total=0.2430  lr=5.48e-05  |  clone_detection=0.0371  vul_detection=0.4479
+INFO:name:E6/10  step 192/2515  total=0.2594  lr=5.47e-05  |  clone_detection=0.0367  vul_detection=0.4479
+INFO:name:E6/10  step 224/2515  total=0.2597  lr=5.46e-05  |  clone_detection=0.0350  vul_detection=0.4477
+INFO:name:E6/10  step 256/2515  total=0.2598  lr=5.44e-05  |  clone_detection=0.0353  vul_detection=0.4469
+INFO:name:E6/10  step 288/2515  total=0.2462  lr=5.43e-05  |  clone_detection=0.0353  vul_detection=0.4476
+INFO:name:E6/10  step 320/2515  total=0.2481  lr=5.41e-05  |  clone_detection=0.0348  vul_detection=0.4481
+INFO:name:E6/10  step 352/2515  total=0.2569  lr=5.40e-05  |  clone_detection=0.0349  vul_detection=0.4487
+INFO:name:E6/10  step 384/2515  total=0.2598  lr=5.39e-05  |  clone_detection=0.0350  vul_detection=0.4527
+INFO:name:E6/10  step 416/2515  total=0.2639  lr=5.37e-05  |  clone_detection=0.0343  vul_detection=0.4521
+INFO:name:E6/10  step 448/2515  total=0.2712  lr=5.36e-05  |  clone_detection=0.0345  vul_detection=0.4515
+INFO:name:E6/10  step 480/2515  total=0.2653  lr=5.34e-05  |  clone_detection=0.0343  vul_detection=0.4511
+INFO:name:E6/10  step 512/2515  total=0.2626  lr=5.33e-05  |  clone_detection=0.0342  vul_detection=0.4521
+INFO:name:E6/10  step 544/2515  total=0.2675  lr=5.32e-05  |  clone_detection=0.0339  vul_detection=0.4549
+INFO:name:E6/10  step 576/2515  total=0.2625  lr=5.30e-05  |  clone_detection=0.0339  vul_detection=0.4538
+INFO:name:E6/10  step 608/2515  total=0.2643  lr=5.29e-05  |  clone_detection=0.0342  vul_detection=0.4517
+INFO:name:E6/10  step 640/2515  total=0.2711  lr=5.27e-05  |  clone_detection=0.0340  vul_detection=0.4521
+INFO:name:E6/10  step 672/2515  total=0.2703  lr=5.26e-05  |  clone_detection=0.0341  vul_detection=0.4512
+INFO:name:E6/10  step 704/2515  total=0.2684  lr=5.24e-05  |  clone_detection=0.0346  vul_detection=0.4503
+INFO:name:E6/10  step 736/2515  total=0.2664  lr=5.23e-05  |  clone_detection=0.0344  vul_detection=0.4490
+INFO:name:E6/10  step 768/2515  total=0.2617  lr=5.22e-05  |  clone_detection=0.0343  vul_detection=0.4486
+INFO:name:E6/10  step 800/2515  total=0.2616  lr=5.20e-05  |  clone_detection=0.0346  vul_detection=0.4483
+INFO:name:E6/10  step 832/2515  total=0.2607  lr=5.19e-05  |  clone_detection=0.0345  vul_detection=0.4483
+INFO:name:E6/10  step 864/2515  total=0.2634  lr=5.17e-05  |  clone_detection=0.0344  vul_detection=0.4478
+INFO:name:E6/10  step 896/2515  total=0.2642  lr=5.16e-05  |  clone_detection=0.0345  vul_detection=0.4475
+INFO:name:E6/10  step 928/2515  total=0.2641  lr=5.15e-05  |  clone_detection=0.0345  vul_detection=0.4490
+INFO:name:E6/10  step 960/2515  total=0.2663  lr=5.13e-05  |  clone_detection=0.0346  vul_detection=0.4497
+INFO:name:E6/10  step 992/2515  total=0.2651  lr=5.12e-05  |  clone_detection=0.0346  vul_detection=0.4493
+INFO:name:E6/10  step 1024/2515  total=0.2647  lr=5.10e-05  |  clone_detection=0.0343  vul_detection=0.4486
+INFO:name:E6/10  step 1056/2515  total=0.2616  lr=5.09e-05  |  clone_detection=0.0343  vul_detection=0.4487
+INFO:name:E6/10  step 1088/2515  total=0.2647  lr=5.07e-05  |  clone_detection=0.0344  vul_detection=0.4487
+INFO:name:E6/10  step 1120/2515  total=0.2644  lr=5.06e-05  |  clone_detection=0.0341  vul_detection=0.4483
+INFO:name:E6/10  step 1152/2515  total=0.2658  lr=5.05e-05  |  clone_detection=0.0342  vul_detection=0.4483
+INFO:name:E6/10  step 1184/2515  total=0.2648  lr=5.03e-05  |  clone_detection=0.0342  vul_detection=0.4478
+INFO:name:E6/10  step 1216/2515  total=0.2643  lr=5.02e-05  |  clone_detection=0.0342  vul_detection=0.4470
+INFO:name:E6/10  step 1248/2515  total=0.2601  lr=5.00e-05  |  clone_detection=0.0343  vul_detection=0.4467
+INFO:name:E6/10  step 1280/2515  total=0.2606  lr=4.99e-05  |  clone_detection=0.0342  vul_detection=0.4463
+INFO:name:E6/10  step 1312/2515  total=0.2592  lr=4.98e-05  |  clone_detection=0.0342  vul_detection=0.4461
+INFO:name:E6/10  step 1344/2515  total=0.2593  lr=4.96e-05  |  clone_detection=0.0342  vul_detection=0.4460
+INFO:name:E6/10  step 1376/2515  total=0.2581  lr=4.95e-05  |  clone_detection=0.0343  vul_detection=0.4459
+INFO:name:E6/10  step 1408/2515  total=0.2585  lr=4.93e-05  |  clone_detection=0.0342  vul_detection=0.4453
+INFO:name:E6/10  step 1440/2515  total=0.2614  lr=4.92e-05  |  clone_detection=0.0341  vul_detection=0.4453
+INFO:name:E6/10  step 1472/2515  total=0.2604  lr=4.91e-05  |  clone_detection=0.0339  vul_detection=0.4455
+INFO:name:E6/10  step 1504/2515  total=0.2588  lr=4.89e-05  |  clone_detection=0.0341  vul_detection=0.4455
+INFO:name:E6/10  step 1536/2515  total=0.2586  lr=4.88e-05  |  clone_detection=0.0340  vul_detection=0.4450
+INFO:name:E6/10  step 1568/2515  total=0.2594  lr=4.86e-05  |  clone_detection=0.0339  vul_detection=0.4446
+INFO:name:E6/10  step 1600/2515  total=0.2597  lr=4.85e-05  |  clone_detection=0.0339  vul_detection=0.4451
+INFO:name:E6/10  step 1632/2515  total=0.2598  lr=4.83e-05  |  clone_detection=0.0339  vul_detection=0.4451
+INFO:name:E6/10  step 1664/2515  total=0.2603  lr=4.82e-05  |  clone_detection=0.0337  vul_detection=0.4451
+INFO:name:E6/10  step 1696/2515  total=0.2622  lr=4.81e-05  |  clone_detection=0.0337  vul_detection=0.4442
+INFO:name:E6/10  step 1728/2515  total=0.2637  lr=4.79e-05  |  clone_detection=0.0338  vul_detection=0.4435
+INFO:name:E6/10  step 1760/2515  total=0.2655  lr=4.78e-05  |  clone_detection=0.0338  vul_detection=0.4435
+INFO:name:E6/10  step 1792/2515  total=0.2647  lr=4.76e-05  |  clone_detection=0.0337  vul_detection=0.4431
+INFO:name:E6/10  step 1824/2515  total=0.2631  lr=4.75e-05  |  clone_detection=0.0337  vul_detection=0.4428
+INFO:name:E6/10  step 1856/2515  total=0.2631  lr=4.74e-05  |  clone_detection=0.0336  vul_detection=0.4420
+INFO:name:E6/10  step 1888/2515  total=0.2630  lr=4.72e-05  |  clone_detection=0.0336  vul_detection=0.4419
+INFO:name:E6/10  step 1920/2515  total=0.2619  lr=4.71e-05  |  clone_detection=0.0336  vul_detection=0.4416
+INFO:name:E6/10  step 1952/2515  total=0.2615  lr=4.69e-05  |  clone_detection=0.0335  vul_detection=0.4418
+INFO:name:E6/10  step 1984/2515  total=0.2628  lr=4.68e-05  |  clone_detection=0.0334  vul_detection=0.4413
+INFO:name:E6/10  step 2016/2515  total=0.2623  lr=4.66e-05  |  clone_detection=0.0335  vul_detection=0.4412
+INFO:name:E6/10  step 2048/2515  total=0.2608  lr=4.65e-05  |  clone_detection=0.0335  vul_detection=0.4407
+INFO:name:E6/10  step 2080/2515  total=0.2604  lr=4.64e-05  |  clone_detection=0.0336  vul_detection=0.4407
+INFO:name:E6/10  step 2112/2515  total=0.2599  lr=4.62e-05  |  clone_detection=0.0336  vul_detection=0.4405
+INFO:name:E6/10  step 2144/2515  total=0.2604  lr=4.61e-05  |  clone_detection=0.0336  vul_detection=0.4414
+INFO:name:E6/10  step 2176/2515  total=0.2598  lr=4.59e-05  |  clone_detection=0.0336  vul_detection=0.4416
+INFO:name:E6/10  step 2208/2515  total=0.2603  lr=4.58e-05  |  clone_detection=0.0338  vul_detection=0.4413
+INFO:name:E6/10  step 2240/2515  total=0.2601  lr=4.57e-05  |  clone_detection=0.0338  vul_detection=0.4409
+INFO:name:E6/10  step 2272/2515  total=0.2596  lr=4.55e-05  |  clone_detection=0.0337  vul_detection=0.4408
+INFO:name:E6/10  step 2304/2515  total=0.2607  lr=4.54e-05  |  clone_detection=0.0339  vul_detection=0.4407
+INFO:name:E6/10  step 2336/2515  total=0.2594  lr=4.52e-05  |  clone_detection=0.0339  vul_detection=0.4405
+INFO:name:E6/10  step 2368/2515  total=0.2593  lr=4.51e-05  |  clone_detection=0.0339  vul_detection=0.4401
+INFO:name:E6/10  step 2400/2515  total=0.2584  lr=4.50e-05  |  clone_detection=0.0338  vul_detection=0.4399
+INFO:name:E6/10  step 2432/2515  total=0.2595  lr=4.48e-05  |  clone_detection=0.0339  vul_detection=0.4395
+INFO:name:E6/10  step 2464/2515  total=0.2584  lr=4.47e-05  |  clone_detection=0.0338  vul_detection=0.4392
+INFO:name:E6/10  step 2496/2515  total=0.2582  lr=4.45e-05  |  clone_detection=0.0337  vul_detection=0.4385
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 6/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0338    0.1415      88679480
+INFO:name:  vul_detection             0.4384    1.8585      29310895
+INFO:name:  TOTAL                     0.2579               117990375  (epoch)  cumulative=707942795
+INFO:name:  epoch_time=1170.5s  peak_gpu_memory=18.533GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '0.1432', 'vul_detection': '1.8568'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Norms (L2, shared encoder params):
+INFO:name:    clone_detection         grad_norm=  0.665194
+INFO:name:    vul_detection           grad_norm=  3.095309
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Gradient Conflict Matrix (cosine similarity of encoder grads):
+INFO:name:  Task A                  Task B                     cos_sim  
+INFO:name:  clone_detection         vul_detection              +0.0345  [aligned]
+INFO:name:----------------------------------------------------------------------
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:Early stopping triggered at epoch 6 — halting training.
+INFO:name:  Testing clone_detection (415416 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:  Testing vul_detection (2732 examples)
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
+INFO:name:----------------------------------------------------------------------
+INFO:name:Final Test — Epoch 10
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9765   0.9177    0.9565      0.8819        -        -
+INFO:name:  vul_detection            0.6201   0.6285    0.6996      0.5705        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:======================================================================
+INFO:name:Gradient Conflict Summary (aggregated over 6 epochs)
+INFO:name:  Task A                  Task B                      mean     std  neg_freq  verdict
+INFO:name:  ------                  ------                      ----     ---  --------  -------
+INFO:name:  clone_detection         vul_detection            -0.0240  0.0503     66.7%  [neutral]
+INFO:name:======================================================================
+INFO:name:Train results:
+{'clone_detection_grad_norm': [0.321064,
+                               0.718375,
+                               0.576167,
+                               0.267749,
+                               1.028051,
+                               0.665194],
+ 'clone_detection_tokens': [88660309,
+                            88694021,
+                            88653897,
+                            88630995,
+                            88687116,
+                            88679480],
+ 'clone_detection_train_loss': [0.2397, 0.0628, 0.0451, 0.0404, 0.0366, 0.0338],
+ 'conflict_clone_detection_vs_vul_detection': [-0.0438,
+                                               0.0237,
+                                               -0.1182,
+                                               -0.0289,
+                                               -0.011,
+                                               0.0345],
+ 'epoch_time_s': [1171.0, 1171.2, 1172.8, 1171.2, 1170.5, 1170.5],
+ 'peak_gpu_memory_gb': [18.533, 18.533, 18.533, 18.533, 18.533, 18.533],
+ 'tokens_cumulative': [118007475,
+                       236021864,
+                       353999651,
+                       471934965,
+                       589952420,
+                       707942795],
+ 'tokens_epoch': [118007475,
+                  118014389,
+                  117977787,
+                  117935314,
+                  118017455,
+                  117990375],
+ 'total_train_loss': [0.3767, 0.3177, 0.3379, 0.3104, 0.2823, 0.2579],
+ 'vul_detection_grad_norm': [0.529489,
+                             0.448552,
+                             0.944171,
+                             1.499509,
+                             2.128577,
+                             3.095309],
+ 'vul_detection_tokens': [29347166,
+                          29320368,
+                          29323890,
+                          29304319,
+                          29330339,
+                          29310895],
+ 'vul_detection_train_loss': [0.6781, 0.639, 0.584, 0.5282, 0.48, 0.4384]}
+INFO:name:Validation results:
+{'clone_detection': {'acc': [0.9606, 0.9732, 0.9706, 0.9723, 0.9804, 0.974],
+                     'eval_loss': [0.1166,
+                                   0.0815,
+                                   0.0892,
+                                   0.0837,
+                                   0.0597,
+                                   0.0776],
+                     'f1': [0.864, 0.9029, 0.8941, 0.9002, 0.9267, 0.906],
+                     'precision': [0.7815,
+                                   0.8516,
+                                   0.8375,
+                                   0.8457,
+                                   0.8989,
+                                   0.8529],
+                     'recall': [0.9659,
+                                0.9608,
+                                0.9588,
+                                0.9621,
+                                0.9563,
+                                0.9661]},
+ 'vul_detection': {'acc': [0.5824, 0.6387, 0.6321, 0.646, 0.6263, 0.6255],
+                   'eval_loss': [0.662, 0.6326, 0.6471, 0.6681, 0.7107, 0.8039],
+                   'f1': [0.303, 0.4894, 0.5732, 0.5808, 0.6226, 0.615],
+                   'precision': [0.5511, 0.634, 0.5779, 0.5982, 0.5547, 0.5558],
+                   'recall': [0.2089, 0.3985, 0.5687, 0.5644, 0.7094, 0.6883]}}
+DEBUG:httpcore.connection:close.started
+DEBUG:httpcore.connection:close.complete
