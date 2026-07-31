@@ -1,0 +1,6 @@
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/learned_weights_agg_by_peft.png}
+    \caption{Learned per-task loss weights $a_1,\dots,a_4$ under normalized weighting, per model (mean over PEFT methods; band = min--max). No task collapses to zero: \textit{Vulnerability} and \textit{Flakiness} are progressively upweighted, while \textit{Clone} and \textit{Code Search} are downweighted rather than starved, converging to $\sim$0.1--0.3.}
+    \label{fig:learned-weights-agg-by-peft}
+\end{figure*}

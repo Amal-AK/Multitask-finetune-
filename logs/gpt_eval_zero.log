@@ -1,0 +1,150 @@
+INFO: vulnerability_detection: 1000 samples (mode=zero)
+INFO: [vulnerability_detection] 1000 requests in 1 batch file(s), ~1.7 MB
+INFO: HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 504 Gateway Timeout"
+INFO: Retrying request to /files in 0.445235 seconds
+INFO: HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+INFO: HTTP Request: POST https://api.openai.com/v1/batches "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] submitted batch batch_6a6bfa0aa9788190a2dc79551338ed9c (1000 requests)
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=validating  completed=0/0  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=validating  completed=0/0  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=in_progress  completed=0/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=in_progress  completed=0/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=in_progress  completed=665/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=in_progress  completed=998/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=finalizing  completed=1000/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c status=finalizing  completed=1000/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfa0aa9788190a2dc79551338ed9c "HTTP/1.1 200 OK"
+INFO: HTTP Request: GET https://api.openai.com/v1/files/file-TArLJUYYEqoVoiqrbzi4ZW/content "HTTP/1.1 200 OK"
+INFO: [vulnerability_detection] batch batch_6a6bfa0aa9788190a2dc79551338ed9c completed
+INFO: [vulnerability_detection] all batches complete: 1000 results -> ./gpt_batch_runs/zero/vulnerability_detection_results.jsonl
+
+====================================================================
+                       GPT EVALUATION SUMMARY                       
+====================================================================
+                   Task        Model  Samples  Accuracy  Macro_F1    MCC  Macro_P  Macro_R
+vulnerability_detection gpt-5.6-luna     1000     0.534    0.5337 0.0857   0.5432   0.5426
+====================================================================
+
+INFO: flaky_tests: 1000 samples (mode=zero)
+INFO: [flaky_tests] 1000 requests in 1 batch file(s), ~0.8 MB
+INFO: HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+INFO: HTTP Request: POST https://api.openai.com/v1/batches "HTTP/1.1 200 OK"
+INFO: [flaky_tests] submitted batch batch_6a6bfb1de29c81908651599191b10740 (1000 requests)
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=validating  completed=0/0  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=validating  completed=0/0  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=in_progress  completed=0/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=in_progress  completed=474/1000  failed=4
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=in_progress  completed=914/1000  failed=6
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=finalizing  completed=993/1000  failed=7
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 status=finalizing  completed=993/1000  failed=7
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfb1de29c81908651599191b10740 "HTTP/1.1 200 OK"
+INFO: HTTP Request: GET https://api.openai.com/v1/files/file-BDrewneEWKMwwP1ME3aEW8/content "HTTP/1.1 200 OK"
+INFO: [flaky_tests] batch batch_6a6bfb1de29c81908651599191b10740 completed
+INFO: [flaky_tests] all batches complete: 993 results -> ./gpt_batch_runs/zero/flaky_tests_results.jsonl
+
+====================================================================
+                       GPT EVALUATION SUMMARY                       
+====================================================================
+                   Task        Model  Samples  Accuracy  Macro_F1    MCC  Macro_P  Macro_R
+vulnerability_detection gpt-5.6-luna     1000     0.534    0.5337 0.0857   0.5432   0.5426
+            flaky_tests gpt-5.6-luna     1000     0.759    0.5069 0.1169   0.5294   0.6162
+====================================================================
+
+INFO: clone_detection: 1000 samples (mode=zero)
+INFO: [clone_detection] 1000 requests in 1 batch file(s), ~2.7 MB
+INFO: HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+INFO: HTTP Request: POST https://api.openai.com/v1/batches "HTTP/1.1 200 OK"
+INFO: [clone_detection] submitted batch batch_6a6bfc1312c48190ac7d23da49298402 (1000 requests)
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfc1312c48190ac7d23da49298402 "HTTP/1.1 200 OK"
+INFO: [clone_detection] batch batch_6a6bfc1312c48190ac7d23da49298402 status=in_progress  completed=0/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfc1312c48190ac7d23da49298402 "HTTP/1.1 200 OK"
+INFO: [clone_detection] batch batch_6a6bfc1312c48190ac7d23da49298402 status=in_progress  completed=360/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfc1312c48190ac7d23da49298402 "HTTP/1.1 200 OK"
+INFO: [clone_detection] batch batch_6a6bfc1312c48190ac7d23da49298402 status=in_progress  completed=556/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfc1312c48190ac7d23da49298402 "HTTP/1.1 200 OK"
+INFO: [clone_detection] batch batch_6a6bfc1312c48190ac7d23da49298402 status=finalizing  completed=1000/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfc1312c48190ac7d23da49298402 "HTTP/1.1 200 OK"
+INFO: [clone_detection] batch batch_6a6bfc1312c48190ac7d23da49298402 status=finalizing  completed=1000/1000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfc1312c48190ac7d23da49298402 "HTTP/1.1 200 OK"
+INFO: HTTP Request: GET https://api.openai.com/v1/files/file-NgZkbadF67U31McRE6FdQX/content "HTTP/1.1 200 OK"
+INFO: [clone_detection] batch batch_6a6bfc1312c48190ac7d23da49298402 completed
+INFO: [clone_detection] all batches complete: 1000 results -> ./gpt_batch_runs/zero/clone_detection_results.jsonl
+
+====================================================================
+                       GPT EVALUATION SUMMARY                       
+====================================================================
+                   Task        Model  Samples  Accuracy  Macro_F1    MCC  Macro_P  Macro_R
+vulnerability_detection gpt-5.6-luna     1000     0.534    0.5337 0.0857   0.5432   0.5426
+            flaky_tests gpt-5.6-luna     1000     0.759    0.5069 0.1169   0.5294   0.6162
+        clone_detection gpt-5.6-luna     1000     0.844    0.5918 0.2515   0.7087   0.5758
+====================================================================
+
+INFO: code_search: 1000 samples (listwise re-rank, no embeddings)
+INFO: code_search: 1000 queries x <=100 candidates/query (capped, no embedding pre-filter) -> 5000 requests
+INFO: [code_search] 5000 requests in 1 batch file(s), ~45.0 MB
+INFO: HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+INFO: HTTP Request: POST https://api.openai.com/v1/batches "HTTP/1.1 200 OK"
+INFO: [code_search] submitted batch batch_6a6bfcd39e908190b3586cf4ce6d6163 (5000 requests)
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=0/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=61/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=102/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=403/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=1707/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=2376/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=3236/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=3855/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=4589/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=in_progress  completed=4880/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=finalizing  completed=5000/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=finalizing  completed=5000/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=finalizing  completed=5000/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=finalizing  completed=5000/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=finalizing  completed=5000/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 status=finalizing  completed=5000/5000  failed=0
+INFO: HTTP Request: GET https://api.openai.com/v1/batches/batch_6a6bfcd39e908190b3586cf4ce6d6163 "HTTP/1.1 200 OK"
+INFO: HTTP Request: GET https://api.openai.com/v1/files/file-55NtNHXncqKwiEoucCMYLr/content "HTTP/1.1 200 OK"
+INFO: [code_search] batch batch_6a6bfcd39e908190b3586cf4ce6d6163 completed
+INFO: [code_search] all batches complete: 5000 results -> ./gpt_batch_runs/zero/code_search_results.jsonl
+
+====================================================================
+                       GPT EVALUATION SUMMARY                       
+====================================================================
+                   Task        Model  Samples  Accuracy  Macro_F1    MCC  Queries  MRR@K  Macro_P  Macro_R  CandidatePool
+vulnerability_detection gpt-5.6-luna     1000     0.534    0.5337 0.0857      NaN    NaN   0.5432   0.5426            NaN
+            flaky_tests gpt-5.6-luna     1000     0.759    0.5069 0.1169      NaN    NaN   0.5294   0.6162            NaN
+        clone_detection gpt-5.6-luna     1000     0.844    0.5918 0.2515      NaN    NaN   0.7087   0.5758            NaN
+            code_search gpt-5.6-luna     1000       NaN       NaN    NaN   1000.0 0.9594      NaN      NaN          100.0
+====================================================================
+
+===SCRIPT_DONE===

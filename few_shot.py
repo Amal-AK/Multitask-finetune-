@@ -24,8 +24,9 @@ from tqdm import tqdm, trange
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, matthews_corrcoef
 import json, random
+from rank_bm25 import BM25Okapi
 # Assuming utilities is a local file you have; if not, ensure the import is valid or removed if unused
-# from utilities import TextDataset_code_search 
+# from utilities import TextDataset_code_search
 
 # ─────────────────────────────── global settings & logging ─────────────────────────────
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -332,65 +333,111 @@ def eval_codesearch_task(args, model, tokenizer, codesearch_file: str, k: int, t
 
 # ─────────────────────────────── task loaders + prompts ───────────────────────────────
 
-def _sample_few_shot_block(pos_pool, neg_pool, current_code_signature, n_pos=2, n_neg=2, format_type="single"):
+# ─── Few-shot demonstration selection: BM25 nearest-neighbor retrieval ───
+#
+# Reviewers flagged zero-shot as insufficient evidence; the fix is a few-shot
+# baseline. Random shot selection is noisy (a demonstration bearing no
+# resemblance to the query teaches the model nothing about *this* input), so
+# demonstrations are instead retrieved by lexical similarity/distance to the
+# query — the standard "kNN-augmented ICL" recipe (Liu et al. 2022; used for
+# code tasks specifically in Nashid et al. 2023 CEDAR). BM25 is used as the
+# distance metric because it is CPU-only: the GPUs in this repo are routinely
+# saturated by training runs, so shot selection must not compete for one.
+#
+# The candidate pool is built from the TRAIN split, never from the eval file
+# itself — sourcing demonstrations from the same file being scored would let
+# the prompt "see" held-out examples, even with self-exclusion by id.
+
+_CODE_TOKEN_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*|\d+")
+
+
+def _tokenize_code(text: str, max_tokens: int = 300) -> List[str]:
+    """Lightweight lexical tokenizer (identifiers/keywords/numbers) for BM25."""
+    return _CODE_TOKEN_RE.findall(text.lower())[:max_tokens]
+
+
+class BM25ShotPool:
+    """BM25-indexed candidate pool; top_k retrieves the closest matches to a query.
+
+    Unlike the earlier random/class-balanced sampler, this ranks the *whole*
+    pool (positives and negatives together) by similarity and takes the
+    overall top-K, exactly like nearest-neighbor retrieval — class balance is
+    not enforced, matching how similarity-based ICL selection is normally done.
     """
-    Helper to sample examples and format them.
-    format_type: 'single' for Vuln/Flaky, 'pair' for Clone.
-    """
-    # Exclude current to avoid data leakage
-    p_cands = [p for p in pos_pool if p["id"] != current_code_signature]
-    n_cands = [n for n in neg_pool if n["id"] != current_code_signature]
-    
-    # Sample
-    curr_pos = random.sample(p_cands, min(len(p_cands), n_pos))
-    curr_neg = random.sample(n_cands, min(len(n_cands), n_neg))
-    
+
+    def __init__(self, items: List[Dict[str, Any]], text_fn, pool_cap: int, seed: int = 42):
+        if len(items) > pool_cap:
+            items = random.Random(seed).sample(items, pool_cap)
+        self.items = items
+        self.bm25 = BM25Okapi([_tokenize_code(text_fn(it)) for it in items]) if items else None
+
+    def top_k(self, query_tokens: List[str], exclude_id: Any, k: int) -> List[Tuple[float, Dict[str, Any]]]:
+        if self.bm25 is None or k <= 0:
+            return []
+        scores = self.bm25.get_scores(query_tokens)
+        order = np.argsort(scores)[::-1]
+        picked = []
+        for i in order:
+            item = self.items[i]
+            if item["id"] == exclude_id:
+                continue
+            picked.append((float(scores[i]), item))
+            if len(picked) >= k:
+                break
+        # Ascending similarity: the closest match ends up right before the
+        # target task in the prompt (recency helps the model use it).
+        picked.sort(key=lambda t: t[0])
+        return picked
+
+
+def _format_few_shot_block(retrieved: List[Tuple[float, Dict[str, Any]]], format_type: str = "single") -> str:
+    """format_type: 'single' for Vuln/Flaky, 'pair' for Clone."""
     block = ""
-    
-    if format_type == "single":
-        # Add Positives
-        for item in curr_pos:
-            block += f"EXAMPLE (POSITIVE/YES):\nCode:\n{item['code'][:500]}\nLABEL: YES\n-----\n"
-        # Add Negatives
-        for item in curr_neg:
-            block += f"EXAMPLE (NEGATIVE/NO):\nCode:\n{item['code'][:500]}\nLABEL: NO\n-----\n"
-            
-    elif format_type == "pair":
-        # Add Positives
-        for item in curr_pos:
-            block += (f"EXAMPLE (CLONE/YES):\nSnippet A:\n{item['code1'][:300]}\n"
-                      f"Snippet B:\n{item['code2'][:300]}\nLABEL: YES\n-----\n")
-        # Add Negatives
-        for item in curr_neg:
-            block += (f"EXAMPLE (NON-CLONE/NO):\nSnippet A:\n{item['code1'][:300]}\n"
-                      f"Snippet B:\n{item['code2'][:300]}\nLABEL: NO\n-----\n")
-            
+    for _score, item in retrieved:
+        is_pos = item["label"] == 1
+        if format_type == "single":
+            tag = "POSITIVE/YES" if is_pos else "NEGATIVE/NO"
+            lbl = "YES" if is_pos else "NO"
+            block += f"EXAMPLE ({tag}):\nCode:\n{item['code'][:500]}\nLABEL: {lbl}\n-----\n"
+        elif format_type == "pair":
+            tag = "CLONE/YES" if is_pos else "NON-CLONE/NO"
+            lbl = "YES" if is_pos else "NO"
+            block += (f"EXAMPLE ({tag}):\nSnippet A:\n{item['code1'][:300]}\n"
+                      f"Snippet B:\n{item['code2'][:300]}\nLABEL: {lbl}\n-----\n")
     return block
 
 
 # ─── 1. Vulnerability ───
 
-def load_vuln_rows(path: str) -> List[Dict[str, Any]]:
-    # Load all to memory
+def _load_vuln_file(path: str) -> List[Dict[str, Any]]:
     rows = []
     with open(path, "r", encoding="utf-8") as f:
         for ln in f:
             r = json.loads(ln)
             code_clean = ' '.join(r["func"].split())
             rows.append({
-                "code": code_clean, 
+                "code": code_clean,
                 "label": int(r["target"]),
-                "id": hash(code_clean) # Simple hash for exclusion check
+                "id": hash(code_clean),  # exclusion check, in case pool == eval
             })
-            
-    # Split pools
-    pos_pool = [r for r in rows if r["label"] == 1]
-    neg_pool = [r for r in rows if r["label"] == 0]
-    
-    # Inject examples
+    return rows
+
+
+def load_vuln_rows(path: str, pool_path: str, n_shots: int = 5,
+                    pool_cap: int = 5000, seed: int = 42, limit: int = None) -> List[Dict[str, Any]]:
+    all_rows = _load_vuln_file(path)
+    pool_rows = all_rows if pool_path == path else _load_vuln_file(pool_path)
+    if limit is not None and limit < len(all_rows):
+        rows = random.Random(seed).sample(all_rows, limit)
+    else:
+        rows = all_rows
+    pool = BM25ShotPool(pool_rows, text_fn=lambda it: it["code"], pool_cap=pool_cap, seed=seed)
+
     for r in rows:
-        r["few_shot"] = _sample_few_shot_block(pos_pool, neg_pool, r["id"], format_type="single")
-        
+        q_tokens = _tokenize_code(r["code"])
+        retrieved = pool.top_k(q_tokens, exclude_id=r["id"], k=n_shots)
+        r["few_shot"] = _format_few_shot_block(retrieved, format_type="single")
+
     return rows
 
 def vuln_prompt(row: Dict[str, Any]) -> str:
@@ -408,25 +455,35 @@ def vuln_prompt(row: Dict[str, Any]) -> str:
 
 # ─── 2. Flaky Tests ───
 
-def load_flaky_rows(path: str) -> List[Dict[str, Any]]:
+def _load_flaky_file(path: str) -> List[Dict[str, Any]]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    
     rows = []
     for r in data:
         code_clean = ' '.join(r["code"].split())
         rows.append({
             "code": code_clean,
             "label": int(r["label"]),
-            "id": hash(code_clean)
+            "id": hash(code_clean),
         })
-        
-    pos_pool = [r for r in rows if r["label"] == 1]
-    neg_pool = [r for r in rows if r["label"] == 0]
+    return rows
+
+
+def load_flaky_rows(path: str, pool_path: str, n_shots: int = 5,
+                     pool_cap: int = 5000, seed: int = 42, limit: int = None) -> List[Dict[str, Any]]:
+    all_rows = _load_flaky_file(path)
+    pool_rows = all_rows if pool_path == path else _load_flaky_file(pool_path)
+    if limit is not None and limit < len(all_rows):
+        rows = random.Random(seed).sample(all_rows, limit)
+    else:
+        rows = all_rows
+    pool = BM25ShotPool(pool_rows, text_fn=lambda it: it["code"], pool_cap=pool_cap, seed=seed)
 
     for r in rows:
-        r["few_shot"] = _sample_few_shot_block(pos_pool, neg_pool, r["id"], format_type="single")
-        
+        q_tokens = _tokenize_code(r["code"])
+        retrieved = pool.top_k(q_tokens, exclude_id=r["id"], k=n_shots)
+        r["few_shot"] = _format_few_shot_block(retrieved, format_type="single")
+
     return rows
 
 def flaky_prompt(row: Dict[str, Any]) -> str:
@@ -443,15 +500,7 @@ def flaky_prompt(row: Dict[str, Any]) -> str:
 
 # ─── 3. Clone Detection ───
 
-def load_clone_rows_txt(code_file: str, pairs_txt: str , limit: int = None) -> List[Dict[str, Any]]:
-    # 1. Load Code Map
-    idx2code = {}
-    with open(code_file, "r", encoding="utf-8") as f:
-        for ln in f:
-            js = json.loads(ln)
-            idx2code[js["idx"]] = ' '.join(js["func"].split())
-
-    # 2. Load Pairs
+def _load_clone_pairs(idx2code: Dict[str, str], pairs_txt: str) -> List[Dict[str, Any]]:
     rows = []
     with open(pairs_txt, "r", encoding="utf-8") as f:
         for ln in f:
@@ -459,31 +508,45 @@ def load_clone_rows_txt(code_file: str, pairs_txt: str , limit: int = None) -> L
             if len(parts) != 3: continue
             a, b, lab = parts
             if a in idx2code and b in idx2code:
-                # We use a combined string as ID to avoid self-sampling
-                combo_id = f"{a}_{b}"
                 rows.append({
                     "code1": idx2code[a],
                     "code2": idx2code[b],
                     "label": int(lab),
-                    "id": combo_id 
+                    "id": f"{a}_{b}",  # exclusion check, in case pool == eval
                 })
-            # NOTE: We load ALL first to build the few-shot pool, then we slice for the limit later
-            
-    # 3. Create Pools from valid data
-    pos_pool = [r for r in rows if r["label"] == 1]
-    neg_pool = [r for r in rows if r["label"] == 0]
-    
-    # 4. Apply Limit (if any) to the rows we want to EVALUATE, 
-    #    but keep pools large for sampling.
-    if limit is not None:
-        eval_rows = rows[:limit]
+    return rows
+
+
+def load_clone_rows_txt(code_file: str, pairs_txt: str, pool_pairs_txt: str,
+                         limit: int = None, n_shots: int = 5,
+                         pool_cap: int = 5000, seed: int = 42) -> List[Dict[str, Any]]:
+    # 1. Load Code Map (shared index -> function text for both eval and pool pairs)
+    idx2code = {}
+    with open(code_file, "r", encoding="utf-8") as f:
+        for ln in f:
+            js = json.loads(ln)
+            idx2code[js["idx"]] = ' '.join(js["func"].split())
+
+    # 2. Load eval pairs, then randomly subsample to the requested limit
+    #    (a prefix slice would bias toward whatever's first in the file).
+    rows = _load_clone_pairs(idx2code, pairs_txt)
+    if limit is not None and limit < len(rows):
+        eval_rows = random.Random(seed).sample(rows, limit)
     else:
         eval_rows = rows
 
-    # 5. Inject Examples
+    # 3. Build the retrieval pool from the TRAIN pairs file (falls back to the
+    #    eval pairs only if explicitly pointed at the same file).
+    pool_rows = rows if pool_pairs_txt == pairs_txt else _load_clone_pairs(idx2code, pool_pairs_txt)
+    pool = BM25ShotPool(pool_rows, text_fn=lambda it: it["code1"] + " " + it["code2"],
+                        pool_cap=pool_cap, seed=seed)
+
+    # 4. Retrieve nearest-neighbor demonstrations per eval pair
     for r in eval_rows:
-        r["few_shot"] = _sample_few_shot_block(pos_pool, neg_pool, r["id"], format_type="pair")
-            
+        q_tokens = _tokenize_code(r["code1"] + " " + r["code2"])
+        retrieved = pool.top_k(q_tokens, exclude_id=r["id"], k=n_shots)
+        r["few_shot"] = _format_few_shot_block(retrieved, format_type="pair")
+
     return eval_rows
 
 def clone_prompt(row: Dict[str, Any]) -> str:
@@ -554,18 +617,33 @@ if __name__ == "__main__":
     # Task toggles
     parser.add_argument("--run_vuln" , action="store_true")
     parser.add_argument("--vuln_file", type=str, default="./datasets/dataset_vulnerabilty/test.jsonl")
+    parser.add_argument("--vuln_pool_file", type=str, default="./datasets/dataset_vulnerabilty/train.jsonl",
+                        help="Train-split pool few-shot demonstrations are retrieved from.")
 
     parser.add_argument("--run_flaky", action="store_true")
     parser.add_argument("--flaky_file", type=str, default="./datasets/dataset_flakytest/valid.json")
+    parser.add_argument("--flaky_pool_file", type=str, default="./datasets/dataset_flakytest/train.json",
+                        help="Train-split pool few-shot demonstrations are retrieved from.")
 
     parser.add_argument("--run_clone", action="store_true")
     parser.add_argument("--clone_code_file", type=str, default="./datasets/dataset_clone/data.jsonl")
     parser.add_argument("--clone_pairs_file", type=str, default="./datasets/dataset_clone/test.txt")
+    parser.add_argument("--clone_pool_pairs_file", type=str, default="./datasets/dataset_clone/train.txt",
+                        help="Train-split pool few-shot demonstrations are retrieved from.")
 
     parser.add_argument("--run_codesearch", action="store_true")
     parser.add_argument("--codesearch_file", type=str, default="./datasets/code_search/test.jsonl")
     parser.add_argument("--cs_topk", type=int, default=1000)
-    
+
+    parser.add_argument("--n_shots", type=int, default=5,
+                        help="Few-shot demonstrations per query, retrieved by BM25 "
+                             "lexical-similarity nearest-neighbor search over the train pool "
+                             "(not class-balanced, not random).")
+    parser.add_argument("--shot_pool_cap", type=int, default=5000,
+                        help="Max train-pool candidates indexed for BM25 retrieval (randomly "
+                             "subsampled if the pool file is larger); bounds retrieval cost "
+                             "for big pools like clone train.txt (~900K pairs).")
+
     parser.add_argument("--eval_batch_size", type=int, default=2)
     parser.add_argument("--autocast_dtype", default=torch.float16, type=lambda _: torch.float16)
 
@@ -605,7 +683,8 @@ if __name__ == "__main__":
 
         # 1. Vulnerability
         if args.run_vuln:
-            vuln_rows = load_vuln_rows(args.vuln_file)
+            vuln_rows = load_vuln_rows(args.vuln_file, args.vuln_pool_file,
+                                       n_shots=args.n_shots, pool_cap=args.shot_pool_cap, seed=args.seed)
             logger.info("running model %s on %d vulnerability samples (Few-Shot)", args.modelName, len(vuln_rows))
             s = eval_binary_task(args, generator, tokenizer, vuln_rows, vuln_prompt, 
                                  gold_key="label", allowed_labels=["0","1"], 
@@ -616,7 +695,8 @@ if __name__ == "__main__":
 
         # 2. Flaky Tests
         if args.run_flaky:
-            flaky_rows = load_flaky_rows(args.flaky_file)
+            flaky_rows = load_flaky_rows(args.flaky_file, args.flaky_pool_file,
+                                         n_shots=args.n_shots, pool_cap=args.shot_pool_cap, seed=args.seed)
             logger.info("running model %s on %d flaky samples (Few-Shot)", args.modelName, len(flaky_rows))
             s = eval_binary_task(args, generator, tokenizer, flaky_rows, flaky_prompt, 
                                  gold_key="label", allowed_labels=["0","1"], 
@@ -627,7 +707,9 @@ if __name__ == "__main__":
         
         # 3. Clone Detection
         if args.run_clone:
-            clone_rows = load_clone_rows_txt(args.clone_code_file, args.clone_pairs_file , limit=30000)  
+            clone_rows = load_clone_rows_txt(args.clone_code_file, args.clone_pairs_file, args.clone_pool_pairs_file,
+                                             limit=30000, n_shots=args.n_shots,
+                                             pool_cap=args.shot_pool_cap, seed=args.seed)
             logger.info("running model %s on %d clone samples (Few-Shot)", args.modelName, len(clone_rows))
             s = eval_binary_task(args, generator, tokenizer, clone_rows, clone_prompt,
                                  gold_key="label", allowed_labels=["0","1"],
