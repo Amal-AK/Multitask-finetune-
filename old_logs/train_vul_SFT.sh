@@ -1,0 +1,19 @@
+python3 SFT_vulDetection.py \
+    --output_dir=./ \
+    --train_data_file_vul=./datasets/dataset_vulnerabilty/train.jsonl \
+    --eval_data_file_vul=./datasets/dataset_vulnerabilty/valid.jsonl \
+    --test_data_file_vul=./datasets/dataset_vulnerabilty/test.jsonl \
+    --model_name_or_path=deepseek-ai/deepseek-coder-1.3b-base   \
+    --tokenizer_name=deepseek-ai/deepseek-coder-1.3b-base  \
+    --num_classes 1 \
+    --nl_length 128 \
+    --code_length 512 \
+    --do_train \
+    --train_batch_size 8 \
+    --eval_batch_size 8 \
+    --train_data_rate_vul 1.0 \
+    --learning_rate 1e-4 \
+    --max_grad_norm 1.0 \
+    --num_train_epochs 10 \
+    --dropout 0.2 \
+    --seed 42 2>&1 | tee ./logs_deepseek/vul_detection_parallelAdapter.log

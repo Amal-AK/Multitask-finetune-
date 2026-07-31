@@ -1,0 +1,628 @@
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+INFO:name:device: cuda:1, n_gpu: 1
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /Salesforce/codet5p-770m/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /Salesforce/codet5p-770m/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+root
+├── shared (Embedding) weight:[32100, 1024]
+├── encoder (T5Stack)
+│   ├── embed_tokens (Embedding) weight:[32100, 1024]
+│   ├── block (ModuleList)
+│   │   ├── 0 (T5Block)
+│   │   │   └── layer (ModuleList)
+│   │   │       ├── 0 (T5LayerSelfAttention)
+│   │   │       │   ├── SelfAttention (T5Attention)
+│   │   │       │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+│   │   │       │   │   └── relative_attention_bias (Embedding) weight:[32, 16]
+│   │   │       │   ├── layer_norm (T5LayerNorm) weight:[1024]
+│   │   │       │   └── adapter (AdapterLayer)
+│   │   │       │       └── modulelist (Sequential)
+│   │   │       │           ├── down_proj (Linear) weight:[64, 1024] bias:[64]
+│   │   │       │           └── up_proj (Linear) weight:[1024, 64] bias:[1024]
+│   │   │       └── 1 (T5LayerFF)
+│   │   │           ├── DenseReluDense (T5DenseActDense)
+│   │   │           │   ├── wi (Linear) weight:[4096, 1024]
+│   │   │           │   └── wo (Linear) weight:[1024, 4096]
+│   │   │           ├── layer_norm (T5LayerNorm) weight:[1024]
+│   │   │           └── adapter (AdapterLayer)
+│   │   │               └── modulelist (Sequential)
+│   │   │                   ├── down_proj (Linear) weight:[64, 1024] bias:[64]
+│   │   │                   └── up_proj (Linear) weight:[1024, 64] bias:[1024]
+│   │   └── 1-23(T5Block)
+│   │       └── layer (ModuleList)
+│   │           ├── 0 (T5LayerSelfAttention)
+│   │           │   ├── SelfAttention (T5Attention)
+│   │           │   │   └── q,k,v,o(Linear) weight:[1024, 1024]
+│   │           │   ├── layer_norm (T5LayerNorm) weight:[1024]
+│   │           │   └── adapter (AdapterLayer)
+│   │           │       └── modulelist (Sequential)
+│   │           │           ├── down_proj (Linear) weight:[64, 1024] bias:[64]
+│   │           │           └── up_proj (Linear) weight:[1024, 64] bias:[1024]
+│   │           └── 1 (T5LayerFF)
+│   │               ├── DenseReluDense (T5DenseActDense)
+│   │               │   ├── wi (Linear) weight:[4096, 1024]
+│   │               │   └── wo (Linear) weight:[1024, 4096]
+│   │               ├── layer_norm (T5LayerNorm) weight:[1024]
+│   │               └── adapter (AdapterLayer)
+│   │                   └── modulelist (Sequential)
+│   │                       ├── down_proj (Linear) weight:[64, 1024] bias:[64]
+│   │                       └── up_proj (Linear) weight:[1024, 64] bias:[1024]
+│   └── final_layer_norm (T5LayerNorm) weight:[1024]
+└── decoder (T5Stack)
+    ├── embed_tokens (Embedding) weight:[32100, 1024]
+    ├── block (ModuleList)
+    │   ├── 0 (T5Block)
+    │   │   └── layer (ModuleList)
+    │   │       ├── 0 (T5LayerSelfAttention)
+    │   │       │   ├── SelfAttention (T5Attention)
+    │   │       │   │   ├── q,k,v,o(Linear) weight:[1024, 1024]
+    │   │       │   │   └── relative_attention_bias (Embedding) weight:[32, 16]
+    │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │   │       ├── 1 (T5LayerCrossAttention)
+    │   │       │   ├── EncDecAttention (T5Attention)
+    │   │       │   │   └── q,k,v,o(Linear) weight:[1024, 1024]
+    │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │   │       └── 2 (T5LayerFF)
+    │   │           ├── DenseReluDense (T5DenseActDense)
+    │   │           │   ├── wi (Linear) weight:[4096, 1024]
+    │   │           │   └── wo (Linear) weight:[1024, 4096]
+    │   │           └── layer_norm (T5LayerNorm) weight:[1024]
+    │   └── 1-23(T5Block)
+    │       └── layer (ModuleList)
+    │           ├── 0 (T5LayerSelfAttention)
+    │           │   ├── SelfAttention (T5Attention)
+    │           │   │   └── q,k,v,o(Linear) weight:[1024, 1024]
+    │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │           ├── 1 (T5LayerCrossAttention)
+    │           │   ├── EncDecAttention (T5Attention)
+    │           │   │   └── q,k,v,o(Linear) weight:[1024, 1024]
+    │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │           └── 2 (T5LayerFF)
+    │               ├── DenseReluDense (T5DenseActDense)
+    │               │   ├── wi (Linear) weight:[4096, 1024]
+    │               │   └── wo (Linear) weight:[1024, 4096]
+    │               └── layer_norm (T5LayerNorm) weight:[1024]
+    └── final_layer_norm (T5LayerNorm) weight:[1024]
+[INFO|(OpenDelta)basemodel:696]2025-04-06 22:48:44,378 >> Trainable Ratio: 6343680/743983104=0.852665%
+[INFO|(OpenDelta)basemodel:698]2025-04-06 22:48:44,378 >> Delta Parameter Ratio: 6343680/743983104=0.852665%
+[INFO|(OpenDelta)basemodel:700]2025-04-06 22:48:44,379 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:***** Running training *****
+INFO:name:  Num examples Flakiness detection = 13081
+INFO:name:  Num Epochs = 10
+INFO:name:  Total train batch size  = 16
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 0 Step 0 Total Loss 0.682 
+INFO:name:Epoch 0 Step 32 Total Loss 0.67 
+INFO:name:Epoch 0 Step 64 Total Loss 0.636 
+INFO:name:Epoch 0 Step 96 Total Loss 0.577 
+INFO:name:Epoch 0 Step 128 Total Loss 0.508 
+INFO:name:Epoch 0 Step 160 Total Loss 0.438 
+INFO:name:Epoch 0 Step 192 Total Loss 0.388 
+INFO:name:Epoch 0 Step 224 Total Loss 0.359 
+INFO:name:Epoch 0 Step 256 Total Loss 0.339 
+INFO:name:Epoch 0 Step 288 Total Loss 0.316 
+INFO:name:Epoch 0 Step 320 Total Loss 0.299 
+INFO:name:Epoch 0 Step 352 Total Loss 0.288 
+INFO:name:Epoch 0 Step 384 Total Loss 0.272 
+INFO:name:Epoch 0 Step 416 Total Loss 0.261 
+INFO:name:Epoch 0 Step 448 Total Loss 0.252 
+INFO:name:Epoch 0 Step 480 Total Loss 0.244 
+INFO:name:Epoch 0 Step 512 Total Loss 0.238 
+INFO:name:Epoch 0 Step 544 Total Loss 0.235 
+INFO:name:Epoch 0 Step 576 Total Loss 0.233 
+INFO:name:Epoch 0 Step 608 Total Loss 0.226 
+INFO:name:Epoch 0 Step 640 Total Loss 0.225 
+INFO:name:Epoch 0 Step 672 Total Loss 0.223 
+INFO:name:Epoch 0 Step 704 Total Loss 0.222 
+INFO:name:Epoch 0 Step 736 Total Loss 0.219 
+INFO:name:Epoch 0 Step 768 Total Loss 0.216 
+INFO:name:Epoch 0 Step 800 Total Loss 0.212 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.1535
+INFO:name:  eval_acc = 0.9628
+INFO:name:  f1_score = 0.0
+INFO:name:  recall = 0.0
+INFO:name:  precision = 0.0
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9629, 'test_f1_score': 0.0, 'test_recall': 0.0, 'test_precision': 0.0} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 1 Step 0 Total Loss 0.019 
+INFO:name:Epoch 1 Step 32 Total Loss 0.172 
+INFO:name:Epoch 1 Step 64 Total Loss 0.153 
+INFO:name:Epoch 1 Step 96 Total Loss 0.144 
+INFO:name:Epoch 1 Step 128 Total Loss 0.148 
+INFO:name:Epoch 1 Step 160 Total Loss 0.14 
+INFO:name:Epoch 1 Step 192 Total Loss 0.145 
+INFO:name:Epoch 1 Step 224 Total Loss 0.145 
+INFO:name:Epoch 1 Step 256 Total Loss 0.143 
+INFO:name:Epoch 1 Step 288 Total Loss 0.139 
+INFO:name:Epoch 1 Step 320 Total Loss 0.14 
+INFO:name:Epoch 1 Step 352 Total Loss 0.135 
+INFO:name:Epoch 1 Step 384 Total Loss 0.134 
+INFO:name:Epoch 1 Step 416 Total Loss 0.134 
+INFO:name:Epoch 1 Step 448 Total Loss 0.131 
+INFO:name:Epoch 1 Step 480 Total Loss 0.128 
+INFO:name:Epoch 1 Step 512 Total Loss 0.126 
+INFO:name:Epoch 1 Step 544 Total Loss 0.124 
+INFO:name:Epoch 1 Step 576 Total Loss 0.123 
+INFO:name:Epoch 1 Step 608 Total Loss 0.12 
+INFO:name:Epoch 1 Step 640 Total Loss 0.118 
+INFO:name:Epoch 1 Step 672 Total Loss 0.117 
+INFO:name:Epoch 1 Step 704 Total Loss 0.116 
+INFO:name:Epoch 1 Step 736 Total Loss 0.115 
+INFO:name:Epoch 1 Step 768 Total Loss 0.113 
+INFO:name:Epoch 1 Step 800 Total Loss 0.111 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0844
+INFO:name:  eval_acc = 0.9761
+INFO:name:  f1_score = 0.6486
+INFO:name:  recall = 0.5926
+INFO:name:  precision = 0.7164
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9748, 'test_f1_score': 0.6014, 'test_recall': 0.5123, 'test_precision': 0.7281} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 2 Step 0 Total Loss 0.329 
+INFO:name:Epoch 2 Step 32 Total Loss 0.082 
+INFO:name:Epoch 2 Step 64 Total Loss 0.086 
+INFO:name:Epoch 2 Step 96 Total Loss 0.082 
+INFO:name:Epoch 2 Step 128 Total Loss 0.083 
+INFO:name:Epoch 2 Step 160 Total Loss 0.082 
+INFO:name:Epoch 2 Step 192 Total Loss 0.085 
+INFO:name:Epoch 2 Step 224 Total Loss 0.083 
+INFO:name:Epoch 2 Step 256 Total Loss 0.082 
+INFO:name:Epoch 2 Step 288 Total Loss 0.08 
+INFO:name:Epoch 2 Step 320 Total Loss 0.08 
+INFO:name:Epoch 2 Step 352 Total Loss 0.078 
+INFO:name:Epoch 2 Step 384 Total Loss 0.077 
+INFO:name:Epoch 2 Step 416 Total Loss 0.079 
+INFO:name:Epoch 2 Step 448 Total Loss 0.078 
+INFO:name:Epoch 2 Step 480 Total Loss 0.079 
+INFO:name:Epoch 2 Step 512 Total Loss 0.08 
+INFO:name:Epoch 2 Step 544 Total Loss 0.077 
+INFO:name:Epoch 2 Step 576 Total Loss 0.079 
+INFO:name:Epoch 2 Step 608 Total Loss 0.078 
+INFO:name:Epoch 2 Step 640 Total Loss 0.077 
+INFO:name:Epoch 2 Step 672 Total Loss 0.077 
+INFO:name:Epoch 2 Step 704 Total Loss 0.076 
+INFO:name:Epoch 2 Step 736 Total Loss 0.076 
+INFO:name:Epoch 2 Step 768 Total Loss 0.076 
+INFO:name:Epoch 2 Step 800 Total Loss 0.077 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0713
+INFO:name:  eval_acc = 0.9787
+INFO:name:  f1_score = 0.6643
+INFO:name:  recall = 0.5679
+INFO:name:  precision = 0.8
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9771, 'test_f1_score': 0.5902, 'test_recall': 0.4444, 'test_precision': 0.878} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 3 Step 0 Total Loss 0.021 
+INFO:name:Epoch 3 Step 32 Total Loss 0.071 
+INFO:name:Epoch 3 Step 64 Total Loss 0.061 
+INFO:name:Epoch 3 Step 96 Total Loss 0.065 
+INFO:name:Epoch 3 Step 128 Total Loss 0.066 
+INFO:name:Epoch 3 Step 160 Total Loss 0.067 
+INFO:name:Epoch 3 Step 192 Total Loss 0.067 
+INFO:name:Epoch 3 Step 224 Total Loss 0.064 
+INFO:name:Epoch 3 Step 256 Total Loss 0.064 
+INFO:name:Epoch 3 Step 288 Total Loss 0.063 
+INFO:name:Epoch 3 Step 320 Total Loss 0.065 
+INFO:name:Epoch 3 Step 352 Total Loss 0.064 
+INFO:name:Epoch 3 Step 384 Total Loss 0.066 
+INFO:name:Epoch 3 Step 416 Total Loss 0.064 
+INFO:name:Epoch 3 Step 448 Total Loss 0.065 
+INFO:name:Epoch 3 Step 480 Total Loss 0.066 
+INFO:name:Epoch 3 Step 512 Total Loss 0.066 
+INFO:name:Epoch 3 Step 544 Total Loss 0.065 
+INFO:name:Epoch 3 Step 576 Total Loss 0.065 
+INFO:name:Epoch 3 Step 608 Total Loss 0.063 
+INFO:name:Epoch 3 Step 640 Total Loss 0.062 
+INFO:name:Epoch 3 Step 672 Total Loss 0.063 
+INFO:name:Epoch 3 Step 704 Total Loss 0.062 
+INFO:name:Epoch 3 Step 736 Total Loss 0.061 
+INFO:name:Epoch 3 Step 768 Total Loss 0.061 
+INFO:name:Epoch 3 Step 800 Total Loss 0.06 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0651
+INFO:name:  eval_acc = 0.9794
+INFO:name:  f1_score = 0.6918
+INFO:name:  recall = 0.6235
+INFO:name:  precision = 0.7769
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9798, 'test_f1_score': 0.6562, 'test_recall': 0.5185, 'test_precision': 0.8936} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 4 Step 0 Total Loss 0.015 
+INFO:name:Epoch 4 Step 32 Total Loss 0.04 
+INFO:name:Epoch 4 Step 64 Total Loss 0.045 
+INFO:name:Epoch 4 Step 96 Total Loss 0.047 
+INFO:name:Epoch 4 Step 128 Total Loss 0.05 
+INFO:name:Epoch 4 Step 160 Total Loss 0.047 
+INFO:name:Epoch 4 Step 192 Total Loss 0.049 
+INFO:name:Epoch 4 Step 224 Total Loss 0.051 
+INFO:name:Epoch 4 Step 256 Total Loss 0.047 
+INFO:name:Epoch 4 Step 288 Total Loss 0.045 
+INFO:name:Epoch 4 Step 320 Total Loss 0.048 
+INFO:name:Epoch 4 Step 352 Total Loss 0.049 
+INFO:name:Epoch 4 Step 384 Total Loss 0.05 
+INFO:name:Epoch 4 Step 416 Total Loss 0.051 
+INFO:name:Epoch 4 Step 448 Total Loss 0.051 
+INFO:name:Epoch 4 Step 480 Total Loss 0.049 
+INFO:name:Epoch 4 Step 512 Total Loss 0.049 
+INFO:name:Epoch 4 Step 544 Total Loss 0.05 
+INFO:name:Epoch 4 Step 576 Total Loss 0.052 
+INFO:name:Epoch 4 Step 608 Total Loss 0.052 
+INFO:name:Epoch 4 Step 640 Total Loss 0.051 
+INFO:name:Epoch 4 Step 672 Total Loss 0.051 
+INFO:name:Epoch 4 Step 704 Total Loss 0.052 
+INFO:name:Epoch 4 Step 736 Total Loss 0.053 
+INFO:name:Epoch 4 Step 768 Total Loss 0.053 
+INFO:name:Epoch 4 Step 800 Total Loss 0.053 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0626
+INFO:name:  eval_acc = 0.9796
+INFO:name:  f1_score = 0.6983
+INFO:name:  recall = 0.6358
+INFO:name:  precision = 0.7744
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.978, 'test_f1_score': 0.6308, 'test_recall': 0.5062, 'test_precision': 0.8367} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 5 Step 0 Total Loss 0.019 
+INFO:name:Epoch 5 Step 32 Total Loss 0.055 
+INFO:name:Epoch 5 Step 64 Total Loss 0.05 
+INFO:name:Epoch 5 Step 96 Total Loss 0.056 
+INFO:name:Epoch 5 Step 128 Total Loss 0.05 
+INFO:name:Epoch 5 Step 160 Total Loss 0.045 
+INFO:name:Epoch 5 Step 192 Total Loss 0.049 
+INFO:name:Epoch 5 Step 224 Total Loss 0.049 
+INFO:name:Epoch 5 Step 256 Total Loss 0.047 
+INFO:name:Epoch 5 Step 288 Total Loss 0.049 
+INFO:name:Epoch 5 Step 320 Total Loss 0.051 
+INFO:name:Epoch 5 Step 352 Total Loss 0.051 
+INFO:name:Epoch 5 Step 384 Total Loss 0.05 
+INFO:name:Epoch 5 Step 416 Total Loss 0.048 
+INFO:name:Epoch 5 Step 448 Total Loss 0.048 
+INFO:name:Epoch 5 Step 480 Total Loss 0.05 
+INFO:name:Epoch 5 Step 512 Total Loss 0.049 
+INFO:name:Epoch 5 Step 544 Total Loss 0.048 
+INFO:name:Epoch 5 Step 576 Total Loss 0.047 
+INFO:name:Epoch 5 Step 608 Total Loss 0.046 
+INFO:name:Epoch 5 Step 640 Total Loss 0.045 
+INFO:name:Epoch 5 Step 672 Total Loss 0.046 
+INFO:name:Epoch 5 Step 704 Total Loss 0.046 
+INFO:name:Epoch 5 Step 736 Total Loss 0.045 
+INFO:name:Epoch 5 Step 768 Total Loss 0.046 
+INFO:name:Epoch 5 Step 800 Total Loss 0.046 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0857
+INFO:name:  eval_acc = 0.975
+INFO:name:  f1_score = 0.6841
+INFO:name:  recall = 0.7284
+INFO:name:  precision = 0.6448
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 6 Step 0 Total Loss 0.016 
+INFO:name:Epoch 6 Step 32 Total Loss 0.028 
+INFO:name:Epoch 6 Step 64 Total Loss 0.035 
+INFO:name:Epoch 6 Step 96 Total Loss 0.038 
+INFO:name:Epoch 6 Step 128 Total Loss 0.036 
+INFO:name:Epoch 6 Step 160 Total Loss 0.034 
+INFO:name:Epoch 6 Step 192 Total Loss 0.034 
+INFO:name:Epoch 6 Step 224 Total Loss 0.035 
+INFO:name:Epoch 6 Step 256 Total Loss 0.035 
+INFO:name:Epoch 6 Step 288 Total Loss 0.036 
+INFO:name:Epoch 6 Step 320 Total Loss 0.035 
+INFO:name:Epoch 6 Step 352 Total Loss 0.036 
+INFO:name:Epoch 6 Step 384 Total Loss 0.037 
+INFO:name:Epoch 6 Step 416 Total Loss 0.039 
+INFO:name:Epoch 6 Step 448 Total Loss 0.038 
+INFO:name:Epoch 6 Step 480 Total Loss 0.039 
+INFO:name:Epoch 6 Step 512 Total Loss 0.039 
+INFO:name:Epoch 6 Step 544 Total Loss 0.039 
+INFO:name:Epoch 6 Step 576 Total Loss 0.039 
+INFO:name:Epoch 6 Step 608 Total Loss 0.038 
+INFO:name:Epoch 6 Step 640 Total Loss 0.038 
+INFO:name:Epoch 6 Step 672 Total Loss 0.039 
+INFO:name:Epoch 6 Step 704 Total Loss 0.039 
+INFO:name:Epoch 6 Step 736 Total Loss 0.039 
+INFO:name:Epoch 6 Step 768 Total Loss 0.039 
+INFO:name:Epoch 6 Step 800 Total Loss 0.039 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0834
+INFO:name:  eval_acc = 0.9775
+INFO:name:  f1_score = 0.6918
+INFO:name:  recall = 0.679
+INFO:name:  precision = 0.7051
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 7 Step 0 Total Loss 0.0 
+INFO:name:Epoch 7 Step 32 Total Loss 0.008 
+INFO:name:Epoch 7 Step 64 Total Loss 0.026 
+INFO:name:Epoch 7 Step 96 Total Loss 0.033 
+INFO:name:Epoch 7 Step 128 Total Loss 0.036 
+INFO:name:Epoch 7 Step 160 Total Loss 0.035 
+INFO:name:Epoch 7 Step 192 Total Loss 0.033 
+INFO:name:Epoch 7 Step 224 Total Loss 0.033 
+INFO:name:Epoch 7 Step 256 Total Loss 0.032 
+INFO:name:Epoch 7 Step 288 Total Loss 0.032 
+INFO:name:Epoch 7 Step 320 Total Loss 0.031 
+INFO:name:Epoch 7 Step 352 Total Loss 0.032 
+INFO:name:Epoch 7 Step 384 Total Loss 0.032 
+INFO:name:Epoch 7 Step 416 Total Loss 0.032 
+INFO:name:Epoch 7 Step 448 Total Loss 0.034 
+INFO:name:Epoch 7 Step 480 Total Loss 0.034 
+INFO:name:Epoch 7 Step 512 Total Loss 0.035 
+INFO:name:Epoch 7 Step 544 Total Loss 0.035 
+INFO:name:Epoch 7 Step 576 Total Loss 0.034 
+INFO:name:Epoch 7 Step 608 Total Loss 0.035 
+INFO:name:Epoch 7 Step 640 Total Loss 0.035 
+INFO:name:Epoch 7 Step 672 Total Loss 0.034 
+INFO:name:Epoch 7 Step 704 Total Loss 0.034 
+INFO:name:Epoch 7 Step 736 Total Loss 0.033 
+INFO:name:Epoch 7 Step 768 Total Loss 0.034 
+INFO:name:Epoch 7 Step 800 Total Loss 0.034 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0838
+INFO:name:  eval_acc = 0.9784
+INFO:name:  f1_score = 0.7044
+INFO:name:  recall = 0.6914
+INFO:name:  precision = 0.7179
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 8 Step 0 Total Loss 0.011 
+INFO:name:Epoch 8 Step 32 Total Loss 0.014 
+INFO:name:Epoch 8 Step 64 Total Loss 0.017 
+INFO:name:Epoch 8 Step 96 Total Loss 0.021 
+INFO:name:Epoch 8 Step 128 Total Loss 0.021 
+INFO:name:Epoch 8 Step 160 Total Loss 0.019 
+INFO:name:Epoch 8 Step 192 Total Loss 0.023 
+INFO:name:Epoch 8 Step 224 Total Loss 0.023 
+INFO:name:Epoch 8 Step 256 Total Loss 0.023 
+INFO:name:Epoch 8 Step 288 Total Loss 0.022 
+INFO:name:Epoch 8 Step 320 Total Loss 0.022 
+INFO:name:Epoch 8 Step 352 Total Loss 0.022 
+INFO:name:Epoch 8 Step 384 Total Loss 0.023 
+INFO:name:Epoch 8 Step 416 Total Loss 0.023 
+INFO:name:Epoch 8 Step 448 Total Loss 0.024 
+INFO:name:Epoch 8 Step 480 Total Loss 0.023 
+INFO:name:Epoch 8 Step 512 Total Loss 0.025 
+INFO:name:Epoch 8 Step 544 Total Loss 0.026 
+INFO:name:Epoch 8 Step 576 Total Loss 0.025 
+INFO:name:Epoch 8 Step 608 Total Loss 0.025 
+INFO:name:Epoch 8 Step 640 Total Loss 0.026 
+INFO:name:Epoch 8 Step 672 Total Loss 0.026 
+INFO:name:Epoch 8 Step 704 Total Loss 0.027 
+INFO:name:Epoch 8 Step 736 Total Loss 0.028 
+INFO:name:Epoch 8 Step 768 Total Loss 0.027 
+INFO:name:Epoch 8 Step 800 Total Loss 0.028 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0912
+INFO:name:  eval_acc = 0.9796
+INFO:name:  f1_score = 0.7175
+INFO:name:  recall = 0.6975
+INFO:name:  precision = 0.7386
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9794, 'test_f1_score': 0.6939, 'test_recall': 0.6296, 'test_precision': 0.7727} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 9 Step 0 Total Loss 0.001 
+INFO:name:Epoch 9 Step 32 Total Loss 0.042 
+INFO:name:Epoch 9 Step 64 Total Loss 0.038 
+INFO:name:Epoch 9 Step 96 Total Loss 0.029 
+INFO:name:Epoch 9 Step 128 Total Loss 0.028 
+INFO:name:Epoch 9 Step 160 Total Loss 0.024 
+INFO:name:Epoch 9 Step 192 Total Loss 0.022 
+INFO:name:Epoch 9 Step 224 Total Loss 0.022 
+INFO:name:Epoch 9 Step 256 Total Loss 0.022 
+INFO:name:Epoch 9 Step 288 Total Loss 0.023 
+INFO:name:Epoch 9 Step 320 Total Loss 0.021 
+INFO:name:Epoch 9 Step 352 Total Loss 0.022 
+INFO:name:Epoch 9 Step 384 Total Loss 0.022 
+INFO:name:Epoch 9 Step 416 Total Loss 0.022 
+INFO:name:Epoch 9 Step 448 Total Loss 0.022 
+INFO:name:Epoch 9 Step 480 Total Loss 0.022 
+INFO:name:Epoch 9 Step 512 Total Loss 0.022 
+INFO:name:Epoch 9 Step 544 Total Loss 0.022 
+INFO:name:Epoch 9 Step 576 Total Loss 0.024 
+INFO:name:Epoch 9 Step 608 Total Loss 0.024 
+INFO:name:Epoch 9 Step 640 Total Loss 0.025 
+INFO:name:Epoch 9 Step 672 Total Loss 0.024 
+INFO:name:Epoch 9 Step 704 Total Loss 0.025 
+INFO:name:Epoch 9 Step 736 Total Loss 0.024 
+INFO:name:Epoch 9 Step 768 Total Loss 0.024 
+INFO:name:Epoch 9 Step 800 Total Loss 0.024 
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples Flakiness detection = 4360
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.102
+INFO:name:  eval_acc = 0.9796
+INFO:name:  f1_score = 0.7157
+INFO:name:  recall = 0.6914
+INFO:name:  precision = 0.7417
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for flakiness detection = 4361
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9796, 'test_f1_score': 0.7023, 'test_recall': 0.6481, 'test_precision': 0.7664} 
+
+
+
+***** Test Results for task  tensor(3)
+{'task': tensor(3), 'test_acc': 0.9796, 'test_f1_score': 0.7023, 'test_recall': 0.6481, 'test_precision': 0.7664} 
+
+
+
+ Train results : 
+
+{'total_train_loss': [0.21,
+                      0.112,
+                      0.077,
+                      0.062,
+                      0.053,
+                      0.046,
+                      0.039,
+                      0.034,
+                      0.029,
+                      0.023]
+
+                      
+ Validation results : 
+
+{'flakiness_detect': {'eval_acc': [0.9628,
+                                   0.9761,
+                                   0.9787,
+                                   0.9794,
+                                   0.9796,
+                                   0.975,
+                                   0.9775,
+                                   0.9784,
+                                   0.9796,
+                                   0.9796],
+                      'eval_loss': [0.1535,
+                                    0.0844,
+                                    0.0713,
+                                    0.0651,
+                                    0.0626,
+                                    0.0857,
+                                    0.0834,
+                                    0.0838,
+                                    0.0912,
+                                    0.102],
+                      'f1_score': [0.0,
+                                   0.6486,
+                                   0.6643,
+                                   0.6918,
+                                   0.6983,
+                                   0.6841,
+                                   0.6918,
+                                   0.7044,
+                                   0.7175,
+                                   0.7157],
+                      'precision': [0.0,
+                                    0.7164,
+                                    0.8,
+                                    0.7769,
+                                    0.7744,
+                                    0.6448,
+                                    0.7051,
+                                    0.7179,
+                                    0.7386,
+                                    0.7417],
+                      'recall': [0.0,
+                                 0.5926,
+                                 0.5679,
+                                 0.6235,
+                                 0.6358,
+                                 0.7284,
+                                 0.679,
+                                 0.6914,
+                                 0.6975,
+                                 0.6914]}}

@@ -1,0 +1,1459 @@
+INFO:name:device: cuda:0, n_gpu: 1
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /answerdotai/ModernBERT-base/resolve/main/config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /answerdotai/ModernBERT-base/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/tokenizer_config.json HTTP/1.1" 200 0
+root
+├── embeddings (ModernBertEmbeddings)
+│   ├── tok_embeddings (Embedding) weight:[50368, 768]
+│   └── norm (LayerNorm) weight:[768]
+├── layers (ModuleList)
+│   ├── 0 (ModernBertEncoderLayer)
+│   │   ├── attn (ModernBertAttention)
+│   │   │   ├── Wqkv (Linear) weight:[2304, 768]
+│   │   │   ├── Wo (Linear) weight:[768, 768]
+│   │   │   └── adapter (AdapterLayer)
+│   │   │       └── modulelist (Sequential)
+│   │   │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│   │   │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│   │   ├── mlp_norm (LayerNorm) weight:[768]
+│   │   └── mlp (ModernBertMLP)
+│   │       ├── Wi (Linear) weight:[2304, 768]
+│   │       ├── Wo (Linear) weight:[768, 1152]
+│   │       └── adapter (AdapterLayer)
+│   │           └── modulelist (Sequential)
+│   │               ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│   │               └── up_proj (Linear) weight:[768, 64] bias:[768]
+│   └── 1-21(ModernBertEncoderLayer)
+│       ├── attn_norm,mlp_norm(LayerNorm) weight:[768]
+│       ├── attn (ModernBertAttention)
+│       │   ├── Wqkv (Linear) weight:[2304, 768]
+│       │   ├── Wo (Linear) weight:[768, 768]
+│       │   └── adapter (AdapterLayer)
+│       │       └── modulelist (Sequential)
+│       │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│       │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│       └── mlp (ModernBertMLP)
+│           ├── Wi (Linear) weight:[2304, 768]
+│           ├── Wo (Linear) weight:[768, 1152]
+│           └── adapter (AdapterLayer)
+│               └── modulelist (Sequential)
+│                   ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│                   └── up_proj (Linear) weight:[768, 64] bias:[768]
+└── final_norm (LayerNorm) weight:[768]
+[INFO|(OpenDelta)basemodel:700]2026-07-30 08:44:38,853 >> Trainable Ratio: 4361984/153376256=2.843976%
+[INFO|(OpenDelta)basemodel:702]2026-07-30 08:44:38,853 >> Delta Parameter Ratio: 4361984/153376256=2.843976%
+[INFO|(OpenDelta)basemodel:704]2026-07-30 08:44:38,853 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Model:
+MultiTaskModel_MTL(
+  (encoder): ModernBertModel(
+    (embeddings): ModernBertEmbeddings(
+      (tok_embeddings): Embedding(50368, 768, padding_idx=50283)
+      (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (drop): Dropout(p=0.0, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): ModernBertEncoderLayer(
+        (attn_norm): Identity()
+        (attn): ModernBertAttention(
+          (Wqkv): Linear(in_features=768, out_features=2304, bias=False)
+          (rotary_emb): ModernBertRotaryEmbedding()
+          (Wo): Linear(in_features=768, out_features=768, bias=False)
+          (out_drop): Identity()
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+        (mlp_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (mlp): ModernBertMLP(
+          (Wi): Linear(in_features=768, out_features=2304, bias=False)
+          (act): GELUActivation()
+          (drop): Dropout(p=0.0, inplace=False)
+          (Wo): Linear(in_features=1152, out_features=768, bias=False)
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+      )
+      (1-21): 21 x ModernBertEncoderLayer(
+        (attn_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (attn): ModernBertAttention(
+          (Wqkv): Linear(in_features=768, out_features=2304, bias=False)
+          (rotary_emb): ModernBertRotaryEmbedding()
+          (Wo): Linear(in_features=768, out_features=768, bias=False)
+          (out_drop): Identity()
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+        (mlp_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (mlp): ModernBertMLP(
+          (Wi): Linear(in_features=768, out_features=2304, bias=False)
+          (act): GELUActivation()
+          (drop): Dropout(p=0.0, inplace=False)
+          (Wo): Linear(in_features=1152, out_features=768, bias=False)
+          (adapter): AdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+      )
+    )
+    (final_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+  (task_heads): ModuleDict(
+    (clone_detection): Sequential(
+      (0): Linear(in_features=768, out_features=384, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=384, out_features=1, bias=True)
+    )
+  )
+)
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:  Normalized weights: uniform for epoch 1, updated each epoch (w ∝ L_i).
+INFO:name:======================================================================
+INFO:name:***** Running Training *****
+INFO:name:  Model         : answerdotai/ModernBERT-base
+INFO:name:  PEFT          : adapter
+INFO:name:  Loss weighting: normalized
+INFO:name:  Epochs        : 10
+INFO:name:  Batch size    : 96  |  LR: 1.00e-04  |  GPUs: 1
+INFO:name:  Steps/epoch   : ~3125  |  Total steps: ~31250
+INFO:name:  Tasks & train sizes:
+INFO:name:    clone_detection         300000 examples
+INFO:name:======================================================================
+INFO:name:E1/10  step 32/3125  total=0.6937  lr=1.02e-06  |  clone_detection=0.6937
+INFO:name:E1/10  step 64/3125  total=0.6918  lr=2.05e-06  |  clone_detection=0.6918
+INFO:name:E1/10  step 96/3125  total=0.6905  lr=3.07e-06  |  clone_detection=0.6905
+INFO:name:E1/10  step 128/3125  total=0.6888  lr=4.10e-06  |  clone_detection=0.6888
+INFO:name:E1/10  step 160/3125  total=0.6868  lr=5.12e-06  |  clone_detection=0.6868
+INFO:name:E1/10  step 192/3125  total=0.6850  lr=6.14e-06  |  clone_detection=0.6850
+INFO:name:E1/10  step 224/3125  total=0.6821  lr=7.17e-06  |  clone_detection=0.6821
+INFO:name:E1/10  step 256/3125  total=0.6779  lr=8.19e-06  |  clone_detection=0.6779
+INFO:name:E1/10  step 288/3125  total=0.6729  lr=9.22e-06  |  clone_detection=0.6729
+INFO:name:E1/10  step 320/3125  total=0.6664  lr=1.02e-05  |  clone_detection=0.6664
+INFO:name:E1/10  step 352/3125  total=0.6586  lr=1.13e-05  |  clone_detection=0.6586
+INFO:name:E1/10  step 384/3125  total=0.6463  lr=1.23e-05  |  clone_detection=0.6463
+INFO:name:E1/10  step 416/3125  total=0.6336  lr=1.33e-05  |  clone_detection=0.6336
+INFO:name:E1/10  step 448/3125  total=0.6197  lr=1.43e-05  |  clone_detection=0.6197
+INFO:name:E1/10  step 480/3125  total=0.6076  lr=1.54e-05  |  clone_detection=0.6076
+INFO:name:E1/10  step 512/3125  total=0.5940  lr=1.64e-05  |  clone_detection=0.5940
+INFO:name:E1/10  step 544/3125  total=0.5817  lr=1.74e-05  |  clone_detection=0.5817
+INFO:name:E1/10  step 576/3125  total=0.5692  lr=1.84e-05  |  clone_detection=0.5692
+INFO:name:E1/10  step 608/3125  total=0.5576  lr=1.95e-05  |  clone_detection=0.5576
+INFO:name:E1/10  step 640/3125  total=0.5450  lr=2.05e-05  |  clone_detection=0.5450
+INFO:name:E1/10  step 672/3125  total=0.5326  lr=2.15e-05  |  clone_detection=0.5326
+INFO:name:E1/10  step 704/3125  total=0.5212  lr=2.25e-05  |  clone_detection=0.5212
+INFO:name:E1/10  step 736/3125  total=0.5101  lr=2.36e-05  |  clone_detection=0.5101
+INFO:name:E1/10  step 768/3125  total=0.4982  lr=2.46e-05  |  clone_detection=0.4982
+INFO:name:E1/10  step 800/3125  total=0.4874  lr=2.56e-05  |  clone_detection=0.4874
+INFO:name:E1/10  step 832/3125  total=0.4778  lr=2.66e-05  |  clone_detection=0.4778
+INFO:name:E1/10  step 864/3125  total=0.4681  lr=2.76e-05  |  clone_detection=0.4681
+INFO:name:E1/10  step 896/3125  total=0.4593  lr=2.87e-05  |  clone_detection=0.4593
+INFO:name:E1/10  step 928/3125  total=0.4505  lr=2.97e-05  |  clone_detection=0.4505
+INFO:name:E1/10  step 960/3125  total=0.4420  lr=3.07e-05  |  clone_detection=0.4420
+INFO:name:E1/10  step 992/3125  total=0.4336  lr=3.17e-05  |  clone_detection=0.4336
+INFO:name:E1/10  step 1024/3125  total=0.4259  lr=3.28e-05  |  clone_detection=0.4259
+INFO:name:E1/10  step 1056/3125  total=0.4186  lr=3.38e-05  |  clone_detection=0.4186
+INFO:name:E1/10  step 1088/3125  total=0.4112  lr=3.48e-05  |  clone_detection=0.4112
+INFO:name:E1/10  step 1120/3125  total=0.4041  lr=3.58e-05  |  clone_detection=0.4041
+INFO:name:E1/10  step 1152/3125  total=0.3976  lr=3.69e-05  |  clone_detection=0.3976
+INFO:name:E1/10  step 1184/3125  total=0.3910  lr=3.79e-05  |  clone_detection=0.3910
+INFO:name:E1/10  step 1216/3125  total=0.3851  lr=3.89e-05  |  clone_detection=0.3851
+INFO:name:E1/10  step 1248/3125  total=0.3790  lr=3.99e-05  |  clone_detection=0.3790
+INFO:name:E1/10  step 1280/3125  total=0.3734  lr=4.10e-05  |  clone_detection=0.3734
+INFO:name:E1/10  step 1312/3125  total=0.3678  lr=4.20e-05  |  clone_detection=0.3678
+INFO:name:E1/10  step 1344/3125  total=0.3622  lr=4.30e-05  |  clone_detection=0.3622
+INFO:name:E1/10  step 1376/3125  total=0.3571  lr=4.40e-05  |  clone_detection=0.3571
+INFO:name:E1/10  step 1408/3125  total=0.3519  lr=4.51e-05  |  clone_detection=0.3519
+INFO:name:E1/10  step 1440/3125  total=0.3468  lr=4.61e-05  |  clone_detection=0.3468
+INFO:name:E1/10  step 1472/3125  total=0.3419  lr=4.71e-05  |  clone_detection=0.3419
+INFO:name:E1/10  step 1504/3125  total=0.3372  lr=4.81e-05  |  clone_detection=0.3372
+INFO:name:E1/10  step 1536/3125  total=0.3329  lr=4.92e-05  |  clone_detection=0.3329
+INFO:name:E1/10  step 1568/3125  total=0.3287  lr=5.02e-05  |  clone_detection=0.3287
+INFO:name:E1/10  step 1600/3125  total=0.3245  lr=5.12e-05  |  clone_detection=0.3245
+INFO:name:E1/10  step 1632/3125  total=0.3205  lr=5.22e-05  |  clone_detection=0.3205
+INFO:name:E1/10  step 1664/3125  total=0.3169  lr=5.32e-05  |  clone_detection=0.3169
+INFO:name:E1/10  step 1696/3125  total=0.3133  lr=5.43e-05  |  clone_detection=0.3133
+INFO:name:E1/10  step 1728/3125  total=0.3098  lr=5.53e-05  |  clone_detection=0.3098
+INFO:name:E1/10  step 1760/3125  total=0.3061  lr=5.63e-05  |  clone_detection=0.3061
+INFO:name:E1/10  step 1792/3125  total=0.3027  lr=5.73e-05  |  clone_detection=0.3027
+INFO:name:E1/10  step 1824/3125  total=0.2990  lr=5.84e-05  |  clone_detection=0.2990
+INFO:name:E1/10  step 1856/3125  total=0.2954  lr=5.94e-05  |  clone_detection=0.2954
+INFO:name:E1/10  step 1888/3125  total=0.2923  lr=6.04e-05  |  clone_detection=0.2923
+INFO:name:E1/10  step 1920/3125  total=0.2889  lr=6.14e-05  |  clone_detection=0.2889
+INFO:name:E1/10  step 1952/3125  total=0.2858  lr=6.25e-05  |  clone_detection=0.2858
+INFO:name:E1/10  step 1984/3125  total=0.2828  lr=6.35e-05  |  clone_detection=0.2828
+INFO:name:E1/10  step 2016/3125  total=0.2797  lr=6.45e-05  |  clone_detection=0.2797
+INFO:name:E1/10  step 2048/3125  total=0.2768  lr=6.55e-05  |  clone_detection=0.2768
+INFO:name:E1/10  step 2080/3125  total=0.2741  lr=6.66e-05  |  clone_detection=0.2741
+INFO:name:E1/10  step 2112/3125  total=0.2712  lr=6.76e-05  |  clone_detection=0.2712
+INFO:name:E1/10  step 2144/3125  total=0.2685  lr=6.86e-05  |  clone_detection=0.2685
+INFO:name:E1/10  step 2176/3125  total=0.2658  lr=6.96e-05  |  clone_detection=0.2658
+INFO:name:E1/10  step 2208/3125  total=0.2633  lr=7.07e-05  |  clone_detection=0.2633
+INFO:name:E1/10  step 2240/3125  total=0.2608  lr=7.17e-05  |  clone_detection=0.2608
+INFO:name:E1/10  step 2272/3125  total=0.2581  lr=7.27e-05  |  clone_detection=0.2581
+INFO:name:E1/10  step 2304/3125  total=0.2557  lr=7.37e-05  |  clone_detection=0.2557
+INFO:name:E1/10  step 2336/3125  total=0.2536  lr=7.48e-05  |  clone_detection=0.2536
+INFO:name:E1/10  step 2368/3125  total=0.2512  lr=7.58e-05  |  clone_detection=0.2512
+INFO:name:E1/10  step 2400/3125  total=0.2490  lr=7.68e-05  |  clone_detection=0.2490
+INFO:name:E1/10  step 2432/3125  total=0.2470  lr=7.78e-05  |  clone_detection=0.2470
+INFO:name:E1/10  step 2464/3125  total=0.2448  lr=7.88e-05  |  clone_detection=0.2448
+INFO:name:E1/10  step 2496/3125  total=0.2426  lr=7.99e-05  |  clone_detection=0.2426
+INFO:name:E1/10  step 2528/3125  total=0.2405  lr=8.09e-05  |  clone_detection=0.2405
+INFO:name:E1/10  step 2560/3125  total=0.2383  lr=8.19e-05  |  clone_detection=0.2383
+INFO:name:E1/10  step 2592/3125  total=0.2361  lr=8.29e-05  |  clone_detection=0.2361
+INFO:name:E1/10  step 2624/3125  total=0.2341  lr=8.40e-05  |  clone_detection=0.2341
+INFO:name:E1/10  step 2656/3125  total=0.2321  lr=8.50e-05  |  clone_detection=0.2321
+INFO:name:E1/10  step 2688/3125  total=0.2302  lr=8.60e-05  |  clone_detection=0.2302
+INFO:name:E1/10  step 2720/3125  total=0.2283  lr=8.70e-05  |  clone_detection=0.2283
+INFO:name:E1/10  step 2752/3125  total=0.2265  lr=8.81e-05  |  clone_detection=0.2265
+INFO:name:E1/10  step 2784/3125  total=0.2247  lr=8.91e-05  |  clone_detection=0.2247
+INFO:name:E1/10  step 2816/3125  total=0.2228  lr=9.01e-05  |  clone_detection=0.2228
+INFO:name:E1/10  step 2848/3125  total=0.2211  lr=9.11e-05  |  clone_detection=0.2211
+INFO:name:E1/10  step 2880/3125  total=0.2193  lr=9.22e-05  |  clone_detection=0.2193
+INFO:name:E1/10  step 2912/3125  total=0.2176  lr=9.32e-05  |  clone_detection=0.2176
+INFO:name:E1/10  step 2944/3125  total=0.2158  lr=9.42e-05  |  clone_detection=0.2158
+INFO:name:E1/10  step 2976/3125  total=0.2142  lr=9.52e-05  |  clone_detection=0.2142
+INFO:name:E1/10  step 3008/3125  total=0.2128  lr=9.63e-05  |  clone_detection=0.2128
+INFO:name:E1/10  step 3040/3125  total=0.2114  lr=9.73e-05  |  clone_detection=0.2114
+INFO:name:E1/10  step 3072/3125  total=0.2099  lr=9.83e-05  |  clone_detection=0.2099
+INFO:name:E1/10  step 3104/3125  total=0.2082  lr=9.93e-05  |  clone_detection=0.2082
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 1/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.2072    1.0000     124655083
+INFO:name:  TOTAL                     0.2072               124655083  (epoch)  cumulative=124655083
+INFO:name:  epoch_time=2123.2s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9496   0.8322    0.9639      0.7322   0.1538        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.8322
+INFO:name:----------------------------------------------------------------------
+Saved 181 trainable params -> ./adapters/modernbert_clone_serialAdapter/model.bin
+INFO:name:  >> New best (0.8322) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9609   0.8714    0.9689      0.7918        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E2/10  step 32/3125  total=0.0510  lr=9.99e-05  |  clone_detection=0.0510
+INFO:name:E2/10  step 64/3125  total=0.0486  lr=9.98e-05  |  clone_detection=0.0486
+INFO:name:E2/10  step 96/3125  total=0.0486  lr=9.97e-05  |  clone_detection=0.0486
+INFO:name:E2/10  step 128/3125  total=0.0481  lr=9.95e-05  |  clone_detection=0.0481
+INFO:name:E2/10  step 160/3125  total=0.0482  lr=9.94e-05  |  clone_detection=0.0482
+INFO:name:E2/10  step 192/3125  total=0.0484  lr=9.93e-05  |  clone_detection=0.0484
+INFO:name:E2/10  step 224/3125  total=0.0485  lr=9.92e-05  |  clone_detection=0.0485
+INFO:name:E2/10  step 256/3125  total=0.0490  lr=9.91e-05  |  clone_detection=0.0490
+INFO:name:E2/10  step 288/3125  total=0.0488  lr=9.90e-05  |  clone_detection=0.0488
+INFO:name:E2/10  step 320/3125  total=0.0480  lr=9.89e-05  |  clone_detection=0.0480
+INFO:name:E2/10  step 352/3125  total=0.0482  lr=9.87e-05  |  clone_detection=0.0482
+INFO:name:E2/10  step 384/3125  total=0.0484  lr=9.86e-05  |  clone_detection=0.0484
+INFO:name:E2/10  step 416/3125  total=0.0489  lr=9.85e-05  |  clone_detection=0.0489
+INFO:name:E2/10  step 448/3125  total=0.0494  lr=9.84e-05  |  clone_detection=0.0494
+INFO:name:E2/10  step 480/3125  total=0.0499  lr=9.83e-05  |  clone_detection=0.0499
+INFO:name:E2/10  step 512/3125  total=0.0498  lr=9.82e-05  |  clone_detection=0.0498
+INFO:name:E2/10  step 544/3125  total=0.0496  lr=9.81e-05  |  clone_detection=0.0496
+INFO:name:E2/10  step 576/3125  total=0.0497  lr=9.80e-05  |  clone_detection=0.0497
+INFO:name:E2/10  step 608/3125  total=0.0501  lr=9.78e-05  |  clone_detection=0.0501
+INFO:name:E2/10  step 640/3125  total=0.0500  lr=9.77e-05  |  clone_detection=0.0500
+INFO:name:E2/10  step 672/3125  total=0.0495  lr=9.76e-05  |  clone_detection=0.0495
+INFO:name:E2/10  step 704/3125  total=0.0491  lr=9.75e-05  |  clone_detection=0.0491
+INFO:name:E2/10  step 736/3125  total=0.0491  lr=9.74e-05  |  clone_detection=0.0491
+INFO:name:E2/10  step 768/3125  total=0.0492  lr=9.73e-05  |  clone_detection=0.0492
+INFO:name:E2/10  step 800/3125  total=0.0487  lr=9.72e-05  |  clone_detection=0.0487
+INFO:name:E2/10  step 832/3125  total=0.0488  lr=9.70e-05  |  clone_detection=0.0488
+INFO:name:E2/10  step 864/3125  total=0.0487  lr=9.69e-05  |  clone_detection=0.0487
+INFO:name:E2/10  step 896/3125  total=0.0485  lr=9.68e-05  |  clone_detection=0.0485
+INFO:name:E2/10  step 928/3125  total=0.0481  lr=9.67e-05  |  clone_detection=0.0481
+INFO:name:E2/10  step 960/3125  total=0.0477  lr=9.66e-05  |  clone_detection=0.0477
+INFO:name:E2/10  step 992/3125  total=0.0474  lr=9.65e-05  |  clone_detection=0.0474
+INFO:name:E2/10  step 1024/3125  total=0.0473  lr=9.64e-05  |  clone_detection=0.0473
+INFO:name:E2/10  step 1056/3125  total=0.0473  lr=9.62e-05  |  clone_detection=0.0473
+INFO:name:E2/10  step 1088/3125  total=0.0469  lr=9.61e-05  |  clone_detection=0.0469
+INFO:name:E2/10  step 1120/3125  total=0.0467  lr=9.60e-05  |  clone_detection=0.0467
+INFO:name:E2/10  step 1152/3125  total=0.0463  lr=9.59e-05  |  clone_detection=0.0463
+INFO:name:E2/10  step 1184/3125  total=0.0458  lr=9.58e-05  |  clone_detection=0.0458
+INFO:name:E2/10  step 1216/3125  total=0.0456  lr=9.57e-05  |  clone_detection=0.0456
+INFO:name:E2/10  step 1248/3125  total=0.0457  lr=9.56e-05  |  clone_detection=0.0457
+INFO:name:E2/10  step 1280/3125  total=0.0456  lr=9.54e-05  |  clone_detection=0.0456
+INFO:name:E2/10  step 1312/3125  total=0.0455  lr=9.53e-05  |  clone_detection=0.0455
+INFO:name:E2/10  step 1344/3125  total=0.0454  lr=9.52e-05  |  clone_detection=0.0454
+INFO:name:E2/10  step 1376/3125  total=0.0452  lr=9.51e-05  |  clone_detection=0.0452
+INFO:name:E2/10  step 1408/3125  total=0.0449  lr=9.50e-05  |  clone_detection=0.0449
+INFO:name:E2/10  step 1440/3125  total=0.0446  lr=9.49e-05  |  clone_detection=0.0446
+INFO:name:E2/10  step 1472/3125  total=0.0445  lr=9.48e-05  |  clone_detection=0.0445
+INFO:name:E2/10  step 1504/3125  total=0.0442  lr=9.47e-05  |  clone_detection=0.0442
+INFO:name:E2/10  step 1536/3125  total=0.0440  lr=9.45e-05  |  clone_detection=0.0440
+INFO:name:E2/10  step 1568/3125  total=0.0438  lr=9.44e-05  |  clone_detection=0.0438
+INFO:name:E2/10  step 1600/3125  total=0.0438  lr=9.43e-05  |  clone_detection=0.0438
+INFO:name:E2/10  step 1632/3125  total=0.0435  lr=9.42e-05  |  clone_detection=0.0435
+INFO:name:E2/10  step 1664/3125  total=0.0434  lr=9.41e-05  |  clone_detection=0.0434
+INFO:name:E2/10  step 1696/3125  total=0.0431  lr=9.40e-05  |  clone_detection=0.0431
+INFO:name:E2/10  step 1728/3125  total=0.0429  lr=9.39e-05  |  clone_detection=0.0429
+INFO:name:E2/10  step 1760/3125  total=0.0428  lr=9.37e-05  |  clone_detection=0.0428
+INFO:name:E2/10  step 1792/3125  total=0.0426  lr=9.36e-05  |  clone_detection=0.0426
+INFO:name:E2/10  step 1824/3125  total=0.0425  lr=9.35e-05  |  clone_detection=0.0425
+INFO:name:E2/10  step 1856/3125  total=0.0425  lr=9.34e-05  |  clone_detection=0.0425
+INFO:name:E2/10  step 1888/3125  total=0.0423  lr=9.33e-05  |  clone_detection=0.0423
+INFO:name:E2/10  step 1920/3125  total=0.0421  lr=9.32e-05  |  clone_detection=0.0421
+INFO:name:E2/10  step 1952/3125  total=0.0419  lr=9.31e-05  |  clone_detection=0.0419
+INFO:name:E2/10  step 1984/3125  total=0.0417  lr=9.29e-05  |  clone_detection=0.0417
+INFO:name:E2/10  step 2016/3125  total=0.0416  lr=9.28e-05  |  clone_detection=0.0416
+INFO:name:E2/10  step 2048/3125  total=0.0415  lr=9.27e-05  |  clone_detection=0.0415
+INFO:name:E2/10  step 2080/3125  total=0.0412  lr=9.26e-05  |  clone_detection=0.0412
+INFO:name:E2/10  step 2112/3125  total=0.0410  lr=9.25e-05  |  clone_detection=0.0410
+INFO:name:E2/10  step 2144/3125  total=0.0408  lr=9.24e-05  |  clone_detection=0.0408
+INFO:name:E2/10  step 2176/3125  total=0.0406  lr=9.23e-05  |  clone_detection=0.0406
+INFO:name:E2/10  step 2208/3125  total=0.0405  lr=9.21e-05  |  clone_detection=0.0405
+INFO:name:E2/10  step 2240/3125  total=0.0404  lr=9.20e-05  |  clone_detection=0.0404
+INFO:name:E2/10  step 2272/3125  total=0.0402  lr=9.19e-05  |  clone_detection=0.0402
+INFO:name:E2/10  step 2304/3125  total=0.0401  lr=9.18e-05  |  clone_detection=0.0401
+INFO:name:E2/10  step 2336/3125  total=0.0399  lr=9.17e-05  |  clone_detection=0.0399
+INFO:name:E2/10  step 2368/3125  total=0.0397  lr=9.16e-05  |  clone_detection=0.0397
+INFO:name:E2/10  step 2400/3125  total=0.0396  lr=9.15e-05  |  clone_detection=0.0396
+INFO:name:E2/10  step 2432/3125  total=0.0394  lr=9.14e-05  |  clone_detection=0.0394
+INFO:name:E2/10  step 2464/3125  total=0.0392  lr=9.12e-05  |  clone_detection=0.0392
+INFO:name:E2/10  step 2496/3125  total=0.0391  lr=9.11e-05  |  clone_detection=0.0391
+INFO:name:E2/10  step 2528/3125  total=0.0390  lr=9.10e-05  |  clone_detection=0.0390
+INFO:name:E2/10  step 2560/3125  total=0.0388  lr=9.09e-05  |  clone_detection=0.0388
+INFO:name:E2/10  step 2592/3125  total=0.0387  lr=9.08e-05  |  clone_detection=0.0387
+INFO:name:E2/10  step 2624/3125  total=0.0385  lr=9.07e-05  |  clone_detection=0.0385
+INFO:name:E2/10  step 2656/3125  total=0.0383  lr=9.06e-05  |  clone_detection=0.0383
+INFO:name:E2/10  step 2688/3125  total=0.0381  lr=9.04e-05  |  clone_detection=0.0381
+INFO:name:E2/10  step 2720/3125  total=0.0380  lr=9.03e-05  |  clone_detection=0.0380
+INFO:name:E2/10  step 2752/3125  total=0.0379  lr=9.02e-05  |  clone_detection=0.0379
+INFO:name:E2/10  step 2784/3125  total=0.0379  lr=9.01e-05  |  clone_detection=0.0379
+INFO:name:E2/10  step 2816/3125  total=0.0378  lr=9.00e-05  |  clone_detection=0.0378
+INFO:name:E2/10  step 2848/3125  total=0.0377  lr=8.99e-05  |  clone_detection=0.0377
+INFO:name:E2/10  step 2880/3125  total=0.0377  lr=8.98e-05  |  clone_detection=0.0377
+INFO:name:E2/10  step 2912/3125  total=0.0375  lr=8.96e-05  |  clone_detection=0.0375
+INFO:name:E2/10  step 2944/3125  total=0.0374  lr=8.95e-05  |  clone_detection=0.0374
+INFO:name:E2/10  step 2976/3125  total=0.0372  lr=8.94e-05  |  clone_detection=0.0372
+INFO:name:E2/10  step 3008/3125  total=0.0371  lr=8.93e-05  |  clone_detection=0.0371
+INFO:name:E2/10  step 3040/3125  total=0.0370  lr=8.92e-05  |  clone_detection=0.0370
+INFO:name:E2/10  step 3072/3125  total=0.0369  lr=8.91e-05  |  clone_detection=0.0369
+INFO:name:E2/10  step 3104/3125  total=0.0367  lr=8.90e-05  |  clone_detection=0.0367
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 2/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0366    1.0000     124655083
+INFO:name:  TOTAL                     0.0366               124655083  (epoch)  cumulative=249310166
+INFO:name:  epoch_time=2124.3s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9820   0.9291    0.9112      0.9478   0.1014        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9291
+INFO:name:----------------------------------------------------------------------
+Saved 181 trainable params -> ./adapters/modernbert_clone_serialAdapter/model.bin
+INFO:name:  >> New best (0.9291) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9828   0.9353    0.9109      0.9610        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E3/10  step 32/3125  total=0.0216  lr=8.88e-05  |  clone_detection=0.0216
+INFO:name:E3/10  step 64/3125  total=0.0180  lr=8.87e-05  |  clone_detection=0.0180
+INFO:name:E3/10  step 96/3125  total=0.0172  lr=8.85e-05  |  clone_detection=0.0172
+INFO:name:E3/10  step 128/3125  total=0.0185  lr=8.84e-05  |  clone_detection=0.0185
+INFO:name:E3/10  step 160/3125  total=0.0198  lr=8.83e-05  |  clone_detection=0.0198
+INFO:name:E3/10  step 192/3125  total=0.0187  lr=8.82e-05  |  clone_detection=0.0187
+INFO:name:E3/10  step 224/3125  total=0.0182  lr=8.81e-05  |  clone_detection=0.0182
+INFO:name:E3/10  step 256/3125  total=0.0179  lr=8.80e-05  |  clone_detection=0.0179
+INFO:name:E3/10  step 288/3125  total=0.0180  lr=8.79e-05  |  clone_detection=0.0180
+INFO:name:E3/10  step 320/3125  total=0.0178  lr=8.78e-05  |  clone_detection=0.0178
+INFO:name:E3/10  step 352/3125  total=0.0185  lr=8.76e-05  |  clone_detection=0.0185
+INFO:name:E3/10  step 384/3125  total=0.0190  lr=8.75e-05  |  clone_detection=0.0190
+INFO:name:E3/10  step 416/3125  total=0.0195  lr=8.74e-05  |  clone_detection=0.0195
+INFO:name:E3/10  step 448/3125  total=0.0196  lr=8.73e-05  |  clone_detection=0.0196
+INFO:name:E3/10  step 480/3125  total=0.0194  lr=8.72e-05  |  clone_detection=0.0194
+INFO:name:E3/10  step 512/3125  total=0.0195  lr=8.71e-05  |  clone_detection=0.0195
+INFO:name:E3/10  step 544/3125  total=0.0195  lr=8.70e-05  |  clone_detection=0.0195
+INFO:name:E3/10  step 576/3125  total=0.0190  lr=8.68e-05  |  clone_detection=0.0190
+INFO:name:E3/10  step 608/3125  total=0.0188  lr=8.67e-05  |  clone_detection=0.0188
+INFO:name:E3/10  step 640/3125  total=0.0188  lr=8.66e-05  |  clone_detection=0.0188
+INFO:name:E3/10  step 672/3125  total=0.0185  lr=8.65e-05  |  clone_detection=0.0185
+INFO:name:E3/10  step 704/3125  total=0.0183  lr=8.64e-05  |  clone_detection=0.0183
+INFO:name:E3/10  step 736/3125  total=0.0182  lr=8.63e-05  |  clone_detection=0.0182
+INFO:name:E3/10  step 768/3125  total=0.0180  lr=8.62e-05  |  clone_detection=0.0180
+INFO:name:E3/10  step 800/3125  total=0.0180  lr=8.60e-05  |  clone_detection=0.0180
+INFO:name:E3/10  step 832/3125  total=0.0178  lr=8.59e-05  |  clone_detection=0.0178
+INFO:name:E3/10  step 864/3125  total=0.0179  lr=8.58e-05  |  clone_detection=0.0179
+INFO:name:E3/10  step 896/3125  total=0.0176  lr=8.57e-05  |  clone_detection=0.0176
+INFO:name:E3/10  step 928/3125  total=0.0175  lr=8.56e-05  |  clone_detection=0.0175
+INFO:name:E3/10  step 960/3125  total=0.0174  lr=8.55e-05  |  clone_detection=0.0174
+INFO:name:E3/10  step 992/3125  total=0.0176  lr=8.54e-05  |  clone_detection=0.0176
+INFO:name:E3/10  step 1024/3125  total=0.0176  lr=8.52e-05  |  clone_detection=0.0176
+INFO:name:E3/10  step 1056/3125  total=0.0175  lr=8.51e-05  |  clone_detection=0.0175
+INFO:name:E3/10  step 1088/3125  total=0.0174  lr=8.50e-05  |  clone_detection=0.0174
+INFO:name:E3/10  step 1120/3125  total=0.0172  lr=8.49e-05  |  clone_detection=0.0172
+INFO:name:E3/10  step 1152/3125  total=0.0171  lr=8.48e-05  |  clone_detection=0.0171
+INFO:name:E3/10  step 1184/3125  total=0.0169  lr=8.47e-05  |  clone_detection=0.0169
+INFO:name:E3/10  step 1216/3125  total=0.0168  lr=8.46e-05  |  clone_detection=0.0168
+INFO:name:E3/10  step 1248/3125  total=0.0168  lr=8.45e-05  |  clone_detection=0.0168
+INFO:name:E3/10  step 1280/3125  total=0.0167  lr=8.43e-05  |  clone_detection=0.0167
+INFO:name:E3/10  step 1312/3125  total=0.0167  lr=8.42e-05  |  clone_detection=0.0167
+INFO:name:E3/10  step 1344/3125  total=0.0167  lr=8.41e-05  |  clone_detection=0.0167
+INFO:name:E3/10  step 1376/3125  total=0.0166  lr=8.40e-05  |  clone_detection=0.0166
+INFO:name:E3/10  step 1408/3125  total=0.0166  lr=8.39e-05  |  clone_detection=0.0166
+INFO:name:E3/10  step 1440/3125  total=0.0166  lr=8.38e-05  |  clone_detection=0.0166
+INFO:name:E3/10  step 1472/3125  total=0.0167  lr=8.37e-05  |  clone_detection=0.0167
+INFO:name:E3/10  step 1504/3125  total=0.0167  lr=8.35e-05  |  clone_detection=0.0167
+INFO:name:E3/10  step 1536/3125  total=0.0166  lr=8.34e-05  |  clone_detection=0.0166
+INFO:name:E3/10  step 1568/3125  total=0.0165  lr=8.33e-05  |  clone_detection=0.0165
+INFO:name:E3/10  step 1600/3125  total=0.0164  lr=8.32e-05  |  clone_detection=0.0164
+INFO:name:E3/10  step 1632/3125  total=0.0165  lr=8.31e-05  |  clone_detection=0.0165
+INFO:name:E3/10  step 1664/3125  total=0.0164  lr=8.30e-05  |  clone_detection=0.0164
+INFO:name:E3/10  step 1696/3125  total=0.0164  lr=8.29e-05  |  clone_detection=0.0164
+INFO:name:E3/10  step 1728/3125  total=0.0164  lr=8.27e-05  |  clone_detection=0.0164
+INFO:name:E3/10  step 1760/3125  total=0.0164  lr=8.26e-05  |  clone_detection=0.0164
+INFO:name:E3/10  step 1792/3125  total=0.0164  lr=8.25e-05  |  clone_detection=0.0164
+INFO:name:E3/10  step 1824/3125  total=0.0163  lr=8.24e-05  |  clone_detection=0.0163
+INFO:name:E3/10  step 1856/3125  total=0.0163  lr=8.23e-05  |  clone_detection=0.0163
+INFO:name:E3/10  step 1888/3125  total=0.0163  lr=8.22e-05  |  clone_detection=0.0163
+INFO:name:E3/10  step 1920/3125  total=0.0163  lr=8.21e-05  |  clone_detection=0.0163
+INFO:name:E3/10  step 1952/3125  total=0.0162  lr=8.19e-05  |  clone_detection=0.0162
+INFO:name:E3/10  step 1984/3125  total=0.0162  lr=8.18e-05  |  clone_detection=0.0162
+INFO:name:E3/10  step 2016/3125  total=0.0161  lr=8.17e-05  |  clone_detection=0.0161
+INFO:name:E3/10  step 2048/3125  total=0.0160  lr=8.16e-05  |  clone_detection=0.0160
+INFO:name:E3/10  step 2080/3125  total=0.0160  lr=8.15e-05  |  clone_detection=0.0160
+INFO:name:E3/10  step 2112/3125  total=0.0160  lr=8.14e-05  |  clone_detection=0.0160
+INFO:name:E3/10  step 2144/3125  total=0.0160  lr=8.13e-05  |  clone_detection=0.0160
+INFO:name:E3/10  step 2176/3125  total=0.0159  lr=8.12e-05  |  clone_detection=0.0159
+INFO:name:E3/10  step 2208/3125  total=0.0159  lr=8.10e-05  |  clone_detection=0.0159
+INFO:name:E3/10  step 2240/3125  total=0.0159  lr=8.09e-05  |  clone_detection=0.0159
+INFO:name:E3/10  step 2272/3125  total=0.0159  lr=8.08e-05  |  clone_detection=0.0159
+INFO:name:E3/10  step 2304/3125  total=0.0158  lr=8.07e-05  |  clone_detection=0.0158
+INFO:name:E3/10  step 2336/3125  total=0.0157  lr=8.06e-05  |  clone_detection=0.0157
+INFO:name:E3/10  step 2368/3125  total=0.0156  lr=8.05e-05  |  clone_detection=0.0156
+INFO:name:E3/10  step 2400/3125  total=0.0156  lr=8.04e-05  |  clone_detection=0.0156
+INFO:name:E3/10  step 2432/3125  total=0.0156  lr=8.02e-05  |  clone_detection=0.0156
+INFO:name:E3/10  step 2464/3125  total=0.0155  lr=8.01e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2496/3125  total=0.0155  lr=8.00e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2528/3125  total=0.0155  lr=7.99e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2560/3125  total=0.0155  lr=7.98e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2592/3125  total=0.0155  lr=7.97e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2624/3125  total=0.0155  lr=7.96e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2656/3125  total=0.0155  lr=7.94e-05  |  clone_detection=0.0155
+INFO:name:E3/10  step 2688/3125  total=0.0154  lr=7.93e-05  |  clone_detection=0.0154
+INFO:name:E3/10  step 2720/3125  total=0.0154  lr=7.92e-05  |  clone_detection=0.0154
+INFO:name:E3/10  step 2752/3125  total=0.0154  lr=7.91e-05  |  clone_detection=0.0154
+INFO:name:E3/10  step 2784/3125  total=0.0153  lr=7.90e-05  |  clone_detection=0.0153
+INFO:name:E3/10  step 2816/3125  total=0.0153  lr=7.89e-05  |  clone_detection=0.0153
+INFO:name:E3/10  step 2848/3125  total=0.0153  lr=7.88e-05  |  clone_detection=0.0153
+INFO:name:E3/10  step 2880/3125  total=0.0153  lr=7.86e-05  |  clone_detection=0.0153
+INFO:name:E3/10  step 2912/3125  total=0.0152  lr=7.85e-05  |  clone_detection=0.0152
+INFO:name:E3/10  step 2944/3125  total=0.0152  lr=7.84e-05  |  clone_detection=0.0152
+INFO:name:E3/10  step 2976/3125  total=0.0151  lr=7.83e-05  |  clone_detection=0.0151
+INFO:name:E3/10  step 3008/3125  total=0.0151  lr=7.82e-05  |  clone_detection=0.0151
+INFO:name:E3/10  step 3040/3125  total=0.0150  lr=7.81e-05  |  clone_detection=0.0150
+INFO:name:E3/10  step 3072/3125  total=0.0150  lr=7.80e-05  |  clone_detection=0.0150
+INFO:name:E3/10  step 3104/3125  total=0.0149  lr=7.79e-05  |  clone_detection=0.0149
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 3/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0149    1.0000     124655083
+INFO:name:  TOTAL                     0.0149               124655083  (epoch)  cumulative=373965249
+INFO:name:  epoch_time=2121.5s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9774   0.9165    0.9587      0.8779   0.1097        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9165
+INFO:name:----------------------------------------------------------------------
+INFO:name:E4/10  step 32/3125  total=0.0113  lr=7.77e-05  |  clone_detection=0.0113
+INFO:name:E4/10  step 64/3125  total=0.0098  lr=7.76e-05  |  clone_detection=0.0098
+INFO:name:E4/10  step 96/3125  total=0.0090  lr=7.74e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 128/3125  total=0.0097  lr=7.73e-05  |  clone_detection=0.0097
+INFO:name:E4/10  step 160/3125  total=0.0098  lr=7.72e-05  |  clone_detection=0.0098
+INFO:name:E4/10  step 192/3125  total=0.0095  lr=7.71e-05  |  clone_detection=0.0095
+INFO:name:E4/10  step 224/3125  total=0.0092  lr=7.70e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 256/3125  total=0.0087  lr=7.69e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 288/3125  total=0.0083  lr=7.68e-05  |  clone_detection=0.0083
+INFO:name:E4/10  step 320/3125  total=0.0090  lr=7.66e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 352/3125  total=0.0092  lr=7.65e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 384/3125  total=0.0092  lr=7.64e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 416/3125  total=0.0094  lr=7.63e-05  |  clone_detection=0.0094
+INFO:name:E4/10  step 448/3125  total=0.0092  lr=7.62e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 480/3125  total=0.0094  lr=7.61e-05  |  clone_detection=0.0094
+INFO:name:E4/10  step 512/3125  total=0.0092  lr=7.60e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 544/3125  total=0.0089  lr=7.58e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 576/3125  total=0.0090  lr=7.57e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 608/3125  total=0.0091  lr=7.56e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 640/3125  total=0.0092  lr=7.55e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 672/3125  total=0.0093  lr=7.54e-05  |  clone_detection=0.0093
+INFO:name:E4/10  step 704/3125  total=0.0091  lr=7.53e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 736/3125  total=0.0092  lr=7.52e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 768/3125  total=0.0092  lr=7.50e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 800/3125  total=0.0092  lr=7.49e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 832/3125  total=0.0093  lr=7.48e-05  |  clone_detection=0.0093
+INFO:name:E4/10  step 864/3125  total=0.0092  lr=7.47e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 896/3125  total=0.0091  lr=7.46e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 928/3125  total=0.0091  lr=7.45e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 960/3125  total=0.0092  lr=7.44e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 992/3125  total=0.0091  lr=7.43e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 1024/3125  total=0.0091  lr=7.41e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 1056/3125  total=0.0091  lr=7.40e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 1088/3125  total=0.0092  lr=7.39e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 1120/3125  total=0.0091  lr=7.38e-05  |  clone_detection=0.0091
+INFO:name:E4/10  step 1152/3125  total=0.0092  lr=7.37e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 1184/3125  total=0.0092  lr=7.36e-05  |  clone_detection=0.0092
+INFO:name:E4/10  step 1216/3125  total=0.0090  lr=7.35e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1248/3125  total=0.0090  lr=7.33e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1280/3125  total=0.0090  lr=7.32e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1312/3125  total=0.0090  lr=7.31e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1344/3125  total=0.0090  lr=7.30e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1376/3125  total=0.0090  lr=7.29e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1408/3125  total=0.0090  lr=7.28e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1440/3125  total=0.0089  lr=7.27e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1472/3125  total=0.0089  lr=7.25e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1504/3125  total=0.0089  lr=7.24e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1536/3125  total=0.0088  lr=7.23e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 1568/3125  total=0.0089  lr=7.22e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1600/3125  total=0.0089  lr=7.21e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1632/3125  total=0.0090  lr=7.20e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1664/3125  total=0.0089  lr=7.19e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1696/3125  total=0.0090  lr=7.17e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1728/3125  total=0.0090  lr=7.16e-05  |  clone_detection=0.0090
+INFO:name:E4/10  step 1760/3125  total=0.0089  lr=7.15e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1792/3125  total=0.0088  lr=7.14e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 1824/3125  total=0.0088  lr=7.13e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 1856/3125  total=0.0088  lr=7.12e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 1888/3125  total=0.0088  lr=7.11e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 1920/3125  total=0.0089  lr=7.10e-05  |  clone_detection=0.0089
+INFO:name:E4/10  step 1952/3125  total=0.0088  lr=7.08e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 1984/3125  total=0.0088  lr=7.07e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 2016/3125  total=0.0088  lr=7.06e-05  |  clone_detection=0.0088
+INFO:name:E4/10  step 2048/3125  total=0.0087  lr=7.05e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 2080/3125  total=0.0087  lr=7.04e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 2112/3125  total=0.0087  lr=7.03e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 2144/3125  total=0.0087  lr=7.02e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 2176/3125  total=0.0087  lr=7.00e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 2208/3125  total=0.0087  lr=6.99e-05  |  clone_detection=0.0087
+INFO:name:E4/10  step 2240/3125  total=0.0086  lr=6.98e-05  |  clone_detection=0.0086
+INFO:name:E4/10  step 2272/3125  total=0.0086  lr=6.97e-05  |  clone_detection=0.0086
+INFO:name:E4/10  step 2304/3125  total=0.0086  lr=6.96e-05  |  clone_detection=0.0086
+INFO:name:E4/10  step 2336/3125  total=0.0085  lr=6.95e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2368/3125  total=0.0085  lr=6.94e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2400/3125  total=0.0085  lr=6.92e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2432/3125  total=0.0084  lr=6.91e-05  |  clone_detection=0.0084
+INFO:name:E4/10  step 2464/3125  total=0.0085  lr=6.90e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2496/3125  total=0.0085  lr=6.89e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2528/3125  total=0.0085  lr=6.88e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2560/3125  total=0.0085  lr=6.87e-05  |  clone_detection=0.0085
+INFO:name:E4/10  step 2592/3125  total=0.0084  lr=6.86e-05  |  clone_detection=0.0084
+INFO:name:E4/10  step 2624/3125  total=0.0084  lr=6.84e-05  |  clone_detection=0.0084
+INFO:name:E4/10  step 2656/3125  total=0.0083  lr=6.83e-05  |  clone_detection=0.0083
+INFO:name:E4/10  step 2688/3125  total=0.0083  lr=6.82e-05  |  clone_detection=0.0083
+INFO:name:E4/10  step 2720/3125  total=0.0083  lr=6.81e-05  |  clone_detection=0.0083
+INFO:name:E4/10  step 2752/3125  total=0.0082  lr=6.80e-05  |  clone_detection=0.0082
+INFO:name:E4/10  step 2784/3125  total=0.0082  lr=6.79e-05  |  clone_detection=0.0082
+INFO:name:E4/10  step 2816/3125  total=0.0082  lr=6.78e-05  |  clone_detection=0.0082
+INFO:name:E4/10  step 2848/3125  total=0.0081  lr=6.77e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 2880/3125  total=0.0081  lr=6.75e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 2912/3125  total=0.0081  lr=6.74e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 2944/3125  total=0.0081  lr=6.73e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 2976/3125  total=0.0082  lr=6.72e-05  |  clone_detection=0.0082
+INFO:name:E4/10  step 3008/3125  total=0.0081  lr=6.71e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 3040/3125  total=0.0081  lr=6.70e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 3072/3125  total=0.0081  lr=6.69e-05  |  clone_detection=0.0081
+INFO:name:E4/10  step 3104/3125  total=0.0081  lr=6.67e-05  |  clone_detection=0.0081
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 4/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0081    1.0000     124655083
+INFO:name:  TOTAL                     0.0081               124655083  (epoch)  cumulative=498620332
+INFO:name:  epoch_time=2116.6s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9808   0.9272    0.9418      0.9131   0.1097        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9272
+INFO:name:----------------------------------------------------------------------
+INFO:name:E5/10  step 32/3125  total=0.0036  lr=6.66e-05  |  clone_detection=0.0036
+INFO:name:E5/10  step 64/3125  total=0.0048  lr=6.64e-05  |  clone_detection=0.0048
+INFO:name:E5/10  step 96/3125  total=0.0042  lr=6.63e-05  |  clone_detection=0.0042
+INFO:name:E5/10  step 128/3125  total=0.0049  lr=6.62e-05  |  clone_detection=0.0049
+INFO:name:E5/10  step 160/3125  total=0.0046  lr=6.61e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 192/3125  total=0.0043  lr=6.60e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 224/3125  total=0.0047  lr=6.59e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 256/3125  total=0.0048  lr=6.58e-05  |  clone_detection=0.0048
+INFO:name:E5/10  step 288/3125  total=0.0044  lr=6.56e-05  |  clone_detection=0.0044
+INFO:name:E5/10  step 320/3125  total=0.0042  lr=6.55e-05  |  clone_detection=0.0042
+INFO:name:E5/10  step 352/3125  total=0.0043  lr=6.54e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 384/3125  total=0.0040  lr=6.53e-05  |  clone_detection=0.0040
+INFO:name:E5/10  step 416/3125  total=0.0038  lr=6.52e-05  |  clone_detection=0.0038
+INFO:name:E5/10  step 448/3125  total=0.0039  lr=6.51e-05  |  clone_detection=0.0039
+INFO:name:E5/10  step 480/3125  total=0.0038  lr=6.50e-05  |  clone_detection=0.0038
+INFO:name:E5/10  step 512/3125  total=0.0040  lr=6.48e-05  |  clone_detection=0.0040
+INFO:name:E5/10  step 544/3125  total=0.0038  lr=6.47e-05  |  clone_detection=0.0038
+INFO:name:E5/10  step 576/3125  total=0.0040  lr=6.46e-05  |  clone_detection=0.0040
+INFO:name:E5/10  step 608/3125  total=0.0040  lr=6.45e-05  |  clone_detection=0.0040
+INFO:name:E5/10  step 640/3125  total=0.0042  lr=6.44e-05  |  clone_detection=0.0042
+INFO:name:E5/10  step 672/3125  total=0.0043  lr=6.43e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 704/3125  total=0.0043  lr=6.42e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 736/3125  total=0.0043  lr=6.40e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 768/3125  total=0.0043  lr=6.39e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 800/3125  total=0.0042  lr=6.38e-05  |  clone_detection=0.0042
+INFO:name:E5/10  step 832/3125  total=0.0043  lr=6.37e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 864/3125  total=0.0042  lr=6.36e-05  |  clone_detection=0.0042
+INFO:name:E5/10  step 896/3125  total=0.0042  lr=6.35e-05  |  clone_detection=0.0042
+INFO:name:E5/10  step 928/3125  total=0.0045  lr=6.34e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 960/3125  total=0.0044  lr=6.33e-05  |  clone_detection=0.0044
+INFO:name:E5/10  step 992/3125  total=0.0044  lr=6.31e-05  |  clone_detection=0.0044
+INFO:name:E5/10  step 1024/3125  total=0.0044  lr=6.30e-05  |  clone_detection=0.0044
+INFO:name:E5/10  step 1056/3125  total=0.0043  lr=6.29e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 1088/3125  total=0.0043  lr=6.28e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 1120/3125  total=0.0043  lr=6.27e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 1152/3125  total=0.0043  lr=6.26e-05  |  clone_detection=0.0043
+INFO:name:E5/10  step 1184/3125  total=0.0045  lr=6.25e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1216/3125  total=0.0045  lr=6.23e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1248/3125  total=0.0044  lr=6.22e-05  |  clone_detection=0.0044
+INFO:name:E5/10  step 1280/3125  total=0.0045  lr=6.21e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1312/3125  total=0.0046  lr=6.20e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1344/3125  total=0.0046  lr=6.19e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1376/3125  total=0.0045  lr=6.18e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1408/3125  total=0.0047  lr=6.17e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 1440/3125  total=0.0046  lr=6.15e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1472/3125  total=0.0046  lr=6.14e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1504/3125  total=0.0046  lr=6.13e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1536/3125  total=0.0045  lr=6.12e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1568/3125  total=0.0045  lr=6.11e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1600/3125  total=0.0045  lr=6.10e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 1632/3125  total=0.0046  lr=6.09e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1664/3125  total=0.0046  lr=6.08e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1696/3125  total=0.0046  lr=6.06e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1728/3125  total=0.0046  lr=6.05e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1760/3125  total=0.0046  lr=6.04e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1792/3125  total=0.0046  lr=6.03e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1824/3125  total=0.0046  lr=6.02e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1856/3125  total=0.0046  lr=6.01e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1888/3125  total=0.0046  lr=6.00e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1920/3125  total=0.0046  lr=5.98e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1952/3125  total=0.0046  lr=5.97e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 1984/3125  total=0.0047  lr=5.96e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2016/3125  total=0.0047  lr=5.95e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2048/3125  total=0.0047  lr=5.94e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2080/3125  total=0.0046  lr=5.93e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2112/3125  total=0.0046  lr=5.92e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2144/3125  total=0.0046  lr=5.90e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2176/3125  total=0.0046  lr=5.89e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2208/3125  total=0.0046  lr=5.88e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2240/3125  total=0.0046  lr=5.87e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2272/3125  total=0.0046  lr=5.86e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2304/3125  total=0.0046  lr=5.85e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2336/3125  total=0.0046  lr=5.84e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2368/3125  total=0.0047  lr=5.82e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2400/3125  total=0.0047  lr=5.81e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2432/3125  total=0.0047  lr=5.80e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2464/3125  total=0.0047  lr=5.79e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2496/3125  total=0.0047  lr=5.78e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2528/3125  total=0.0047  lr=5.77e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2560/3125  total=0.0046  lr=5.76e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2592/3125  total=0.0047  lr=5.75e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2624/3125  total=0.0047  lr=5.73e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2656/3125  total=0.0047  lr=5.72e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2688/3125  total=0.0047  lr=5.71e-05  |  clone_detection=0.0047
+INFO:name:E5/10  step 2720/3125  total=0.0046  lr=5.70e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2752/3125  total=0.0046  lr=5.69e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2784/3125  total=0.0046  lr=5.68e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2816/3125  total=0.0046  lr=5.67e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2848/3125  total=0.0046  lr=5.65e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2880/3125  total=0.0046  lr=5.64e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2912/3125  total=0.0046  lr=5.63e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2944/3125  total=0.0046  lr=5.62e-05  |  clone_detection=0.0046
+INFO:name:E5/10  step 2976/3125  total=0.0045  lr=5.61e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 3008/3125  total=0.0045  lr=5.60e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 3040/3125  total=0.0045  lr=5.59e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 3072/3125  total=0.0045  lr=5.57e-05  |  clone_detection=0.0045
+INFO:name:E5/10  step 3104/3125  total=0.0045  lr=5.56e-05  |  clone_detection=0.0045
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 5/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0044    1.0000     124655083
+INFO:name:  TOTAL                     0.0044               124655083  (epoch)  cumulative=623275415
+INFO:name:  epoch_time=2118.9s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 5
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9804   0.9261    0.9472      0.9059   0.1498        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9261
+INFO:name:----------------------------------------------------------------------
+INFO:name:E6/10  step 32/3125  total=0.0037  lr=5.54e-05  |  clone_detection=0.0037
+INFO:name:E6/10  step 64/3125  total=0.0031  lr=5.53e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 96/3125  total=0.0034  lr=5.52e-05  |  clone_detection=0.0034
+INFO:name:E6/10  step 128/3125  total=0.0029  lr=5.51e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 160/3125  total=0.0031  lr=5.50e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 192/3125  total=0.0026  lr=5.49e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 224/3125  total=0.0023  lr=5.48e-05  |  clone_detection=0.0023
+INFO:name:E6/10  step 256/3125  total=0.0026  lr=5.46e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 288/3125  total=0.0036  lr=5.45e-05  |  clone_detection=0.0036
+INFO:name:E6/10  step 320/3125  total=0.0034  lr=5.44e-05  |  clone_detection=0.0034
+INFO:name:E6/10  step 352/3125  total=0.0033  lr=5.43e-05  |  clone_detection=0.0033
+INFO:name:E6/10  step 384/3125  total=0.0031  lr=5.42e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 416/3125  total=0.0031  lr=5.41e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 448/3125  total=0.0031  lr=5.40e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 480/3125  total=0.0030  lr=5.38e-05  |  clone_detection=0.0030
+INFO:name:E6/10  step 512/3125  total=0.0032  lr=5.37e-05  |  clone_detection=0.0032
+INFO:name:E6/10  step 544/3125  total=0.0033  lr=5.36e-05  |  clone_detection=0.0033
+INFO:name:E6/10  step 576/3125  total=0.0032  lr=5.35e-05  |  clone_detection=0.0032
+INFO:name:E6/10  step 608/3125  total=0.0032  lr=5.34e-05  |  clone_detection=0.0032
+INFO:name:E6/10  step 640/3125  total=0.0033  lr=5.33e-05  |  clone_detection=0.0033
+INFO:name:E6/10  step 672/3125  total=0.0034  lr=5.32e-05  |  clone_detection=0.0034
+INFO:name:E6/10  step 704/3125  total=0.0033  lr=5.31e-05  |  clone_detection=0.0033
+INFO:name:E6/10  step 736/3125  total=0.0032  lr=5.29e-05  |  clone_detection=0.0032
+INFO:name:E6/10  step 768/3125  total=0.0033  lr=5.28e-05  |  clone_detection=0.0033
+INFO:name:E6/10  step 800/3125  total=0.0033  lr=5.27e-05  |  clone_detection=0.0033
+INFO:name:E6/10  step 832/3125  total=0.0032  lr=5.26e-05  |  clone_detection=0.0032
+INFO:name:E6/10  step 864/3125  total=0.0032  lr=5.25e-05  |  clone_detection=0.0032
+INFO:name:E6/10  step 896/3125  total=0.0031  lr=5.24e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 928/3125  total=0.0031  lr=5.23e-05  |  clone_detection=0.0031
+INFO:name:E6/10  step 960/3125  total=0.0030  lr=5.21e-05  |  clone_detection=0.0030
+INFO:name:E6/10  step 992/3125  total=0.0029  lr=5.20e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1024/3125  total=0.0029  lr=5.19e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1056/3125  total=0.0029  lr=5.18e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1088/3125  total=0.0029  lr=5.17e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1120/3125  total=0.0029  lr=5.16e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1152/3125  total=0.0029  lr=5.15e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1184/3125  total=0.0028  lr=5.13e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1216/3125  total=0.0028  lr=5.12e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1248/3125  total=0.0028  lr=5.11e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1280/3125  total=0.0027  lr=5.10e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1312/3125  total=0.0028  lr=5.09e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1344/3125  total=0.0027  lr=5.08e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1376/3125  total=0.0027  lr=5.07e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1408/3125  total=0.0028  lr=5.05e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1440/3125  total=0.0028  lr=5.04e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1472/3125  total=0.0028  lr=5.03e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1504/3125  total=0.0028  lr=5.02e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1536/3125  total=0.0029  lr=5.01e-05  |  clone_detection=0.0029
+INFO:name:E6/10  step 1568/3125  total=0.0028  lr=5.00e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1600/3125  total=0.0028  lr=4.99e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1632/3125  total=0.0028  lr=4.98e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1664/3125  total=0.0028  lr=4.96e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1696/3125  total=0.0028  lr=4.95e-05  |  clone_detection=0.0028
+INFO:name:E6/10  step 1728/3125  total=0.0027  lr=4.94e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1760/3125  total=0.0027  lr=4.93e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1792/3125  total=0.0027  lr=4.92e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1824/3125  total=0.0027  lr=4.91e-05  |  clone_detection=0.0027
+INFO:name:E6/10  step 1856/3125  total=0.0026  lr=4.90e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 1888/3125  total=0.0026  lr=4.88e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 1920/3125  total=0.0026  lr=4.87e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 1952/3125  total=0.0026  lr=4.86e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 1984/3125  total=0.0026  lr=4.85e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2016/3125  total=0.0026  lr=4.84e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2048/3125  total=0.0026  lr=4.83e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2080/3125  total=0.0026  lr=4.82e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2112/3125  total=0.0026  lr=4.80e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2144/3125  total=0.0026  lr=4.79e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2176/3125  total=0.0026  lr=4.78e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2208/3125  total=0.0026  lr=4.77e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2240/3125  total=0.0026  lr=4.76e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2272/3125  total=0.0026  lr=4.75e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2304/3125  total=0.0026  lr=4.74e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2336/3125  total=0.0025  lr=4.72e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 2368/3125  total=0.0026  lr=4.71e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2400/3125  total=0.0026  lr=4.70e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2432/3125  total=0.0026  lr=4.69e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2464/3125  total=0.0026  lr=4.68e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2496/3125  total=0.0026  lr=4.67e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2528/3125  total=0.0026  lr=4.66e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2560/3125  total=0.0025  lr=4.65e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 2592/3125  total=0.0026  lr=4.63e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2624/3125  total=0.0026  lr=4.62e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2656/3125  total=0.0026  lr=4.61e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2688/3125  total=0.0026  lr=4.60e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2720/3125  total=0.0026  lr=4.59e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2752/3125  total=0.0026  lr=4.58e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2784/3125  total=0.0026  lr=4.57e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2816/3125  total=0.0026  lr=4.55e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2848/3125  total=0.0026  lr=4.54e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 2880/3125  total=0.0025  lr=4.53e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 2912/3125  total=0.0025  lr=4.52e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 2944/3125  total=0.0025  lr=4.51e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 2976/3125  total=0.0025  lr=4.50e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 3008/3125  total=0.0025  lr=4.49e-05  |  clone_detection=0.0025
+INFO:name:E6/10  step 3040/3125  total=0.0026  lr=4.47e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 3072/3125  total=0.0026  lr=4.46e-05  |  clone_detection=0.0026
+INFO:name:E6/10  step 3104/3125  total=0.0026  lr=4.45e-05  |  clone_detection=0.0026
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 6/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0026    1.0000     124655083
+INFO:name:  TOTAL                     0.0026               124655083  (epoch)  cumulative=747930498
+INFO:name:  epoch_time=2118.3s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 6
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9821   0.9308    0.9302      0.9314   0.1390        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9308
+INFO:name:----------------------------------------------------------------------
+Saved 181 trainable params -> ./adapters/modernbert_clone_serialAdapter/model.bin
+INFO:name:  >> New best (0.9308) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 6
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9825   0.9352    0.9251      0.9456        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E7/10  step 32/3125  total=0.0009  lr=4.43e-05  |  clone_detection=0.0009
+INFO:name:E7/10  step 64/3125  total=0.0010  lr=4.42e-05  |  clone_detection=0.0010
+INFO:name:E7/10  step 96/3125  total=0.0012  lr=4.41e-05  |  clone_detection=0.0012
+INFO:name:E7/10  step 128/3125  total=0.0012  lr=4.40e-05  |  clone_detection=0.0012
+INFO:name:E7/10  step 160/3125  total=0.0011  lr=4.39e-05  |  clone_detection=0.0011
+INFO:name:E7/10  step 192/3125  total=0.0013  lr=4.38e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 224/3125  total=0.0012  lr=4.36e-05  |  clone_detection=0.0012
+INFO:name:E7/10  step 256/3125  total=0.0011  lr=4.35e-05  |  clone_detection=0.0011
+INFO:name:E7/10  step 288/3125  total=0.0013  lr=4.34e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 320/3125  total=0.0014  lr=4.33e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 352/3125  total=0.0013  lr=4.32e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 384/3125  total=0.0013  lr=4.31e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 416/3125  total=0.0015  lr=4.30e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 448/3125  total=0.0015  lr=4.29e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 480/3125  total=0.0014  lr=4.27e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 512/3125  total=0.0015  lr=4.26e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 544/3125  total=0.0016  lr=4.25e-05  |  clone_detection=0.0016
+INFO:name:E7/10  step 576/3125  total=0.0016  lr=4.24e-05  |  clone_detection=0.0016
+INFO:name:E7/10  step 608/3125  total=0.0016  lr=4.23e-05  |  clone_detection=0.0016
+INFO:name:E7/10  step 640/3125  total=0.0015  lr=4.22e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 672/3125  total=0.0015  lr=4.21e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 704/3125  total=0.0014  lr=4.19e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 736/3125  total=0.0014  lr=4.18e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 768/3125  total=0.0013  lr=4.17e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 800/3125  total=0.0013  lr=4.16e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 832/3125  total=0.0013  lr=4.15e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 864/3125  total=0.0012  lr=4.14e-05  |  clone_detection=0.0012
+INFO:name:E7/10  step 896/3125  total=0.0013  lr=4.13e-05  |  clone_detection=0.0013
+INFO:name:E7/10  step 928/3125  total=0.0014  lr=4.11e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 960/3125  total=0.0014  lr=4.10e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 992/3125  total=0.0014  lr=4.09e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1024/3125  total=0.0014  lr=4.08e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1056/3125  total=0.0014  lr=4.07e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1088/3125  total=0.0014  lr=4.06e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1120/3125  total=0.0014  lr=4.05e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1152/3125  total=0.0014  lr=4.03e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1184/3125  total=0.0014  lr=4.02e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1216/3125  total=0.0014  lr=4.01e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1248/3125  total=0.0014  lr=4.00e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1280/3125  total=0.0014  lr=3.99e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1312/3125  total=0.0015  lr=3.98e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1344/3125  total=0.0015  lr=3.97e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1376/3125  total=0.0015  lr=3.96e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1408/3125  total=0.0015  lr=3.94e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1440/3125  total=0.0015  lr=3.93e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1472/3125  total=0.0015  lr=3.92e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1504/3125  total=0.0015  lr=3.91e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1536/3125  total=0.0015  lr=3.90e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1568/3125  total=0.0015  lr=3.89e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1600/3125  total=0.0014  lr=3.88e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1632/3125  total=0.0014  lr=3.86e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1664/3125  total=0.0014  lr=3.85e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1696/3125  total=0.0014  lr=3.84e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1728/3125  total=0.0014  lr=3.83e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1760/3125  total=0.0015  lr=3.82e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1792/3125  total=0.0015  lr=3.81e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1824/3125  total=0.0015  lr=3.80e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1856/3125  total=0.0015  lr=3.78e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 1888/3125  total=0.0014  lr=3.77e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1920/3125  total=0.0014  lr=3.76e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1952/3125  total=0.0014  lr=3.75e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 1984/3125  total=0.0014  lr=3.74e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 2016/3125  total=0.0014  lr=3.73e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 2048/3125  total=0.0015  lr=3.72e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2080/3125  total=0.0014  lr=3.70e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 2112/3125  total=0.0015  lr=3.69e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2144/3125  total=0.0014  lr=3.68e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 2176/3125  total=0.0014  lr=3.67e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 2208/3125  total=0.0015  lr=3.66e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2240/3125  total=0.0015  lr=3.65e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2272/3125  total=0.0015  lr=3.64e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2304/3125  total=0.0015  lr=3.63e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2336/3125  total=0.0015  lr=3.61e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2368/3125  total=0.0015  lr=3.60e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2400/3125  total=0.0015  lr=3.59e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2432/3125  total=0.0015  lr=3.58e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2464/3125  total=0.0015  lr=3.57e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2496/3125  total=0.0015  lr=3.56e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2528/3125  total=0.0015  lr=3.55e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2560/3125  total=0.0015  lr=3.53e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2592/3125  total=0.0015  lr=3.52e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2624/3125  total=0.0015  lr=3.51e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2656/3125  total=0.0015  lr=3.50e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2688/3125  total=0.0015  lr=3.49e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2720/3125  total=0.0015  lr=3.48e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2752/3125  total=0.0015  lr=3.47e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2784/3125  total=0.0015  lr=3.45e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2816/3125  total=0.0015  lr=3.44e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2848/3125  total=0.0015  lr=3.43e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2880/3125  total=0.0015  lr=3.42e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2912/3125  total=0.0015  lr=3.41e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2944/3125  total=0.0015  lr=3.40e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 2976/3125  total=0.0015  lr=3.39e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 3008/3125  total=0.0015  lr=3.37e-05  |  clone_detection=0.0015
+INFO:name:E7/10  step 3040/3125  total=0.0014  lr=3.36e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 3072/3125  total=0.0014  lr=3.35e-05  |  clone_detection=0.0014
+INFO:name:E7/10  step 3104/3125  total=0.0014  lr=3.34e-05  |  clone_detection=0.0014
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 7/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0015    1.0000     124655083
+INFO:name:  TOTAL                     0.0015               124655083  (epoch)  cumulative=872585581
+INFO:name:  epoch_time=2110.6s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 7
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9820   0.9317    0.9454      0.9184   0.1585        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9317
+INFO:name:----------------------------------------------------------------------
+Saved 181 trainable params -> ./adapters/modernbert_clone_serialAdapter/model.bin
+INFO:name:  >> New best (0.9317) — checkpoint saved.
+INFO:name:  Testing clone_detection (415416 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 7
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9832   0.9383    0.9314      0.9452        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E8/10  step 32/3125  total=0.0012  lr=3.32e-05  |  clone_detection=0.0012
+INFO:name:E8/10  step 64/3125  total=0.0009  lr=3.31e-05  |  clone_detection=0.0009
+INFO:name:E8/10  step 96/3125  total=0.0008  lr=3.30e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 128/3125  total=0.0008  lr=3.29e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 160/3125  total=0.0007  lr=3.28e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 192/3125  total=0.0009  lr=3.27e-05  |  clone_detection=0.0009
+INFO:name:E8/10  step 224/3125  total=0.0008  lr=3.25e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 256/3125  total=0.0008  lr=3.24e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 288/3125  total=0.0008  lr=3.23e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 320/3125  total=0.0008  lr=3.22e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 352/3125  total=0.0009  lr=3.21e-05  |  clone_detection=0.0009
+INFO:name:E8/10  step 384/3125  total=0.0009  lr=3.20e-05  |  clone_detection=0.0009
+INFO:name:E8/10  step 416/3125  total=0.0008  lr=3.19e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 448/3125  total=0.0008  lr=3.17e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 480/3125  total=0.0007  lr=3.16e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 512/3125  total=0.0008  lr=3.15e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 544/3125  total=0.0007  lr=3.14e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 576/3125  total=0.0007  lr=3.13e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 608/3125  total=0.0007  lr=3.12e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 640/3125  total=0.0007  lr=3.11e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 672/3125  total=0.0006  lr=3.09e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 704/3125  total=0.0006  lr=3.08e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 736/3125  total=0.0006  lr=3.07e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 768/3125  total=0.0007  lr=3.06e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 800/3125  total=0.0007  lr=3.05e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 832/3125  total=0.0007  lr=3.04e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 864/3125  total=0.0006  lr=3.03e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 896/3125  total=0.0006  lr=3.01e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 928/3125  total=0.0006  lr=3.00e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 960/3125  total=0.0006  lr=2.99e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 992/3125  total=0.0007  lr=2.98e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1024/3125  total=0.0007  lr=2.97e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1056/3125  total=0.0007  lr=2.96e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1088/3125  total=0.0007  lr=2.95e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1120/3125  total=0.0007  lr=2.94e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1152/3125  total=0.0006  lr=2.92e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1184/3125  total=0.0006  lr=2.91e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1216/3125  total=0.0006  lr=2.90e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1248/3125  total=0.0006  lr=2.89e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1280/3125  total=0.0006  lr=2.88e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1312/3125  total=0.0006  lr=2.87e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1344/3125  total=0.0006  lr=2.86e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1376/3125  total=0.0006  lr=2.84e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1408/3125  total=0.0006  lr=2.83e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1440/3125  total=0.0006  lr=2.82e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1472/3125  total=0.0006  lr=2.81e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1504/3125  total=0.0007  lr=2.80e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1536/3125  total=0.0007  lr=2.79e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1568/3125  total=0.0007  lr=2.78e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1600/3125  total=0.0006  lr=2.76e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1632/3125  total=0.0006  lr=2.75e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1664/3125  total=0.0006  lr=2.74e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1696/3125  total=0.0006  lr=2.73e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1728/3125  total=0.0006  lr=2.72e-05  |  clone_detection=0.0006
+INFO:name:E8/10  step 1760/3125  total=0.0007  lr=2.71e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1792/3125  total=0.0007  lr=2.70e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1824/3125  total=0.0007  lr=2.68e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1856/3125  total=0.0007  lr=2.67e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1888/3125  total=0.0007  lr=2.66e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1920/3125  total=0.0007  lr=2.65e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1952/3125  total=0.0007  lr=2.64e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 1984/3125  total=0.0007  lr=2.63e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2016/3125  total=0.0007  lr=2.62e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2048/3125  total=0.0007  lr=2.61e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2080/3125  total=0.0007  lr=2.59e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2112/3125  total=0.0007  lr=2.58e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2144/3125  total=0.0007  lr=2.57e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2176/3125  total=0.0007  lr=2.56e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2208/3125  total=0.0007  lr=2.55e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2240/3125  total=0.0007  lr=2.54e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2272/3125  total=0.0007  lr=2.53e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2304/3125  total=0.0008  lr=2.51e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2336/3125  total=0.0008  lr=2.50e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2368/3125  total=0.0008  lr=2.49e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2400/3125  total=0.0008  lr=2.48e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2432/3125  total=0.0008  lr=2.47e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2464/3125  total=0.0008  lr=2.46e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2496/3125  total=0.0008  lr=2.45e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2528/3125  total=0.0008  lr=2.43e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2560/3125  total=0.0007  lr=2.42e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2592/3125  total=0.0008  lr=2.41e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2624/3125  total=0.0007  lr=2.40e-05  |  clone_detection=0.0007
+INFO:name:E8/10  step 2656/3125  total=0.0008  lr=2.39e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2688/3125  total=0.0008  lr=2.38e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2720/3125  total=0.0008  lr=2.37e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2752/3125  total=0.0008  lr=2.35e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2784/3125  total=0.0008  lr=2.34e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2816/3125  total=0.0008  lr=2.33e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2848/3125  total=0.0008  lr=2.32e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2880/3125  total=0.0008  lr=2.31e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2912/3125  total=0.0008  lr=2.30e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2944/3125  total=0.0008  lr=2.29e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 2976/3125  total=0.0008  lr=2.28e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 3008/3125  total=0.0008  lr=2.26e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 3040/3125  total=0.0008  lr=2.25e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 3072/3125  total=0.0008  lr=2.24e-05  |  clone_detection=0.0008
+INFO:name:E8/10  step 3104/3125  total=0.0008  lr=2.23e-05  |  clone_detection=0.0008
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 8/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0008    1.0000     124655083
+INFO:name:  TOTAL                     0.0008               124655083  (epoch)  cumulative=997240664
+INFO:name:  epoch_time=2129.2s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 8
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9820   0.9308    0.9347      0.9268   0.1594        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9308
+INFO:name:----------------------------------------------------------------------
+INFO:name:E9/10  step 32/3125  total=0.0002  lr=2.21e-05  |  clone_detection=0.0002
+INFO:name:E9/10  step 64/3125  total=0.0007  lr=2.20e-05  |  clone_detection=0.0007
+INFO:name:E9/10  step 96/3125  total=0.0005  lr=2.19e-05  |  clone_detection=0.0005
+INFO:name:E9/10  step 128/3125  total=0.0005  lr=2.18e-05  |  clone_detection=0.0005
+INFO:name:E9/10  step 160/3125  total=0.0004  lr=2.17e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 192/3125  total=0.0003  lr=2.15e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 224/3125  total=0.0004  lr=2.14e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 256/3125  total=0.0004  lr=2.13e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 288/3125  total=0.0003  lr=2.12e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 320/3125  total=0.0003  lr=2.11e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 352/3125  total=0.0003  lr=2.10e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 384/3125  total=0.0003  lr=2.09e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 416/3125  total=0.0003  lr=2.07e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 448/3125  total=0.0003  lr=2.06e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 480/3125  total=0.0003  lr=2.05e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 512/3125  total=0.0002  lr=2.04e-05  |  clone_detection=0.0002
+INFO:name:E9/10  step 544/3125  total=0.0002  lr=2.03e-05  |  clone_detection=0.0002
+INFO:name:E9/10  step 576/3125  total=0.0003  lr=2.02e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 608/3125  total=0.0003  lr=2.01e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 640/3125  total=0.0003  lr=1.99e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 672/3125  total=0.0003  lr=1.98e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 704/3125  total=0.0003  lr=1.97e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 736/3125  total=0.0003  lr=1.96e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 768/3125  total=0.0003  lr=1.95e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 800/3125  total=0.0003  lr=1.94e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 832/3125  total=0.0003  lr=1.93e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 864/3125  total=0.0003  lr=1.92e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 896/3125  total=0.0003  lr=1.90e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 928/3125  total=0.0003  lr=1.89e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 960/3125  total=0.0003  lr=1.88e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 992/3125  total=0.0003  lr=1.87e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1024/3125  total=0.0003  lr=1.86e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1056/3125  total=0.0003  lr=1.85e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1088/3125  total=0.0003  lr=1.84e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1120/3125  total=0.0003  lr=1.82e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1152/3125  total=0.0003  lr=1.81e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1184/3125  total=0.0003  lr=1.80e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1216/3125  total=0.0003  lr=1.79e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1248/3125  total=0.0003  lr=1.78e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1280/3125  total=0.0003  lr=1.77e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1312/3125  total=0.0003  lr=1.76e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1344/3125  total=0.0003  lr=1.74e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1376/3125  total=0.0003  lr=1.73e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1408/3125  total=0.0003  lr=1.72e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1440/3125  total=0.0002  lr=1.71e-05  |  clone_detection=0.0002
+INFO:name:E9/10  step 1472/3125  total=0.0002  lr=1.70e-05  |  clone_detection=0.0002
+INFO:name:E9/10  step 1504/3125  total=0.0002  lr=1.69e-05  |  clone_detection=0.0002
+INFO:name:E9/10  step 1536/3125  total=0.0003  lr=1.68e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1568/3125  total=0.0003  lr=1.66e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1600/3125  total=0.0003  lr=1.65e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1632/3125  total=0.0003  lr=1.64e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1664/3125  total=0.0003  lr=1.63e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1696/3125  total=0.0003  lr=1.62e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1728/3125  total=0.0003  lr=1.61e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1760/3125  total=0.0004  lr=1.60e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 1792/3125  total=0.0003  lr=1.59e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1824/3125  total=0.0004  lr=1.57e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 1856/3125  total=0.0003  lr=1.56e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1888/3125  total=0.0003  lr=1.55e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 1920/3125  total=0.0004  lr=1.54e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 1952/3125  total=0.0004  lr=1.53e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 1984/3125  total=0.0003  lr=1.52e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2016/3125  total=0.0003  lr=1.51e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2048/3125  total=0.0003  lr=1.49e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2080/3125  total=0.0003  lr=1.48e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2112/3125  total=0.0003  lr=1.47e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2144/3125  total=0.0003  lr=1.46e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2176/3125  total=0.0004  lr=1.45e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2208/3125  total=0.0004  lr=1.44e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2240/3125  total=0.0004  lr=1.43e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2272/3125  total=0.0004  lr=1.41e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2304/3125  total=0.0004  lr=1.40e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2336/3125  total=0.0003  lr=1.39e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2368/3125  total=0.0003  lr=1.38e-05  |  clone_detection=0.0003
+INFO:name:E9/10  step 2400/3125  total=0.0004  lr=1.37e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2432/3125  total=0.0004  lr=1.36e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2464/3125  total=0.0004  lr=1.35e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2496/3125  total=0.0004  lr=1.33e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2528/3125  total=0.0004  lr=1.32e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2560/3125  total=0.0004  lr=1.31e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2592/3125  total=0.0004  lr=1.30e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2624/3125  total=0.0004  lr=1.29e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2656/3125  total=0.0004  lr=1.28e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2688/3125  total=0.0004  lr=1.27e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2720/3125  total=0.0004  lr=1.26e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2752/3125  total=0.0004  lr=1.24e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2784/3125  total=0.0004  lr=1.23e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2816/3125  total=0.0004  lr=1.22e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2848/3125  total=0.0004  lr=1.21e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2880/3125  total=0.0004  lr=1.20e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2912/3125  total=0.0004  lr=1.19e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2944/3125  total=0.0004  lr=1.18e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 2976/3125  total=0.0004  lr=1.16e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 3008/3125  total=0.0004  lr=1.15e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 3040/3125  total=0.0004  lr=1.14e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 3072/3125  total=0.0004  lr=1.13e-05  |  clone_detection=0.0004
+INFO:name:E9/10  step 3104/3125  total=0.0004  lr=1.12e-05  |  clone_detection=0.0004
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 9/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0004    1.0000     124655083
+INFO:name:  TOTAL                     0.0004               124655083  (epoch)  cumulative=1121895747
+INFO:name:  epoch_time=2121.1s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 9
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9817   0.9299    0.9366      0.9232   0.1792        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.9299
+INFO:name:----------------------------------------------------------------------
+INFO:name:E10/10  step 32/3125  total=0.0000  lr=1.10e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 64/3125  total=0.0000  lr=1.09e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 96/3125  total=0.0000  lr=1.08e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 128/3125  total=0.0000  lr=1.07e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 160/3125  total=0.0000  lr=1.05e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 192/3125  total=0.0000  lr=1.04e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 224/3125  total=0.0000  lr=1.03e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 256/3125  total=0.0000  lr=1.02e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 288/3125  total=0.0000  lr=1.01e-05  |  clone_detection=0.0000
+INFO:name:E10/10  step 320/3125  total=0.0000  lr=9.97e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 352/3125  total=0.0000  lr=9.86e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 384/3125  total=0.0000  lr=9.75e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 416/3125  total=0.0000  lr=9.63e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 448/3125  total=0.0000  lr=9.52e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 480/3125  total=0.0000  lr=9.40e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 512/3125  total=0.0000  lr=9.29e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 544/3125  total=0.0000  lr=9.18e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 576/3125  total=0.0000  lr=9.06e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 608/3125  total=0.0000  lr=8.95e-06  |  clone_detection=0.0000
+INFO:name:E10/10  step 640/3125  total=0.0001  lr=8.84e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 672/3125  total=0.0001  lr=8.72e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 704/3125  total=0.0001  lr=8.61e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 736/3125  total=0.0001  lr=8.49e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 768/3125  total=0.0001  lr=8.38e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 800/3125  total=0.0001  lr=8.27e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 832/3125  total=0.0001  lr=8.15e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 864/3125  total=0.0001  lr=8.04e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 896/3125  total=0.0001  lr=7.93e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 928/3125  total=0.0001  lr=7.81e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 960/3125  total=0.0001  lr=7.70e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 992/3125  total=0.0001  lr=7.58e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1024/3125  total=0.0001  lr=7.47e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1056/3125  total=0.0001  lr=7.36e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1088/3125  total=0.0001  lr=7.24e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1120/3125  total=0.0001  lr=7.13e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1152/3125  total=0.0001  lr=7.02e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1184/3125  total=0.0001  lr=6.90e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1216/3125  total=0.0001  lr=6.79e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1248/3125  total=0.0001  lr=6.67e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1280/3125  total=0.0001  lr=6.56e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1312/3125  total=0.0001  lr=6.45e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1344/3125  total=0.0001  lr=6.33e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1376/3125  total=0.0001  lr=6.22e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1408/3125  total=0.0001  lr=6.10e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1440/3125  total=0.0001  lr=5.99e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1472/3125  total=0.0001  lr=5.88e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1504/3125  total=0.0001  lr=5.76e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1536/3125  total=0.0001  lr=5.65e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1568/3125  total=0.0001  lr=5.54e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1600/3125  total=0.0001  lr=5.42e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1632/3125  total=0.0001  lr=5.31e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1664/3125  total=0.0001  lr=5.19e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1696/3125  total=0.0001  lr=5.08e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1728/3125  total=0.0001  lr=4.97e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1760/3125  total=0.0001  lr=4.85e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1792/3125  total=0.0001  lr=4.74e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1824/3125  total=0.0001  lr=4.63e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1856/3125  total=0.0001  lr=4.51e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1888/3125  total=0.0001  lr=4.40e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1920/3125  total=0.0001  lr=4.28e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1952/3125  total=0.0001  lr=4.17e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 1984/3125  total=0.0001  lr=4.06e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2016/3125  total=0.0001  lr=3.94e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2048/3125  total=0.0001  lr=3.83e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2080/3125  total=0.0001  lr=3.72e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2112/3125  total=0.0001  lr=3.60e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2144/3125  total=0.0001  lr=3.49e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2176/3125  total=0.0001  lr=3.37e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2208/3125  total=0.0001  lr=3.26e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2240/3125  total=0.0001  lr=3.15e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2272/3125  total=0.0001  lr=3.03e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2304/3125  total=0.0001  lr=2.92e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2336/3125  total=0.0001  lr=2.81e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2368/3125  total=0.0001  lr=2.69e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2400/3125  total=0.0001  lr=2.58e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2432/3125  total=0.0001  lr=2.46e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2464/3125  total=0.0001  lr=2.35e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2496/3125  total=0.0001  lr=2.24e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2528/3125  total=0.0001  lr=2.12e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2560/3125  total=0.0001  lr=2.01e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2592/3125  total=0.0001  lr=1.90e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2624/3125  total=0.0001  lr=1.78e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2656/3125  total=0.0001  lr=1.67e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2688/3125  total=0.0001  lr=1.55e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2720/3125  total=0.0001  lr=1.44e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2752/3125  total=0.0001  lr=1.33e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2784/3125  total=0.0001  lr=1.21e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2816/3125  total=0.0001  lr=1.10e-06  |  clone_detection=0.0001
+INFO:name:E10/10  step 2848/3125  total=0.0001  lr=9.85e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 2880/3125  total=0.0001  lr=8.71e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 2912/3125  total=0.0001  lr=7.57e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 2944/3125  total=0.0001  lr=6.44e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 2976/3125  total=0.0001  lr=5.30e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 3008/3125  total=0.0001  lr=4.16e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 3040/3125  total=0.0001  lr=3.02e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 3072/3125  total=0.0001  lr=1.88e-07  |  clone_detection=0.0001
+INFO:name:E10/10  step 3104/3125  total=0.0001  lr=7.47e-08  |  clone_detection=0.0001
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 10/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  clone_detection           0.0001    1.0000     124655083
+INFO:name:  TOTAL                     0.0001               124655083  (epoch)  cumulative=1246550830
+INFO:name:  epoch_time=2121.5s  peak_gpu_memory=29.444GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'clone_detection': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:Early stopping triggered at epoch 10 — halting training.
+INFO:name:  Testing clone_detection (415416 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Final Test — Epoch 10
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  clone_detection          0.9829   0.9369    0.9268      0.9472        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Train results:
+{'clone_detection_tokens': [124655083,
+                            124655083,
+                            124655083,
+                            124655083,
+                            124655083,
+                            124655083,
+                            124655083,
+                            124655083,
+                            124655083,
+                            124655083],
+ 'clone_detection_train_loss': [0.2072,
+                                0.0366,
+                                0.0149,
+                                0.0081,
+                                0.0044,
+                                0.0026,
+                                0.0015,
+                                0.0008,
+                                0.0004,
+                                0.0001],
+ 'epoch_time_s': [2123.2,
+                  2124.3,
+                  2121.5,
+                  2116.6,
+                  2118.9,
+                  2118.3,
+                  2110.6,
+                  2129.2,
+                  2121.1,
+                  2121.5],
+ 'peak_gpu_memory_gb': [29.444,
+                        29.444,
+                        29.444,
+                        29.444,
+                        29.444,
+                        29.444,
+                        29.444,
+                        29.444,
+                        29.444,
+                        29.444],
+ 'tokens_cumulative': [124655083,
+                       249310166,
+                       373965249,
+                       498620332,
+                       623275415,
+                       747930498,
+                       872585581,
+                       997240664,
+                       1121895747,
+                       1246550830],
+ 'tokens_epoch': [124655083,
+                  124655083,
+                  124655083,
+                  124655083,
+                  124655083,
+                  124655083,
+                  124655083,
+                  124655083,
+                  124655083,
+                  124655083],
+ 'total_train_loss': [0.2072,
+                      0.0366,
+                      0.0149,
+                      0.0081,
+                      0.0044,
+                      0.0026,
+                      0.0015,
+                      0.0008,
+                      0.0004,
+                      0.0001]}
+INFO:name:Validation results:
+{'clone_detection': {'acc': [0.9496,
+                             0.982,
+                             0.9774,
+                             0.9808,
+                             0.9804,
+                             0.9821,
+                             0.982,
+                             0.982,
+                             0.9817,
+                             0.9818],
+                     'eval_loss': [0.1538,
+                                   0.1014,
+                                   0.1097,
+                                   0.1097,
+                                   0.1498,
+                                   0.139,
+                                   0.1585,
+                                   0.1594,
+                                   0.1792,
+                                   0.1892],
+                     'f1': [0.8322,
+                            0.9291,
+                            0.9165,
+                            0.9272,
+                            0.9261,
+                            0.9308,
+                            0.9317,
+                            0.9308,
+                            0.9299,
+                            0.9304],
+                     'precision': [0.7322,
+                                   0.9478,
+                                   0.8779,
+                                   0.9131,
+                                   0.9059,
+                                   0.9314,
+                                   0.9184,
+                                   0.9268,
+                                   0.9232,
+                                   0.9248],
+                     'recall': [0.9639,
+                                0.9112,
+                                0.9587,
+                                0.9418,
+                                0.9472,
+                                0.9302,
+                                0.9454,
+                                0.9347,
+                                0.9366,
+                                0.9361]}}

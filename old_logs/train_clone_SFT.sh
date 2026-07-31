@@ -1,0 +1,20 @@
+python3 SFT_cloneDetect.py \
+    --output_dir=./ \
+    --data_file_clone=./datasets/dataset_clone/data.jsonl \
+    --train_data_file_clone=./datasets/dataset_clone/train.txt \
+    --eval_data_file_clone=./datasets/dataset_clone/valid.txt \
+    --test_data_file_clone=./datasets/dataset_clone/test.txt \
+    --model_name_or_path=microsoft/unixcoder-base  \
+    --tokenizer_name=microsoft/unixcoder-base \
+    --num_classes 1 \
+    --nl_length 128 \
+    --code_length 512 \
+    --do_train True\
+    --train_batch_size 32 \
+    --eval_batch_size 32 \
+    --train_data_rate_clone 0.2 \
+    --learning_rate 1e-4 \
+    --max_grad_norm 1.0 \
+    --num_train_epochs 10 \
+    --dropout 0.1 \
+    --seed 42 2>&1 | tee ./logs_deepseek/clone_detect_prefix.log

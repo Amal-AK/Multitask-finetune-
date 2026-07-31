@@ -1,0 +1,609 @@
+INFO:name:device: cuda:1, n_gpu: 1
+/home/aakli/miniconda3/envs/multitask/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:***** Running training *****
+INFO:name:  Num examples Vulnerability detection = 21854
+INFO:name:  Num examples flaky tests = 13081
+INFO:name:  Num Epochs = 10
+INFO:name:  Total train batch size  = 32
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 0 Step 0 Total Loss 0.699  Vulnerability 0.688 flakiness 0.71   
+INFO:name:Epoch 0 Step 128 Total Loss 0.678  Vulnerability 0.691 flakiness 0.666   
+INFO:name:Epoch 0 Step 256 Total Loss 0.607  Vulnerability 0.69 flakiness 0.524   
+INFO:name:Epoch 0 Step 384 Total Loss 0.553  Vulnerability 0.691 flakiness 0.416   
+INFO:name:Epoch 0 Step 512 Total Loss 0.523  Vulnerability 0.691 flakiness 0.355   
+INFO:name:Epoch 0 Step 640 Total Loss 0.502  Vulnerability 0.69 flakiness 0.314   
+INFO:name:Epoch 0 Step 768 Total Loss 0.486  Vulnerability 0.689 flakiness 0.283   
+INFO:name:Epoch 0 Step 896 Total Loss 0.476  Vulnerability 0.689 flakiness 0.264   
+INFO:name:Epoch 0 Step 1024 Total Loss 0.467  Vulnerability 0.688 flakiness 0.246   
+INFO:name:Epoch 0 Step 1152 Total Loss 0.458  Vulnerability 0.687 flakiness 0.229   
+INFO:name:Epoch 0 Step 1280 Total Loss 0.451  Vulnerability 0.687 flakiness 0.216   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4979, 0.5021], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6694
+INFO:name:  eval_acc = 0.5677
+INFO:name:  f1_score = 0.3878
+INFO:name:  recall = 0.3151
+INFO:name:  precision = 0.504
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0753
+INFO:name:  eval_acc = 0.9791
+INFO:name:  f1_score = 0.6224
+INFO:name:  recall = 0.463
+INFO:name:  precision = 0.9494
+INFO:name:Saving model checkpoint to ./models/best_model_vul_flaky_full/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for flaky tests = 4361
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.5626, 'test_f1_score': 0.3998, 'test_recall': 0.3171, 'test_precision': 0.5408} 
+
+
+INFO:name:
+***** Test Results for task flakiness_detect
+{'task': 'flakiness_detect', 'test_acc': 0.9727, 'test_f1_score': 0.4251, 'test_recall': 0.2716, 'test_precision': 0.9778} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 1 Step 0 Total Loss 0.346  Vulnerability 0.679 flakiness 0.015   
+INFO:name:Epoch 1 Step 128 Total Loss 0.371  Vulnerability 0.672 flakiness 0.072   
+INFO:name:Epoch 1 Step 256 Total Loss 0.366  Vulnerability 0.67 flakiness 0.065   
+INFO:name:Epoch 1 Step 384 Total Loss 0.366  Vulnerability 0.666 flakiness 0.069   
+INFO:name:Epoch 1 Step 512 Total Loss 0.367  Vulnerability 0.666 flakiness 0.072   
+INFO:name:Epoch 1 Step 640 Total Loss 0.367  Vulnerability 0.665 flakiness 0.072   
+INFO:name:Epoch 1 Step 768 Total Loss 0.367  Vulnerability 0.666 flakiness 0.071   
+INFO:name:Epoch 1 Step 896 Total Loss 0.365  Vulnerability 0.666 flakiness 0.069   
+INFO:name:Epoch 1 Step 1024 Total Loss 0.363  Vulnerability 0.664 flakiness 0.066   
+INFO:name:Epoch 1 Step 1152 Total Loss 0.361  Vulnerability 0.662 flakiness 0.064   
+INFO:name:Epoch 1 Step 1280 Total Loss 0.359  Vulnerability 0.661 flakiness 0.063   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4930, 0.5070], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6271
+INFO:name:  eval_acc = 0.6288
+INFO:name:  f1_score = 0.5399
+INFO:name:  recall = 0.5013
+INFO:name:  precision = 0.5851
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0779
+INFO:name:  eval_acc = 0.981
+INFO:name:  f1_score = 0.7261
+INFO:name:  recall = 0.679
+INFO:name:  precision = 0.7801
+INFO:name:Saving model checkpoint to ./models/best_model_vul_flaky_full/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for flaky tests = 4361
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6036, 'test_f1_score': 0.531, 'test_recall': 0.4884, 'test_precision': 0.5816} 
+
+
+INFO:name:
+***** Test Results for task flakiness_detect
+{'task': 'flakiness_detect', 'test_acc': 0.9789, 'test_f1_score': 0.6806, 'test_recall': 0.6049, 'test_precision': 0.7778} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 2 Step 0 Total Loss 0.319  Vulnerability 0.643 flakiness 0.004   
+INFO:name:Epoch 2 Step 128 Total Loss 0.331  Vulnerability 0.611 flakiness 0.059   
+INFO:name:Epoch 2 Step 256 Total Loss 0.329  Vulnerability 0.614 flakiness 0.053   
+INFO:name:Epoch 2 Step 384 Total Loss 0.326  Vulnerability 0.614 flakiness 0.046   
+INFO:name:Epoch 2 Step 512 Total Loss 0.327  Vulnerability 0.615 flakiness 0.048   
+INFO:name:Epoch 2 Step 640 Total Loss 0.324  Vulnerability 0.611 flakiness 0.046   
+INFO:name:Epoch 2 Step 768 Total Loss 0.322  Vulnerability 0.61 flakiness 0.044   
+INFO:name:Epoch 2 Step 896 Total Loss 0.322  Vulnerability 0.61 flakiness 0.043   
+INFO:name:Epoch 2 Step 1024 Total Loss 0.32  Vulnerability 0.608 flakiness 0.043   
+INFO:name:Epoch 2 Step 1152 Total Loss 0.318  Vulnerability 0.606 flakiness 0.041   
+INFO:name:Epoch 2 Step 1280 Total Loss 0.317  Vulnerability 0.604 flakiness 0.04   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4878, 0.5122], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6091
+INFO:name:  eval_acc = 0.6662
+INFO:name:  f1_score = 0.5586
+INFO:name:  recall = 0.4861
+INFO:name:  precision = 0.6564
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.078
+INFO:name:  eval_acc = 0.983
+INFO:name:  f1_score = 0.7582
+INFO:name:  recall = 0.716
+INFO:name:  precision = 0.8056
+INFO:name:Saving model checkpoint to ./models/best_model_vul_flaky_full/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for flaky tests = 4361
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6354, 'test_f1_score': 0.5328, 'test_recall': 0.4526, 'test_precision': 0.6477} 
+
+
+INFO:name:
+***** Test Results for task flakiness_detect
+{'task': 'flakiness_detect', 'test_acc': 0.9812, 'test_f1_score': 0.7133, 'test_recall': 0.6296, 'test_precision': 0.8226} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 3 Step 0 Total Loss 0.252  Vulnerability 0.516 flakiness 0.001   
+INFO:name:Epoch 3 Step 128 Total Loss 0.259  Vulnerability 0.51 flakiness 0.021   
+INFO:name:Epoch 3 Step 256 Total Loss 0.258  Vulnerability 0.51 flakiness 0.018   
+INFO:name:Epoch 3 Step 384 Total Loss 0.259  Vulnerability 0.51 flakiness 0.02   
+INFO:name:Epoch 3 Step 512 Total Loss 0.259  Vulnerability 0.51 flakiness 0.02   
+INFO:name:Epoch 3 Step 640 Total Loss 0.262  Vulnerability 0.515 flakiness 0.021   
+INFO:name:Epoch 3 Step 768 Total Loss 0.264  Vulnerability 0.519 flakiness 0.022   
+INFO:name:Epoch 3 Step 896 Total Loss 0.264  Vulnerability 0.518 flakiness 0.022   
+INFO:name:Epoch 3 Step 1024 Total Loss 0.264  Vulnerability 0.52 flakiness 0.022   
+INFO:name:Epoch 3 Step 1152 Total Loss 0.263  Vulnerability 0.52 flakiness 0.021   
+INFO:name:Epoch 3 Step 1280 Total Loss 0.264  Vulnerability 0.521 flakiness 0.021   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4844, 0.5156], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6089
+INFO:name:  eval_acc = 0.6534
+INFO:name:  f1_score = 0.5972
+INFO:name:  recall = 0.5914
+INFO:name:  precision = 0.6031
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0891
+INFO:name:  eval_acc = 0.9725
+INFO:name:  f1_score = 0.6739
+INFO:name:  recall = 0.7654
+INFO:name:  precision = 0.6019
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 4 Step 0 Total Loss 0.19  Vulnerability 0.392 flakiness 0.001   
+INFO:name:Epoch 4 Step 128 Total Loss 0.216  Vulnerability 0.431 flakiness 0.014   
+INFO:name:Epoch 4 Step 256 Total Loss 0.219  Vulnerability 0.433 flakiness 0.017   
+INFO:name:Epoch 4 Step 384 Total Loss 0.221  Vulnerability 0.44 flakiness 0.016   
+INFO:name:Epoch 4 Step 512 Total Loss 0.22  Vulnerability 0.44 flakiness 0.014   
+INFO:name:Epoch 4 Step 640 Total Loss 0.223  Vulnerability 0.445 flakiness 0.015   
+INFO:name:Epoch 4 Step 768 Total Loss 0.223  Vulnerability 0.447 flakiness 0.014   
+INFO:name:Epoch 4 Step 896 Total Loss 0.223  Vulnerability 0.448 flakiness 0.013   
+INFO:name:Epoch 4 Step 1024 Total Loss 0.223  Vulnerability 0.447 flakiness 0.013   
+INFO:name:Epoch 4 Step 1152 Total Loss 0.223  Vulnerability 0.448 flakiness 0.013   
+INFO:name:Epoch 4 Step 1280 Total Loss 0.224  Vulnerability 0.45 flakiness 0.012   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4817, 0.5183], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6983
+INFO:name:  eval_acc = 0.6428
+INFO:name:  f1_score = 0.6036
+INFO:name:  recall = 0.6259
+INFO:name:  precision = 0.5827
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0912
+INFO:name:  eval_acc = 0.9784
+INFO:name:  f1_score = 0.7186
+INFO:name:  recall = 0.7407
+INFO:name:  precision = 0.6977
+INFO:name:Saving model checkpoint to ./models/best_model_vul_flaky_full/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for flaky tests = 4361
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6343, 'test_f1_score': 0.6072, 'test_recall': 0.6151, 'test_precision': 0.5994} 
+
+
+INFO:name:
+***** Test Results for task flakiness_detect
+{'task': 'flakiness_detect', 'test_acc': 0.9801, 'test_f1_score': 0.7203, 'test_recall': 0.6914, 'test_precision': 0.7517} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 5 Step 0 Total Loss 0.18  Vulnerability 0.373 flakiness 0.0   
+INFO:name:Epoch 5 Step 128 Total Loss 0.189  Vulnerability 0.384 flakiness 0.007   
+INFO:name:Epoch 5 Step 256 Total Loss 0.188  Vulnerability 0.381 flakiness 0.01   
+INFO:name:Epoch 5 Step 384 Total Loss 0.188  Vulnerability 0.379 flakiness 0.01   
+INFO:name:Epoch 5 Step 512 Total Loss 0.187  Vulnerability 0.378 flakiness 0.01   
+INFO:name:Epoch 5 Step 640 Total Loss 0.19  Vulnerability 0.383 flakiness 0.011   
+INFO:name:Epoch 5 Step 768 Total Loss 0.191  Vulnerability 0.386 flakiness 0.011   
+INFO:name:Epoch 5 Step 896 Total Loss 0.192  Vulnerability 0.387 flakiness 0.011   
+INFO:name:Epoch 5 Step 1024 Total Loss 0.192  Vulnerability 0.389 flakiness 0.01   
+INFO:name:Epoch 5 Step 1152 Total Loss 0.194  Vulnerability 0.391 flakiness 0.011   
+INFO:name:Epoch 5 Step 1280 Total Loss 0.194  Vulnerability 0.393 flakiness 0.01   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4789, 0.5211], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.7941
+INFO:name:  eval_acc = 0.6435
+INFO:name:  f1_score = 0.5671
+INFO:name:  recall = 0.5375
+INFO:name:  precision = 0.6002
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.0931
+INFO:name:  eval_acc = 0.9821
+INFO:name:  f1_score = 0.7484
+INFO:name:  recall = 0.716
+INFO:name:  precision = 0.7838
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 6 Step 0 Total Loss 0.144  Vulnerability 0.3 flakiness 0.0   
+INFO:name:Epoch 6 Step 128 Total Loss 0.151  Vulnerability 0.31 flakiness 0.004   
+INFO:name:Epoch 6 Step 256 Total Loss 0.157  Vulnerability 0.322 flakiness 0.006   
+INFO:name:Epoch 6 Step 384 Total Loss 0.158  Vulnerability 0.324 flakiness 0.005   
+INFO:name:Epoch 6 Step 512 Total Loss 0.16  Vulnerability 0.328 flakiness 0.006   
+INFO:name:Epoch 6 Step 640 Total Loss 0.162  Vulnerability 0.332 flakiness 0.007   
+INFO:name:Epoch 6 Step 768 Total Loss 0.164  Vulnerability 0.335 flakiness 0.007   
+INFO:name:Epoch 6 Step 896 Total Loss 0.163  Vulnerability 0.335 flakiness 0.007   
+INFO:name:Epoch 6 Step 1024 Total Loss 0.164  Vulnerability 0.335 flakiness 0.007   
+INFO:name:Epoch 6 Step 1152 Total Loss 0.165  Vulnerability 0.338 flakiness 0.007   
+INFO:name:Epoch 6 Step 1280 Total Loss 0.165  Vulnerability 0.339 flakiness 0.006   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4764, 0.5236], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.8033
+INFO:name:  eval_acc = 0.6471
+INFO:name:  f1_score = 0.5626
+INFO:name:  recall = 0.5223
+INFO:name:  precision = 0.6096
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.1028
+INFO:name:  eval_acc = 0.9805
+INFO:name:  f1_score = 0.7416
+INFO:name:  recall = 0.7531
+INFO:name:  precision = 0.7305
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 7 Step 0 Total Loss 0.153  Vulnerability 0.32 flakiness 0.0   
+INFO:name:Epoch 7 Step 128 Total Loss 0.129  Vulnerability 0.26 flakiness 0.009   
+INFO:name:Epoch 7 Step 256 Total Loss 0.13  Vulnerability 0.267 flakiness 0.006   
+INFO:name:Epoch 7 Step 384 Total Loss 0.132  Vulnerability 0.272 flakiness 0.006   
+INFO:name:Epoch 7 Step 512 Total Loss 0.134  Vulnerability 0.275 flakiness 0.006   
+INFO:name:Epoch 7 Step 640 Total Loss 0.137  Vulnerability 0.281 flakiness 0.006   
+INFO:name:Epoch 7 Step 768 Total Loss 0.138  Vulnerability 0.284 flakiness 0.006   
+INFO:name:Epoch 7 Step 896 Total Loss 0.14  Vulnerability 0.288 flakiness 0.006   
+INFO:name:Epoch 7 Step 1024 Total Loss 0.142  Vulnerability 0.292 flakiness 0.007   
+INFO:name:Epoch 7 Step 1152 Total Loss 0.143  Vulnerability 0.294 flakiness 0.007   
+INFO:name:Epoch 7 Step 1280 Total Loss 0.143  Vulnerability 0.294 flakiness 0.006   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4740, 0.5260], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.8412
+INFO:name:  eval_acc = 0.6274
+INFO:name:  f1_score = 0.5793
+INFO:name:  recall = 0.5906
+INFO:name:  precision = 0.5685
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.1099
+INFO:name:  eval_acc = 0.98
+INFO:name:  f1_score = 0.7356
+INFO:name:  recall = 0.7469
+INFO:name:  precision = 0.7246
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 8 Step 0 Total Loss 0.13  Vulnerability 0.272 flakiness 0.001   
+INFO:name:Epoch 8 Step 128 Total Loss 0.131  Vulnerability 0.271 flakiness 0.004   
+INFO:name:Epoch 8 Step 256 Total Loss 0.124  Vulnerability 0.255 flakiness 0.005   
+INFO:name:Epoch 8 Step 384 Total Loss 0.125  Vulnerability 0.259 flakiness 0.004   
+INFO:name:Epoch 8 Step 512 Total Loss 0.126  Vulnerability 0.261 flakiness 0.004   
+INFO:name:Epoch 8 Step 640 Total Loss 0.126  Vulnerability 0.262 flakiness 0.004   
+INFO:name:Epoch 8 Step 768 Total Loss 0.127  Vulnerability 0.263 flakiness 0.005   
+INFO:name:Epoch 8 Step 896 Total Loss 0.126  Vulnerability 0.261 flakiness 0.004   
+INFO:name:Epoch 8 Step 1024 Total Loss 0.127  Vulnerability 0.262 flakiness 0.004   
+INFO:name:Epoch 8 Step 1152 Total Loss 0.126  Vulnerability 0.261 flakiness 0.004   
+INFO:name:Epoch 8 Step 1280 Total Loss 0.127  Vulnerability 0.263 flakiness 0.004   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4717, 0.5283], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 1.0569
+INFO:name:  eval_acc = 0.642
+INFO:name:  f1_score = 0.5695
+INFO:name:  recall = 0.5451
+INFO:name:  precision = 0.5963
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.1145
+INFO:name:  eval_acc = 0.9812
+INFO:name:  f1_score = 0.7405
+INFO:name:  recall = 0.7222
+INFO:name:  precision = 0.7597
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 9 Step 0 Total Loss 0.065  Vulnerability 0.138 flakiness 0.0   
+INFO:name:Epoch 9 Step 128 Total Loss 0.097  Vulnerability 0.205 flakiness 0.002   
+INFO:name:Epoch 9 Step 256 Total Loss 0.101  Vulnerability 0.213 flakiness 0.002   
+INFO:name:Epoch 9 Step 384 Total Loss 0.104  Vulnerability 0.216 flakiness 0.004   
+INFO:name:Epoch 9 Step 512 Total Loss 0.103  Vulnerability 0.214 flakiness 0.004   
+INFO:name:Epoch 9 Step 640 Total Loss 0.106  Vulnerability 0.219 flakiness 0.004   
+INFO:name:Epoch 9 Step 768 Total Loss 0.108  Vulnerability 0.224 flakiness 0.004   
+INFO:name:Epoch 9 Step 896 Total Loss 0.108  Vulnerability 0.224 flakiness 0.004   
+INFO:name:Epoch 9 Step 1024 Total Loss 0.108  Vulnerability 0.225 flakiness 0.004   
+INFO:name:Epoch 9 Step 1152 Total Loss 0.109  Vulnerability 0.226 flakiness 0.004   
+INFO:name:Epoch 9 Step 1280 Total Loss 0.109  Vulnerability 0.228 flakiness 0.004   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4694, 0.5306], device='cuda:1', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples flaky tests = 4360
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 1.1866
+INFO:name:  eval_acc = 0.6277
+INFO:name:  f1_score = 0.593
+INFO:name:  recall = 0.6243
+INFO:name:  precision = 0.5648
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = flakiness_detect
+INFO:name:  eval_loss = 0.1209
+INFO:name:  eval_acc = 0.9812
+INFO:name:  f1_score = 0.7389
+INFO:name:  recall = 0.716
+INFO:name:  precision = 0.7632
+INFO:name:Saving model checkpoint to ./models/best_model_vul_flaky_full/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for flaky tests = 4361
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6105, 'test_f1_score': 0.5908, 'test_recall': 0.612, 'test_precision': 0.571} 
+
+
+INFO:name:
+***** Test Results for task flakiness_detect
+{'task': 'flakiness_detect', 'test_acc': 0.9803, 'test_f1_score': 0.7152, 'test_recall': 0.6667, 'test_precision': 0.7714} 
+
+
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6105, 'test_f1_score': 0.5908, 'test_recall': 0.612, 'test_precision': 0.571} 
+
+
+INFO:name:
+***** Test Results for task flakiness_detect
+{'task': 'flakiness_detect', 'test_acc': 0.9803, 'test_f1_score': 0.7152, 'test_recall': 0.6667, 'test_precision': 0.7714} 
+
+
+
+ Train results : 
+
+{'flaky_train_loss': [0.208,
+                      0.063,
+                      0.039,
+                      0.02,
+                      0.012,
+                      0.01,
+                      0.006,
+                      0.006,
+                      0.004,
+                      0.004],
+ 'total_train_loss': [0.447,
+                      0.359,
+                      0.315,
+                      0.264,
+                      0.224,
+                      0.195,
+                      0.165,
+                      0.144,
+                      0.127,
+                      0.11],
+ 'vul_train_loss': [0.687,
+                    0.66,
+                    0.602,
+                    0.522,
+                    0.45,
+                    0.394,
+                    0.339,
+                    0.296,
+                    0.264,
+                    0.229]}
+
+ Validation results : 
+
+{'flakiness_detect': {'eval_acc': [0.9791,
+                                   0.981,
+                                   0.983,
+                                   0.9725,
+                                   0.9784,
+                                   0.9821,
+                                   0.9805,
+                                   0.98,
+                                   0.9812,
+                                   0.9812],
+                      'eval_loss': [0.0753,
+                                    0.0779,
+                                    0.078,
+                                    0.0891,
+                                    0.0912,
+                                    0.0931,
+                                    0.1028,
+                                    0.1099,
+                                    0.1145,
+                                    0.1209],
+                      'f1_score': [0.6224,
+                                   0.7261,
+                                   0.7582,
+                                   0.6739,
+                                   0.7186,
+                                   0.7484,
+                                   0.7416,
+                                   0.7356,
+                                   0.7405,
+                                   0.7389],
+                      'precision': [0.9494,
+                                    0.7801,
+                                    0.8056,
+                                    0.6019,
+                                    0.6977,
+                                    0.7838,
+                                    0.7305,
+                                    0.7246,
+                                    0.7597,
+                                    0.7632],
+                      'recall': [0.463,
+                                 0.679,
+                                 0.716,
+                                 0.7654,
+                                 0.7407,
+                                 0.716,
+                                 0.7531,
+                                 0.7469,
+                                 0.7222,
+                                 0.716]},
+ 'vul_detection': {'eval_acc': [0.5677,
+                                0.6288,
+                                0.6662,
+                                0.6534,
+                                0.6428,
+                                0.6435,
+                                0.6471,
+                                0.6274,
+                                0.642,
+                                0.6277],
+                   'eval_loss': [0.6694,
+                                 0.6271,
+                                 0.6091,
+                                 0.6089,
+                                 0.6983,
+                                 0.7941,
+                                 0.8033,
+                                 0.8412,
+                                 1.0569,
+                                 1.1866],
+                   'f1_score': [0.3878,
+                                0.5399,
+                                0.5586,
+                                0.5972,
+                                0.6036,
+                                0.5671,
+                                0.5626,
+                                0.5793,
+                                0.5695,
+                                0.593],
+                   'precision': [0.504,
+                                 0.5851,
+                                 0.6564,
+                                 0.6031,
+                                 0.5827,
+                                 0.6002,
+                                 0.6096,
+                                 0.5685,
+                                 0.5963,
+                                 0.5648],
+                   'recall': [0.3151,
+                              0.5013,
+                              0.4861,
+                              0.5914,
+                              0.6259,
+                              0.5375,
+                              0.5223,
+                              0.5906,
+                              0.5451,
+                              0.6243]}}

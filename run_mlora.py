@@ -276,6 +276,9 @@ def main():
     args.autocast_dtype = autocast_dtype
 
     config = AutoConfig.from_pretrained(args.model_name_or_path, trust_remote_code=True)
+    # ModernBERT auto-enables torch.compile on its MLP when Triton is present, which hits a
+    # PyTorch Inductor bug (AttributeError: 'float' object has no attribute 'meta').
+    config.reference_compile = False
     args.tasks = _resolve_active_tasks(args)
     config.tasks = args.tasks
     config.loss_weighting = args.loss_weighting
@@ -331,9 +334,11 @@ def main():
     for name in replaced:
         logger.debug("  injected: %s", name)
 
-    # Trainable-param report
-    total_params     = sum(p.numel() for p in base_model.parameters())
-    trainable_params = sum(p.numel() for p in base_model.parameters() if p.requires_grad)
+    # Trainable-param report (encoder_part only — for seq2seq models like T5/CodeT5+,
+    # base_model also contains the decoder, which is never frozen here since it's not
+    # part of the wrapped MTL model and would otherwise inflate this count).
+    total_params     = sum(p.numel() for p in encoder_part.parameters())
+    trainable_params = sum(p.numel() for p in encoder_part.parameters() if p.requires_grad)
     logger.info("mLoRA encoder params — trainable: %d / %d  (%.2f%%)",
                 trainable_params, total_params, 100.0 * trainable_params / max(total_params, 1))
 

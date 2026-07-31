@@ -1,0 +1,158 @@
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+INFO:name:device: cuda, n_gpu: 4
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+root
+├── embeddings (RobertaEmbeddings)
+│   ├── word_embeddings (Embedding) weight:[51416, 768]
+│   ├── position_embeddings (Embedding) weight:[1026, 768]
+│   ├── token_type_embeddings (Embedding) weight:[10, 768]
+│   └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+├── encoder (RobertaEncoder)
+│   └── layer (ModuleList)
+│       └── 0-11(RobertaLayer)
+│           ├── attention (RobertaAttention)
+│           │   ├── self (RobertaSelfAttention)
+│           │   │   └── query,key,value(Linear) weight:[768, 768] bias:[768]
+│           │   ├── output (RobertaSelfOutput)
+│           │   │   ├── dense (Linear) weight:[768, 768] bias:[768]
+│           │   │   └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+│           │   └── adapter (AdapterLayer)
+│           │       └── modulelist (Sequential)
+│           │           ├── down_proj (Linear) weight:[32, 768] bias:[32]
+│           │           └── up_proj (Linear) weight:[768, 32] bias:[768]
+│           ├── intermediate (RobertaIntermediate)
+│           │   └── dense (Linear) weight:[3072, 768] bias:[3072]
+│           └── output (RobertaOutput)
+│               ├── dense (Linear) weight:[768, 3072] bias:[768]
+│               ├── LayerNorm (LayerNorm) weight:[768] bias:[768]
+│               └── adapter (AdapterLayer)
+│                   └── modulelist (Sequential)
+│                       ├── down_proj (Linear) weight:[32, 768] bias:[32]
+│                       └── up_proj (Linear) weight:[768, 32] bias:[768]
+└── pooler (RobertaPooler)
+    └── dense (Linear) weight:[768, 768] bias:[768]
+[INFO|(OpenDelta)basemodel:696]2025-02-24 21:56:22,716 >> Trainable Ratio: 1198848/127128576=0.943020%
+[INFO|(OpenDelta)basemodel:698]2025-02-24 21:56:22,716 >> Delta Parameter Ratio: 1198848/127128576=0.943020%
+[INFO|(OpenDelta)basemodel:700]2025-02-24 21:56:22,716 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:***** Running training *****
+INFO:name:  Num examples Vulnerability detection = 21854
+INFO:name:  Num examples clone detection = 225257
+INFO:name:  Num examples code search = 251820
+INFO:name:  Num examples flaky tests = 13081
+INFO:name:  Num Epochs = 15
+INFO:name:  Total train batch size  = 32
+DataParallel(
+  (module): MultiTaskModel_MTL(
+    (encoder): RobertaModel(
+      (embeddings): RobertaEmbeddings(
+        (word_embeddings): Embedding(51416, 768, padding_idx=1)
+        (position_embeddings): Embedding(1026, 768, padding_idx=1)
+        (token_type_embeddings): Embedding(10, 768)
+        (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (encoder): RobertaEncoder(
+        (layer): ModuleList(
+          (0-11): 12 x RobertaLayer(
+            (attention): RobertaAttention(
+              (self): RobertaSelfAttention(
+                (query): Linear(in_features=768, out_features=768, bias=True)
+                (key): Linear(in_features=768, out_features=768, bias=True)
+                (value): Linear(in_features=768, out_features=768, bias=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (output): RobertaSelfOutput(
+                (dense): Linear(in_features=768, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (adapter): AdapterLayer(
+                (modulelist): Sequential(
+                  (down_proj): Linear(in_features=768, out_features=32, bias=True)
+                  (non_linear): gelu_new
+                  (up_proj): Linear(in_features=32, out_features=768, bias=True)
+                )
+              )
+            )
+            (intermediate): RobertaIntermediate(
+              (dense): Linear(in_features=768, out_features=3072, bias=True)
+              (intermediate_act_fn): GELUActivation()
+            )
+            (output): RobertaOutput(
+              (dense): Linear(in_features=3072, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+              (adapter): AdapterLayer(
+                (modulelist): Sequential(
+                  (down_proj): Linear(in_features=768, out_features=32, bias=True)
+                  (non_linear): gelu_new
+                  (up_proj): Linear(in_features=32, out_features=768, bias=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (pooler): RobertaPooler(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (activation): Tanh()
+      )
+    )
+    (task_heads): ModuleDict(
+      (clone_detection): Sequential(
+        (0): Linear(in_features=768, out_features=384, bias=True)
+        (1): ReLU()
+        (2): Dropout(p=0.1, inplace=False)
+        (3): Linear(in_features=384, out_features=1, bias=True)
+        (4): Sigmoid()
+      )
+      (vul_detection): Sequential(
+        (0): Linear(in_features=768, out_features=384, bias=True)
+        (1): ReLU()
+        (2): Dropout(p=0.2, inplace=False)
+        (3): Linear(in_features=384, out_features=1, bias=True)
+        (4): Sigmoid()
+      )
+      (flakiness_detect): Sequential(
+        (0): Linear(in_features=768, out_features=384, bias=True)
+        (1): ReLU()
+        (2): Dropout(p=0.2, inplace=False)
+        (3): Linear(in_features=384, out_features=1, bias=True)
+        (4): Sigmoid()
+      )
+    )
+  )
+)
+
+

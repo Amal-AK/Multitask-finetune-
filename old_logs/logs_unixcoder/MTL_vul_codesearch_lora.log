@@ -1,0 +1,1578 @@
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+INFO:name:device: cuda:0, n_gpu: 1
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+root
+├── embeddings (RobertaEmbeddings)
+│   ├── word_embeddings (Embedding) weight:[51416, 768]
+│   ├── position_embeddings (Embedding) weight:[1026, 768]
+│   ├── token_type_embeddings (Embedding) weight:[10, 768]
+│   └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+├── encoder (RobertaEncoder)
+│   └── layer (ModuleList)
+│       └── 0-11(RobertaLayer)
+│           ├── attention (RobertaAttention)
+│           │   ├── self (RobertaSelfAttention)
+│           │   │   ├── query,value(Linear) weight:[768, 768] bias:[768]
+│           │   │   │   └── lora (LowRankLinear) lora_A:[16, 768] lora_B:[768, 16]
+│           │   │   └── key (Linear) weight:[768, 768] bias:[768]
+│           │   └── output (RobertaSelfOutput)
+│           │       ├── dense (Linear) weight:[768, 768] bias:[768]
+│           │       └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+│           ├── intermediate (RobertaIntermediate)
+│           │   └── dense (Linear) weight:[3072, 768] bias:[3072]
+│           └── output (RobertaOutput)
+│               ├── dense (Linear) weight:[768, 3072] bias:[768]
+│               └── LayerNorm (LayerNorm) weight:[768] bias:[768]
+└── pooler (RobertaPooler)
+    └── dense (Linear) weight:[768, 768] bias:[768]
+[INFO|(OpenDelta)basemodel:696]2025-05-21 15:24:37,967 >> Trainable Ratio: 589824/126519552=0.466192%
+[INFO|(OpenDelta)basemodel:698]2025-05-21 15:24:37,968 >> Delta Parameter Ratio: 589824/126519552=0.466192%
+[INFO|(OpenDelta)basemodel:700]2025-05-21 15:24:37,968 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:***** Running training *****
+INFO:name:  Num examples vulnerability detection = 21854
+INFO:name:  Num examples code search = 251820
+INFO:name:  Num Epochs = 10
+INFO:name:  Total train batch size  = 32
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 0 Step 0 Total Loss 0.905  Vulnerability 0.695 code search 1.116   
+INFO:name:Epoch 0 Step 128 Total Loss 1.0  Vulnerability 0.699 code search 1.301   
+INFO:name:Epoch 0 Step 256 Total Loss 1.0  Vulnerability 0.7 code search 1.3   
+INFO:name:Epoch 0 Step 384 Total Loss 0.998  Vulnerability 0.7 code search 1.296   
+INFO:name:Epoch 0 Step 512 Total Loss 0.992  Vulnerability 0.699 code search 1.286   
+INFO:name:Epoch 0 Step 640 Total Loss 0.988  Vulnerability 0.698 code search 1.278   
+INFO:name:Epoch 0 Step 768 Total Loss 0.987  Vulnerability 0.697 code search 1.278   
+INFO:name:Epoch 0 Step 896 Total Loss 0.984  Vulnerability 0.697 code search 1.271   
+INFO:name:Epoch 0 Step 1024 Total Loss 0.976  Vulnerability 0.696 code search 1.256   
+INFO:name:Epoch 0 Step 1152 Total Loss 0.967  Vulnerability 0.695 code search 1.238   
+INFO:name:Epoch 0 Step 1280 Total Loss 0.957  Vulnerability 0.695 code search 1.22   
+INFO:name:Epoch 0 Step 1408 Total Loss 0.948  Vulnerability 0.695 code search 1.202   
+INFO:name:Epoch 0 Step 1536 Total Loss 0.939  Vulnerability 0.694 code search 1.184   
+INFO:name:Epoch 0 Step 1664 Total Loss 0.926  Vulnerability 0.694 code search 1.159   
+INFO:name:Epoch 0 Step 1792 Total Loss 0.915  Vulnerability 0.693 code search 1.136   
+INFO:name:Epoch 0 Step 1920 Total Loss 0.902  Vulnerability 0.693 code search 1.112   
+INFO:name:Epoch 0 Step 2048 Total Loss 0.89  Vulnerability 0.693 code search 1.087   
+INFO:name:Epoch 0 Step 2176 Total Loss 0.88  Vulnerability 0.692 code search 1.067   
+INFO:name:Epoch 0 Step 2304 Total Loss 0.869  Vulnerability 0.692 code search 1.047   
+INFO:name:Epoch 0 Step 2432 Total Loss 0.859  Vulnerability 0.691 code search 1.027   
+INFO:name:Epoch 0 Step 2560 Total Loss 0.85  Vulnerability 0.691 code search 1.009   
+INFO:name:Epoch 0 Step 2688 Total Loss 0.841  Vulnerability 0.691 code search 0.991   
+INFO:name:Epoch 0 Step 2816 Total Loss 0.832  Vulnerability 0.69 code search 0.973   
+INFO:name:Epoch 0 Step 2944 Total Loss 0.824  Vulnerability 0.69 code search 0.959   
+INFO:name:Epoch 0 Step 3072 Total Loss 0.816  Vulnerability 0.69 code search 0.942   
+INFO:name:Epoch 0 Step 3200 Total Loss 0.807  Vulnerability 0.69 code search 0.925   
+INFO:name:Epoch 0 Step 3328 Total Loss 0.8  Vulnerability 0.689 code search 0.911   
+INFO:name:Epoch 0 Step 3456 Total Loss 0.792  Vulnerability 0.689 code search 0.896   
+INFO:name:Epoch 0 Step 3584 Total Loss 0.786  Vulnerability 0.689 code search 0.883   
+INFO:name:Epoch 0 Step 3712 Total Loss 0.779  Vulnerability 0.689 code search 0.869   
+INFO:name:Epoch 0 Step 3840 Total Loss 0.772  Vulnerability 0.688 code search 0.855   
+INFO:name:Epoch 0 Step 3968 Total Loss 0.766  Vulnerability 0.688 code search 0.844   
+INFO:name:Epoch 0 Step 4096 Total Loss 0.76  Vulnerability 0.688 code search 0.833   
+INFO:name:Epoch 0 Step 4224 Total Loss 0.754  Vulnerability 0.688 code search 0.82   
+INFO:name:Epoch 0 Step 4352 Total Loss 0.748  Vulnerability 0.687 code search 0.809   
+INFO:name:Epoch 0 Step 4480 Total Loss 0.743  Vulnerability 0.687 code search 0.799   
+INFO:name:Epoch 0 Step 4608 Total Loss 0.737  Vulnerability 0.687 code search 0.788   
+INFO:name:Epoch 0 Step 4736 Total Loss 0.732  Vulnerability 0.687 code search 0.777   
+INFO:name:Epoch 0 Step 4864 Total Loss 0.727  Vulnerability 0.687 code search 0.768   
+INFO:name:Epoch 0 Step 4992 Total Loss 0.722  Vulnerability 0.686 code search 0.758   
+INFO:name:Epoch 0 Step 5120 Total Loss 0.718  Vulnerability 0.686 code search 0.75   
+INFO:name:Epoch 0 Step 5248 Total Loss 0.714  Vulnerability 0.686 code search 0.742   
+INFO:name:Epoch 0 Step 5376 Total Loss 0.709  Vulnerability 0.686 code search 0.734   
+INFO:name:Epoch 0 Step 5504 Total Loss 0.705  Vulnerability 0.686 code search 0.725   
+INFO:name:Epoch 0 Step 5632 Total Loss 0.701  Vulnerability 0.686 code search 0.717   
+INFO:name:Epoch 0 Step 5760 Total Loss 0.697  Vulnerability 0.685 code search 0.71   
+INFO:name:Epoch 0 Step 5888 Total Loss 0.693  Vulnerability 0.685 code search 0.702   
+INFO:name:Epoch 0 Step 6016 Total Loss 0.689  Vulnerability 0.685 code search 0.694   
+INFO:name:Epoch 0 Step 6144 Total Loss 0.685  Vulnerability 0.685 code search 0.687   
+INFO:name:Epoch 0 Step 6272 Total Loss 0.681  Vulnerability 0.684 code search 0.68   
+INFO:name:Epoch 0 Step 6400 Total Loss 0.678  Vulnerability 0.684 code search 0.673   
+INFO:name:Epoch 0 Step 6528 Total Loss 0.675  Vulnerability 0.684 code search 0.667   
+INFO:name:Epoch 0 Step 6656 Total Loss 0.671  Vulnerability 0.684 code search 0.66   
+INFO:name:Epoch 0 Step 6784 Total Loss 0.668  Vulnerability 0.684 code search 0.655   
+INFO:name:Epoch 0 Step 6912 Total Loss 0.665  Vulnerability 0.683 code search 0.648   
+INFO:name:Epoch 0 Step 7040 Total Loss 0.662  Vulnerability 0.683 code search 0.642   
+INFO:name:Epoch 0 Step 7168 Total Loss 0.659  Vulnerability 0.683 code search 0.637   
+INFO:name:Epoch 0 Step 7296 Total Loss 0.656  Vulnerability 0.683 code search 0.632   
+INFO:name:Epoch 0 Step 7424 Total Loss 0.653  Vulnerability 0.683 code search 0.627   
+INFO:name:Epoch 0 Step 7552 Total Loss 0.651  Vulnerability 0.682 code search 0.622   
+INFO:name:Epoch 0 Step 7680 Total Loss 0.648  Vulnerability 0.682 code search 0.617   
+INFO:name:Epoch 0 Step 7808 Total Loss 0.645  Vulnerability 0.682 code search 0.611   
+INFO:name:Epoch 0 Step 7936 Total Loss 0.643  Vulnerability 0.682 code search 0.607   
+INFO:name:Epoch 0 Step 8064 Total Loss 0.64  Vulnerability 0.682 code search 0.602   
+INFO:name:Epoch 0 Step 8192 Total Loss 0.638  Vulnerability 0.682 code search 0.598   
+INFO:name:Epoch 0 Step 8320 Total Loss 0.636  Vulnerability 0.681 code search 0.593   
+INFO:name:Epoch 0 Step 8448 Total Loss 0.633  Vulnerability 0.681 code search 0.588   
+INFO:name:Epoch 0 Step 8576 Total Loss 0.631  Vulnerability 0.681 code search 0.584   
+INFO:name:Epoch 0 Step 8704 Total Loss 0.629  Vulnerability 0.681 code search 0.581   
+INFO:name:Epoch 0 Step 8832 Total Loss 0.627  Vulnerability 0.681 code search 0.577   
+INFO:name:Epoch 0 Step 8960 Total Loss 0.625  Vulnerability 0.68 code search 0.574   
+INFO:name:Epoch 0 Step 9088 Total Loss 0.623  Vulnerability 0.68 code search 0.57   
+INFO:name:Epoch 0 Step 9216 Total Loss 0.621  Vulnerability 0.68 code search 0.566   
+INFO:name:Epoch 0 Step 9344 Total Loss 0.619  Vulnerability 0.68 code search 0.563   
+INFO:name:Epoch 0 Step 9472 Total Loss 0.617  Vulnerability 0.68 code search 0.559   
+INFO:name:Epoch 0 Step 9600 Total Loss 0.615  Vulnerability 0.68 code search 0.556   
+INFO:name:Epoch 0 Step 9728 Total Loss 0.613  Vulnerability 0.68 code search 0.553   
+INFO:name:Epoch 0 Step 9856 Total Loss 0.611  Vulnerability 0.679 code search 0.549   
+INFO:name:Epoch 0 Step 9984 Total Loss 0.609  Vulnerability 0.679 code search 0.546   
+INFO:name:Epoch 0 Step 10112 Total Loss 0.608  Vulnerability 0.679 code search 0.543   
+INFO:name:Epoch 0 Step 10240 Total Loss 0.606  Vulnerability 0.679 code search 0.54   
+INFO:name:Epoch 0 Step 10368 Total Loss 0.604  Vulnerability 0.679 code search 0.537   
+INFO:name:Epoch 0 Step 10496 Total Loss 0.602  Vulnerability 0.678 code search 0.533   
+INFO:name:Epoch 0 Step 10624 Total Loss 0.601  Vulnerability 0.678 code search 0.531   
+INFO:name:Epoch 0 Step 10752 Total Loss 0.599  Vulnerability 0.678 code search 0.528   
+INFO:name:Epoch 0 Step 10880 Total Loss 0.597  Vulnerability 0.678 code search 0.525   
+INFO:name:Epoch 0 Step 11008 Total Loss 0.596  Vulnerability 0.678 code search 0.522   
+INFO:name:Epoch 0 Step 11136 Total Loss 0.594  Vulnerability 0.678 code search 0.519   
+INFO:name:Epoch 0 Step 11264 Total Loss 0.593  Vulnerability 0.678 code search 0.516   
+INFO:name:Epoch 0 Step 11392 Total Loss 0.591  Vulnerability 0.677 code search 0.514   
+INFO:name:Epoch 0 Step 11520 Total Loss 0.59  Vulnerability 0.677 code search 0.511   
+INFO:name:Epoch 0 Step 11648 Total Loss 0.588  Vulnerability 0.677 code search 0.509   
+INFO:name:Epoch 0 Step 11776 Total Loss 0.587  Vulnerability 0.677 code search 0.506   
+INFO:name:Epoch 0 Step 11904 Total Loss 0.585  Vulnerability 0.677 code search 0.504   
+INFO:name:Epoch 0 Step 12032 Total Loss 0.584  Vulnerability 0.677 code search 0.502   
+INFO:name:Epoch 0 Step 12160 Total Loss 0.582  Vulnerability 0.676 code search 0.499   
+INFO:name:Epoch 0 Step 12288 Total Loss 0.581  Vulnerability 0.676 code search 0.497   
+INFO:name:Epoch 0 Step 12416 Total Loss 0.58  Vulnerability 0.676 code search 0.495   
+INFO:name:Epoch 0 Step 12544 Total Loss 0.578  Vulnerability 0.676 code search 0.492   
+INFO:name:Epoch 0 Step 12672 Total Loss 0.577  Vulnerability 0.676 code search 0.49   
+INFO:name:Epoch 0 Step 12800 Total Loss 0.576  Vulnerability 0.676 code search 0.488   
+INFO:name:Epoch 0 Step 12928 Total Loss 0.574  Vulnerability 0.675 code search 0.486   
+INFO:name:Epoch 0 Step 13056 Total Loss 0.573  Vulnerability 0.675 code search 0.484   
+INFO:name:Epoch 0 Step 13184 Total Loss 0.572  Vulnerability 0.675 code search 0.481   
+INFO:name:Epoch 0 Step 13312 Total Loss 0.57  Vulnerability 0.675 code search 0.479   
+INFO:name:Epoch 0 Step 13440 Total Loss 0.569  Vulnerability 0.675 code search 0.477   
+INFO:name:Epoch 0 Step 13568 Total Loss 0.568  Vulnerability 0.675 code search 0.475   
+INFO:name:Epoch 0 Step 13696 Total Loss 0.567  Vulnerability 0.675 code search 0.473   
+INFO:name:Epoch 0 Step 13824 Total Loss 0.566  Vulnerability 0.674 code search 0.471   
+INFO:name:Epoch 0 Step 13952 Total Loss 0.564  Vulnerability 0.674 code search 0.47   
+INFO:name:Epoch 0 Step 14080 Total Loss 0.563  Vulnerability 0.674 code search 0.468   
+INFO:name:Epoch 0 Step 14208 Total Loss 0.562  Vulnerability 0.674 code search 0.465   
+INFO:name:Epoch 0 Step 14336 Total Loss 0.561  Vulnerability 0.674 code search 0.463   
+INFO:name:Epoch 0 Step 14464 Total Loss 0.559  Vulnerability 0.674 code search 0.461   
+INFO:name:Epoch 0 Step 14592 Total Loss 0.558  Vulnerability 0.674 code search 0.459   
+INFO:name:Epoch 0 Step 14720 Total Loss 0.557  Vulnerability 0.673 code search 0.458   
+INFO:name:Epoch 0 Step 14848 Total Loss 0.556  Vulnerability 0.673 code search 0.456   
+INFO:name:Epoch 0 Step 14976 Total Loss 0.554  Vulnerability 0.673 code search 0.454   
+INFO:name:Epoch 0 Step 15104 Total Loss 0.553  Vulnerability 0.673 code search 0.452   
+INFO:name:Epoch 0 Step 15232 Total Loss 0.552  Vulnerability 0.673 code search 0.45   
+INFO:name:Epoch 0 Step 15360 Total Loss 0.551  Vulnerability 0.673 code search 0.449   
+INFO:name:Epoch 0 Step 15488 Total Loss 0.55  Vulnerability 0.672 code search 0.447   
+INFO:name:Epoch 0 Step 15616 Total Loss 0.549  Vulnerability 0.672 code search 0.445   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.4166, 0.5834], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6488
+INFO:name:  eval_acc = 0.6014
+INFO:name:  f1_score = 0.4617
+INFO:name:  recall = 0.3934
+INFO:name:  precision = 0.5586
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.3815
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for code search = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.5996, 'test_f1_score': 0.4761, 'test_recall': 0.396, 'test_precision': 0.5966} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.32432397163282384} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 1 Step 0 Total Loss 0.42  Vulnerability 0.652 code search 0.255   
+INFO:name:Epoch 1 Step 128 Total Loss 0.407  Vulnerability 0.649 code search 0.235   
+INFO:name:Epoch 1 Step 256 Total Loss 0.417  Vulnerability 0.647 code search 0.254   
+INFO:name:Epoch 1 Step 384 Total Loss 0.412  Vulnerability 0.647 code search 0.245   
+INFO:name:Epoch 1 Step 512 Total Loss 0.41  Vulnerability 0.648 code search 0.241   
+INFO:name:Epoch 1 Step 640 Total Loss 0.407  Vulnerability 0.649 code search 0.236   
+INFO:name:Epoch 1 Step 768 Total Loss 0.403  Vulnerability 0.651 code search 0.228   
+INFO:name:Epoch 1 Step 896 Total Loss 0.402  Vulnerability 0.651 code search 0.229   
+INFO:name:Epoch 1 Step 1024 Total Loss 0.399  Vulnerability 0.65 code search 0.223   
+INFO:name:Epoch 1 Step 1152 Total Loss 0.4  Vulnerability 0.649 code search 0.226   
+INFO:name:Epoch 1 Step 1280 Total Loss 0.401  Vulnerability 0.649 code search 0.228   
+INFO:name:Epoch 1 Step 1408 Total Loss 0.4  Vulnerability 0.649 code search 0.229   
+INFO:name:Epoch 1 Step 1536 Total Loss 0.4  Vulnerability 0.649 code search 0.229   
+INFO:name:Epoch 1 Step 1664 Total Loss 0.398  Vulnerability 0.648 code search 0.226   
+INFO:name:Epoch 1 Step 1792 Total Loss 0.398  Vulnerability 0.648 code search 0.226   
+INFO:name:Epoch 1 Step 1920 Total Loss 0.398  Vulnerability 0.648 code search 0.227   
+INFO:name:Epoch 1 Step 2048 Total Loss 0.397  Vulnerability 0.648 code search 0.226   
+INFO:name:Epoch 1 Step 2176 Total Loss 0.397  Vulnerability 0.648 code search 0.226   
+INFO:name:Epoch 1 Step 2304 Total Loss 0.396  Vulnerability 0.648 code search 0.225   
+INFO:name:Epoch 1 Step 2432 Total Loss 0.395  Vulnerability 0.648 code search 0.224   
+INFO:name:Epoch 1 Step 2560 Total Loss 0.394  Vulnerability 0.648 code search 0.223   
+INFO:name:Epoch 1 Step 2688 Total Loss 0.393  Vulnerability 0.648 code search 0.222   
+INFO:name:Epoch 1 Step 2816 Total Loss 0.392  Vulnerability 0.648 code search 0.221   
+INFO:name:Epoch 1 Step 2944 Total Loss 0.392  Vulnerability 0.648 code search 0.221   
+INFO:name:Epoch 1 Step 3072 Total Loss 0.391  Vulnerability 0.648 code search 0.221   
+INFO:name:Epoch 1 Step 3200 Total Loss 0.39  Vulnerability 0.648 code search 0.22   
+INFO:name:Epoch 1 Step 3328 Total Loss 0.39  Vulnerability 0.647 code search 0.22   
+INFO:name:Epoch 1 Step 3456 Total Loss 0.389  Vulnerability 0.647 code search 0.219   
+INFO:name:Epoch 1 Step 3584 Total Loss 0.388  Vulnerability 0.647 code search 0.219   
+INFO:name:Epoch 1 Step 3712 Total Loss 0.388  Vulnerability 0.646 code search 0.219   
+INFO:name:Epoch 1 Step 3840 Total Loss 0.387  Vulnerability 0.646 code search 0.219   
+INFO:name:Epoch 1 Step 3968 Total Loss 0.387  Vulnerability 0.646 code search 0.218   
+INFO:name:Epoch 1 Step 4096 Total Loss 0.386  Vulnerability 0.646 code search 0.218   
+INFO:name:Epoch 1 Step 4224 Total Loss 0.385  Vulnerability 0.646 code search 0.217   
+INFO:name:Epoch 1 Step 4352 Total Loss 0.385  Vulnerability 0.645 code search 0.217   
+INFO:name:Epoch 1 Step 4480 Total Loss 0.384  Vulnerability 0.645 code search 0.217   
+INFO:name:Epoch 1 Step 4608 Total Loss 0.383  Vulnerability 0.645 code search 0.216   
+INFO:name:Epoch 1 Step 4736 Total Loss 0.383  Vulnerability 0.645 code search 0.215   
+INFO:name:Epoch 1 Step 4864 Total Loss 0.381  Vulnerability 0.645 code search 0.214   
+INFO:name:Epoch 1 Step 4992 Total Loss 0.38  Vulnerability 0.644 code search 0.213   
+INFO:name:Epoch 1 Step 5120 Total Loss 0.38  Vulnerability 0.644 code search 0.213   
+INFO:name:Epoch 1 Step 5248 Total Loss 0.379  Vulnerability 0.644 code search 0.213   
+INFO:name:Epoch 1 Step 5376 Total Loss 0.378  Vulnerability 0.644 code search 0.212   
+INFO:name:Epoch 1 Step 5504 Total Loss 0.378  Vulnerability 0.644 code search 0.212   
+INFO:name:Epoch 1 Step 5632 Total Loss 0.377  Vulnerability 0.644 code search 0.211   
+INFO:name:Epoch 1 Step 5760 Total Loss 0.376  Vulnerability 0.644 code search 0.21   
+INFO:name:Epoch 1 Step 5888 Total Loss 0.375  Vulnerability 0.643 code search 0.21   
+INFO:name:Epoch 1 Step 6016 Total Loss 0.374  Vulnerability 0.643 code search 0.209   
+INFO:name:Epoch 1 Step 6144 Total Loss 0.374  Vulnerability 0.643 code search 0.209   
+INFO:name:Epoch 1 Step 6272 Total Loss 0.373  Vulnerability 0.643 code search 0.208   
+INFO:name:Epoch 1 Step 6400 Total Loss 0.372  Vulnerability 0.643 code search 0.208   
+INFO:name:Epoch 1 Step 6528 Total Loss 0.371  Vulnerability 0.642 code search 0.207   
+INFO:name:Epoch 1 Step 6656 Total Loss 0.371  Vulnerability 0.642 code search 0.207   
+INFO:name:Epoch 1 Step 6784 Total Loss 0.37  Vulnerability 0.642 code search 0.206   
+INFO:name:Epoch 1 Step 6912 Total Loss 0.369  Vulnerability 0.642 code search 0.205   
+INFO:name:Epoch 1 Step 7040 Total Loss 0.368  Vulnerability 0.641 code search 0.205   
+INFO:name:Epoch 1 Step 7168 Total Loss 0.367  Vulnerability 0.641 code search 0.204   
+INFO:name:Epoch 1 Step 7296 Total Loss 0.367  Vulnerability 0.641 code search 0.204   
+INFO:name:Epoch 1 Step 7424 Total Loss 0.366  Vulnerability 0.641 code search 0.204   
+INFO:name:Epoch 1 Step 7552 Total Loss 0.366  Vulnerability 0.641 code search 0.204   
+INFO:name:Epoch 1 Step 7680 Total Loss 0.365  Vulnerability 0.64 code search 0.203   
+INFO:name:Epoch 1 Step 7808 Total Loss 0.364  Vulnerability 0.64 code search 0.203   
+INFO:name:Epoch 1 Step 7936 Total Loss 0.364  Vulnerability 0.64 code search 0.203   
+INFO:name:Epoch 1 Step 8064 Total Loss 0.363  Vulnerability 0.64 code search 0.203   
+INFO:name:Epoch 1 Step 8192 Total Loss 0.362  Vulnerability 0.64 code search 0.202   
+INFO:name:Epoch 1 Step 8320 Total Loss 0.362  Vulnerability 0.639 code search 0.201   
+INFO:name:Epoch 1 Step 8448 Total Loss 0.361  Vulnerability 0.639 code search 0.201   
+INFO:name:Epoch 1 Step 8576 Total Loss 0.36  Vulnerability 0.639 code search 0.201   
+INFO:name:Epoch 1 Step 8704 Total Loss 0.36  Vulnerability 0.639 code search 0.201   
+INFO:name:Epoch 1 Step 8832 Total Loss 0.359  Vulnerability 0.638 code search 0.2   
+INFO:name:Epoch 1 Step 8960 Total Loss 0.358  Vulnerability 0.638 code search 0.2   
+INFO:name:Epoch 1 Step 9088 Total Loss 0.358  Vulnerability 0.638 code search 0.2   
+INFO:name:Epoch 1 Step 9216 Total Loss 0.357  Vulnerability 0.638 code search 0.199   
+INFO:name:Epoch 1 Step 9344 Total Loss 0.356  Vulnerability 0.638 code search 0.199   
+INFO:name:Epoch 1 Step 9472 Total Loss 0.356  Vulnerability 0.637 code search 0.198   
+INFO:name:Epoch 1 Step 9600 Total Loss 0.355  Vulnerability 0.637 code search 0.198   
+INFO:name:Epoch 1 Step 9728 Total Loss 0.354  Vulnerability 0.637 code search 0.198   
+INFO:name:Epoch 1 Step 9856 Total Loss 0.354  Vulnerability 0.637 code search 0.197   
+INFO:name:Epoch 1 Step 9984 Total Loss 0.353  Vulnerability 0.637 code search 0.197   
+INFO:name:Epoch 1 Step 10112 Total Loss 0.352  Vulnerability 0.636 code search 0.196   
+INFO:name:Epoch 1 Step 10240 Total Loss 0.351  Vulnerability 0.636 code search 0.196   
+INFO:name:Epoch 1 Step 10368 Total Loss 0.351  Vulnerability 0.636 code search 0.196   
+INFO:name:Epoch 1 Step 10496 Total Loss 0.35  Vulnerability 0.636 code search 0.196   
+INFO:name:Epoch 1 Step 10624 Total Loss 0.349  Vulnerability 0.636 code search 0.195   
+INFO:name:Epoch 1 Step 10752 Total Loss 0.349  Vulnerability 0.635 code search 0.195   
+INFO:name:Epoch 1 Step 10880 Total Loss 0.348  Vulnerability 0.635 code search 0.195   
+INFO:name:Epoch 1 Step 11008 Total Loss 0.347  Vulnerability 0.635 code search 0.194   
+INFO:name:Epoch 1 Step 11136 Total Loss 0.347  Vulnerability 0.635 code search 0.194   
+INFO:name:Epoch 1 Step 11264 Total Loss 0.346  Vulnerability 0.634 code search 0.194   
+INFO:name:Epoch 1 Step 11392 Total Loss 0.346  Vulnerability 0.634 code search 0.194   
+INFO:name:Epoch 1 Step 11520 Total Loss 0.345  Vulnerability 0.634 code search 0.194   
+INFO:name:Epoch 1 Step 11648 Total Loss 0.344  Vulnerability 0.634 code search 0.193   
+INFO:name:Epoch 1 Step 11776 Total Loss 0.344  Vulnerability 0.634 code search 0.193   
+INFO:name:Epoch 1 Step 11904 Total Loss 0.343  Vulnerability 0.633 code search 0.193   
+INFO:name:Epoch 1 Step 12032 Total Loss 0.343  Vulnerability 0.633 code search 0.193   
+INFO:name:Epoch 1 Step 12160 Total Loss 0.342  Vulnerability 0.633 code search 0.193   
+INFO:name:Epoch 1 Step 12288 Total Loss 0.341  Vulnerability 0.633 code search 0.192   
+INFO:name:Epoch 1 Step 12416 Total Loss 0.341  Vulnerability 0.633 code search 0.192   
+INFO:name:Epoch 1 Step 12544 Total Loss 0.34  Vulnerability 0.632 code search 0.192   
+INFO:name:Epoch 1 Step 12672 Total Loss 0.34  Vulnerability 0.632 code search 0.192   
+INFO:name:Epoch 1 Step 12800 Total Loss 0.339  Vulnerability 0.632 code search 0.191   
+INFO:name:Epoch 1 Step 12928 Total Loss 0.339  Vulnerability 0.632 code search 0.191   
+INFO:name:Epoch 1 Step 13056 Total Loss 0.338  Vulnerability 0.631 code search 0.191   
+INFO:name:Epoch 1 Step 13184 Total Loss 0.337  Vulnerability 0.631 code search 0.191   
+INFO:name:Epoch 1 Step 13312 Total Loss 0.337  Vulnerability 0.631 code search 0.191   
+INFO:name:Epoch 1 Step 13440 Total Loss 0.336  Vulnerability 0.631 code search 0.19   
+INFO:name:Epoch 1 Step 13568 Total Loss 0.336  Vulnerability 0.631 code search 0.19   
+INFO:name:Epoch 1 Step 13696 Total Loss 0.335  Vulnerability 0.63 code search 0.19   
+INFO:name:Epoch 1 Step 13824 Total Loss 0.334  Vulnerability 0.63 code search 0.19   
+INFO:name:Epoch 1 Step 13952 Total Loss 0.334  Vulnerability 0.63 code search 0.189   
+INFO:name:Epoch 1 Step 14080 Total Loss 0.333  Vulnerability 0.63 code search 0.189   
+INFO:name:Epoch 1 Step 14208 Total Loss 0.332  Vulnerability 0.629 code search 0.189   
+INFO:name:Epoch 1 Step 14336 Total Loss 0.331  Vulnerability 0.629 code search 0.188   
+INFO:name:Epoch 1 Step 14464 Total Loss 0.331  Vulnerability 0.629 code search 0.188   
+INFO:name:Epoch 1 Step 14592 Total Loss 0.33  Vulnerability 0.629 code search 0.188   
+INFO:name:Epoch 1 Step 14720 Total Loss 0.33  Vulnerability 0.628 code search 0.187   
+INFO:name:Epoch 1 Step 14848 Total Loss 0.329  Vulnerability 0.628 code search 0.187   
+INFO:name:Epoch 1 Step 14976 Total Loss 0.328  Vulnerability 0.628 code search 0.187   
+INFO:name:Epoch 1 Step 15104 Total Loss 0.328  Vulnerability 0.628 code search 0.187   
+INFO:name:Epoch 1 Step 15232 Total Loss 0.327  Vulnerability 0.627 code search 0.186   
+INFO:name:Epoch 1 Step 15360 Total Loss 0.326  Vulnerability 0.627 code search 0.186   
+INFO:name:Epoch 1 Step 15488 Total Loss 0.326  Vulnerability 0.627 code search 0.186   
+INFO:name:Epoch 1 Step 15616 Total Loss 0.325  Vulnerability 0.627 code search 0.186   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.2088, 0.7912], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6133
+INFO:name:  eval_acc = 0.6402
+INFO:name:  f1_score = 0.5146
+INFO:name:  recall = 0.4389
+INFO:name:  precision = 0.6217
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4172
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for code search = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6175, 'test_f1_score': 0.4959, 'test_recall': 0.4096, 'test_precision': 0.6284} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.3550176882516404} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 2 Step 0 Total Loss 0.247  Vulnerability 0.547 code search 0.167   
+INFO:name:Epoch 2 Step 128 Total Loss 0.263  Vulnerability 0.593 code search 0.176   
+INFO:name:Epoch 2 Step 256 Total Loss 0.258  Vulnerability 0.596 code search 0.17   
+INFO:name:Epoch 2 Step 384 Total Loss 0.25  Vulnerability 0.592 code search 0.161   
+INFO:name:Epoch 2 Step 512 Total Loss 0.25  Vulnerability 0.588 code search 0.163   
+INFO:name:Epoch 2 Step 640 Total Loss 0.246  Vulnerability 0.585 code search 0.159   
+INFO:name:Epoch 2 Step 768 Total Loss 0.248  Vulnerability 0.588 code search 0.161   
+INFO:name:Epoch 2 Step 896 Total Loss 0.247  Vulnerability 0.589 code search 0.159   
+INFO:name:Epoch 2 Step 1024 Total Loss 0.246  Vulnerability 0.591 code search 0.158   
+INFO:name:Epoch 2 Step 1152 Total Loss 0.243  Vulnerability 0.592 code search 0.155   
+INFO:name:Epoch 2 Step 1280 Total Loss 0.242  Vulnerability 0.592 code search 0.154   
+INFO:name:Epoch 2 Step 1408 Total Loss 0.241  Vulnerability 0.592 code search 0.154   
+INFO:name:Epoch 2 Step 1536 Total Loss 0.241  Vulnerability 0.591 code search 0.154   
+INFO:name:Epoch 2 Step 1664 Total Loss 0.24  Vulnerability 0.59 code search 0.153   
+INFO:name:Epoch 2 Step 1792 Total Loss 0.238  Vulnerability 0.59 code search 0.151   
+INFO:name:Epoch 2 Step 1920 Total Loss 0.236  Vulnerability 0.588 code search 0.15   
+INFO:name:Epoch 2 Step 2048 Total Loss 0.236  Vulnerability 0.589 code search 0.15   
+INFO:name:Epoch 2 Step 2176 Total Loss 0.234  Vulnerability 0.588 code search 0.149   
+INFO:name:Epoch 2 Step 2304 Total Loss 0.234  Vulnerability 0.588 code search 0.149   
+INFO:name:Epoch 2 Step 2432 Total Loss 0.233  Vulnerability 0.588 code search 0.147   
+INFO:name:Epoch 2 Step 2560 Total Loss 0.232  Vulnerability 0.588 code search 0.147   
+INFO:name:Epoch 2 Step 2688 Total Loss 0.231  Vulnerability 0.588 code search 0.147   
+INFO:name:Epoch 2 Step 2816 Total Loss 0.23  Vulnerability 0.587 code search 0.145   
+INFO:name:Epoch 2 Step 2944 Total Loss 0.229  Vulnerability 0.587 code search 0.145   
+INFO:name:Epoch 2 Step 3072 Total Loss 0.229  Vulnerability 0.586 code search 0.145   
+INFO:name:Epoch 2 Step 3200 Total Loss 0.228  Vulnerability 0.585 code search 0.145   
+INFO:name:Epoch 2 Step 3328 Total Loss 0.227  Vulnerability 0.585 code search 0.145   
+INFO:name:Epoch 2 Step 3456 Total Loss 0.227  Vulnerability 0.585 code search 0.145   
+INFO:name:Epoch 2 Step 3584 Total Loss 0.226  Vulnerability 0.585 code search 0.144   
+INFO:name:Epoch 2 Step 3712 Total Loss 0.225  Vulnerability 0.584 code search 0.143   
+INFO:name:Epoch 2 Step 3840 Total Loss 0.224  Vulnerability 0.584 code search 0.143   
+INFO:name:Epoch 2 Step 3968 Total Loss 0.224  Vulnerability 0.585 code search 0.142   
+INFO:name:Epoch 2 Step 4096 Total Loss 0.223  Vulnerability 0.584 code search 0.141   
+INFO:name:Epoch 2 Step 4224 Total Loss 0.222  Vulnerability 0.584 code search 0.141   
+INFO:name:Epoch 2 Step 4352 Total Loss 0.221  Vulnerability 0.583 code search 0.141   
+INFO:name:Epoch 2 Step 4480 Total Loss 0.221  Vulnerability 0.583 code search 0.14   
+INFO:name:Epoch 2 Step 4608 Total Loss 0.22  Vulnerability 0.583 code search 0.14   
+INFO:name:Epoch 2 Step 4736 Total Loss 0.22  Vulnerability 0.582 code search 0.14   
+INFO:name:Epoch 2 Step 4864 Total Loss 0.219  Vulnerability 0.582 code search 0.14   
+INFO:name:Epoch 2 Step 4992 Total Loss 0.219  Vulnerability 0.582 code search 0.14   
+INFO:name:Epoch 2 Step 5120 Total Loss 0.218  Vulnerability 0.582 code search 0.139   
+INFO:name:Epoch 2 Step 5248 Total Loss 0.217  Vulnerability 0.582 code search 0.139   
+INFO:name:Epoch 2 Step 5376 Total Loss 0.217  Vulnerability 0.581 code search 0.139   
+INFO:name:Epoch 2 Step 5504 Total Loss 0.217  Vulnerability 0.581 code search 0.139   
+INFO:name:Epoch 2 Step 5632 Total Loss 0.216  Vulnerability 0.58 code search 0.139   
+INFO:name:Epoch 2 Step 5760 Total Loss 0.215  Vulnerability 0.58 code search 0.138   
+INFO:name:Epoch 2 Step 5888 Total Loss 0.215  Vulnerability 0.58 code search 0.138   
+INFO:name:Epoch 2 Step 6016 Total Loss 0.214  Vulnerability 0.579 code search 0.137   
+INFO:name:Epoch 2 Step 6144 Total Loss 0.213  Vulnerability 0.579 code search 0.137   
+INFO:name:Epoch 2 Step 6272 Total Loss 0.213  Vulnerability 0.579 code search 0.137   
+INFO:name:Epoch 2 Step 6400 Total Loss 0.213  Vulnerability 0.579 code search 0.137   
+INFO:name:Epoch 2 Step 6528 Total Loss 0.212  Vulnerability 0.579 code search 0.137   
+INFO:name:Epoch 2 Step 6656 Total Loss 0.212  Vulnerability 0.579 code search 0.137   
+INFO:name:Epoch 2 Step 6784 Total Loss 0.211  Vulnerability 0.578 code search 0.136   
+INFO:name:Epoch 2 Step 6912 Total Loss 0.211  Vulnerability 0.578 code search 0.136   
+INFO:name:Epoch 2 Step 7040 Total Loss 0.21  Vulnerability 0.578 code search 0.136   
+INFO:name:Epoch 2 Step 7168 Total Loss 0.21  Vulnerability 0.578 code search 0.136   
+INFO:name:Epoch 2 Step 7296 Total Loss 0.209  Vulnerability 0.577 code search 0.135   
+INFO:name:Epoch 2 Step 7424 Total Loss 0.209  Vulnerability 0.577 code search 0.135   
+INFO:name:Epoch 2 Step 7552 Total Loss 0.208  Vulnerability 0.577 code search 0.135   
+INFO:name:Epoch 2 Step 7680 Total Loss 0.208  Vulnerability 0.577 code search 0.135   
+INFO:name:Epoch 2 Step 7808 Total Loss 0.207  Vulnerability 0.576 code search 0.135   
+INFO:name:Epoch 2 Step 7936 Total Loss 0.207  Vulnerability 0.576 code search 0.134   
+INFO:name:Epoch 2 Step 8064 Total Loss 0.206  Vulnerability 0.576 code search 0.134   
+INFO:name:Epoch 2 Step 8192 Total Loss 0.206  Vulnerability 0.576 code search 0.134   
+INFO:name:Epoch 2 Step 8320 Total Loss 0.205  Vulnerability 0.576 code search 0.134   
+INFO:name:Epoch 2 Step 8448 Total Loss 0.205  Vulnerability 0.575 code search 0.134   
+INFO:name:Epoch 2 Step 8576 Total Loss 0.204  Vulnerability 0.575 code search 0.134   
+INFO:name:Epoch 2 Step 8704 Total Loss 0.204  Vulnerability 0.575 code search 0.133   
+INFO:name:Epoch 2 Step 8832 Total Loss 0.203  Vulnerability 0.574 code search 0.133   
+INFO:name:Epoch 2 Step 8960 Total Loss 0.203  Vulnerability 0.574 code search 0.133   
+INFO:name:Epoch 2 Step 9088 Total Loss 0.202  Vulnerability 0.574 code search 0.133   
+INFO:name:Epoch 2 Step 9216 Total Loss 0.202  Vulnerability 0.574 code search 0.132   
+INFO:name:Epoch 2 Step 9344 Total Loss 0.201  Vulnerability 0.573 code search 0.132   
+INFO:name:Epoch 2 Step 9472 Total Loss 0.201  Vulnerability 0.573 code search 0.132   
+INFO:name:Epoch 2 Step 9600 Total Loss 0.2  Vulnerability 0.573 code search 0.131   
+INFO:name:Epoch 2 Step 9728 Total Loss 0.199  Vulnerability 0.573 code search 0.131   
+INFO:name:Epoch 2 Step 9856 Total Loss 0.199  Vulnerability 0.573 code search 0.131   
+INFO:name:Epoch 2 Step 9984 Total Loss 0.198  Vulnerability 0.572 code search 0.13   
+INFO:name:Epoch 2 Step 10112 Total Loss 0.197  Vulnerability 0.572 code search 0.13   
+INFO:name:Epoch 2 Step 10240 Total Loss 0.197  Vulnerability 0.572 code search 0.129   
+INFO:name:Epoch 2 Step 10368 Total Loss 0.196  Vulnerability 0.571 code search 0.129   
+INFO:name:Epoch 2 Step 10496 Total Loss 0.196  Vulnerability 0.571 code search 0.129   
+INFO:name:Epoch 2 Step 10624 Total Loss 0.195  Vulnerability 0.571 code search 0.128   
+INFO:name:Epoch 2 Step 10752 Total Loss 0.195  Vulnerability 0.571 code search 0.128   
+INFO:name:Epoch 2 Step 10880 Total Loss 0.194  Vulnerability 0.571 code search 0.128   
+INFO:name:Epoch 2 Step 11008 Total Loss 0.194  Vulnerability 0.571 code search 0.128   
+INFO:name:Epoch 2 Step 11136 Total Loss 0.193  Vulnerability 0.57 code search 0.127   
+INFO:name:Epoch 2 Step 11264 Total Loss 0.192  Vulnerability 0.57 code search 0.127   
+INFO:name:Epoch 2 Step 11392 Total Loss 0.192  Vulnerability 0.57 code search 0.127   
+INFO:name:Epoch 2 Step 11520 Total Loss 0.191  Vulnerability 0.569 code search 0.126   
+INFO:name:Epoch 2 Step 11648 Total Loss 0.191  Vulnerability 0.569 code search 0.126   
+INFO:name:Epoch 2 Step 11776 Total Loss 0.19  Vulnerability 0.569 code search 0.126   
+INFO:name:Epoch 2 Step 11904 Total Loss 0.19  Vulnerability 0.569 code search 0.125   
+INFO:name:Epoch 2 Step 12032 Total Loss 0.189  Vulnerability 0.569 code search 0.125   
+INFO:name:Epoch 2 Step 12160 Total Loss 0.189  Vulnerability 0.569 code search 0.125   
+INFO:name:Epoch 2 Step 12288 Total Loss 0.188  Vulnerability 0.568 code search 0.125   
+INFO:name:Epoch 2 Step 12416 Total Loss 0.188  Vulnerability 0.568 code search 0.124   
+INFO:name:Epoch 2 Step 12544 Total Loss 0.187  Vulnerability 0.568 code search 0.124   
+INFO:name:Epoch 2 Step 12672 Total Loss 0.187  Vulnerability 0.567 code search 0.124   
+INFO:name:Epoch 2 Step 12800 Total Loss 0.186  Vulnerability 0.567 code search 0.123   
+INFO:name:Epoch 2 Step 12928 Total Loss 0.186  Vulnerability 0.567 code search 0.123   
+INFO:name:Epoch 2 Step 13056 Total Loss 0.185  Vulnerability 0.567 code search 0.123   
+INFO:name:Epoch 2 Step 13184 Total Loss 0.185  Vulnerability 0.567 code search 0.123   
+INFO:name:Epoch 2 Step 13312 Total Loss 0.184  Vulnerability 0.567 code search 0.122   
+INFO:name:Epoch 2 Step 13440 Total Loss 0.183  Vulnerability 0.566 code search 0.122   
+INFO:name:Epoch 2 Step 13568 Total Loss 0.183  Vulnerability 0.566 code search 0.121   
+INFO:name:Epoch 2 Step 13696 Total Loss 0.182  Vulnerability 0.566 code search 0.121   
+INFO:name:Epoch 2 Step 13824 Total Loss 0.182  Vulnerability 0.566 code search 0.121   
+INFO:name:Epoch 2 Step 13952 Total Loss 0.181  Vulnerability 0.566 code search 0.121   
+INFO:name:Epoch 2 Step 14080 Total Loss 0.181  Vulnerability 0.565 code search 0.12   
+INFO:name:Epoch 2 Step 14208 Total Loss 0.181  Vulnerability 0.565 code search 0.12   
+INFO:name:Epoch 2 Step 14336 Total Loss 0.18  Vulnerability 0.565 code search 0.12   
+INFO:name:Epoch 2 Step 14464 Total Loss 0.18  Vulnerability 0.565 code search 0.12   
+INFO:name:Epoch 2 Step 14592 Total Loss 0.179  Vulnerability 0.564 code search 0.12   
+INFO:name:Epoch 2 Step 14720 Total Loss 0.179  Vulnerability 0.564 code search 0.12   
+INFO:name:Epoch 2 Step 14848 Total Loss 0.178  Vulnerability 0.564 code search 0.119   
+INFO:name:Epoch 2 Step 14976 Total Loss 0.178  Vulnerability 0.564 code search 0.119   
+INFO:name:Epoch 2 Step 15104 Total Loss 0.178  Vulnerability 0.564 code search 0.119   
+INFO:name:Epoch 2 Step 15232 Total Loss 0.177  Vulnerability 0.564 code search 0.119   
+INFO:name:Epoch 2 Step 15360 Total Loss 0.177  Vulnerability 0.563 code search 0.119   
+INFO:name:Epoch 2 Step 15488 Total Loss 0.176  Vulnerability 0.563 code search 0.118   
+INFO:name:Epoch 2 Step 15616 Total Loss 0.176  Vulnerability 0.563 code search 0.118   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.0721, 0.9279], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6155
+INFO:name:  eval_acc = 0.6307
+INFO:name:  f1_score = 0.5708
+INFO:name:  recall = 0.5653
+INFO:name:  precision = 0.5765
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.422
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 3 Step 0 Total Loss 0.072  Vulnerability 0.647 code search 0.028   
+INFO:name:Epoch 3 Step 128 Total Loss 0.108  Vulnerability 0.537 code search 0.075   
+INFO:name:Epoch 3 Step 256 Total Loss 0.115  Vulnerability 0.53 code search 0.084   
+INFO:name:Epoch 3 Step 384 Total Loss 0.117  Vulnerability 0.529 code search 0.086   
+INFO:name:Epoch 3 Step 512 Total Loss 0.115  Vulnerability 0.53 code search 0.084   
+INFO:name:Epoch 3 Step 640 Total Loss 0.118  Vulnerability 0.534 code search 0.087   
+INFO:name:Epoch 3 Step 768 Total Loss 0.116  Vulnerability 0.535 code search 0.084   
+INFO:name:Epoch 3 Step 896 Total Loss 0.115  Vulnerability 0.536 code search 0.084   
+INFO:name:Epoch 3 Step 1024 Total Loss 0.114  Vulnerability 0.536 code search 0.083   
+INFO:name:Epoch 3 Step 1152 Total Loss 0.115  Vulnerability 0.537 code search 0.084   
+INFO:name:Epoch 3 Step 1280 Total Loss 0.116  Vulnerability 0.537 code search 0.084   
+INFO:name:Epoch 3 Step 1408 Total Loss 0.113  Vulnerability 0.536 code search 0.082   
+INFO:name:Epoch 3 Step 1536 Total Loss 0.113  Vulnerability 0.536 code search 0.082   
+INFO:name:Epoch 3 Step 1664 Total Loss 0.112  Vulnerability 0.535 code search 0.081   
+INFO:name:Epoch 3 Step 1792 Total Loss 0.111  Vulnerability 0.535 code search 0.08   
+INFO:name:Epoch 3 Step 1920 Total Loss 0.111  Vulnerability 0.534 code search 0.08   
+INFO:name:Epoch 3 Step 2048 Total Loss 0.111  Vulnerability 0.534 code search 0.08   
+INFO:name:Epoch 3 Step 2176 Total Loss 0.111  Vulnerability 0.535 code search 0.08   
+INFO:name:Epoch 3 Step 2304 Total Loss 0.111  Vulnerability 0.534 code search 0.081   
+INFO:name:Epoch 3 Step 2432 Total Loss 0.11  Vulnerability 0.534 code search 0.08   
+INFO:name:Epoch 3 Step 2560 Total Loss 0.111  Vulnerability 0.534 code search 0.081   
+INFO:name:Epoch 3 Step 2688 Total Loss 0.11  Vulnerability 0.533 code search 0.08   
+INFO:name:Epoch 3 Step 2816 Total Loss 0.109  Vulnerability 0.534 code search 0.079   
+INFO:name:Epoch 3 Step 2944 Total Loss 0.11  Vulnerability 0.534 code search 0.08   
+INFO:name:Epoch 3 Step 3072 Total Loss 0.111  Vulnerability 0.533 code search 0.081   
+INFO:name:Epoch 3 Step 3200 Total Loss 0.11  Vulnerability 0.533 code search 0.081   
+INFO:name:Epoch 3 Step 3328 Total Loss 0.111  Vulnerability 0.531 code search 0.082   
+INFO:name:Epoch 3 Step 3456 Total Loss 0.111  Vulnerability 0.531 code search 0.082   
+INFO:name:Epoch 3 Step 3584 Total Loss 0.111  Vulnerability 0.532 code search 0.082   
+INFO:name:Epoch 3 Step 3712 Total Loss 0.111  Vulnerability 0.531 code search 0.082   
+INFO:name:Epoch 3 Step 3840 Total Loss 0.111  Vulnerability 0.531 code search 0.082   
+INFO:name:Epoch 3 Step 3968 Total Loss 0.111  Vulnerability 0.532 code search 0.083   
+INFO:name:Epoch 3 Step 4096 Total Loss 0.111  Vulnerability 0.531 code search 0.083   
+INFO:name:Epoch 3 Step 4224 Total Loss 0.11  Vulnerability 0.531 code search 0.082   
+INFO:name:Epoch 3 Step 4352 Total Loss 0.11  Vulnerability 0.53 code search 0.082   
+INFO:name:Epoch 3 Step 4480 Total Loss 0.109  Vulnerability 0.53 code search 0.082   
+INFO:name:Epoch 3 Step 4608 Total Loss 0.109  Vulnerability 0.53 code search 0.081   
+INFO:name:Epoch 3 Step 4736 Total Loss 0.109  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 4864 Total Loss 0.109  Vulnerability 0.529 code search 0.082   
+INFO:name:Epoch 3 Step 4992 Total Loss 0.109  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5120 Total Loss 0.108  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5248 Total Loss 0.108  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5376 Total Loss 0.108  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5504 Total Loss 0.108  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5632 Total Loss 0.108  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5760 Total Loss 0.108  Vulnerability 0.529 code search 0.081   
+INFO:name:Epoch 3 Step 5888 Total Loss 0.108  Vulnerability 0.528 code search 0.082   
+INFO:name:Epoch 3 Step 6016 Total Loss 0.108  Vulnerability 0.528 code search 0.082   
+INFO:name:Epoch 3 Step 6144 Total Loss 0.108  Vulnerability 0.528 code search 0.081   
+INFO:name:Epoch 3 Step 6272 Total Loss 0.108  Vulnerability 0.528 code search 0.082   
+INFO:name:Epoch 3 Step 6400 Total Loss 0.108  Vulnerability 0.528 code search 0.082   
+INFO:name:Epoch 3 Step 6528 Total Loss 0.107  Vulnerability 0.528 code search 0.081   
+INFO:name:Epoch 3 Step 6656 Total Loss 0.107  Vulnerability 0.528 code search 0.081   
+INFO:name:Epoch 3 Step 6784 Total Loss 0.107  Vulnerability 0.528 code search 0.081   
+INFO:name:Epoch 3 Step 6912 Total Loss 0.106  Vulnerability 0.527 code search 0.081   
+INFO:name:Epoch 3 Step 7040 Total Loss 0.107  Vulnerability 0.527 code search 0.081   
+INFO:name:Epoch 3 Step 7168 Total Loss 0.106  Vulnerability 0.527 code search 0.081   
+INFO:name:Epoch 3 Step 7296 Total Loss 0.106  Vulnerability 0.527 code search 0.081   
+INFO:name:Epoch 3 Step 7424 Total Loss 0.106  Vulnerability 0.526 code search 0.081   
+INFO:name:Epoch 3 Step 7552 Total Loss 0.106  Vulnerability 0.526 code search 0.081   
+INFO:name:Epoch 3 Step 7680 Total Loss 0.106  Vulnerability 0.526 code search 0.081   
+INFO:name:Epoch 3 Step 7808 Total Loss 0.106  Vulnerability 0.526 code search 0.081   
+INFO:name:Epoch 3 Step 7936 Total Loss 0.105  Vulnerability 0.526 code search 0.081   
+INFO:name:Epoch 3 Step 8064 Total Loss 0.105  Vulnerability 0.526 code search 0.081   
+INFO:name:Epoch 3 Step 8192 Total Loss 0.105  Vulnerability 0.526 code search 0.08   
+INFO:name:Epoch 3 Step 8320 Total Loss 0.105  Vulnerability 0.526 code search 0.08   
+INFO:name:Epoch 3 Step 8448 Total Loss 0.105  Vulnerability 0.525 code search 0.08   
+INFO:name:Epoch 3 Step 8576 Total Loss 0.104  Vulnerability 0.525 code search 0.08   
+INFO:name:Epoch 3 Step 8704 Total Loss 0.104  Vulnerability 0.525 code search 0.08   
+INFO:name:Epoch 3 Step 8832 Total Loss 0.104  Vulnerability 0.525 code search 0.08   
+INFO:name:Epoch 3 Step 8960 Total Loss 0.104  Vulnerability 0.525 code search 0.08   
+INFO:name:Epoch 3 Step 9088 Total Loss 0.104  Vulnerability 0.524 code search 0.08   
+INFO:name:Epoch 3 Step 9216 Total Loss 0.104  Vulnerability 0.524 code search 0.08   
+INFO:name:Epoch 3 Step 9344 Total Loss 0.104  Vulnerability 0.524 code search 0.08   
+INFO:name:Epoch 3 Step 9472 Total Loss 0.104  Vulnerability 0.524 code search 0.08   
+INFO:name:Epoch 3 Step 9600 Total Loss 0.103  Vulnerability 0.524 code search 0.08   
+INFO:name:Epoch 3 Step 9728 Total Loss 0.104  Vulnerability 0.524 code search 0.08   
+INFO:name:Epoch 3 Step 9856 Total Loss 0.103  Vulnerability 0.523 code search 0.08   
+INFO:name:Epoch 3 Step 9984 Total Loss 0.103  Vulnerability 0.523 code search 0.08   
+INFO:name:Epoch 3 Step 10112 Total Loss 0.103  Vulnerability 0.523 code search 0.08   
+INFO:name:Epoch 3 Step 10240 Total Loss 0.103  Vulnerability 0.523 code search 0.08   
+INFO:name:Epoch 3 Step 10368 Total Loss 0.103  Vulnerability 0.522 code search 0.08   
+INFO:name:Epoch 3 Step 10496 Total Loss 0.103  Vulnerability 0.522 code search 0.08   
+INFO:name:Epoch 3 Step 10624 Total Loss 0.103  Vulnerability 0.522 code search 0.08   
+INFO:name:Epoch 3 Step 10752 Total Loss 0.103  Vulnerability 0.522 code search 0.08   
+INFO:name:Epoch 3 Step 10880 Total Loss 0.103  Vulnerability 0.522 code search 0.08   
+INFO:name:Epoch 3 Step 11008 Total Loss 0.103  Vulnerability 0.522 code search 0.08   
+INFO:name:Epoch 3 Step 11136 Total Loss 0.102  Vulnerability 0.521 code search 0.08   
+INFO:name:Epoch 3 Step 11264 Total Loss 0.102  Vulnerability 0.521 code search 0.08   
+INFO:name:Epoch 3 Step 11392 Total Loss 0.102  Vulnerability 0.521 code search 0.08   
+INFO:name:Epoch 3 Step 11520 Total Loss 0.102  Vulnerability 0.521 code search 0.08   
+INFO:name:Epoch 3 Step 11648 Total Loss 0.102  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 11776 Total Loss 0.102  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 11904 Total Loss 0.102  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 12032 Total Loss 0.102  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 12160 Total Loss 0.101  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 12288 Total Loss 0.101  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 12416 Total Loss 0.101  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 12544 Total Loss 0.101  Vulnerability 0.52 code search 0.08   
+INFO:name:Epoch 3 Step 12672 Total Loss 0.101  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 12800 Total Loss 0.101  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 12928 Total Loss 0.101  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 13056 Total Loss 0.101  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 13184 Total Loss 0.101  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 13312 Total Loss 0.101  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 13440 Total Loss 0.1  Vulnerability 0.519 code search 0.08   
+INFO:name:Epoch 3 Step 13568 Total Loss 0.1  Vulnerability 0.518 code search 0.08   
+INFO:name:Epoch 3 Step 13696 Total Loss 0.1  Vulnerability 0.518 code search 0.08   
+INFO:name:Epoch 3 Step 13824 Total Loss 0.1  Vulnerability 0.518 code search 0.08   
+INFO:name:Epoch 3 Step 13952 Total Loss 0.1  Vulnerability 0.518 code search 0.08   
+INFO:name:Epoch 3 Step 14080 Total Loss 0.1  Vulnerability 0.518 code search 0.08   
+INFO:name:Epoch 3 Step 14208 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 14336 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 14464 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 14592 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 14720 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 14848 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 14976 Total Loss 0.1  Vulnerability 0.517 code search 0.08   
+INFO:name:Epoch 3 Step 15104 Total Loss 0.1  Vulnerability 0.516 code search 0.08   
+INFO:name:Epoch 3 Step 15232 Total Loss 0.1  Vulnerability 0.516 code search 0.08   
+INFO:name:Epoch 3 Step 15360 Total Loss 0.099  Vulnerability 0.516 code search 0.08   
+INFO:name:Epoch 3 Step 15488 Total Loss 0.099  Vulnerability 0.516 code search 0.08   
+INFO:name:Epoch 3 Step 15616 Total Loss 0.099  Vulnerability 0.516 code search 0.08   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.0242, 0.9758], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6367
+INFO:name:  eval_acc = 0.6292
+INFO:name:  f1_score = 0.5628
+INFO:name:  recall = 0.5493
+INFO:name:  precision = 0.577
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4323
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for code search = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.6076, 'test_f1_score': 0.5559, 'test_recall': 0.5347, 'test_precision': 0.5789} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.3669410705394405} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 4 Step 0 Total Loss 0.027  Vulnerability 0.492 code search 0.015   
+INFO:name:Epoch 4 Step 128 Total Loss 0.081  Vulnerability 0.491 code search 0.071   
+INFO:name:Epoch 4 Step 256 Total Loss 0.077  Vulnerability 0.488 code search 0.066   
+INFO:name:Epoch 4 Step 384 Total Loss 0.078  Vulnerability 0.49 code search 0.068   
+INFO:name:Epoch 4 Step 512 Total Loss 0.075  Vulnerability 0.492 code search 0.065   
+INFO:name:Epoch 4 Step 640 Total Loss 0.077  Vulnerability 0.493 code search 0.067   
+INFO:name:Epoch 4 Step 768 Total Loss 0.077  Vulnerability 0.494 code search 0.067   
+INFO:name:Epoch 4 Step 896 Total Loss 0.078  Vulnerability 0.496 code search 0.068   
+INFO:name:Epoch 4 Step 1024 Total Loss 0.079  Vulnerability 0.496 code search 0.069   
+INFO:name:Epoch 4 Step 1152 Total Loss 0.078  Vulnerability 0.497 code search 0.068   
+INFO:name:Epoch 4 Step 1280 Total Loss 0.078  Vulnerability 0.497 code search 0.068   
+INFO:name:Epoch 4 Step 1408 Total Loss 0.079  Vulnerability 0.497 code search 0.069   
+INFO:name:Epoch 4 Step 1536 Total Loss 0.079  Vulnerability 0.496 code search 0.07   
+INFO:name:Epoch 4 Step 1664 Total Loss 0.079  Vulnerability 0.496 code search 0.069   
+INFO:name:Epoch 4 Step 1792 Total Loss 0.078  Vulnerability 0.494 code search 0.069   
+INFO:name:Epoch 4 Step 1920 Total Loss 0.078  Vulnerability 0.494 code search 0.069   
+INFO:name:Epoch 4 Step 2048 Total Loss 0.08  Vulnerability 0.494 code search 0.07   
+INFO:name:Epoch 4 Step 2176 Total Loss 0.08  Vulnerability 0.493 code search 0.07   
+INFO:name:Epoch 4 Step 2304 Total Loss 0.08  Vulnerability 0.494 code search 0.07   
+INFO:name:Epoch 4 Step 2432 Total Loss 0.08  Vulnerability 0.494 code search 0.071   
+INFO:name:Epoch 4 Step 2560 Total Loss 0.08  Vulnerability 0.495 code search 0.071   
+INFO:name:Epoch 4 Step 2688 Total Loss 0.081  Vulnerability 0.495 code search 0.072   
+INFO:name:Epoch 4 Step 2816 Total Loss 0.082  Vulnerability 0.495 code search 0.073   
+INFO:name:Epoch 4 Step 2944 Total Loss 0.081  Vulnerability 0.494 code search 0.072   
+INFO:name:Epoch 4 Step 3072 Total Loss 0.081  Vulnerability 0.494 code search 0.072   
+INFO:name:Epoch 4 Step 3200 Total Loss 0.081  Vulnerability 0.494 code search 0.072   
+INFO:name:Epoch 4 Step 3328 Total Loss 0.081  Vulnerability 0.494 code search 0.072   
+INFO:name:Epoch 4 Step 3456 Total Loss 0.081  Vulnerability 0.494 code search 0.072   
+INFO:name:Epoch 4 Step 3584 Total Loss 0.081  Vulnerability 0.494 code search 0.072   
+INFO:name:Epoch 4 Step 3712 Total Loss 0.08  Vulnerability 0.494 code search 0.071   
+INFO:name:Epoch 4 Step 3840 Total Loss 0.08  Vulnerability 0.493 code search 0.071   
+INFO:name:Epoch 4 Step 3968 Total Loss 0.08  Vulnerability 0.493 code search 0.071   
+INFO:name:Epoch 4 Step 4096 Total Loss 0.08  Vulnerability 0.493 code search 0.071   
+INFO:name:Epoch 4 Step 4224 Total Loss 0.079  Vulnerability 0.493 code search 0.071   
+INFO:name:Epoch 4 Step 4352 Total Loss 0.079  Vulnerability 0.492 code search 0.07   
+INFO:name:Epoch 4 Step 4480 Total Loss 0.078  Vulnerability 0.492 code search 0.07   
+INFO:name:Epoch 4 Step 4608 Total Loss 0.079  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 4736 Total Loss 0.078  Vulnerability 0.492 code search 0.07   
+INFO:name:Epoch 4 Step 4864 Total Loss 0.079  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 4992 Total Loss 0.079  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 5120 Total Loss 0.079  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 5248 Total Loss 0.078  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 5376 Total Loss 0.079  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 5504 Total Loss 0.079  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 5632 Total Loss 0.078  Vulnerability 0.491 code search 0.07   
+INFO:name:Epoch 4 Step 5760 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 5888 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6016 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6144 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6272 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6400 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6528 Total Loss 0.078  Vulnerability 0.49 code search 0.069   
+INFO:name:Epoch 4 Step 6656 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6784 Total Loss 0.078  Vulnerability 0.49 code search 0.07   
+INFO:name:Epoch 4 Step 6912 Total Loss 0.078  Vulnerability 0.489 code search 0.07   
+INFO:name:Epoch 4 Step 7040 Total Loss 0.078  Vulnerability 0.489 code search 0.07   
+INFO:name:Epoch 4 Step 7168 Total Loss 0.078  Vulnerability 0.489 code search 0.07   
+INFO:name:Epoch 4 Step 7296 Total Loss 0.078  Vulnerability 0.489 code search 0.07   
+INFO:name:Epoch 4 Step 7424 Total Loss 0.078  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 7552 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 7680 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 7808 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 7936 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 8064 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 8192 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 8320 Total Loss 0.077  Vulnerability 0.488 code search 0.07   
+INFO:name:Epoch 4 Step 8448 Total Loss 0.077  Vulnerability 0.488 code search 0.069   
+INFO:name:Epoch 4 Step 8576 Total Loss 0.077  Vulnerability 0.488 code search 0.069   
+INFO:name:Epoch 4 Step 8704 Total Loss 0.077  Vulnerability 0.488 code search 0.069   
+INFO:name:Epoch 4 Step 8832 Total Loss 0.077  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 8960 Total Loss 0.077  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9088 Total Loss 0.076  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9216 Total Loss 0.076  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9344 Total Loss 0.076  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9472 Total Loss 0.076  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9600 Total Loss 0.076  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9728 Total Loss 0.076  Vulnerability 0.487 code search 0.069   
+INFO:name:Epoch 4 Step 9856 Total Loss 0.076  Vulnerability 0.486 code search 0.069   
+INFO:name:Epoch 4 Step 9984 Total Loss 0.076  Vulnerability 0.486 code search 0.069   
+INFO:name:Epoch 4 Step 10112 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 10240 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 10368 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 10496 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 10624 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 10752 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 10880 Total Loss 0.076  Vulnerability 0.486 code search 0.068   
+INFO:name:Epoch 4 Step 11008 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11136 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11264 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11392 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11520 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11648 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11776 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 11904 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 12032 Total Loss 0.076  Vulnerability 0.485 code search 0.069   
+INFO:name:Epoch 4 Step 12160 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 12288 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 12416 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 12544 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 12672 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 12800 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 12928 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13056 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13184 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13312 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13440 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13568 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13696 Total Loss 0.076  Vulnerability 0.484 code search 0.069   
+INFO:name:Epoch 4 Step 13824 Total Loss 0.076  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 13952 Total Loss 0.076  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14080 Total Loss 0.076  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14208 Total Loss 0.076  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14336 Total Loss 0.076  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14464 Total Loss 0.076  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14592 Total Loss 0.075  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14720 Total Loss 0.075  Vulnerability 0.483 code search 0.069   
+INFO:name:Epoch 4 Step 14848 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:Epoch 4 Step 14976 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:Epoch 4 Step 15104 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:Epoch 4 Step 15232 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:Epoch 4 Step 15360 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:Epoch 4 Step 15488 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:Epoch 4 Step 15616 Total Loss 0.075  Vulnerability 0.482 code search 0.069   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.0084, 0.9916], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6489
+INFO:name:  eval_acc = 0.6266
+INFO:name:  f1_score = 0.5359
+INFO:name:  recall = 0.4962
+INFO:name:  precision = 0.5826
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4445
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for code search = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.5999, 'test_f1_score': 0.5212, 'test_recall': 0.4741, 'test_precision': 0.5788} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.37475315756897193} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 5 Step 0 Total Loss 0.026  Vulnerability 0.427 code search 0.023   
+INFO:name:Epoch 5 Step 128 Total Loss 0.059  Vulnerability 0.463 code search 0.056   
+INFO:name:Epoch 5 Step 256 Total Loss 0.057  Vulnerability 0.459 code search 0.054   
+INFO:name:Epoch 5 Step 384 Total Loss 0.061  Vulnerability 0.463 code search 0.057   
+INFO:name:Epoch 5 Step 512 Total Loss 0.061  Vulnerability 0.465 code search 0.058   
+INFO:name:Epoch 5 Step 640 Total Loss 0.059  Vulnerability 0.47 code search 0.056   
+INFO:name:Epoch 5 Step 768 Total Loss 0.061  Vulnerability 0.47 code search 0.058   
+INFO:name:Epoch 5 Step 896 Total Loss 0.059  Vulnerability 0.469 code search 0.056   
+INFO:name:Epoch 5 Step 1024 Total Loss 0.06  Vulnerability 0.469 code search 0.056   
+INFO:name:Epoch 5 Step 1152 Total Loss 0.062  Vulnerability 0.469 code search 0.059   
+INFO:name:Epoch 5 Step 1280 Total Loss 0.063  Vulnerability 0.468 code search 0.059   
+INFO:name:Epoch 5 Step 1408 Total Loss 0.062  Vulnerability 0.469 code search 0.059   
+INFO:name:Epoch 5 Step 1536 Total Loss 0.062  Vulnerability 0.468 code search 0.059   
+INFO:name:Epoch 5 Step 1664 Total Loss 0.063  Vulnerability 0.469 code search 0.06   
+INFO:name:Epoch 5 Step 1792 Total Loss 0.063  Vulnerability 0.467 code search 0.059   
+INFO:name:Epoch 5 Step 1920 Total Loss 0.062  Vulnerability 0.467 code search 0.059   
+INFO:name:Epoch 5 Step 2048 Total Loss 0.062  Vulnerability 0.468 code search 0.059   
+INFO:name:Epoch 5 Step 2176 Total Loss 0.063  Vulnerability 0.467 code search 0.059   
+INFO:name:Epoch 5 Step 2304 Total Loss 0.063  Vulnerability 0.467 code search 0.06   
+INFO:name:Epoch 5 Step 2432 Total Loss 0.063  Vulnerability 0.467 code search 0.06   
+INFO:name:Epoch 5 Step 2560 Total Loss 0.063  Vulnerability 0.467 code search 0.06   
+INFO:name:Epoch 5 Step 2688 Total Loss 0.062  Vulnerability 0.467 code search 0.059   
+INFO:name:Epoch 5 Step 2816 Total Loss 0.062  Vulnerability 0.467 code search 0.059   
+INFO:name:Epoch 5 Step 2944 Total Loss 0.063  Vulnerability 0.466 code search 0.06   
+INFO:name:Epoch 5 Step 3072 Total Loss 0.063  Vulnerability 0.466 code search 0.06   
+INFO:name:Epoch 5 Step 3200 Total Loss 0.063  Vulnerability 0.466 code search 0.06   
+INFO:name:Epoch 5 Step 3328 Total Loss 0.063  Vulnerability 0.465 code search 0.06   
+INFO:name:Epoch 5 Step 3456 Total Loss 0.063  Vulnerability 0.466 code search 0.06   
+INFO:name:Epoch 5 Step 3584 Total Loss 0.064  Vulnerability 0.466 code search 0.061   
+INFO:name:Epoch 5 Step 3712 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 3840 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 3968 Total Loss 0.064  Vulnerability 0.466 code search 0.061   
+INFO:name:Epoch 5 Step 4096 Total Loss 0.063  Vulnerability 0.466 code search 0.061   
+INFO:name:Epoch 5 Step 4224 Total Loss 0.064  Vulnerability 0.466 code search 0.061   
+INFO:name:Epoch 5 Step 4352 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 4480 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 4608 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 4736 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 4864 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 4992 Total Loss 0.064  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 5120 Total Loss 0.063  Vulnerability 0.465 code search 0.061   
+INFO:name:Epoch 5 Step 5248 Total Loss 0.063  Vulnerability 0.465 code search 0.06   
+INFO:name:Epoch 5 Step 5376 Total Loss 0.063  Vulnerability 0.465 code search 0.06   
+INFO:name:Epoch 5 Step 5504 Total Loss 0.063  Vulnerability 0.465 code search 0.06   
+INFO:name:Epoch 5 Step 5632 Total Loss 0.063  Vulnerability 0.465 code search 0.06   
+INFO:name:Epoch 5 Step 5760 Total Loss 0.063  Vulnerability 0.464 code search 0.06   
+INFO:name:Epoch 5 Step 5888 Total Loss 0.063  Vulnerability 0.464 code search 0.06   
+INFO:name:Epoch 5 Step 6016 Total Loss 0.063  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6144 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6272 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6400 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6528 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6656 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6784 Total Loss 0.064  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 6912 Total Loss 0.063  Vulnerability 0.464 code search 0.061   
+INFO:name:Epoch 5 Step 7040 Total Loss 0.064  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7168 Total Loss 0.064  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7296 Total Loss 0.063  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7424 Total Loss 0.063  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7552 Total Loss 0.063  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7680 Total Loss 0.063  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7808 Total Loss 0.063  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 7936 Total Loss 0.064  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 8064 Total Loss 0.064  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 8192 Total Loss 0.064  Vulnerability 0.463 code search 0.061   
+INFO:name:Epoch 5 Step 8320 Total Loss 0.064  Vulnerability 0.462 code search 0.061   
+INFO:name:Epoch 5 Step 8448 Total Loss 0.064  Vulnerability 0.462 code search 0.061   
+INFO:name:Epoch 5 Step 8576 Total Loss 0.064  Vulnerability 0.462 code search 0.061   
+INFO:name:Epoch 5 Step 8704 Total Loss 0.064  Vulnerability 0.462 code search 0.062   
+INFO:name:Epoch 5 Step 8832 Total Loss 0.064  Vulnerability 0.462 code search 0.062   
+INFO:name:Epoch 5 Step 8960 Total Loss 0.064  Vulnerability 0.462 code search 0.062   
+INFO:name:Epoch 5 Step 9088 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 9216 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 9344 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 9472 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 9600 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 9728 Total Loss 0.064  Vulnerability 0.461 code search 0.061   
+INFO:name:Epoch 5 Step 9856 Total Loss 0.064  Vulnerability 0.461 code search 0.061   
+INFO:name:Epoch 5 Step 9984 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 10112 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 10240 Total Loss 0.064  Vulnerability 0.461 code search 0.062   
+INFO:name:Epoch 5 Step 10368 Total Loss 0.064  Vulnerability 0.461 code search 0.061   
+INFO:name:Epoch 5 Step 10496 Total Loss 0.064  Vulnerability 0.461 code search 0.061   
+INFO:name:Epoch 5 Step 10624 Total Loss 0.064  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 10752 Total Loss 0.064  Vulnerability 0.461 code search 0.061   
+INFO:name:Epoch 5 Step 10880 Total Loss 0.064  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11008 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11136 Total Loss 0.064  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11264 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11392 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11520 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11648 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11776 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 11904 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 12032 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 12160 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 12288 Total Loss 0.063  Vulnerability 0.46 code search 0.061   
+INFO:name:Epoch 5 Step 12416 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 12544 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 12672 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 12800 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 12928 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13056 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13184 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13312 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13440 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13568 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13696 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 13824 Total Loss 0.063  Vulnerability 0.459 code search 0.06   
+INFO:name:Epoch 5 Step 13952 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 14080 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 14208 Total Loss 0.063  Vulnerability 0.459 code search 0.061   
+INFO:name:Epoch 5 Step 14336 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 14464 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 14592 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 14720 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 14848 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 14976 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 15104 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 15232 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 15360 Total Loss 0.063  Vulnerability 0.458 code search 0.061   
+INFO:name:Epoch 5 Step 15488 Total Loss 0.063  Vulnerability 0.457 code search 0.061   
+INFO:name:Epoch 5 Step 15616 Total Loss 0.063  Vulnerability 0.457 code search 0.061   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.0030, 0.9970], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6744
+INFO:name:  eval_acc = 0.6201
+INFO:name:  f1_score = 0.5487
+INFO:name:  recall = 0.5316
+INFO:name:  precision = 0.5669
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4423
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 6 Step 0 Total Loss 0.059  Vulnerability 0.421 code search 0.058   
+INFO:name:Epoch 6 Step 128 Total Loss 0.049  Vulnerability 0.438 code search 0.048   
+INFO:name:Epoch 6 Step 256 Total Loss 0.046  Vulnerability 0.444 code search 0.045   
+INFO:name:Epoch 6 Step 384 Total Loss 0.051  Vulnerability 0.443 code search 0.05   
+INFO:name:Epoch 6 Step 512 Total Loss 0.052  Vulnerability 0.446 code search 0.051   
+INFO:name:Epoch 6 Step 640 Total Loss 0.056  Vulnerability 0.446 code search 0.055   
+INFO:name:Epoch 6 Step 768 Total Loss 0.056  Vulnerability 0.445 code search 0.054   
+INFO:name:Epoch 6 Step 896 Total Loss 0.056  Vulnerability 0.446 code search 0.054   
+INFO:name:Epoch 6 Step 1024 Total Loss 0.055  Vulnerability 0.446 code search 0.054   
+INFO:name:Epoch 6 Step 1152 Total Loss 0.055  Vulnerability 0.446 code search 0.054   
+INFO:name:Epoch 6 Step 1280 Total Loss 0.055  Vulnerability 0.447 code search 0.054   
+INFO:name:Epoch 6 Step 1408 Total Loss 0.055  Vulnerability 0.446 code search 0.054   
+INFO:name:Epoch 6 Step 1536 Total Loss 0.054  Vulnerability 0.446 code search 0.053   
+INFO:name:Epoch 6 Step 1664 Total Loss 0.055  Vulnerability 0.446 code search 0.054   
+INFO:name:Epoch 6 Step 1792 Total Loss 0.055  Vulnerability 0.445 code search 0.053   
+INFO:name:Epoch 6 Step 1920 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 2048 Total Loss 0.056  Vulnerability 0.443 code search 0.055   
+INFO:name:Epoch 6 Step 2176 Total Loss 0.056  Vulnerability 0.443 code search 0.055   
+INFO:name:Epoch 6 Step 2304 Total Loss 0.056  Vulnerability 0.443 code search 0.055   
+INFO:name:Epoch 6 Step 2432 Total Loss 0.056  Vulnerability 0.444 code search 0.055   
+INFO:name:Epoch 6 Step 2560 Total Loss 0.056  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 2688 Total Loss 0.056  Vulnerability 0.445 code search 0.055   
+INFO:name:Epoch 6 Step 2816 Total Loss 0.055  Vulnerability 0.445 code search 0.054   
+INFO:name:Epoch 6 Step 2944 Total Loss 0.056  Vulnerability 0.444 code search 0.055   
+INFO:name:Epoch 6 Step 3072 Total Loss 0.056  Vulnerability 0.444 code search 0.055   
+INFO:name:Epoch 6 Step 3200 Total Loss 0.056  Vulnerability 0.444 code search 0.055   
+INFO:name:Epoch 6 Step 3328 Total Loss 0.056  Vulnerability 0.443 code search 0.055   
+INFO:name:Epoch 6 Step 3456 Total Loss 0.056  Vulnerability 0.444 code search 0.055   
+INFO:name:Epoch 6 Step 3584 Total Loss 0.056  Vulnerability 0.444 code search 0.055   
+INFO:name:Epoch 6 Step 3712 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 3840 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 3968 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 4096 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 4224 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 4352 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 4480 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 4608 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 4736 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 4864 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 4992 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 5120 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 5248 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 5376 Total Loss 0.055  Vulnerability 0.444 code search 0.054   
+INFO:name:Epoch 6 Step 5504 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 5632 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 5760 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 5888 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 6016 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 6144 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 6272 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 6400 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 6528 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 6656 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 6784 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 6912 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 7040 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 7168 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 7296 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 7424 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 7552 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 7680 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 7808 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 7936 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 8064 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 8192 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 8320 Total Loss 0.055  Vulnerability 0.443 code search 0.054   
+INFO:name:Epoch 6 Step 8448 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 8576 Total Loss 0.054  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 8704 Total Loss 0.054  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 8832 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 8960 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9088 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9216 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9344 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9472 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9600 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9728 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9856 Total Loss 0.055  Vulnerability 0.442 code search 0.054   
+INFO:name:Epoch 6 Step 9984 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10112 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10240 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10368 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10496 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10624 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10752 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 10880 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11008 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11136 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11264 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11392 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11520 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11648 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 11776 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 11904 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 12032 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 12160 Total Loss 0.055  Vulnerability 0.441 code search 0.054   
+INFO:name:Epoch 6 Step 12288 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 12416 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 12544 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 12672 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 12800 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 12928 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13056 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13184 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13312 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13440 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13568 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13696 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13824 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 13952 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14080 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14208 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14336 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14464 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14592 Total Loss 0.055  Vulnerability 0.44 code search 0.055   
+INFO:name:Epoch 6 Step 14720 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14848 Total Loss 0.055  Vulnerability 0.44 code search 0.054   
+INFO:name:Epoch 6 Step 14976 Total Loss 0.055  Vulnerability 0.439 code search 0.054   
+INFO:name:Epoch 6 Step 15104 Total Loss 0.055  Vulnerability 0.439 code search 0.055   
+INFO:name:Epoch 6 Step 15232 Total Loss 0.055  Vulnerability 0.439 code search 0.054   
+INFO:name:Epoch 6 Step 15360 Total Loss 0.055  Vulnerability 0.439 code search 0.054   
+INFO:name:Epoch 6 Step 15488 Total Loss 0.055  Vulnerability 0.439 code search 0.055   
+INFO:name:Epoch 6 Step 15616 Total Loss 0.055  Vulnerability 0.439 code search 0.055   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([0.0012, 0.9988], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6816
+INFO:name:  eval_acc = 0.6171
+INFO:name:  f1_score = 0.5518
+INFO:name:  recall = 0.5425
+INFO:name:  precision = 0.5615
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4571
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for code search = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.5959, 'test_f1_score': 0.5475, 'test_recall': 0.5323, 'test_precision': 0.5637} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.38825179113260855} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 7 Step 0 Total Loss 0.024  Vulnerability 0.351 code search 0.023   
+INFO:name:Epoch 7 Step 128 Total Loss 0.057  Vulnerability 0.414 code search 0.057   
+INFO:name:Epoch 7 Step 256 Total Loss 0.048  Vulnerability 0.427 code search 0.047   
+INFO:name:Epoch 7 Step 384 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 512 Total Loss 0.047  Vulnerability 0.427 code search 0.047   
+INFO:name:Epoch 7 Step 640 Total Loss 0.046  Vulnerability 0.426 code search 0.046   
+INFO:name:Epoch 7 Step 768 Total Loss 0.046  Vulnerability 0.427 code search 0.045   
+INFO:name:Epoch 7 Step 896 Total Loss 0.046  Vulnerability 0.43 code search 0.046   
+INFO:name:Epoch 7 Step 1024 Total Loss 0.046  Vulnerability 0.431 code search 0.045   
+INFO:name:Epoch 7 Step 1152 Total Loss 0.045  Vulnerability 0.431 code search 0.045   
+INFO:name:Epoch 7 Step 1280 Total Loss 0.044  Vulnerability 0.431 code search 0.044   
+INFO:name:Epoch 7 Step 1408 Total Loss 0.045  Vulnerability 0.429 code search 0.044   
+INFO:name:Epoch 7 Step 1536 Total Loss 0.045  Vulnerability 0.428 code search 0.045   
+INFO:name:Epoch 7 Step 1664 Total Loss 0.045  Vulnerability 0.427 code search 0.045   
+INFO:name:Epoch 7 Step 1792 Total Loss 0.046  Vulnerability 0.428 code search 0.045   
+INFO:name:Epoch 7 Step 1920 Total Loss 0.046  Vulnerability 0.429 code search 0.046   
+INFO:name:Epoch 7 Step 2048 Total Loss 0.047  Vulnerability 0.429 code search 0.046   
+INFO:name:Epoch 7 Step 2176 Total Loss 0.047  Vulnerability 0.429 code search 0.046   
+INFO:name:Epoch 7 Step 2304 Total Loss 0.046  Vulnerability 0.43 code search 0.046   
+INFO:name:Epoch 7 Step 2432 Total Loss 0.047  Vulnerability 0.43 code search 0.046   
+INFO:name:Epoch 7 Step 2560 Total Loss 0.047  Vulnerability 0.43 code search 0.047   
+INFO:name:Epoch 7 Step 2688 Total Loss 0.048  Vulnerability 0.43 code search 0.047   
+INFO:name:Epoch 7 Step 2816 Total Loss 0.047  Vulnerability 0.431 code search 0.047   
+INFO:name:Epoch 7 Step 2944 Total Loss 0.048  Vulnerability 0.431 code search 0.048   
+INFO:name:Epoch 7 Step 3072 Total Loss 0.048  Vulnerability 0.431 code search 0.048   
+INFO:name:Epoch 7 Step 3200 Total Loss 0.048  Vulnerability 0.431 code search 0.048   
+INFO:name:Epoch 7 Step 3328 Total Loss 0.048  Vulnerability 0.431 code search 0.047   
+INFO:name:Epoch 7 Step 3456 Total Loss 0.048  Vulnerability 0.431 code search 0.047   
+INFO:name:Epoch 7 Step 3584 Total Loss 0.049  Vulnerability 0.431 code search 0.048   
+INFO:name:Epoch 7 Step 3712 Total Loss 0.049  Vulnerability 0.431 code search 0.049   
+INFO:name:Epoch 7 Step 3840 Total Loss 0.049  Vulnerability 0.431 code search 0.049   
+INFO:name:Epoch 7 Step 3968 Total Loss 0.049  Vulnerability 0.431 code search 0.049   
+INFO:name:Epoch 7 Step 4096 Total Loss 0.049  Vulnerability 0.432 code search 0.049   
+INFO:name:Epoch 7 Step 4224 Total Loss 0.049  Vulnerability 0.431 code search 0.049   
+INFO:name:Epoch 7 Step 4352 Total Loss 0.049  Vulnerability 0.43 code search 0.048   
+INFO:name:Epoch 7 Step 4480 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 4608 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 4736 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 4864 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 4992 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 5120 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 5248 Total Loss 0.049  Vulnerability 0.43 code search 0.048   
+INFO:name:Epoch 7 Step 5376 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 5504 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 5632 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 5760 Total Loss 0.049  Vulnerability 0.43 code search 0.048   
+INFO:name:Epoch 7 Step 5888 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 6016 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 6144 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 6272 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 6400 Total Loss 0.049  Vulnerability 0.429 code search 0.048   
+INFO:name:Epoch 7 Step 6528 Total Loss 0.049  Vulnerability 0.429 code search 0.048   
+INFO:name:Epoch 7 Step 6656 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 6784 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 6912 Total Loss 0.049  Vulnerability 0.43 code search 0.048   
+INFO:name:Epoch 7 Step 7040 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 7168 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 7296 Total Loss 0.049  Vulnerability 0.43 code search 0.049   
+INFO:name:Epoch 7 Step 7424 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 7552 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 7680 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 7808 Total Loss 0.049  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 7936 Total Loss 0.05  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 8064 Total Loss 0.05  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 8192 Total Loss 0.05  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 8320 Total Loss 0.05  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 8448 Total Loss 0.05  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 8576 Total Loss 0.05  Vulnerability 0.429 code search 0.049   
+INFO:name:Epoch 7 Step 8704 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 8832 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 8960 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 9088 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 9216 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 9344 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 9472 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 9600 Total Loss 0.05  Vulnerability 0.428 code search 0.049   
+INFO:name:Epoch 7 Step 9728 Total Loss 0.05  Vulnerability 0.428 code search 0.05   
+INFO:name:Epoch 7 Step 9856 Total Loss 0.05  Vulnerability 0.428 code search 0.05   
+INFO:name:Epoch 7 Step 9984 Total Loss 0.05  Vulnerability 0.428 code search 0.05   
+INFO:name:Epoch 7 Step 10112 Total Loss 0.05  Vulnerability 0.428 code search 0.05   
+INFO:name:Epoch 7 Step 10240 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 10368 Total Loss 0.05  Vulnerability 0.428 code search 0.05   
+INFO:name:Epoch 7 Step 10496 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 10624 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 10752 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 10880 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11008 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11136 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11264 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11392 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11520 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11648 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11776 Total Loss 0.05  Vulnerability 0.427 code search 0.05   
+INFO:name:Epoch 7 Step 11904 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12032 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12160 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12288 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12416 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12544 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12672 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12800 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 12928 Total Loss 0.05  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 13056 Total Loss 0.051  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 13184 Total Loss 0.051  Vulnerability 0.426 code search 0.05   
+INFO:name:Epoch 7 Step 13312 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 13440 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 13568 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 13696 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 13824 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 13952 Total Loss 0.05  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14080 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14208 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14336 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14464 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14592 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14720 Total Loss 0.05  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14848 Total Loss 0.05  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 14976 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 15104 Total Loss 0.051  Vulnerability 0.425 code search 0.05   
+INFO:name:Epoch 7 Step 15232 Total Loss 0.051  Vulnerability 0.424 code search 0.05   
+INFO:name:Epoch 7 Step 15360 Total Loss 0.051  Vulnerability 0.424 code search 0.051   
+INFO:name:Epoch 7 Step 15488 Total Loss 0.051  Vulnerability 0.424 code search 0.05   
+INFO:name:Epoch 7 Step 15616 Total Loss 0.051  Vulnerability 0.424 code search 0.05   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([4.6365e-04, 9.9954e-01], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.7017
+INFO:name:  eval_acc = 0.6149
+INFO:name:  f1_score = 0.558
+INFO:name:  recall = 0.5594
+INFO:name:  precision = 0.5566
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4465
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 8 Step 0 Total Loss 0.005  Vulnerability 0.521 code search 0.004   
+INFO:name:Epoch 8 Step 128 Total Loss 0.045  Vulnerability 0.393 code search 0.045   
+INFO:name:Epoch 8 Step 256 Total Loss 0.049  Vulnerability 0.399 code search 0.049   
+INFO:name:Epoch 8 Step 384 Total Loss 0.048  Vulnerability 0.401 code search 0.048   
+INFO:name:Epoch 8 Step 512 Total Loss 0.05  Vulnerability 0.403 code search 0.05   
+INFO:name:Epoch 8 Step 640 Total Loss 0.048  Vulnerability 0.405 code search 0.048   
+INFO:name:Epoch 8 Step 768 Total Loss 0.048  Vulnerability 0.405 code search 0.048   
+INFO:name:Epoch 8 Step 896 Total Loss 0.049  Vulnerability 0.408 code search 0.048   
+INFO:name:Epoch 8 Step 1024 Total Loss 0.047  Vulnerability 0.408 code search 0.047   
+INFO:name:Epoch 8 Step 1152 Total Loss 0.048  Vulnerability 0.412 code search 0.047   
+INFO:name:Epoch 8 Step 1280 Total Loss 0.048  Vulnerability 0.413 code search 0.048   
+INFO:name:Epoch 8 Step 1408 Total Loss 0.048  Vulnerability 0.412 code search 0.048   
+INFO:name:Epoch 8 Step 1536 Total Loss 0.047  Vulnerability 0.41 code search 0.047   
+INFO:name:Epoch 8 Step 1664 Total Loss 0.048  Vulnerability 0.41 code search 0.048   
+INFO:name:Epoch 8 Step 1792 Total Loss 0.048  Vulnerability 0.41 code search 0.047   
+INFO:name:Epoch 8 Step 1920 Total Loss 0.048  Vulnerability 0.411 code search 0.048   
+INFO:name:Epoch 8 Step 2048 Total Loss 0.048  Vulnerability 0.412 code search 0.048   
+INFO:name:Epoch 8 Step 2176 Total Loss 0.048  Vulnerability 0.411 code search 0.047   
+INFO:name:Epoch 8 Step 2304 Total Loss 0.047  Vulnerability 0.412 code search 0.047   
+INFO:name:Epoch 8 Step 2432 Total Loss 0.047  Vulnerability 0.411 code search 0.047   
+INFO:name:Epoch 8 Step 2560 Total Loss 0.047  Vulnerability 0.411 code search 0.047   
+INFO:name:Epoch 8 Step 2688 Total Loss 0.047  Vulnerability 0.411 code search 0.047   
+INFO:name:Epoch 8 Step 2816 Total Loss 0.047  Vulnerability 0.411 code search 0.047   
+INFO:name:Epoch 8 Step 2944 Total Loss 0.047  Vulnerability 0.411 code search 0.047   
+INFO:name:Epoch 8 Step 3072 Total Loss 0.046  Vulnerability 0.411 code search 0.046   
+INFO:name:Epoch 8 Step 3200 Total Loss 0.046  Vulnerability 0.412 code search 0.046   
+INFO:name:Epoch 8 Step 3328 Total Loss 0.046  Vulnerability 0.411 code search 0.046   
+INFO:name:Epoch 8 Step 3456 Total Loss 0.046  Vulnerability 0.412 code search 0.046   
+INFO:name:Epoch 8 Step 3584 Total Loss 0.046  Vulnerability 0.412 code search 0.046   
+INFO:name:Epoch 8 Step 3712 Total Loss 0.046  Vulnerability 0.412 code search 0.046   
+INFO:name:Epoch 8 Step 3840 Total Loss 0.046  Vulnerability 0.413 code search 0.046   
+INFO:name:Epoch 8 Step 3968 Total Loss 0.046  Vulnerability 0.413 code search 0.045   
+INFO:name:Epoch 8 Step 4096 Total Loss 0.045  Vulnerability 0.413 code search 0.045   
+INFO:name:Epoch 8 Step 4224 Total Loss 0.045  Vulnerability 0.413 code search 0.045   
+INFO:name:Epoch 8 Step 4352 Total Loss 0.046  Vulnerability 0.413 code search 0.046   
+INFO:name:Epoch 8 Step 4480 Total Loss 0.046  Vulnerability 0.413 code search 0.045   
+INFO:name:Epoch 8 Step 4608 Total Loss 0.045  Vulnerability 0.413 code search 0.045   
+INFO:name:Epoch 8 Step 4736 Total Loss 0.045  Vulnerability 0.413 code search 0.045   
+INFO:name:Epoch 8 Step 4864 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 4992 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5120 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5248 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5376 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5504 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5632 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5760 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 5888 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 6016 Total Loss 0.045  Vulnerability 0.414 code search 0.045   
+INFO:name:Epoch 8 Step 6144 Total Loss 0.045  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 6272 Total Loss 0.045  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 6400 Total Loss 0.045  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 6528 Total Loss 0.045  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 6656 Total Loss 0.045  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 6784 Total Loss 0.046  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 6912 Total Loss 0.045  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 7040 Total Loss 0.046  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 7168 Total Loss 0.046  Vulnerability 0.415 code search 0.045   
+INFO:name:Epoch 8 Step 7296 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 7424 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 7552 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 7680 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 7808 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 7936 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 8064 Total Loss 0.046  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 8192 Total Loss 0.047  Vulnerability 0.416 code search 0.046   
+INFO:name:Epoch 8 Step 8320 Total Loss 0.047  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 8448 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 8576 Total Loss 0.047  Vulnerability 0.415 code search 0.046   
+INFO:name:Epoch 8 Step 8704 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 8832 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 8960 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9088 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9216 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9344 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9472 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9600 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9728 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9856 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 9984 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10112 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10240 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10368 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10496 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10624 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10752 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 10880 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11008 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11136 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11264 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11392 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11520 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11648 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11776 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 11904 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 12032 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 12160 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 12288 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 12416 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 12544 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 12672 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 12800 Total Loss 0.047  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 12928 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13056 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13184 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13312 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13440 Total Loss 0.048  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13568 Total Loss 0.048  Vulnerability 0.415 code search 0.047   
+INFO:name:Epoch 8 Step 13696 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13824 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 13952 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 14080 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 14208 Total Loss 0.047  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 14336 Total Loss 0.048  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 14464 Total Loss 0.048  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 14592 Total Loss 0.048  Vulnerability 0.414 code search 0.047   
+INFO:name:Epoch 8 Step 14720 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 14848 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 14976 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 15104 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 15232 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 15360 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 15488 Total Loss 0.048  Vulnerability 0.414 code search 0.048   
+INFO:name:Epoch 8 Step 15616 Total Loss 0.048  Vulnerability 0.413 code search 0.048   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([1.9917e-04, 9.9980e-01], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.7108
+INFO:name:  eval_acc = 0.6274
+INFO:name:  f1_score = 0.5492
+INFO:name:  recall = 0.5223
+INFO:name:  precision = 0.5789
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4588
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Num examples for code search = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.593, 'test_f1_score': 0.5207, 'test_recall': 0.4813, 'test_precision': 0.5671} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.3874988486402203} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 9 Step 0 Total Loss 0.012  Vulnerability 0.29 code search 0.012   
+INFO:name:Epoch 9 Step 128 Total Loss 0.046  Vulnerability 0.411 code search 0.046   
+INFO:name:Epoch 9 Step 256 Total Loss 0.04  Vulnerability 0.408 code search 0.04   
+INFO:name:Epoch 9 Step 384 Total Loss 0.038  Vulnerability 0.41 code search 0.038   
+INFO:name:Epoch 9 Step 512 Total Loss 0.04  Vulnerability 0.406 code search 0.04   
+INFO:name:Epoch 9 Step 640 Total Loss 0.038  Vulnerability 0.404 code search 0.038   
+INFO:name:Epoch 9 Step 768 Total Loss 0.039  Vulnerability 0.402 code search 0.039   
+INFO:name:Epoch 9 Step 896 Total Loss 0.039  Vulnerability 0.402 code search 0.039   
+INFO:name:Epoch 9 Step 1024 Total Loss 0.041  Vulnerability 0.404 code search 0.041   
+INFO:name:Epoch 9 Step 1152 Total Loss 0.041  Vulnerability 0.406 code search 0.041   
+INFO:name:Epoch 9 Step 1280 Total Loss 0.042  Vulnerability 0.405 code search 0.042   
+INFO:name:Epoch 9 Step 1408 Total Loss 0.043  Vulnerability 0.406 code search 0.043   
+INFO:name:Epoch 9 Step 1536 Total Loss 0.043  Vulnerability 0.406 code search 0.042   
+INFO:name:Epoch 9 Step 1664 Total Loss 0.042  Vulnerability 0.407 code search 0.042   
+INFO:name:Epoch 9 Step 1792 Total Loss 0.043  Vulnerability 0.406 code search 0.043   
+INFO:name:Epoch 9 Step 1920 Total Loss 0.042  Vulnerability 0.406 code search 0.042   
+INFO:name:Epoch 9 Step 2048 Total Loss 0.042  Vulnerability 0.406 code search 0.042   
+INFO:name:Epoch 9 Step 2176 Total Loss 0.042  Vulnerability 0.407 code search 0.041   
+INFO:name:Epoch 9 Step 2304 Total Loss 0.042  Vulnerability 0.408 code search 0.042   
+INFO:name:Epoch 9 Step 2432 Total Loss 0.042  Vulnerability 0.408 code search 0.042   
+INFO:name:Epoch 9 Step 2560 Total Loss 0.042  Vulnerability 0.409 code search 0.042   
+INFO:name:Epoch 9 Step 2688 Total Loss 0.042  Vulnerability 0.409 code search 0.042   
+INFO:name:Epoch 9 Step 2816 Total Loss 0.041  Vulnerability 0.409 code search 0.041   
+INFO:name:Epoch 9 Step 2944 Total Loss 0.042  Vulnerability 0.408 code search 0.042   
+INFO:name:Epoch 9 Step 3072 Total Loss 0.042  Vulnerability 0.409 code search 0.042   
+INFO:name:Epoch 9 Step 3200 Total Loss 0.042  Vulnerability 0.408 code search 0.041   
+INFO:name:Epoch 9 Step 3328 Total Loss 0.042  Vulnerability 0.408 code search 0.042   
+INFO:name:Epoch 9 Step 3456 Total Loss 0.042  Vulnerability 0.407 code search 0.042   
+INFO:name:Epoch 9 Step 3584 Total Loss 0.042  Vulnerability 0.407 code search 0.042   
+INFO:name:Epoch 9 Step 3712 Total Loss 0.042  Vulnerability 0.407 code search 0.042   
+INFO:name:Epoch 9 Step 3840 Total Loss 0.042  Vulnerability 0.407 code search 0.042   
+INFO:name:Epoch 9 Step 3968 Total Loss 0.043  Vulnerability 0.408 code search 0.043   
+INFO:name:Epoch 9 Step 4096 Total Loss 0.043  Vulnerability 0.408 code search 0.043   
+INFO:name:Epoch 9 Step 4224 Total Loss 0.043  Vulnerability 0.408 code search 0.043   
+INFO:name:Epoch 9 Step 4352 Total Loss 0.043  Vulnerability 0.407 code search 0.043   
+INFO:name:Epoch 9 Step 4480 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 4608 Total Loss 0.043  Vulnerability 0.408 code search 0.043   
+INFO:name:Epoch 9 Step 4736 Total Loss 0.044  Vulnerability 0.408 code search 0.044   
+INFO:name:Epoch 9 Step 4864 Total Loss 0.044  Vulnerability 0.408 code search 0.044   
+INFO:name:Epoch 9 Step 4992 Total Loss 0.044  Vulnerability 0.408 code search 0.044   
+INFO:name:Epoch 9 Step 5120 Total Loss 0.044  Vulnerability 0.408 code search 0.043   
+INFO:name:Epoch 9 Step 5248 Total Loss 0.044  Vulnerability 0.408 code search 0.044   
+INFO:name:Epoch 9 Step 5376 Total Loss 0.044  Vulnerability 0.408 code search 0.044   
+INFO:name:Epoch 9 Step 5504 Total Loss 0.044  Vulnerability 0.408 code search 0.044   
+INFO:name:Epoch 9 Step 5632 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 5760 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 5888 Total Loss 0.043  Vulnerability 0.407 code search 0.043   
+INFO:name:Epoch 9 Step 6016 Total Loss 0.043  Vulnerability 0.406 code search 0.043   
+INFO:name:Epoch 9 Step 6144 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 6272 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 6400 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 6528 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 6656 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 6784 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 6912 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 7040 Total Loss 0.044  Vulnerability 0.407 code search 0.044   
+INFO:name:Epoch 9 Step 7168 Total Loss 0.044  Vulnerability 0.406 code search 0.044   
+INFO:name:Epoch 9 Step 7296 Total Loss 0.044  Vulnerability 0.406 code search 0.044   
+INFO:name:Epoch 9 Step 7424 Total Loss 0.044  Vulnerability 0.406 code search 0.044   
+INFO:name:Epoch 9 Step 7552 Total Loss 0.044  Vulnerability 0.406 code search 0.044   
+INFO:name:Epoch 9 Step 7680 Total Loss 0.044  Vulnerability 0.406 code search 0.044   
+INFO:name:Epoch 9 Step 7808 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 7936 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8064 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8192 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8320 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8448 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8576 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8704 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8832 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 8960 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9088 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9216 Total Loss 0.045  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9344 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9472 Total Loss 0.045  Vulnerability 0.405 code search 0.045   
+INFO:name:Epoch 9 Step 9600 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9728 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9856 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 9984 Total Loss 0.044  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 10112 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 10240 Total Loss 0.044  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 10368 Total Loss 0.044  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 10496 Total Loss 0.044  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 10624 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 10752 Total Loss 0.045  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 10880 Total Loss 0.044  Vulnerability 0.405 code search 0.044   
+INFO:name:Epoch 9 Step 11008 Total Loss 0.044  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 11136 Total Loss 0.044  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 11264 Total Loss 0.045  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 11392 Total Loss 0.045  Vulnerability 0.404 code search 0.044   
+INFO:name:Epoch 9 Step 11520 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 11648 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 11776 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 11904 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 12032 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 12160 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 12288 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 12416 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 12544 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 12672 Total Loss 0.045  Vulnerability 0.404 code search 0.045   
+INFO:name:Epoch 9 Step 12800 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 12928 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13056 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13184 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13312 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13440 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13568 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13696 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13824 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 13952 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14080 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14208 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14336 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14464 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14592 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14720 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14848 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 14976 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 15104 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 15232 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 15360 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 15488 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:Epoch 9 Step 15616 Total Loss 0.045  Vulnerability 0.403 code search 0.045   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples vulnerability detection = 2732
+tensor([9.1408e-05, 9.9991e-01], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.7303
+INFO:name:  eval_acc = 0.6223
+INFO:name:  f1_score = 0.5482
+INFO:name:  recall = 0.5274
+INFO:name:  precision = 0.5706
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.447
+INFO:name:
+***** Test Results for task vul_detection
+{'task': 'vul_detection', 'test_acc': 0.5827, 'test_f1_score': 0.5161, 'test_recall': 0.4845, 'test_precision': 0.5522} 
+
+{'task': 'code_search', 'eval_mrr': 0.3750332421479754} 
+

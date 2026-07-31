@@ -26,7 +26,7 @@
 & Serial adapter ($d$=64)   & \multicolumn{1}{c|}{\textcolor{red}{1.89}} & \multicolumn{1}{c}{\textcolor{red}{93.22}} & \textcolor{red}{\DOWN{1.06}} & \multicolumn{1}{c}{\textcolor{red}{62.59}} & \textcolor{red}{\DOWN{0.22}} & \multicolumn{1}{c}{\textcolor{red}{69.35}} & \textcolor{red}{\DOWN{1.11}} & \multicolumn{1}{c}{\textcolor{red}{27.69}} & \textcolor{red}{\UP{3.97}} \\
 & Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{0.95}} & \multicolumn{1}{c}{\textcolor{red}{92.38}} & \textcolor{red}{\DOWN{1.90}} & \multicolumn{1}{c}{\textcolor{red}{65.63}} & \textcolor{red}{\UP{2.82}} & \multicolumn{1}{c}{\textcolor{red}{68.53}} & \textcolor{red}{\DOWN{1.93}} & \multicolumn{1}{c}{\textcolor{red}{28.13}} & \textcolor{red}{\UP{4.41}} \\
 & LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{1.39}} & \multicolumn{1}{c}{\textcolor{red}{93.52}} & \textcolor{red}{\DOWN{0.76}} & \multicolumn{1}{c}{\textcolor{red}{62.30}} & \textcolor{red}{\DOWN{0.51}} & \multicolumn{1}{c}{\textcolor{red}{70.67}} & \textcolor{red}{\UP{0.21}} & \multicolumn{1}{c}{\textcolor{red}{30.28}} & \textcolor{red}{\UP{6.56}} \\
-& MLoRA$^{*}$                & \multicolumn{1}{c|}{\textcolor{red}{55.55}} & \multicolumn{1}{c}{\textcolor{red}{93.75}} & \textcolor{red}{\DOWN{0.53}} & \multicolumn{1}{c}{\textcolor{red}{61.97}} & \textcolor{red}{\DOWN{0.84}} & \multicolumn{1}{c}{\textcolor{red}{70.00}} & \textcolor{red}{\DOWN{0.46}} & \multicolumn{1}{c}{\textcolor{red}{35.07}} & \textcolor{red}{\UP{11.35}} \\
+& MLoRA                     & \multicolumn{1}{c|}{\textcolor{red}{4.49}} & \multicolumn{1}{c}{\textcolor{red}{93.75}} & \textcolor{red}{\DOWN{0.53}} & \multicolumn{1}{c}{\textcolor{red}{61.97}} & \textcolor{red}{\DOWN{0.84}} & \multicolumn{1}{c}{\textcolor{red}{70.00}} & \textcolor{red}{\DOWN{0.46}} & \multicolumn{1}{c}{\textcolor{red}{35.07}} & \textcolor{red}{\UP{11.35}} \\
 \hline
 
 \multirow{4}{*}{\bfseries DeepSeek-Coder 1.3B}
@@ -42,4 +42,48 @@
 & Parallel adapter ($d$=64) & \multicolumn{1}{c|}{\textcolor{red}{0.36}} & \multicolumn{1}{c}{\textcolor{red}{91.87}} & \textcolor{red}{\DOWN{1.59}} & \multicolumn{1}{c}{\textcolor{red}{60.87}} & \textcolor{red}{\DOWN{0.26}} & \multicolumn{1}{c}{\textcolor{red}{68.06}} & \textcolor{red}{\DOWN{1.68}} & \multicolumn{1}{c}{\textcolor{red}{33.20}} & \textcolor{red}{\DOWN{6.98}} \\
 & LoRA ($r$=32)             & \multicolumn{1}{c|}{\textcolor{red}{0.38}} & \multicolumn{1}{c}{\textcolor{red}{92.90}} & \textcolor{red}{\DOWN{0.56}} & \multicolumn{1}{c}{\textcolor{red}{61.42}} & \textcolor{red}{\UP{0.29}} & \multicolumn{1}{c}{\textcolor{red}{69.72}} & \textcolor{red}{\DOWN{0.02}} & \multicolumn{1}{c}{\textcolor{red}{29.95}} & \textcolor{red}{\DOWN{10.23}} \\
 \hline
+\hline
+
+
+
+\multicolumn{11}{|c|}{\bfseries SFT (single-task)} \\ \hline
+
+\multirow{5}{*}{\bfseries Unixcoder-base}
+& Full     & 100.00 & 94.34 & & 65.19 & & 73.93 & & 33.51 & \\
+& Serial adapter   &   1.85 & 94.71 & \UP{0.37} & 63.07 & \DOWN{2.12} & 69.45 & \DOWN{4.48} & 36.68 & \UP{3.17} \\
+& Parallel adapter &   0.93 & 94.36 & \UP{0.02} & 64.86 & \DOWN{0.33} & 67.58 & \DOWN{6.35} & 35.31 & \UP{1.80} \\
+& LoRA     &   0.46 & 93.84 & \DOWN{0.50} & 62.59 & \DOWN{2.60} & 66.22 & \DOWN{7.71} & 37.28 & \UP{3.77} \\
+& Prefix   &   7.16 & 92.75 & \DOWN{1.59} & 62.41 & \DOWN{2.78} & 68.73 & \DOWN{5.20} & 38.10 & \UP{4.59} \\
+\hline
+
+\multirow{5}{*}{\bfseries ModernBERT-base}
+& Full     & 100.00 & \multicolumn{1}{c}{--} & & 62.23 & & 64.23 & & \multicolumn{1}{c}{--} & \\
+& Serial adapter   &   2.84 & \multicolumn{1}{c}{--} & & 61.20 & \DOWN{1.03} & 65.10 & \UP{0.87} & \multicolumn{1}{c}{--} & \\
+& Parallel adapter &   1.44 & \multicolumn{1}{c}{--} & & 59.08 & \DOWN{3.15} & 64.13 & \DOWN{0.10} & \multicolumn{1}{c}{--} & \\
+& LoRA     &   2.99 & \multicolumn{1}{c}{--} & & 60.76 & \DOWN{1.47} & 67.84 & \UP{3.61} & \multicolumn{1}{c}{--} & \\
+& Prefix   & \multicolumn{1}{c|}{--} & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & \\
+\hline
+
+\multirow{5}{*}{\bfseries Codet5+ 770M}
+& Full     & 100.00 & 94.73 & & 65.37 & & 69.57 & & 35.41 & \\
+& Serial adapter   &   1.70 & {93.90} & \DOWN{0.83} & {65.48} & \UP{0.11} & 68.87 & \DOWN{0.70} & {37.13} & \UP{1.72} \\
+& Parallel adapter  &   0.85 & {94.41} & \DOWN{0.32} & {64.20} & \DOWN{1.17} & 69.08 & \DOWN{0.49} & {36.47} & \UP{1.06} \\
+& LoRA     &   0.42 & {93.99} & \DOWN{0.74} & {63.56} & \DOWN{1.81} & {70.21} & \UP{0.64} & {37.70} & \UP{2.29} \\
+& Prefix   &   6.43 & {90.35} & \DOWN{4.38} & 56.30 & \DOWN{9.07} & 56.92 & \DOWN{12.65} & {28.27} & \DOWN{7.14} \\
+\hline
+
+\multirow{5}{*}{\bfseries Deepseek coder 1.3B}
+& Full     & 100.00 & 93.10 & \ & {62.96} & & 66.41 & & 27.92 & \\
+& Serial adapter   &   0.98 & {93.38} & \UP{0.28} & {63.87} & \UP{0.91} & {71.63} & \UP{5.22} & {41.76} & \UP{13.84} \\
+& Parallel adapter  &   0.84 & 93.50 & \UP{0.40} & {63.62} & \UP{0.66} & 68.69 & \UP{2.28} & {36.55} & \UP{8.63} \\
+& LoRA     &   0.24 & {93.75} & \UP{0.65} & {63.73} & \UP{0.77} & 66.90 & \UP{0.49} & {43.57} & \UP{15.65} \\
+& Prefix   & \multicolumn{1}{c|}{--} & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & \\
+\hline
+
+\multirow{5}{*}{\bfseries Qwen2.5-Coder-1.5B}
+& Full     & 100.00 & {94.23} & & {63.18} & & 67.88 & & 29.80 & \\
+& Serial adapter   &   0.71 & {94.43} & \UP{0.20} & {62.70} & \DOWN{0.48} & 69.90 & \UP{1.72} & {39.82} & \UP{10.02} \\
+& Parallel adapter &   0.35 & \multicolumn{1}{c}{94.08} & \DOWN{-0.15} & \multicolumn{1}{c}{62.77} & \DOWN{0.51} & 70.42 & \UP{2.54} & {37.26} & \UP{7.46} \\
+& LoRA     &   0.14 & {93.99} & \DOWN{0.24} & {62.85} & \DOWN{0.33} & 69.82 & \UP{1.94} & {39.81} & \UP{10.01} \\
+& Prefix   & \multicolumn{1}{c|}{--} & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & & \multicolumn{1}{c}{--} & \\
 \hline

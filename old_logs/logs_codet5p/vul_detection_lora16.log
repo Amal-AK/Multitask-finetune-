@@ -1,0 +1,787 @@
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/deepspeed.py:23: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+INFO:name:device: cuda:2, n_gpu: 1
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /Salesforce/codet5p-770m/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /Salesforce/codet5p-770m/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+root
+├── shared (Embedding) weight:[32100, 1024]
+├── encoder (T5Stack)
+│   ├── embed_tokens (Embedding) weight:[32100, 1024]
+│   ├── block (ModuleList)
+│   │   ├── 0 (T5Block)
+│   │   │   └── layer (ModuleList)
+│   │   │       ├── 0 (T5LayerSelfAttention)
+│   │   │       │   ├── SelfAttention (T5Attention)
+│   │   │       │   │   ├── q,v(Linear) weight:[1024, 1024]
+│   │   │       │   │   │   └── lora (LowRankLinear) lora_A:[16, 1024] lora_B:[1024, 16]
+│   │   │       │   │   ├── k,o(Linear) weight:[1024, 1024]
+│   │   │       │   │   └── relative_attention_bias (Embedding) weight:[32, 16]
+│   │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+│   │   │       └── 1 (T5LayerFF)
+│   │   │           ├── DenseReluDense (T5DenseActDense)
+│   │   │           │   ├── wi (Linear) weight:[4096, 1024]
+│   │   │           │   └── wo (Linear) weight:[1024, 4096]
+│   │   │           └── layer_norm (T5LayerNorm) weight:[1024]
+│   │   └── 1-23(T5Block)
+│   │       └── layer (ModuleList)
+│   │           ├── 0 (T5LayerSelfAttention)
+│   │           │   ├── SelfAttention (T5Attention)
+│   │           │   │   ├── q,v(Linear) weight:[1024, 1024]
+│   │           │   │   │   └── lora (LowRankLinear) lora_A:[16, 1024] lora_B:[1024, 16]
+│   │           │   │   └── k,o(Linear) weight:[1024, 1024]
+│   │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+│   │           └── 1 (T5LayerFF)
+│   │               ├── DenseReluDense (T5DenseActDense)
+│   │               │   ├── wi (Linear) weight:[4096, 1024]
+│   │               │   └── wo (Linear) weight:[1024, 4096]
+│   │               └── layer_norm (T5LayerNorm) weight:[1024]
+│   └── final_layer_norm (T5LayerNorm) weight:[1024]
+└── decoder (T5Stack)
+    ├── embed_tokens (Embedding) weight:[32100, 1024]
+    ├── block (ModuleList)
+    │   ├── 0 (T5Block)
+    │   │   └── layer (ModuleList)
+    │   │       ├── 0 (T5LayerSelfAttention)
+    │   │       │   ├── SelfAttention (T5Attention)
+    │   │       │   │   ├── q,v(Linear) weight:[1024, 1024]
+    │   │       │   │   │   └── lora (LowRankLinear) lora_A:[16, 1024] lora_B:[1024, 16]
+    │   │       │   │   ├── k,o(Linear) weight:[1024, 1024]
+    │   │       │   │   └── relative_attention_bias (Embedding) weight:[32, 16]
+    │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │   │       ├── 1 (T5LayerCrossAttention)
+    │   │       │   ├── EncDecAttention (T5Attention)
+    │   │       │   │   └── q,k,v,o(Linear) weight:[1024, 1024]
+    │   │       │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │   │       └── 2 (T5LayerFF)
+    │   │           ├── DenseReluDense (T5DenseActDense)
+    │   │           │   ├── wi (Linear) weight:[4096, 1024]
+    │   │           │   └── wo (Linear) weight:[1024, 4096]
+    │   │           └── layer_norm (T5LayerNorm) weight:[1024]
+    │   └── 1-23(T5Block)
+    │       └── layer (ModuleList)
+    │           ├── 0 (T5LayerSelfAttention)
+    │           │   ├── SelfAttention (T5Attention)
+    │           │   │   ├── q,v(Linear) weight:[1024, 1024]
+    │           │   │   │   └── lora (LowRankLinear) lora_A:[16, 1024] lora_B:[1024, 16]
+    │           │   │   └── k,o(Linear) weight:[1024, 1024]
+    │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │           ├── 1 (T5LayerCrossAttention)
+    │           │   ├── EncDecAttention (T5Attention)
+    │           │   │   └── q,k,v,o(Linear) weight:[1024, 1024]
+    │           │   └── layer_norm (T5LayerNorm) weight:[1024]
+    │           └── 2 (T5LayerFF)
+    │               ├── DenseReluDense (T5DenseActDense)
+    │               │   ├── wi (Linear) weight:[4096, 1024]
+    │               │   └── wo (Linear) weight:[1024, 4096]
+    │               └── layer_norm (T5LayerNorm) weight:[1024]
+    └── final_layer_norm (T5LayerNorm) weight:[1024]
+[INFO|(OpenDelta)basemodel:696]2025-04-06 01:07:15,900 >> Trainable Ratio: 3145728/740785152=0.424648%
+[INFO|(OpenDelta)basemodel:698]2025-04-06 01:07:15,900 >> Delta Parameter Ratio: 3145728/740785152=0.424648%
+[INFO|(OpenDelta)basemodel:700]2025-04-06 01:07:15,900 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:Preparing the vulnerability detection Dataset...
+
+INFO:name:***** Running training *****
+INFO:name:  Num examples Vulnerabilty detection = 21854
+INFO:name:  Num Epochs = 10
+INFO:name:  Total train batch size  = 16
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 0 Step 0 Total Loss 0.688   
+INFO:name:Epoch 0 Step 32 Total Loss 0.69   
+INFO:name:Epoch 0 Step 64 Total Loss 0.692   
+INFO:name:Epoch 0 Step 96 Total Loss 0.691   
+INFO:name:Epoch 0 Step 128 Total Loss 0.689   
+INFO:name:Epoch 0 Step 160 Total Loss 0.69   
+INFO:name:Epoch 0 Step 192 Total Loss 0.69   
+INFO:name:Epoch 0 Step 224 Total Loss 0.69   
+INFO:name:Epoch 0 Step 256 Total Loss 0.69   
+INFO:name:Epoch 0 Step 288 Total Loss 0.689   
+INFO:name:Epoch 0 Step 320 Total Loss 0.69   
+INFO:name:Epoch 0 Step 352 Total Loss 0.69   
+INFO:name:Epoch 0 Step 384 Total Loss 0.69   
+INFO:name:Epoch 0 Step 416 Total Loss 0.689   
+INFO:name:Epoch 0 Step 448 Total Loss 0.689   
+INFO:name:Epoch 0 Step 480 Total Loss 0.689   
+INFO:name:Epoch 0 Step 512 Total Loss 0.689   
+INFO:name:Epoch 0 Step 544 Total Loss 0.689   
+INFO:name:Epoch 0 Step 576 Total Loss 0.689   
+INFO:name:Epoch 0 Step 608 Total Loss 0.689   
+INFO:name:Epoch 0 Step 640 Total Loss 0.689   
+INFO:name:Epoch 0 Step 672 Total Loss 0.689   
+INFO:name:Epoch 0 Step 704 Total Loss 0.689   
+INFO:name:Epoch 0 Step 736 Total Loss 0.689   
+INFO:name:Epoch 0 Step 768 Total Loss 0.689   
+INFO:name:Epoch 0 Step 800 Total Loss 0.689   
+INFO:name:Epoch 0 Step 832 Total Loss 0.689   
+INFO:name:Epoch 0 Step 864 Total Loss 0.689   
+INFO:name:Epoch 0 Step 896 Total Loss 0.689   
+INFO:name:Epoch 0 Step 928 Total Loss 0.688   
+INFO:name:Epoch 0 Step 960 Total Loss 0.688   
+INFO:name:Epoch 0 Step 992 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1024 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1056 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1088 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1120 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1152 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1184 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1216 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1248 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1280 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1312 Total Loss 0.688   
+INFO:name:Epoch 0 Step 1344 Total Loss 0.688   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6883
+INFO:name:  eval_acc = 0.5549
+INFO:name:  f1_score = 0.2745
+INFO:name:  recall = 0.1938
+INFO:name:  precision = 0.4703
+INFO:name:Saving model checkpoint to ./models/best_model_vul/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.5556, 'test_f1_score': 0.3007, 'test_recall': 0.208, 'test_precision': 0.5426} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 1 Step 0 Total Loss 0.694   
+INFO:name:Epoch 1 Step 32 Total Loss 0.684   
+INFO:name:Epoch 1 Step 64 Total Loss 0.685   
+INFO:name:Epoch 1 Step 96 Total Loss 0.686   
+INFO:name:Epoch 1 Step 128 Total Loss 0.687   
+INFO:name:Epoch 1 Step 160 Total Loss 0.686   
+INFO:name:Epoch 1 Step 192 Total Loss 0.684   
+INFO:name:Epoch 1 Step 224 Total Loss 0.685   
+INFO:name:Epoch 1 Step 256 Total Loss 0.685   
+INFO:name:Epoch 1 Step 288 Total Loss 0.685   
+INFO:name:Epoch 1 Step 320 Total Loss 0.686   
+INFO:name:Epoch 1 Step 352 Total Loss 0.687   
+INFO:name:Epoch 1 Step 384 Total Loss 0.686   
+INFO:name:Epoch 1 Step 416 Total Loss 0.686   
+INFO:name:Epoch 1 Step 448 Total Loss 0.686   
+INFO:name:Epoch 1 Step 480 Total Loss 0.686   
+INFO:name:Epoch 1 Step 512 Total Loss 0.686   
+INFO:name:Epoch 1 Step 544 Total Loss 0.685   
+INFO:name:Epoch 1 Step 576 Total Loss 0.684   
+INFO:name:Epoch 1 Step 608 Total Loss 0.685   
+INFO:name:Epoch 1 Step 640 Total Loss 0.685   
+INFO:name:Epoch 1 Step 672 Total Loss 0.684   
+INFO:name:Epoch 1 Step 704 Total Loss 0.684   
+INFO:name:Epoch 1 Step 736 Total Loss 0.684   
+INFO:name:Epoch 1 Step 768 Total Loss 0.684   
+INFO:name:Epoch 1 Step 800 Total Loss 0.684   
+INFO:name:Epoch 1 Step 832 Total Loss 0.684   
+INFO:name:Epoch 1 Step 864 Total Loss 0.684   
+INFO:name:Epoch 1 Step 896 Total Loss 0.684   
+INFO:name:Epoch 1 Step 928 Total Loss 0.683   
+INFO:name:Epoch 1 Step 960 Total Loss 0.683   
+INFO:name:Epoch 1 Step 992 Total Loss 0.683   
+INFO:name:Epoch 1 Step 1024 Total Loss 0.683   
+INFO:name:Epoch 1 Step 1056 Total Loss 0.682   
+INFO:name:Epoch 1 Step 1088 Total Loss 0.682   
+INFO:name:Epoch 1 Step 1120 Total Loss 0.682   
+INFO:name:Epoch 1 Step 1152 Total Loss 0.682   
+INFO:name:Epoch 1 Step 1184 Total Loss 0.681   
+INFO:name:Epoch 1 Step 1216 Total Loss 0.681   
+INFO:name:Epoch 1 Step 1248 Total Loss 0.681   
+INFO:name:Epoch 1 Step 1280 Total Loss 0.681   
+INFO:name:Epoch 1 Step 1312 Total Loss 0.68   
+INFO:name:Epoch 1 Step 1344 Total Loss 0.68   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6703
+INFO:name:  eval_acc = 0.5648
+INFO:name:  f1_score = 0.4128
+INFO:name:  recall = 0.3521
+INFO:name:  precision = 0.4988
+INFO:name:Saving model checkpoint to ./models/best_model_vul/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.5743, 'test_f1_score': 0.4368, 'test_recall': 0.3594, 'test_precision': 0.5568} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 2 Step 0 Total Loss 0.682   
+INFO:name:Epoch 2 Step 32 Total Loss 0.677   
+INFO:name:Epoch 2 Step 64 Total Loss 0.67   
+INFO:name:Epoch 2 Step 96 Total Loss 0.671   
+INFO:name:Epoch 2 Step 128 Total Loss 0.668   
+INFO:name:Epoch 2 Step 160 Total Loss 0.669   
+INFO:name:Epoch 2 Step 192 Total Loss 0.667   
+INFO:name:Epoch 2 Step 224 Total Loss 0.665   
+INFO:name:Epoch 2 Step 256 Total Loss 0.667   
+INFO:name:Epoch 2 Step 288 Total Loss 0.665   
+INFO:name:Epoch 2 Step 320 Total Loss 0.664   
+INFO:name:Epoch 2 Step 352 Total Loss 0.665   
+INFO:name:Epoch 2 Step 384 Total Loss 0.664   
+INFO:name:Epoch 2 Step 416 Total Loss 0.665   
+INFO:name:Epoch 2 Step 448 Total Loss 0.664   
+INFO:name:Epoch 2 Step 480 Total Loss 0.663   
+INFO:name:Epoch 2 Step 512 Total Loss 0.664   
+INFO:name:Epoch 2 Step 544 Total Loss 0.663   
+INFO:name:Epoch 2 Step 576 Total Loss 0.662   
+INFO:name:Epoch 2 Step 608 Total Loss 0.662   
+INFO:name:Epoch 2 Step 640 Total Loss 0.662   
+INFO:name:Epoch 2 Step 672 Total Loss 0.662   
+INFO:name:Epoch 2 Step 704 Total Loss 0.662   
+INFO:name:Epoch 2 Step 736 Total Loss 0.661   
+INFO:name:Epoch 2 Step 768 Total Loss 0.661   
+INFO:name:Epoch 2 Step 800 Total Loss 0.661   
+INFO:name:Epoch 2 Step 832 Total Loss 0.661   
+INFO:name:Epoch 2 Step 864 Total Loss 0.661   
+INFO:name:Epoch 2 Step 896 Total Loss 0.661   
+INFO:name:Epoch 2 Step 928 Total Loss 0.661   
+INFO:name:Epoch 2 Step 960 Total Loss 0.661   
+INFO:name:Epoch 2 Step 992 Total Loss 0.661   
+INFO:name:Epoch 2 Step 1024 Total Loss 0.66   
+INFO:name:Epoch 2 Step 1056 Total Loss 0.66   
+INFO:name:Epoch 2 Step 1088 Total Loss 0.66   
+INFO:name:Epoch 2 Step 1120 Total Loss 0.66   
+INFO:name:Epoch 2 Step 1152 Total Loss 0.66   
+INFO:name:Epoch 2 Step 1184 Total Loss 0.659   
+INFO:name:Epoch 2 Step 1216 Total Loss 0.659   
+INFO:name:Epoch 2 Step 1248 Total Loss 0.659   
+INFO:name:Epoch 2 Step 1280 Total Loss 0.659   
+INFO:name:Epoch 2 Step 1312 Total Loss 0.659   
+INFO:name:Epoch 2 Step 1344 Total Loss 0.659   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6447
+INFO:name:  eval_acc = 0.6007
+INFO:name:  f1_score = 0.4797
+INFO:name:  recall = 0.4238
+INFO:name:  precision = 0.5527
+INFO:name:Saving model checkpoint to ./models/best_model_vul/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.5919, 'test_f1_score': 0.4812, 'test_recall': 0.412, 'test_precision': 0.5783} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 3 Step 0 Total Loss 0.651   
+INFO:name:Epoch 3 Step 32 Total Loss 0.652   
+INFO:name:Epoch 3 Step 64 Total Loss 0.647   
+INFO:name:Epoch 3 Step 96 Total Loss 0.649   
+INFO:name:Epoch 3 Step 128 Total Loss 0.648   
+INFO:name:Epoch 3 Step 160 Total Loss 0.649   
+INFO:name:Epoch 3 Step 192 Total Loss 0.648   
+INFO:name:Epoch 3 Step 224 Total Loss 0.652   
+INFO:name:Epoch 3 Step 256 Total Loss 0.649   
+INFO:name:Epoch 3 Step 288 Total Loss 0.647   
+INFO:name:Epoch 3 Step 320 Total Loss 0.648   
+INFO:name:Epoch 3 Step 352 Total Loss 0.647   
+INFO:name:Epoch 3 Step 384 Total Loss 0.648   
+INFO:name:Epoch 3 Step 416 Total Loss 0.647   
+INFO:name:Epoch 3 Step 448 Total Loss 0.646   
+INFO:name:Epoch 3 Step 480 Total Loss 0.647   
+INFO:name:Epoch 3 Step 512 Total Loss 0.646   
+INFO:name:Epoch 3 Step 544 Total Loss 0.646   
+INFO:name:Epoch 3 Step 576 Total Loss 0.644   
+INFO:name:Epoch 3 Step 608 Total Loss 0.644   
+INFO:name:Epoch 3 Step 640 Total Loss 0.644   
+INFO:name:Epoch 3 Step 672 Total Loss 0.643   
+INFO:name:Epoch 3 Step 704 Total Loss 0.644   
+INFO:name:Epoch 3 Step 736 Total Loss 0.644   
+INFO:name:Epoch 3 Step 768 Total Loss 0.644   
+INFO:name:Epoch 3 Step 800 Total Loss 0.645   
+INFO:name:Epoch 3 Step 832 Total Loss 0.644   
+INFO:name:Epoch 3 Step 864 Total Loss 0.644   
+INFO:name:Epoch 3 Step 896 Total Loss 0.644   
+INFO:name:Epoch 3 Step 928 Total Loss 0.644   
+INFO:name:Epoch 3 Step 960 Total Loss 0.644   
+INFO:name:Epoch 3 Step 992 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1024 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1056 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1088 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1120 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1152 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1184 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1216 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1248 Total Loss 0.645   
+INFO:name:Epoch 3 Step 1280 Total Loss 0.644   
+INFO:name:Epoch 3 Step 1312 Total Loss 0.644   
+INFO:name:Epoch 3 Step 1344 Total Loss 0.643   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6403
+INFO:name:  eval_acc = 0.6018
+INFO:name:  f1_score = 0.4799
+INFO:name:  recall = 0.4229
+INFO:name:  precision = 0.5547
+INFO:name:Saving model checkpoint to ./models/best_model_vul/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.6054, 'test_f1_score': 0.4995, 'test_recall': 0.4287, 'test_precision': 0.5984} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 4 Step 0 Total Loss 0.81   
+INFO:name:Epoch 4 Step 32 Total Loss 0.644   
+INFO:name:Epoch 4 Step 64 Total Loss 0.633   
+INFO:name:Epoch 4 Step 96 Total Loss 0.634   
+INFO:name:Epoch 4 Step 128 Total Loss 0.633   
+INFO:name:Epoch 4 Step 160 Total Loss 0.631   
+INFO:name:Epoch 4 Step 192 Total Loss 0.631   
+INFO:name:Epoch 4 Step 224 Total Loss 0.632   
+INFO:name:Epoch 4 Step 256 Total Loss 0.636   
+INFO:name:Epoch 4 Step 288 Total Loss 0.635   
+INFO:name:Epoch 4 Step 320 Total Loss 0.635   
+INFO:name:Epoch 4 Step 352 Total Loss 0.635   
+INFO:name:Epoch 4 Step 384 Total Loss 0.637   
+INFO:name:Epoch 4 Step 416 Total Loss 0.634   
+INFO:name:Epoch 4 Step 448 Total Loss 0.634   
+INFO:name:Epoch 4 Step 480 Total Loss 0.633   
+INFO:name:Epoch 4 Step 512 Total Loss 0.633   
+INFO:name:Epoch 4 Step 544 Total Loss 0.633   
+INFO:name:Epoch 4 Step 576 Total Loss 0.634   
+INFO:name:Epoch 4 Step 608 Total Loss 0.634   
+INFO:name:Epoch 4 Step 640 Total Loss 0.635   
+INFO:name:Epoch 4 Step 672 Total Loss 0.634   
+INFO:name:Epoch 4 Step 704 Total Loss 0.635   
+INFO:name:Epoch 4 Step 736 Total Loss 0.634   
+INFO:name:Epoch 4 Step 768 Total Loss 0.633   
+INFO:name:Epoch 4 Step 800 Total Loss 0.632   
+INFO:name:Epoch 4 Step 832 Total Loss 0.632   
+INFO:name:Epoch 4 Step 864 Total Loss 0.633   
+INFO:name:Epoch 4 Step 896 Total Loss 0.633   
+INFO:name:Epoch 4 Step 928 Total Loss 0.633   
+INFO:name:Epoch 4 Step 960 Total Loss 0.633   
+INFO:name:Epoch 4 Step 992 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1024 Total Loss 0.634   
+INFO:name:Epoch 4 Step 1056 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1088 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1120 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1152 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1184 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1216 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1248 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1280 Total Loss 0.633   
+INFO:name:Epoch 4 Step 1312 Total Loss 0.632   
+INFO:name:Epoch 4 Step 1344 Total Loss 0.632   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6331
+INFO:name:  eval_acc = 0.6109
+INFO:name:  f1_score = 0.549
+INFO:name:  recall = 0.5451
+INFO:name:  precision = 0.553
+INFO:name:Saving model checkpoint to ./models/best_model_vul/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.6105, 'test_f1_score': 0.5492, 'test_recall': 0.5163, 'test_precision': 0.5864} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 5 Step 0 Total Loss 0.515   
+INFO:name:Epoch 5 Step 32 Total Loss 0.636   
+INFO:name:Epoch 5 Step 64 Total Loss 0.635   
+INFO:name:Epoch 5 Step 96 Total Loss 0.634   
+INFO:name:Epoch 5 Step 128 Total Loss 0.631   
+INFO:name:Epoch 5 Step 160 Total Loss 0.631   
+INFO:name:Epoch 5 Step 192 Total Loss 0.628   
+INFO:name:Epoch 5 Step 224 Total Loss 0.625   
+INFO:name:Epoch 5 Step 256 Total Loss 0.627   
+INFO:name:Epoch 5 Step 288 Total Loss 0.625   
+INFO:name:Epoch 5 Step 320 Total Loss 0.624   
+INFO:name:Epoch 5 Step 352 Total Loss 0.621   
+INFO:name:Epoch 5 Step 384 Total Loss 0.622   
+INFO:name:Epoch 5 Step 416 Total Loss 0.622   
+INFO:name:Epoch 5 Step 448 Total Loss 0.622   
+INFO:name:Epoch 5 Step 480 Total Loss 0.622   
+INFO:name:Epoch 5 Step 512 Total Loss 0.62   
+INFO:name:Epoch 5 Step 544 Total Loss 0.618   
+INFO:name:Epoch 5 Step 576 Total Loss 0.619   
+INFO:name:Epoch 5 Step 608 Total Loss 0.618   
+INFO:name:Epoch 5 Step 640 Total Loss 0.619   
+INFO:name:Epoch 5 Step 672 Total Loss 0.619   
+INFO:name:Epoch 5 Step 704 Total Loss 0.619   
+INFO:name:Epoch 5 Step 736 Total Loss 0.618   
+INFO:name:Epoch 5 Step 768 Total Loss 0.619   
+INFO:name:Epoch 5 Step 800 Total Loss 0.618   
+INFO:name:Epoch 5 Step 832 Total Loss 0.62   
+INFO:name:Epoch 5 Step 864 Total Loss 0.619   
+INFO:name:Epoch 5 Step 896 Total Loss 0.62   
+INFO:name:Epoch 5 Step 928 Total Loss 0.619   
+INFO:name:Epoch 5 Step 960 Total Loss 0.619   
+INFO:name:Epoch 5 Step 992 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1024 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1056 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1088 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1120 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1152 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1184 Total Loss 0.619   
+INFO:name:Epoch 5 Step 1216 Total Loss 0.62   
+INFO:name:Epoch 5 Step 1248 Total Loss 0.62   
+INFO:name:Epoch 5 Step 1280 Total Loss 0.62   
+INFO:name:Epoch 5 Step 1312 Total Loss 0.621   
+INFO:name:Epoch 5 Step 1344 Total Loss 0.621   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6346
+INFO:name:  eval_acc = 0.5985
+INFO:name:  f1_score = 0.571
+INFO:name:  recall = 0.615
+INFO:name:  precision = 0.5328
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 6 Step 0 Total Loss 0.617   
+INFO:name:Epoch 6 Step 32 Total Loss 0.601   
+INFO:name:Epoch 6 Step 64 Total Loss 0.609   
+INFO:name:Epoch 6 Step 96 Total Loss 0.608   
+INFO:name:Epoch 6 Step 128 Total Loss 0.609   
+INFO:name:Epoch 6 Step 160 Total Loss 0.613   
+INFO:name:Epoch 6 Step 192 Total Loss 0.618   
+INFO:name:Epoch 6 Step 224 Total Loss 0.618   
+INFO:name:Epoch 6 Step 256 Total Loss 0.618   
+INFO:name:Epoch 6 Step 288 Total Loss 0.617   
+INFO:name:Epoch 6 Step 320 Total Loss 0.614   
+INFO:name:Epoch 6 Step 352 Total Loss 0.612   
+INFO:name:Epoch 6 Step 384 Total Loss 0.611   
+INFO:name:Epoch 6 Step 416 Total Loss 0.613   
+INFO:name:Epoch 6 Step 448 Total Loss 0.612   
+INFO:name:Epoch 6 Step 480 Total Loss 0.611   
+INFO:name:Epoch 6 Step 512 Total Loss 0.611   
+INFO:name:Epoch 6 Step 544 Total Loss 0.611   
+INFO:name:Epoch 6 Step 576 Total Loss 0.612   
+INFO:name:Epoch 6 Step 608 Total Loss 0.611   
+INFO:name:Epoch 6 Step 640 Total Loss 0.611   
+INFO:name:Epoch 6 Step 672 Total Loss 0.613   
+INFO:name:Epoch 6 Step 704 Total Loss 0.614   
+INFO:name:Epoch 6 Step 736 Total Loss 0.614   
+INFO:name:Epoch 6 Step 768 Total Loss 0.614   
+INFO:name:Epoch 6 Step 800 Total Loss 0.614   
+INFO:name:Epoch 6 Step 832 Total Loss 0.615   
+INFO:name:Epoch 6 Step 864 Total Loss 0.616   
+INFO:name:Epoch 6 Step 896 Total Loss 0.616   
+INFO:name:Epoch 6 Step 928 Total Loss 0.616   
+INFO:name:Epoch 6 Step 960 Total Loss 0.617   
+INFO:name:Epoch 6 Step 992 Total Loss 0.617   
+INFO:name:Epoch 6 Step 1024 Total Loss 0.617   
+INFO:name:Epoch 6 Step 1056 Total Loss 0.616   
+INFO:name:Epoch 6 Step 1088 Total Loss 0.616   
+INFO:name:Epoch 6 Step 1120 Total Loss 0.617   
+INFO:name:Epoch 6 Step 1152 Total Loss 0.616   
+INFO:name:Epoch 6 Step 1184 Total Loss 0.616   
+INFO:name:Epoch 6 Step 1216 Total Loss 0.615   
+INFO:name:Epoch 6 Step 1248 Total Loss 0.615   
+INFO:name:Epoch 6 Step 1280 Total Loss 0.614   
+INFO:name:Epoch 6 Step 1312 Total Loss 0.613   
+INFO:name:Epoch 6 Step 1344 Total Loss 0.613   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6357
+INFO:name:  eval_acc = 0.6241
+INFO:name:  f1_score = 0.5248
+INFO:name:  recall = 0.4777
+INFO:name:  precision = 0.5821
+INFO:name:Saving model checkpoint to ./models/best_model_vul/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for vulnerability detection = 2732
+INFO:name:  Batch size = 16
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.6223, 'test_f1_score': 0.5339, 'test_recall': 0.4709, 'test_precision': 0.6163} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 7 Step 0 Total Loss 0.611   
+INFO:name:Epoch 7 Step 32 Total Loss 0.626   
+INFO:name:Epoch 7 Step 64 Total Loss 0.625   
+INFO:name:Epoch 7 Step 96 Total Loss 0.614   
+INFO:name:Epoch 7 Step 128 Total Loss 0.61   
+INFO:name:Epoch 7 Step 160 Total Loss 0.614   
+INFO:name:Epoch 7 Step 192 Total Loss 0.61   
+INFO:name:Epoch 7 Step 224 Total Loss 0.608   
+INFO:name:Epoch 7 Step 256 Total Loss 0.608   
+INFO:name:Epoch 7 Step 288 Total Loss 0.604   
+INFO:name:Epoch 7 Step 320 Total Loss 0.606   
+INFO:name:Epoch 7 Step 352 Total Loss 0.605   
+INFO:name:Epoch 7 Step 384 Total Loss 0.606   
+INFO:name:Epoch 7 Step 416 Total Loss 0.606   
+INFO:name:Epoch 7 Step 448 Total Loss 0.606   
+INFO:name:Epoch 7 Step 480 Total Loss 0.604   
+INFO:name:Epoch 7 Step 512 Total Loss 0.604   
+INFO:name:Epoch 7 Step 544 Total Loss 0.603   
+INFO:name:Epoch 7 Step 576 Total Loss 0.603   
+INFO:name:Epoch 7 Step 608 Total Loss 0.603   
+INFO:name:Epoch 7 Step 640 Total Loss 0.603   
+INFO:name:Epoch 7 Step 672 Total Loss 0.602   
+INFO:name:Epoch 7 Step 704 Total Loss 0.602   
+INFO:name:Epoch 7 Step 736 Total Loss 0.602   
+INFO:name:Epoch 7 Step 768 Total Loss 0.601   
+INFO:name:Epoch 7 Step 800 Total Loss 0.601   
+INFO:name:Epoch 7 Step 832 Total Loss 0.603   
+INFO:name:Epoch 7 Step 864 Total Loss 0.603   
+INFO:name:Epoch 7 Step 896 Total Loss 0.603   
+INFO:name:Epoch 7 Step 928 Total Loss 0.602   
+INFO:name:Epoch 7 Step 960 Total Loss 0.602   
+INFO:name:Epoch 7 Step 992 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1024 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1056 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1088 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1120 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1152 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1184 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1216 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1248 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1280 Total Loss 0.603   
+INFO:name:Epoch 7 Step 1312 Total Loss 0.602   
+INFO:name:Epoch 7 Step 1344 Total Loss 0.602   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6449
+INFO:name:  eval_acc = 0.6215
+INFO:name:  f1_score = 0.5351
+INFO:name:  recall = 0.5013
+INFO:name:  precision = 0.5738
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 8 Step 0 Total Loss 0.63   
+INFO:name:Epoch 8 Step 32 Total Loss 0.607   
+INFO:name:Epoch 8 Step 64 Total Loss 0.587   
+INFO:name:Epoch 8 Step 96 Total Loss 0.587   
+INFO:name:Epoch 8 Step 128 Total Loss 0.588   
+INFO:name:Epoch 8 Step 160 Total Loss 0.594   
+INFO:name:Epoch 8 Step 192 Total Loss 0.595   
+INFO:name:Epoch 8 Step 224 Total Loss 0.592   
+INFO:name:Epoch 8 Step 256 Total Loss 0.587   
+INFO:name:Epoch 8 Step 288 Total Loss 0.587   
+INFO:name:Epoch 8 Step 320 Total Loss 0.591   
+INFO:name:Epoch 8 Step 352 Total Loss 0.591   
+INFO:name:Epoch 8 Step 384 Total Loss 0.591   
+INFO:name:Epoch 8 Step 416 Total Loss 0.59   
+INFO:name:Epoch 8 Step 448 Total Loss 0.591   
+INFO:name:Epoch 8 Step 480 Total Loss 0.592   
+INFO:name:Epoch 8 Step 512 Total Loss 0.594   
+INFO:name:Epoch 8 Step 544 Total Loss 0.594   
+INFO:name:Epoch 8 Step 576 Total Loss 0.593   
+INFO:name:Epoch 8 Step 608 Total Loss 0.593   
+INFO:name:Epoch 8 Step 640 Total Loss 0.593   
+INFO:name:Epoch 8 Step 672 Total Loss 0.594   
+INFO:name:Epoch 8 Step 704 Total Loss 0.594   
+INFO:name:Epoch 8 Step 736 Total Loss 0.594   
+INFO:name:Epoch 8 Step 768 Total Loss 0.594   
+INFO:name:Epoch 8 Step 800 Total Loss 0.594   
+INFO:name:Epoch 8 Step 832 Total Loss 0.594   
+INFO:name:Epoch 8 Step 864 Total Loss 0.594   
+INFO:name:Epoch 8 Step 896 Total Loss 0.595   
+INFO:name:Epoch 8 Step 928 Total Loss 0.595   
+INFO:name:Epoch 8 Step 960 Total Loss 0.595   
+INFO:name:Epoch 8 Step 992 Total Loss 0.595   
+INFO:name:Epoch 8 Step 1024 Total Loss 0.594   
+INFO:name:Epoch 8 Step 1056 Total Loss 0.594   
+INFO:name:Epoch 8 Step 1088 Total Loss 0.594   
+INFO:name:Epoch 8 Step 1120 Total Loss 0.595   
+INFO:name:Epoch 8 Step 1152 Total Loss 0.595   
+INFO:name:Epoch 8 Step 1184 Total Loss 0.595   
+INFO:name:Epoch 8 Step 1216 Total Loss 0.596   
+INFO:name:Epoch 8 Step 1248 Total Loss 0.596   
+INFO:name:Epoch 8 Step 1280 Total Loss 0.596   
+INFO:name:Epoch 8 Step 1312 Total Loss 0.596   
+INFO:name:Epoch 8 Step 1344 Total Loss 0.596   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6437
+INFO:name:  eval_acc = 0.6043
+INFO:name:  f1_score = 0.5756
+INFO:name:  recall = 0.6175
+INFO:name:  precision = 0.539
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 9 Step 0 Total Loss 0.811   
+INFO:name:Epoch 9 Step 32 Total Loss 0.617   
+INFO:name:Epoch 9 Step 64 Total Loss 0.604   
+INFO:name:Epoch 9 Step 96 Total Loss 0.603   
+INFO:name:Epoch 9 Step 128 Total Loss 0.599   
+INFO:name:Epoch 9 Step 160 Total Loss 0.601   
+INFO:name:Epoch 9 Step 192 Total Loss 0.603   
+INFO:name:Epoch 9 Step 224 Total Loss 0.601   
+INFO:name:Epoch 9 Step 256 Total Loss 0.599   
+INFO:name:Epoch 9 Step 288 Total Loss 0.597   
+INFO:name:Epoch 9 Step 320 Total Loss 0.594   
+INFO:name:Epoch 9 Step 352 Total Loss 0.591   
+INFO:name:Epoch 9 Step 384 Total Loss 0.59   
+INFO:name:Epoch 9 Step 416 Total Loss 0.588   
+INFO:name:Epoch 9 Step 448 Total Loss 0.589   
+INFO:name:Epoch 9 Step 480 Total Loss 0.59   
+INFO:name:Epoch 9 Step 512 Total Loss 0.588   
+INFO:name:Epoch 9 Step 544 Total Loss 0.587   
+INFO:name:Epoch 9 Step 576 Total Loss 0.586   
+INFO:name:Epoch 9 Step 608 Total Loss 0.585   
+INFO:name:Epoch 9 Step 640 Total Loss 0.585   
+INFO:name:Epoch 9 Step 672 Total Loss 0.586   
+INFO:name:Epoch 9 Step 704 Total Loss 0.587   
+INFO:name:Epoch 9 Step 736 Total Loss 0.588   
+INFO:name:Epoch 9 Step 768 Total Loss 0.588   
+INFO:name:Epoch 9 Step 800 Total Loss 0.588   
+INFO:name:Epoch 9 Step 832 Total Loss 0.59   
+INFO:name:Epoch 9 Step 864 Total Loss 0.589   
+INFO:name:Epoch 9 Step 896 Total Loss 0.59   
+INFO:name:Epoch 9 Step 928 Total Loss 0.59   
+INFO:name:Epoch 9 Step 960 Total Loss 0.589   
+INFO:name:Epoch 9 Step 992 Total Loss 0.59   
+INFO:name:Epoch 9 Step 1024 Total Loss 0.59   
+INFO:name:Epoch 9 Step 1056 Total Loss 0.59   
+INFO:name:Epoch 9 Step 1088 Total Loss 0.59   
+INFO:name:Epoch 9 Step 1120 Total Loss 0.59   
+INFO:name:Epoch 9 Step 1152 Total Loss 0.591   
+INFO:name:Epoch 9 Step 1184 Total Loss 0.591   
+INFO:name:Epoch 9 Step 1216 Total Loss 0.591   
+INFO:name:Epoch 9 Step 1248 Total Loss 0.592   
+INFO:name:Epoch 9 Step 1280 Total Loss 0.592   
+INFO:name:Epoch 9 Step 1312 Total Loss 0.592   
+INFO:name:Epoch 9 Step 1344 Total Loss 0.592   
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Num examples vulnerability detection = 2732
+INFO:name:  Batch size = 16 
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = vul_detection
+INFO:name:  eval_loss = 0.6428
+INFO:name:  eval_acc = 0.6127
+INFO:name:  f1_score = 0.5685
+INFO:name:  recall = 0.5872
+INFO:name:  precision = 0.551
+INFO:name:Saving model checkpoint to ./models/final_model_vul/model.bin
+
+***** Test Results for task  tensor(0)
+{'task': tensor(0), 'test_acc': 0.6215, 'test_f1_score': 0.5817, 'test_recall': 0.5729, 'test_precision': 0.5908} 
+
+
+
+ Train results : 
+
+{'total_train_loss': [0.688,
+                      0.68,
+                      0.659,
+                      0.643,
+                      0.632,
+                      0.621,
+                      0.613,
+                      0.602,
+                      0.596,
+                      0.592]
+
+ Validation results : 
+
+{'vul_detection': {'eval_acc': [0.5549,
+                                0.5648,
+                                0.6007,
+                                0.6018,
+                                0.6109,
+                                0.5985,
+                                0.6241,
+                                0.6215,
+                                0.6043,
+                                0.6127],
+                   'eval_loss': [0.6883,
+                                 0.6703,
+                                 0.6447,
+                                 0.6403,
+                                 0.6331,
+                                 0.6346,
+                                 0.6357,
+                                 0.6449,
+                                 0.6437,
+                                 0.6428],
+                   'f1_score': [0.2745,
+                                0.4128,
+                                0.4797,
+                                0.4799,
+                                0.549,
+                                0.571,
+                                0.5248,
+                                0.5351,
+                                0.5756,
+                                0.5685],
+                   'precision': [0.4703,
+                                 0.4988,
+                                 0.5527,
+                                 0.5547,
+                                 0.553,
+                                 0.5328,
+                                 0.5821,
+                                 0.5738,
+                                 0.539,
+                                 0.551],
+                   'recall': [0.1938,
+                              0.3521,
+                              0.4238,
+                              0.4229,
+                              0.5451,
+                              0.615,
+                              0.4777,
+                              0.5013,
+                              0.6175,
+                              0.5872]}}

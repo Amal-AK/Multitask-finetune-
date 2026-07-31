@@ -1,0 +1,618 @@
+INFO:name:device: cuda:0, n_gpu: 1
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /answerdotai/ModernBERT-base/resolve/main/config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /answerdotai/ModernBERT-base/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/answerdotai/ModernBERT-base/8949b909ec900327062f0ebf497f51aef5e6f0c8/tokenizer_config.json HTTP/1.1" 200 0
+root
+├── embeddings (ModernBertEmbeddings)
+│   ├── tok_embeddings (Embedding) weight:[50368, 768]
+│   └── norm (LayerNorm) weight:[768]
+├── layers (ModuleList)
+│   ├── 0 (ModernBertEncoderLayer)
+│   │   ├── attn (ModernBertAttention)
+│   │   │   ├── Wqkv (Linear) weight:[2304, 768]
+│   │   │   ├── Wo (Linear) weight:[768, 768]
+│   │   │   └── parallel_adapter (ParallelAdapterLayer)
+│   │   │       └── modulelist (Sequential)
+│   │   │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│   │   │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│   │   ├── mlp_norm (LayerNorm) weight:[768]
+│   │   └── mlp (ModernBertMLP)
+│   │       ├── Wi (Linear) weight:[2304, 768]
+│   │       ├── Wo (Linear) weight:[768, 1152]
+│   │       └── parallel_adapter (ParallelAdapterLayer)
+│   │           └── modulelist (Sequential)
+│   │               ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│   │               └── up_proj (Linear) weight:[768, 64] bias:[768]
+│   └── 1-21(ModernBertEncoderLayer)
+│       ├── attn_norm,mlp_norm(LayerNorm) weight:[768]
+│       ├── attn (ModernBertAttention)
+│       │   ├── Wqkv (Linear) weight:[2304, 768]
+│       │   ├── Wo (Linear) weight:[768, 768]
+│       │   └── parallel_adapter (ParallelAdapterLayer)
+│       │       └── modulelist (Sequential)
+│       │           ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│       │           └── up_proj (Linear) weight:[768, 64] bias:[768]
+│       └── mlp (ModernBertMLP)
+│           ├── Wi (Linear) weight:[2304, 768]
+│           ├── Wo (Linear) weight:[768, 1152]
+│           └── parallel_adapter (ParallelAdapterLayer)
+│               └── modulelist (Sequential)
+│                   ├── down_proj (Linear) weight:[64, 768] bias:[64]
+│                   └── up_proj (Linear) weight:[768, 64] bias:[768]
+└── final_norm (LayerNorm) weight:[768]
+[INFO|(OpenDelta)basemodel:700]2026-07-27 17:35:19,826 >> Trainable Ratio: 2180992/151195264=1.442500%
+[INFO|(OpenDelta)basemodel:702]2026-07-27 17:35:19,826 >> Delta Parameter Ratio: 2180992/151195264=1.442500%
+[INFO|(OpenDelta)basemodel:704]2026-07-27 17:35:19,826 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Model:
+MultiTaskModel_MTL(
+  (encoder): ModernBertModel(
+    (embeddings): ModernBertEmbeddings(
+      (tok_embeddings): Embedding(50368, 768, padding_idx=50283)
+      (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      (drop): Dropout(p=0.0, inplace=False)
+    )
+    (layers): ModuleList(
+      (0): ModernBertEncoderLayer(
+        (attn_norm): Identity()
+        (attn): ModernBertAttention(
+          (Wqkv): Linear(in_features=768, out_features=2304, bias=False)
+          (rotary_emb): ModernBertRotaryEmbedding()
+          (Wo): Linear(in_features=768, out_features=768, bias=False)
+          (out_drop): Identity()
+          (parallel_adapter): ParallelAdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+        (mlp_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (mlp): ModernBertMLP(
+          (Wi): Linear(in_features=768, out_features=2304, bias=False)
+          (act): GELUActivation()
+          (drop): Dropout(p=0.0, inplace=False)
+          (Wo): Linear(in_features=1152, out_features=768, bias=False)
+          (parallel_adapter): ParallelAdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+      )
+      (1-21): 21 x ModernBertEncoderLayer(
+        (attn_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (attn): ModernBertAttention(
+          (Wqkv): Linear(in_features=768, out_features=2304, bias=False)
+          (rotary_emb): ModernBertRotaryEmbedding()
+          (Wo): Linear(in_features=768, out_features=768, bias=False)
+          (out_drop): Identity()
+          (parallel_adapter): ParallelAdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+        (mlp_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (mlp): ModernBertMLP(
+          (Wi): Linear(in_features=768, out_features=2304, bias=False)
+          (act): GELUActivation()
+          (drop): Dropout(p=0.0, inplace=False)
+          (Wo): Linear(in_features=1152, out_features=768, bias=False)
+          (parallel_adapter): ParallelAdapterLayer(
+            (modulelist): Sequential(
+              (down_proj): Linear(in_features=768, out_features=64, bias=True)
+              (non_linear): gelu_new
+              (up_proj): Linear(in_features=64, out_features=768, bias=True)
+            )
+          )
+        )
+      )
+    )
+    (final_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+  (task_heads): ModuleDict(
+    (flakiness_detect): Sequential(
+      (0): Linear(in_features=768, out_features=384, bias=True)
+      (1): GELU(approximate='none')
+      (2): Dropout(p=0.1, inplace=False)
+      (3): Linear(in_features=384, out_features=1, bias=True)
+    )
+  )
+)
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:Preparing the flakeFlager Dataset...
+
+INFO:name:  Normalized weights: uniform for epoch 1, updated each epoch (w ∝ L_i).
+INFO:name:======================================================================
+INFO:name:***** Running Training *****
+INFO:name:  Model         : answerdotai/ModernBERT-base
+INFO:name:  PEFT          : parallel_adapter
+INFO:name:  Loss weighting: normalized
+INFO:name:  Epochs        : 10
+INFO:name:  Batch size    : 32  |  LR: 1.00e-04  |  GPUs: 1
+INFO:name:  Steps/epoch   : ~409  |  Total steps: ~4090
+INFO:name:  Tasks & train sizes:
+INFO:name:    flakiness_detect        13081 examples
+INFO:name:======================================================================
+INFO:name:  pos_weight flakiness_detect       = 26.0  (pos=485  neg=12596)
+INFO:name:E1/10  step 32/409  total=1.2082  lr=7.82e-06  |  flakiness_detect=1.2082
+INFO:name:E1/10  step 64/409  total=1.3256  lr=1.56e-05  |  flakiness_detect=1.3256
+INFO:name:E1/10  step 96/409  total=1.3094  lr=2.35e-05  |  flakiness_detect=1.3094
+INFO:name:E1/10  step 128/409  total=1.3038  lr=3.13e-05  |  flakiness_detect=1.3038
+INFO:name:E1/10  step 160/409  total=1.3035  lr=3.91e-05  |  flakiness_detect=1.3035
+INFO:name:E1/10  step 192/409  total=1.2814  lr=4.69e-05  |  flakiness_detect=1.2814
+INFO:name:E1/10  step 224/409  total=1.2629  lr=5.48e-05  |  flakiness_detect=1.2629
+INFO:name:E1/10  step 256/409  total=1.2377  lr=6.26e-05  |  flakiness_detect=1.2377
+INFO:name:E1/10  step 288/409  total=1.2019  lr=7.04e-05  |  flakiness_detect=1.2019
+INFO:name:E1/10  step 320/409  total=1.1911  lr=7.82e-05  |  flakiness_detect=1.1911
+INFO:name:E1/10  step 352/409  total=1.2630  lr=8.61e-05  |  flakiness_detect=1.2630
+INFO:name:E1/10  step 384/409  total=1.2823  lr=9.39e-05  |  flakiness_detect=1.2823
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 1/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          1.2711    1.0000       1559033
+INFO:name:  TOTAL                     1.2711                 1559033  (epoch)  cumulative=1559033
+INFO:name:  epoch_time=69.4s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.8023   0.2345    0.8148      0.1369   0.4009        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.2345
+INFO:name:----------------------------------------------------------------------
+Saved 93 trainable params -> ./adapters/modernbert_flaky_parallelAdapter/model.bin
+INFO:name:  >> New best (0.2345) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 1
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.7971   0.2147    0.7469      0.1254        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E2/10  step 32/409  total=0.8953  lr=9.91e-05  |  flakiness_detect=0.8953
+INFO:name:E2/10  step 64/409  total=0.8842  lr=9.83e-05  |  flakiness_detect=0.8842
+INFO:name:E2/10  step 96/409  total=0.9476  lr=9.74e-05  |  flakiness_detect=0.9476
+INFO:name:E2/10  step 128/409  total=1.0183  lr=9.65e-05  |  flakiness_detect=1.0183
+INFO:name:E2/10  step 160/409  total=1.0407  lr=9.57e-05  |  flakiness_detect=1.0407
+INFO:name:E2/10  step 192/409  total=1.1253  lr=9.48e-05  |  flakiness_detect=1.1253
+INFO:name:E2/10  step 224/409  total=1.0821  lr=9.39e-05  |  flakiness_detect=1.0821
+INFO:name:E2/10  step 256/409  total=1.0615  lr=9.30e-05  |  flakiness_detect=1.0615
+INFO:name:E2/10  step 288/409  total=1.0461  lr=9.22e-05  |  flakiness_detect=1.0461
+INFO:name:E2/10  step 320/409  total=1.0566  lr=9.13e-05  |  flakiness_detect=1.0566
+INFO:name:E2/10  step 352/409  total=1.0746  lr=9.04e-05  |  flakiness_detect=1.0746
+INFO:name:E2/10  step 384/409  total=1.0624  lr=8.96e-05  |  flakiness_detect=1.0624
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 2/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          1.0570    1.0000       1559458
+INFO:name:  TOTAL                     1.0570                 1559458  (epoch)  cumulative=3118491
+INFO:name:  epoch_time=69.2s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9612   0.5678    0.6852      0.4847   0.1139        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5678
+INFO:name:----------------------------------------------------------------------
+Saved 93 trainable params -> ./adapters/modernbert_flaky_parallelAdapter/model.bin
+INFO:name:  >> New best (0.5678) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 2
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9576   0.4818    0.5309      0.4410        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E3/10  step 32/409  total=0.7433  lr=8.80e-05  |  flakiness_detect=0.7433
+INFO:name:E3/10  step 64/409  total=0.9228  lr=8.72e-05  |  flakiness_detect=0.9228
+INFO:name:E3/10  step 96/409  total=0.8598  lr=8.63e-05  |  flakiness_detect=0.8598
+INFO:name:E3/10  step 128/409  total=0.8447  lr=8.54e-05  |  flakiness_detect=0.8447
+INFO:name:E3/10  step 160/409  total=0.8665  lr=8.45e-05  |  flakiness_detect=0.8665
+INFO:name:E3/10  step 192/409  total=0.9262  lr=8.37e-05  |  flakiness_detect=0.9262
+INFO:name:E3/10  step 224/409  total=0.9243  lr=8.28e-05  |  flakiness_detect=0.9243
+INFO:name:E3/10  step 256/409  total=0.9128  lr=8.19e-05  |  flakiness_detect=0.9128
+INFO:name:E3/10  step 288/409  total=0.9314  lr=8.11e-05  |  flakiness_detect=0.9314
+INFO:name:E3/10  step 320/409  total=0.9546  lr=8.02e-05  |  flakiness_detect=0.9546
+INFO:name:E3/10  step 352/409  total=0.9410  lr=7.93e-05  |  flakiness_detect=0.9410
+INFO:name:E3/10  step 384/409  total=0.9516  lr=7.85e-05  |  flakiness_detect=0.9516
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 3/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.9542    1.0000       1559607
+INFO:name:  TOTAL                     0.9542                 1559607  (epoch)  cumulative=4678098
+INFO:name:  epoch_time=69.2s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 3
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9562   0.5589    0.7469      0.4465   0.1225        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.5589
+INFO:name:----------------------------------------------------------------------
+INFO:name:E4/10  step 32/409  total=0.9457  lr=7.69e-05  |  flakiness_detect=0.9457
+INFO:name:E4/10  step 64/409  total=0.7536  lr=7.60e-05  |  flakiness_detect=0.7536
+INFO:name:E4/10  step 96/409  total=0.8151  lr=7.52e-05  |  flakiness_detect=0.8151
+INFO:name:E4/10  step 128/409  total=0.7410  lr=7.43e-05  |  flakiness_detect=0.7410
+INFO:name:E4/10  step 160/409  total=0.8022  lr=7.34e-05  |  flakiness_detect=0.8022
+INFO:name:E4/10  step 192/409  total=0.8101  lr=7.26e-05  |  flakiness_detect=0.8101
+INFO:name:E4/10  step 224/409  total=0.8158  lr=7.17e-05  |  flakiness_detect=0.8158
+INFO:name:E4/10  step 256/409  total=0.8138  lr=7.08e-05  |  flakiness_detect=0.8138
+INFO:name:E4/10  step 288/409  total=0.7846  lr=7.00e-05  |  flakiness_detect=0.7846
+INFO:name:E4/10  step 320/409  total=0.7862  lr=6.91e-05  |  flakiness_detect=0.7862
+INFO:name:E4/10  step 352/409  total=0.7636  lr=6.82e-05  |  flakiness_detect=0.7636
+INFO:name:E4/10  step 384/409  total=0.7927  lr=6.73e-05  |  flakiness_detect=0.7927
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 4/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.7889    1.0000       1559498
+INFO:name:  TOTAL                     0.7889                 1559498  (epoch)  cumulative=6237596
+INFO:name:  epoch_time=69.7s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9683   0.6290    0.7222      0.5571   0.0943        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6290
+INFO:name:----------------------------------------------------------------------
+Saved 93 trainable params -> ./adapters/modernbert_flaky_parallelAdapter/model.bin
+INFO:name:  >> New best (0.6290) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 4
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9679   0.5783    0.5926      0.5647        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E5/10  step 32/409  total=0.2781  lr=6.58e-05  |  flakiness_detect=0.2781
+INFO:name:E5/10  step 64/409  total=0.6107  lr=6.49e-05  |  flakiness_detect=0.6107
+INFO:name:E5/10  step 96/409  total=0.6797  lr=6.41e-05  |  flakiness_detect=0.6797
+INFO:name:E5/10  step 128/409  total=0.6633  lr=6.32e-05  |  flakiness_detect=0.6633
+INFO:name:E5/10  step 160/409  total=0.6280  lr=6.23e-05  |  flakiness_detect=0.6280
+INFO:name:E5/10  step 192/409  total=0.6769  lr=6.15e-05  |  flakiness_detect=0.6769
+INFO:name:E5/10  step 224/409  total=0.6574  lr=6.06e-05  |  flakiness_detect=0.6574
+INFO:name:E5/10  step 256/409  total=0.6738  lr=5.97e-05  |  flakiness_detect=0.6738
+INFO:name:E5/10  step 288/409  total=0.6584  lr=5.88e-05  |  flakiness_detect=0.6584
+INFO:name:E5/10  step 320/409  total=0.6813  lr=5.80e-05  |  flakiness_detect=0.6813
+INFO:name:E5/10  step 352/409  total=0.6751  lr=5.71e-05  |  flakiness_detect=0.6751
+INFO:name:E5/10  step 384/409  total=0.6588  lr=5.62e-05  |  flakiness_detect=0.6588
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 5/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.6366    1.0000       1559128
+INFO:name:  TOTAL                     0.6366                 1559128  (epoch)  cumulative=7796724
+INFO:name:  epoch_time=67.5s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 5
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9773   0.6775    0.6420      0.7172   0.0817        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6775
+INFO:name:----------------------------------------------------------------------
+Saved 93 trainable params -> ./adapters/modernbert_flaky_parallelAdapter/model.bin
+INFO:name:  >> New best (0.6775) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 5
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9759   0.6125    0.5123      0.7615        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E6/10  step 32/409  total=0.5681  lr=5.47e-05  |  flakiness_detect=0.5681
+INFO:name:E6/10  step 64/409  total=0.5867  lr=5.38e-05  |  flakiness_detect=0.5867
+INFO:name:E6/10  step 96/409  total=0.5728  lr=5.29e-05  |  flakiness_detect=0.5728
+INFO:name:E6/10  step 128/409  total=0.4929  lr=5.21e-05  |  flakiness_detect=0.4929
+INFO:name:E6/10  step 160/409  total=0.5003  lr=5.12e-05  |  flakiness_detect=0.5003
+INFO:name:E6/10  step 192/409  total=0.4758  lr=5.03e-05  |  flakiness_detect=0.4758
+INFO:name:E6/10  step 224/409  total=0.5632  lr=4.95e-05  |  flakiness_detect=0.5632
+INFO:name:E6/10  step 256/409  total=0.5408  lr=4.86e-05  |  flakiness_detect=0.5408
+INFO:name:E6/10  step 288/409  total=0.5290  lr=4.77e-05  |  flakiness_detect=0.5290
+INFO:name:E6/10  step 320/409  total=0.5396  lr=4.69e-05  |  flakiness_detect=0.5396
+INFO:name:E6/10  step 352/409  total=0.5629  lr=4.60e-05  |  flakiness_detect=0.5629
+INFO:name:E6/10  step 384/409  total=0.5685  lr=4.51e-05  |  flakiness_detect=0.5685
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 6/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.5603    1.0000       1560100
+INFO:name:  TOTAL                     0.5603                 1560100  (epoch)  cumulative=9356824
+INFO:name:  epoch_time=68.6s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 6
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9720   0.6685    0.7593      0.5971   0.0968        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6685
+INFO:name:----------------------------------------------------------------------
+INFO:name:E7/10  step 32/409  total=0.2724  lr=4.36e-05  |  flakiness_detect=0.2724
+INFO:name:E7/10  step 64/409  total=0.2346  lr=4.27e-05  |  flakiness_detect=0.2346
+INFO:name:E7/10  step 96/409  total=0.3770  lr=4.18e-05  |  flakiness_detect=0.3770
+INFO:name:E7/10  step 128/409  total=0.4230  lr=4.10e-05  |  flakiness_detect=0.4230
+INFO:name:E7/10  step 160/409  total=0.4198  lr=4.01e-05  |  flakiness_detect=0.4198
+INFO:name:E7/10  step 192/409  total=0.4478  lr=3.92e-05  |  flakiness_detect=0.4478
+INFO:name:E7/10  step 224/409  total=0.4060  lr=3.84e-05  |  flakiness_detect=0.4060
+INFO:name:E7/10  step 256/409  total=0.4368  lr=3.75e-05  |  flakiness_detect=0.4368
+INFO:name:E7/10  step 288/409  total=0.4356  lr=3.66e-05  |  flakiness_detect=0.4356
+INFO:name:E7/10  step 320/409  total=0.4487  lr=3.58e-05  |  flakiness_detect=0.4487
+INFO:name:E7/10  step 352/409  total=0.4328  lr=3.49e-05  |  flakiness_detect=0.4328
+INFO:name:E7/10  step 384/409  total=0.4377  lr=3.40e-05  |  flakiness_detect=0.4377
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 7/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.4245    1.0000       1559070
+INFO:name:  TOTAL                     0.4245                 1559070  (epoch)  cumulative=10915894
+INFO:name:  epoch_time=67.5s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 7
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9690   0.6400    0.7407      0.5634   0.1043        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6400
+INFO:name:----------------------------------------------------------------------
+INFO:name:E8/10  step 32/409  total=0.1324  lr=3.25e-05  |  flakiness_detect=0.1324
+INFO:name:E8/10  step 64/409  total=0.2231  lr=3.16e-05  |  flakiness_detect=0.2231
+INFO:name:E8/10  step 96/409  total=0.2245  lr=3.07e-05  |  flakiness_detect=0.2245
+INFO:name:E8/10  step 128/409  total=0.2229  lr=2.99e-05  |  flakiness_detect=0.2229
+INFO:name:E8/10  step 160/409  total=0.2854  lr=2.90e-05  |  flakiness_detect=0.2854
+INFO:name:E8/10  step 192/409  total=0.3618  lr=2.81e-05  |  flakiness_detect=0.3618
+INFO:name:E8/10  step 224/409  total=0.3393  lr=2.72e-05  |  flakiness_detect=0.3393
+INFO:name:E8/10  step 256/409  total=0.3349  lr=2.64e-05  |  flakiness_detect=0.3349
+INFO:name:E8/10  step 288/409  total=0.3072  lr=2.55e-05  |  flakiness_detect=0.3072
+INFO:name:E8/10  step 320/409  total=0.3615  lr=2.46e-05  |  flakiness_detect=0.3615
+INFO:name:E8/10  step 352/409  total=0.3828  lr=2.38e-05  |  flakiness_detect=0.3828
+INFO:name:E8/10  step 384/409  total=0.3796  lr=2.29e-05  |  flakiness_detect=0.3796
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 8/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.3947    1.0000       1559673
+INFO:name:  TOTAL                     0.3947                 1559673  (epoch)  cumulative=12475567
+INFO:name:  epoch_time=67.8s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 8
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9732   0.6704    0.7346      0.6166   0.1000        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6704
+INFO:name:----------------------------------------------------------------------
+INFO:name:E9/10  step 32/409  total=0.2722  lr=2.14e-05  |  flakiness_detect=0.2722
+INFO:name:E9/10  step 64/409  total=0.2544  lr=2.05e-05  |  flakiness_detect=0.2544
+INFO:name:E9/10  step 96/409  total=0.2894  lr=1.96e-05  |  flakiness_detect=0.2894
+INFO:name:E9/10  step 128/409  total=0.2896  lr=1.87e-05  |  flakiness_detect=0.2896
+INFO:name:E9/10  step 160/409  total=0.3252  lr=1.79e-05  |  flakiness_detect=0.3252
+INFO:name:E9/10  step 192/409  total=0.2795  lr=1.70e-05  |  flakiness_detect=0.2795
+INFO:name:E9/10  step 224/409  total=0.2993  lr=1.61e-05  |  flakiness_detect=0.2993
+INFO:name:E9/10  step 256/409  total=0.3000  lr=1.53e-05  |  flakiness_detect=0.3000
+INFO:name:E9/10  step 288/409  total=0.2852  lr=1.44e-05  |  flakiness_detect=0.2852
+INFO:name:E9/10  step 320/409  total=0.3033  lr=1.35e-05  |  flakiness_detect=0.3033
+INFO:name:E9/10  step 352/409  total=0.3040  lr=1.27e-05  |  flakiness_detect=0.3040
+INFO:name:E9/10  step 384/409  total=0.3301  lr=1.18e-05  |  flakiness_detect=0.3301
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 9/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.3364    1.0000       1559295
+INFO:name:  TOTAL                     0.3364                 1559295  (epoch)  cumulative=14034862
+INFO:name:  epoch_time=68.1s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 9
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9764   0.6850    0.6914      0.6788   0.0928        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6850
+INFO:name:----------------------------------------------------------------------
+Saved 93 trainable params -> ./adapters/modernbert_flaky_parallelAdapter/model.bin
+INFO:name:  >> New best (0.6850) — checkpoint saved.
+INFO:name:  Testing flakiness_detect (4361 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Test — Epoch 9
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9741   0.6413    0.6235      0.6601        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:E10/10  step 32/409  total=0.3456  lr=1.02e-05  |  flakiness_detect=0.3456
+INFO:name:E10/10  step 64/409  total=0.3104  lr=9.37e-06  |  flakiness_detect=0.3104
+INFO:name:E10/10  step 96/409  total=0.2535  lr=8.50e-06  |  flakiness_detect=0.2535
+INFO:name:E10/10  step 128/409  total=0.2805  lr=7.63e-06  |  flakiness_detect=0.2805
+INFO:name:E10/10  step 160/409  total=0.2826  lr=6.76e-06  |  flakiness_detect=0.2826
+INFO:name:E10/10  step 192/409  total=0.3108  lr=5.90e-06  |  flakiness_detect=0.3108
+INFO:name:E10/10  step 224/409  total=0.2939  lr=5.03e-06  |  flakiness_detect=0.2939
+INFO:name:E10/10  step 256/409  total=0.3122  lr=4.16e-06  |  flakiness_detect=0.3122
+INFO:name:E10/10  step 288/409  total=0.3101  lr=3.29e-06  |  flakiness_detect=0.3101
+INFO:name:E10/10  step 320/409  total=0.3080  lr=2.42e-06  |  flakiness_detect=0.3080
+INFO:name:E10/10  step 352/409  total=0.2929  lr=1.55e-06  |  flakiness_detect=0.2929
+INFO:name:E10/10  step 384/409  total=0.2827  lr=6.79e-07  |  flakiness_detect=0.2827
+INFO:name:----------------------------------------------------------------------
+INFO:name:Epoch 10/10 — Train Summary
+INFO:name:  Task                        Loss    Weight        Tokens
+INFO:name:  ----                        ----    ------        ------
+INFO:name:  flakiness_detect          0.2769    1.0000       1559249
+INFO:name:  TOTAL                     0.2769                 1559249  (epoch)  cumulative=15594111
+INFO:name:  epoch_time=67.8s  peak_gpu_memory=9.853GB
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Normalized weights → next epoch: {'flakiness_detect': '1.0000'}
+INFO:name:----------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Eval — Epoch 10
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9757   0.6845    0.7099      0.6609   0.0960        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:                          combined = 0.6845
+INFO:name:----------------------------------------------------------------------
+INFO:name:  Testing flakiness_detect (4361 examples)
+INFO:name:----------------------------------------------------------------------
+INFO:name:Final Test — Epoch 10
+INFO:name:  Task                        Acc       F1    Recall   Precision     Loss      MRR
+INFO:name:  --------------------------------------------------------------------
+INFO:name:  flakiness_detect         0.9741   0.6480    0.6420      0.6541        -        -
+INFO:name:  --------------------------------------------------------------------
+INFO:name:----------------------------------------------------------------------
+INFO:name:Train results:
+{'epoch_time_s': [69.4, 69.2, 69.2, 69.7, 67.5, 68.6, 67.5, 67.8, 68.1, 67.8],
+ 'flakiness_detect_tokens': [1559033,
+                             1559458,
+                             1559607,
+                             1559498,
+                             1559128,
+                             1560100,
+                             1559070,
+                             1559673,
+                             1559295,
+                             1559249],
+ 'flakiness_detect_train_loss': [1.2711,
+                                 1.057,
+                                 0.9542,
+                                 0.7889,
+                                 0.6366,
+                                 0.5603,
+                                 0.4245,
+                                 0.3947,
+                                 0.3364,
+                                 0.2769],
+ 'peak_gpu_memory_gb': [9.853,
+                        9.853,
+                        9.853,
+                        9.853,
+                        9.853,
+                        9.853,
+                        9.853,
+                        9.853,
+                        9.853,
+                        9.853],
+ 'tokens_cumulative': [1559033,
+                       3118491,
+                       4678098,
+                       6237596,
+                       7796724,
+                       9356824,
+                       10915894,
+                       12475567,
+                       14034862,
+                       15594111],
+ 'tokens_epoch': [1559033,
+                  1559458,
+                  1559607,
+                  1559498,
+                  1559128,
+                  1560100,
+                  1559070,
+                  1559673,
+                  1559295,
+                  1559249],
+ 'total_train_loss': [1.2711,
+                      1.057,
+                      0.9542,
+                      0.7889,
+                      0.6366,
+                      0.5603,
+                      0.4245,
+                      0.3947,
+                      0.3364,
+                      0.2769]}
+INFO:name:Validation results:
+{'flakiness_detect': {'acc': [0.8023,
+                              0.9612,
+                              0.9562,
+                              0.9683,
+                              0.9773,
+                              0.972,
+                              0.969,
+                              0.9732,
+                              0.9764,
+                              0.9757],
+                      'eval_loss': [0.4009,
+                                    0.1139,
+                                    0.1225,
+                                    0.0943,
+                                    0.0817,
+                                    0.0968,
+                                    0.1043,
+                                    0.1,
+                                    0.0928,
+                                    0.096],
+                      'f1': [0.2345,
+                             0.5678,
+                             0.5589,
+                             0.629,
+                             0.6775,
+                             0.6685,
+                             0.64,
+                             0.6704,
+                             0.685,
+                             0.6845],
+                      'precision': [0.1369,
+                                    0.4847,
+                                    0.4465,
+                                    0.5571,
+                                    0.7172,
+                                    0.5971,
+                                    0.5634,
+                                    0.6166,
+                                    0.6788,
+                                    0.6609],
+                      'recall': [0.8148,
+                                 0.6852,
+                                 0.7469,
+                                 0.7222,
+                                 0.642,
+                                 0.7593,
+                                 0.7407,
+                                 0.7346,
+                                 0.6914,
+                                 0.7099]}}

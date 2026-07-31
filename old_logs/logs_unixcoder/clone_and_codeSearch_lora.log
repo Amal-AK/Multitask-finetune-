@@ -1,0 +1,1693 @@
+INFO:name:device: cuda:0, n_gpu: 1
+/home/aakli/miniconda3/envs/multitask/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /microsoft/unixcoder-base/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+root                                                                                      
+├── embeddings (RobertaEmbeddings)                                                        
+│   ├── word_embeddings (Embedding) weight:[51416, 768]                                   
+│   ├── position_embeddings (Embedding) weight:[1026, 768]                                
+│   ├── token_type_embeddings (Embedding) weight:[10, 768]                                
+│   └── LayerNorm (LayerNorm) weight:[768] bias:[768]                                     
+├── encoder (RobertaEncoder)                                                              
+│   └── layer (ModuleList)                                                                
+│       └── 0-11(RobertaLayer)                                                            
+│           ├── attention (RobertaAttention)                                              
+│           │   ├── self (RobertaSelfAttention)                                           
+│           │   │   ├── query,value(Linear) weight:[768, 768] bias:[768]                  
+│           │   │   │   └── lora (LowRankLinear) lora_A:[16, 768] lora_B:[768, 16]        
+│           │   │   └── key (Linear) weight:[768, 768] bias:[768]                         
+│           │   └── output (RobertaSelfOutput)                                            
+│           │       ├── dense (Linear) weight:[768, 768] bias:[768]                       
+│           │       └── LayerNorm (LayerNorm) weight:[768] bias:[768]                     
+│           ├── intermediate (RobertaIntermediate)                                        
+│           │   └── dense (Linear) weight:[3072, 768] bias:[3072]                         
+│           └── output (RobertaOutput)                                                    
+│               ├── dense (Linear) weight:[768, 3072] bias:[768]                          
+│               └── LayerNorm (LayerNorm) weight:[768] bias:[768]                         
+└── pooler (RobertaPooler)                                                                
+    └── dense (Linear) weight:[768, 768] bias:[768]                                       
+[INFO|(OpenDelta)basemodel:696]2025-05-08 01:01:56,687 >> Trainable Ratio: 589824/126519552=0.466192%
+[INFO|(OpenDelta)basemodel:698]2025-05-08 01:01:56,687 >> Delta Parameter Ratio: 589824/126519552=0.466192%
+[INFO|(OpenDelta)basemodel:700]2025-05-08 01:01:56,687 >> Static Memory 0.00 GB, Max Memory 0.00 GB
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:Preparing the clone detection Dataset...
+
+INFO:name:Preparing the code search Dataset...
+
+INFO:name:***** Running training *****
+INFO:name:  Num examples clone detection = 180205
+INFO:name:  Num examples code search = 251820
+INFO:name:  Num Epochs = 10
+INFO:name:  Total train batch size  = 32
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 0 Step 0 Total Loss 0.886   clone detect 0.691  Code search 1.08   
+INFO:name:Epoch 0 Step 128 Total Loss 0.995   clone detect 0.69  Code search 1.3   
+INFO:name:Epoch 0 Step 256 Total Loss 0.997   clone detect 0.69  Code search 1.304   
+INFO:name:Epoch 0 Step 384 Total Loss 0.992   clone detect 0.689  Code search 1.296   
+INFO:name:Epoch 0 Step 512 Total Loss 0.99   clone detect 0.688  Code search 1.292   
+INFO:name:Epoch 0 Step 640 Total Loss 0.983   clone detect 0.687  Code search 1.279   
+INFO:name:Epoch 0 Step 768 Total Loss 0.978   clone detect 0.685  Code search 1.271   
+INFO:name:Epoch 0 Step 896 Total Loss 0.975   clone detect 0.684  Code search 1.265   
+INFO:name:Epoch 0 Step 1024 Total Loss 0.965   clone detect 0.682  Code search 1.247   
+INFO:name:Epoch 0 Step 1152 Total Loss 0.957   clone detect 0.681  Code search 1.232   
+INFO:name:Epoch 0 Step 1280 Total Loss 0.946   clone detect 0.679  Code search 1.214   
+INFO:name:Epoch 0 Step 1408 Total Loss 0.938   clone detect 0.677  Code search 1.199   
+INFO:name:Epoch 0 Step 1536 Total Loss 0.927   clone detect 0.675  Code search 1.18   
+INFO:name:Epoch 0 Step 1664 Total Loss 0.914   clone detect 0.672  Code search 1.157   
+INFO:name:Epoch 0 Step 1792 Total Loss 0.901   clone detect 0.669  Code search 1.134   
+INFO:name:Epoch 0 Step 1920 Total Loss 0.888   clone detect 0.666  Code search 1.11   
+INFO:name:Epoch 0 Step 2048 Total Loss 0.874   clone detect 0.663  Code search 1.086   
+INFO:name:Epoch 0 Step 2176 Total Loss 0.863   clone detect 0.659  Code search 1.066   
+INFO:name:Epoch 0 Step 2304 Total Loss 0.85   clone detect 0.656  Code search 1.044   
+INFO:name:Epoch 0 Step 2432 Total Loss 0.838   clone detect 0.653  Code search 1.024   
+INFO:name:Epoch 0 Step 2560 Total Loss 0.827   clone detect 0.649  Code search 1.006   
+INFO:name:Epoch 0 Step 2688 Total Loss 0.817   clone detect 0.645  Code search 0.989   
+INFO:name:Epoch 0 Step 2816 Total Loss 0.805   clone detect 0.64  Code search 0.971   
+INFO:name:Epoch 0 Step 2944 Total Loss 0.796   clone detect 0.636  Code search 0.956   
+INFO:name:Epoch 0 Step 3072 Total Loss 0.786   clone detect 0.632  Code search 0.94   
+INFO:name:Epoch 0 Step 3200 Total Loss 0.776   clone detect 0.628  Code search 0.925   
+INFO:name:Epoch 0 Step 3328 Total Loss 0.767   clone detect 0.623  Code search 0.91   
+INFO:name:Epoch 0 Step 3456 Total Loss 0.757   clone detect 0.619  Code search 0.896   
+INFO:name:Epoch 0 Step 3584 Total Loss 0.749   clone detect 0.615  Code search 0.884   
+INFO:name:Epoch 0 Step 3712 Total Loss 0.741   clone detect 0.611  Code search 0.871   
+INFO:name:Epoch 0 Step 3840 Total Loss 0.732   clone detect 0.606  Code search 0.857   
+INFO:name:Epoch 0 Step 3968 Total Loss 0.724   clone detect 0.602  Code search 0.847   
+INFO:name:Epoch 0 Step 4096 Total Loss 0.716   clone detect 0.597  Code search 0.835   
+INFO:name:Epoch 0 Step 4224 Total Loss 0.708   clone detect 0.593  Code search 0.823   
+INFO:name:Epoch 0 Step 4352 Total Loss 0.7   clone detect 0.588  Code search 0.812   
+INFO:name:Epoch 0 Step 4480 Total Loss 0.693   clone detect 0.584  Code search 0.802   
+INFO:name:Epoch 0 Step 4608 Total Loss 0.685   clone detect 0.58  Code search 0.791   
+INFO:name:Epoch 0 Step 4736 Total Loss 0.678   clone detect 0.575  Code search 0.781   
+INFO:name:Epoch 0 Step 4864 Total Loss 0.671   clone detect 0.571  Code search 0.771   
+INFO:name:Epoch 0 Step 4992 Total Loss 0.664   clone detect 0.567  Code search 0.762   
+INFO:name:Epoch 0 Step 5120 Total Loss 0.658   clone detect 0.562  Code search 0.755   
+INFO:name:Epoch 0 Step 5248 Total Loss 0.652   clone detect 0.558  Code search 0.746   
+INFO:name:Epoch 0 Step 5376 Total Loss 0.646   clone detect 0.554  Code search 0.738   
+INFO:name:Epoch 0 Step 5504 Total Loss 0.64   clone detect 0.549  Code search 0.73   
+INFO:name:Epoch 0 Step 5632 Total Loss 0.634   clone detect 0.545  Code search 0.723   
+INFO:name:Epoch 0 Step 5760 Total Loss 0.628   clone detect 0.541  Code search 0.716   
+INFO:name:Epoch 0 Step 5888 Total Loss 0.622   clone detect 0.536  Code search 0.709   
+INFO:name:Epoch 0 Step 6016 Total Loss 0.617   clone detect 0.532  Code search 0.701   
+INFO:name:Epoch 0 Step 6144 Total Loss 0.611   clone detect 0.527  Code search 0.695   
+INFO:name:Epoch 0 Step 6272 Total Loss 0.605   clone detect 0.523  Code search 0.688   
+INFO:name:Epoch 0 Step 6400 Total Loss 0.6   clone detect 0.518  Code search 0.681   
+INFO:name:Epoch 0 Step 6528 Total Loss 0.595   clone detect 0.514  Code search 0.675   
+INFO:name:Epoch 0 Step 6656 Total Loss 0.589   clone detect 0.51  Code search 0.668   
+INFO:name:Epoch 0 Step 6784 Total Loss 0.585   clone detect 0.506  Code search 0.663   
+INFO:name:Epoch 0 Step 6912 Total Loss 0.58   clone detect 0.503  Code search 0.657   
+INFO:name:Epoch 0 Step 7040 Total Loss 0.575   clone detect 0.499  Code search 0.651   
+INFO:name:Epoch 0 Step 7168 Total Loss 0.57   clone detect 0.495  Code search 0.646   
+INFO:name:Epoch 0 Step 7296 Total Loss 0.566   clone detect 0.491  Code search 0.641   
+INFO:name:Epoch 0 Step 7424 Total Loss 0.562   clone detect 0.487  Code search 0.637   
+INFO:name:Epoch 0 Step 7552 Total Loss 0.558   clone detect 0.483  Code search 0.632   
+INFO:name:Epoch 0 Step 7680 Total Loss 0.553   clone detect 0.48  Code search 0.627   
+INFO:name:Epoch 0 Step 7808 Total Loss 0.549   clone detect 0.476  Code search 0.623   
+INFO:name:Epoch 0 Step 7936 Total Loss 0.545   clone detect 0.472  Code search 0.618   
+INFO:name:Epoch 0 Step 8064 Total Loss 0.541   clone detect 0.469  Code search 0.614   
+INFO:name:Epoch 0 Step 8192 Total Loss 0.537   clone detect 0.465  Code search 0.61   
+INFO:name:Epoch 0 Step 8320 Total Loss 0.533   clone detect 0.462  Code search 0.605   
+INFO:name:Epoch 0 Step 8448 Total Loss 0.529   clone detect 0.459  Code search 0.6   
+INFO:name:Epoch 0 Step 8576 Total Loss 0.526   clone detect 0.455  Code search 0.597   
+INFO:name:Epoch 0 Step 8704 Total Loss 0.522   clone detect 0.452  Code search 0.593   
+INFO:name:Epoch 0 Step 8832 Total Loss 0.519   clone detect 0.449  Code search 0.59   
+INFO:name:Epoch 0 Step 8960 Total Loss 0.515   clone detect 0.445  Code search 0.586   
+INFO:name:Epoch 0 Step 9088 Total Loss 0.512   clone detect 0.442  Code search 0.582   
+INFO:name:Epoch 0 Step 9216 Total Loss 0.509   clone detect 0.439  Code search 0.579   
+INFO:name:Epoch 0 Step 9344 Total Loss 0.505   clone detect 0.435  Code search 0.575   
+INFO:name:Epoch 0 Step 9472 Total Loss 0.502   clone detect 0.432  Code search 0.572   
+INFO:name:Epoch 0 Step 9600 Total Loss 0.499   clone detect 0.429  Code search 0.569   
+INFO:name:Epoch 0 Step 9728 Total Loss 0.496   clone detect 0.426  Code search 0.566   
+INFO:name:Epoch 0 Step 9856 Total Loss 0.493   clone detect 0.423  Code search 0.563   
+INFO:name:Epoch 0 Step 9984 Total Loss 0.489   clone detect 0.42  Code search 0.56   
+INFO:name:Epoch 0 Step 10112 Total Loss 0.487   clone detect 0.417  Code search 0.557   
+INFO:name:Epoch 0 Step 10240 Total Loss 0.483   clone detect 0.414  Code search 0.554   
+INFO:name:Epoch 0 Step 10368 Total Loss 0.481   clone detect 0.411  Code search 0.551   
+INFO:name:Epoch 0 Step 10496 Total Loss 0.477   clone detect 0.408  Code search 0.548   
+INFO:name:Epoch 0 Step 10624 Total Loss 0.475   clone detect 0.405  Code search 0.545   
+INFO:name:Epoch 0 Step 10752 Total Loss 0.472   clone detect 0.402  Code search 0.542   
+INFO:name:Epoch 0 Step 10880 Total Loss 0.469   clone detect 0.399  Code search 0.54   
+INFO:name:Epoch 0 Step 11008 Total Loss 0.466   clone detect 0.396  Code search 0.537   
+INFO:name:Epoch 0 Step 11136 Total Loss 0.464   clone detect 0.394  Code search 0.535   
+INFO:name:Epoch 0 Step 11264 Total Loss 0.461   clone detect 0.391  Code search 0.532   
+INFO:name:Epoch 0 Step 11392 Total Loss 0.458   clone detect 0.388  Code search 0.529   
+INFO:name:Epoch 0 Step 11520 Total Loss 0.455   clone detect 0.385  Code search 0.526   
+INFO:name:Epoch 0 Step 11648 Total Loss 0.453   clone detect 0.383  Code search 0.524   
+INFO:name:Epoch 0 Step 11776 Total Loss 0.451   clone detect 0.38  Code search 0.522   
+INFO:name:Epoch 0 Step 11904 Total Loss 0.448   clone detect 0.378  Code search 0.52   
+INFO:name:Epoch 0 Step 12032 Total Loss 0.446   clone detect 0.375  Code search 0.517   
+INFO:name:Epoch 0 Step 12160 Total Loss 0.443   clone detect 0.373  Code search 0.515   
+INFO:name:Epoch 0 Step 12288 Total Loss 0.441   clone detect 0.37  Code search 0.513   
+INFO:name:Epoch 0 Step 12416 Total Loss 0.438   clone detect 0.368  Code search 0.51   
+INFO:name:Epoch 0 Step 12544 Total Loss 0.436   clone detect 0.365  Code search 0.508   
+INFO:name:Epoch 0 Step 12672 Total Loss 0.434   clone detect 0.363  Code search 0.506   
+INFO:name:Epoch 0 Step 12800 Total Loss 0.432   clone detect 0.361  Code search 0.504   
+INFO:name:Epoch 0 Step 12928 Total Loss 0.429   clone detect 0.359  Code search 0.502   
+INFO:name:Epoch 0 Step 13056 Total Loss 0.427   clone detect 0.357  Code search 0.5   
+INFO:name:Epoch 0 Step 13184 Total Loss 0.425   clone detect 0.354  Code search 0.498   
+INFO:name:Epoch 0 Step 13312 Total Loss 0.423   clone detect 0.352  Code search 0.496   
+INFO:name:Epoch 0 Step 13440 Total Loss 0.421   clone detect 0.35  Code search 0.494   
+INFO:name:Epoch 0 Step 13568 Total Loss 0.419   clone detect 0.348  Code search 0.492   
+INFO:name:Epoch 0 Step 13696 Total Loss 0.417   clone detect 0.346  Code search 0.49   
+INFO:name:Epoch 0 Step 13824 Total Loss 0.415   clone detect 0.344  Code search 0.488   
+INFO:name:Epoch 0 Step 13952 Total Loss 0.413   clone detect 0.342  Code search 0.487   
+INFO:name:Epoch 0 Step 14080 Total Loss 0.411   clone detect 0.34  Code search 0.485   
+INFO:name:Epoch 0 Step 14208 Total Loss 0.409   clone detect 0.338  Code search 0.482   
+INFO:name:Epoch 0 Step 14336 Total Loss 0.407   clone detect 0.336  Code search 0.481   
+INFO:name:Epoch 0 Step 14464 Total Loss 0.405   clone detect 0.334  Code search 0.479   
+INFO:name:Epoch 0 Step 14592 Total Loss 0.403   clone detect 0.333  Code search 0.477   
+INFO:name:Epoch 0 Step 14720 Total Loss 0.401   clone detect 0.331  Code search 0.475   
+INFO:name:Epoch 0 Step 14848 Total Loss 0.4   clone detect 0.329  Code search 0.473   
+INFO:name:Epoch 0 Step 14976 Total Loss 0.398   clone detect 0.327  Code search 0.471   
+INFO:name:Epoch 0 Step 15104 Total Loss 0.396   clone detect 0.325  Code search 0.469   
+INFO:name:Epoch 0 Step 15232 Total Loss 0.394   clone detect 0.324  Code search 0.468   
+INFO:name:Epoch 0 Step 15360 Total Loss 0.392   clone detect 0.322  Code search 0.466   
+INFO:name:Epoch 0 Step 15488 Total Loss 0.39   clone detect 0.32  Code search 0.464   
+INFO:name:Epoch 0 Step 15616 Total Loss 0.389   clone detect 0.319  Code search 0.462   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.5506, 0.4494], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.1374
+INFO:name:  eval_acc = 0.9526
+INFO:name:  f1_score = 0.8369
+INFO:name:  recall = 0.9393
+INFO:name:  precision = 0.7546
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.3548
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9637, 'test_f1_score': 0.8765, 'test_recall': 0.9404, 'test_precision': 0.8206} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.2978508701130521} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 1 Step 0 Total Loss 0.168   clone detect 0.051  Code search 0.312   
+INFO:name:Epoch 1 Step 128 Total Loss 0.163   clone detect 0.11  Code search 0.228   
+INFO:name:Epoch 1 Step 256 Total Loss 0.17   clone detect 0.11  Code search 0.243   
+INFO:name:Epoch 1 Step 384 Total Loss 0.18   clone detect 0.114  Code search 0.261   
+INFO:name:Epoch 1 Step 512 Total Loss 0.178   clone detect 0.112  Code search 0.26   
+INFO:name:Epoch 1 Step 640 Total Loss 0.177   clone detect 0.113  Code search 0.256   
+INFO:name:Epoch 1 Step 768 Total Loss 0.176   clone detect 0.114  Code search 0.253   
+INFO:name:Epoch 1 Step 896 Total Loss 0.176   clone detect 0.112  Code search 0.256   
+INFO:name:Epoch 1 Step 1024 Total Loss 0.176   clone detect 0.112  Code search 0.255   
+INFO:name:Epoch 1 Step 1152 Total Loss 0.174   clone detect 0.111  Code search 0.253   
+INFO:name:Epoch 1 Step 1280 Total Loss 0.173   clone detect 0.111  Code search 0.251   
+INFO:name:Epoch 1 Step 1408 Total Loss 0.173   clone detect 0.11  Code search 0.252   
+INFO:name:Epoch 1 Step 1536 Total Loss 0.172   clone detect 0.11  Code search 0.251   
+INFO:name:Epoch 1 Step 1664 Total Loss 0.172   clone detect 0.11  Code search 0.249   
+INFO:name:Epoch 1 Step 1792 Total Loss 0.171   clone detect 0.109  Code search 0.249   
+INFO:name:Epoch 1 Step 1920 Total Loss 0.17   clone detect 0.108  Code search 0.249   
+INFO:name:Epoch 1 Step 2048 Total Loss 0.169   clone detect 0.108  Code search 0.248   
+INFO:name:Epoch 1 Step 2176 Total Loss 0.169   clone detect 0.108  Code search 0.247   
+INFO:name:Epoch 1 Step 2304 Total Loss 0.168   clone detect 0.107  Code search 0.246   
+INFO:name:Epoch 1 Step 2432 Total Loss 0.167   clone detect 0.107  Code search 0.245   
+INFO:name:Epoch 1 Step 2560 Total Loss 0.167   clone detect 0.107  Code search 0.244   
+INFO:name:Epoch 1 Step 2688 Total Loss 0.167   clone detect 0.107  Code search 0.243   
+INFO:name:Epoch 1 Step 2816 Total Loss 0.166   clone detect 0.107  Code search 0.242   
+INFO:name:Epoch 1 Step 2944 Total Loss 0.165   clone detect 0.106  Code search 0.242   
+INFO:name:Epoch 1 Step 3072 Total Loss 0.165   clone detect 0.106  Code search 0.241   
+INFO:name:Epoch 1 Step 3200 Total Loss 0.165   clone detect 0.106  Code search 0.241   
+INFO:name:Epoch 1 Step 3328 Total Loss 0.164   clone detect 0.105  Code search 0.24   
+INFO:name:Epoch 1 Step 3456 Total Loss 0.164   clone detect 0.105  Code search 0.24   
+INFO:name:Epoch 1 Step 3584 Total Loss 0.163   clone detect 0.104  Code search 0.24   
+INFO:name:Epoch 1 Step 3712 Total Loss 0.163   clone detect 0.104  Code search 0.24   
+INFO:name:Epoch 1 Step 3840 Total Loss 0.162   clone detect 0.104  Code search 0.239   
+INFO:name:Epoch 1 Step 3968 Total Loss 0.162   clone detect 0.104  Code search 0.238   
+INFO:name:Epoch 1 Step 4096 Total Loss 0.161   clone detect 0.103  Code search 0.238   
+INFO:name:Epoch 1 Step 4224 Total Loss 0.161   clone detect 0.104  Code search 0.238   
+INFO:name:Epoch 1 Step 4352 Total Loss 0.161   clone detect 0.104  Code search 0.238   
+INFO:name:Epoch 1 Step 4480 Total Loss 0.161   clone detect 0.103  Code search 0.237   
+INFO:name:Epoch 1 Step 4608 Total Loss 0.16   clone detect 0.103  Code search 0.236   
+INFO:name:Epoch 1 Step 4736 Total Loss 0.16   clone detect 0.103  Code search 0.236   
+INFO:name:Epoch 1 Step 4864 Total Loss 0.16   clone detect 0.103  Code search 0.236   
+INFO:name:Epoch 1 Step 4992 Total Loss 0.159   clone detect 0.102  Code search 0.236   
+INFO:name:Epoch 1 Step 5120 Total Loss 0.159   clone detect 0.102  Code search 0.235   
+INFO:name:Epoch 1 Step 5248 Total Loss 0.158   clone detect 0.102  Code search 0.234   
+INFO:name:Epoch 1 Step 5376 Total Loss 0.158   clone detect 0.102  Code search 0.234   
+INFO:name:Epoch 1 Step 5504 Total Loss 0.158   clone detect 0.102  Code search 0.234   
+INFO:name:Epoch 1 Step 5632 Total Loss 0.157   clone detect 0.102  Code search 0.233   
+INFO:name:Epoch 1 Step 5760 Total Loss 0.157   clone detect 0.101  Code search 0.234   
+INFO:name:Epoch 1 Step 5888 Total Loss 0.157   clone detect 0.101  Code search 0.234   
+INFO:name:Epoch 1 Step 6016 Total Loss 0.157   clone detect 0.101  Code search 0.233   
+INFO:name:Epoch 1 Step 6144 Total Loss 0.156   clone detect 0.101  Code search 0.233   
+INFO:name:Epoch 1 Step 6272 Total Loss 0.156   clone detect 0.101  Code search 0.232   
+INFO:name:Epoch 1 Step 6400 Total Loss 0.155   clone detect 0.101  Code search 0.231   
+INFO:name:Epoch 1 Step 6528 Total Loss 0.155   clone detect 0.1  Code search 0.231   
+INFO:name:Epoch 1 Step 6656 Total Loss 0.154   clone detect 0.1  Code search 0.231   
+INFO:name:Epoch 1 Step 6784 Total Loss 0.154   clone detect 0.099  Code search 0.23   
+INFO:name:Epoch 1 Step 6912 Total Loss 0.153   clone detect 0.099  Code search 0.229   
+INFO:name:Epoch 1 Step 7040 Total Loss 0.153   clone detect 0.099  Code search 0.228   
+INFO:name:Epoch 1 Step 7168 Total Loss 0.153   clone detect 0.099  Code search 0.228   
+INFO:name:Epoch 1 Step 7296 Total Loss 0.152   clone detect 0.099  Code search 0.227   
+INFO:name:Epoch 1 Step 7424 Total Loss 0.151   clone detect 0.098  Code search 0.226   
+INFO:name:Epoch 1 Step 7552 Total Loss 0.151   clone detect 0.098  Code search 0.226   
+INFO:name:Epoch 1 Step 7680 Total Loss 0.151   clone detect 0.098  Code search 0.226   
+INFO:name:Epoch 1 Step 7808 Total Loss 0.15   clone detect 0.098  Code search 0.225   
+INFO:name:Epoch 1 Step 7936 Total Loss 0.15   clone detect 0.097  Code search 0.225   
+INFO:name:Epoch 1 Step 8064 Total Loss 0.149   clone detect 0.097  Code search 0.224   
+INFO:name:Epoch 1 Step 8192 Total Loss 0.149   clone detect 0.097  Code search 0.224   
+INFO:name:Epoch 1 Step 8320 Total Loss 0.148   clone detect 0.096  Code search 0.223   
+INFO:name:Epoch 1 Step 8448 Total Loss 0.148   clone detect 0.096  Code search 0.223   
+INFO:name:Epoch 1 Step 8576 Total Loss 0.148   clone detect 0.096  Code search 0.222   
+INFO:name:Epoch 1 Step 8704 Total Loss 0.147   clone detect 0.096  Code search 0.222   
+INFO:name:Epoch 1 Step 8832 Total Loss 0.147   clone detect 0.096  Code search 0.222   
+INFO:name:Epoch 1 Step 8960 Total Loss 0.146   clone detect 0.095  Code search 0.221   
+INFO:name:Epoch 1 Step 9088 Total Loss 0.146   clone detect 0.095  Code search 0.22   
+INFO:name:Epoch 1 Step 9216 Total Loss 0.145   clone detect 0.095  Code search 0.219   
+INFO:name:Epoch 1 Step 9344 Total Loss 0.145   clone detect 0.094  Code search 0.219   
+INFO:name:Epoch 1 Step 9472 Total Loss 0.145   clone detect 0.094  Code search 0.219   
+INFO:name:Epoch 1 Step 9600 Total Loss 0.144   clone detect 0.094  Code search 0.219   
+INFO:name:Epoch 1 Step 9728 Total Loss 0.144   clone detect 0.094  Code search 0.219   
+INFO:name:Epoch 1 Step 9856 Total Loss 0.144   clone detect 0.094  Code search 0.218   
+INFO:name:Epoch 1 Step 9984 Total Loss 0.143   clone detect 0.093  Code search 0.218   
+INFO:name:Epoch 1 Step 10112 Total Loss 0.143   clone detect 0.093  Code search 0.218   
+INFO:name:Epoch 1 Step 10240 Total Loss 0.143   clone detect 0.093  Code search 0.217   
+INFO:name:Epoch 1 Step 10368 Total Loss 0.143   clone detect 0.093  Code search 0.217   
+INFO:name:Epoch 1 Step 10496 Total Loss 0.142   clone detect 0.093  Code search 0.216   
+INFO:name:Epoch 1 Step 10624 Total Loss 0.142   clone detect 0.093  Code search 0.216   
+INFO:name:Epoch 1 Step 10752 Total Loss 0.141   clone detect 0.092  Code search 0.215   
+INFO:name:Epoch 1 Step 10880 Total Loss 0.141   clone detect 0.092  Code search 0.215   
+INFO:name:Epoch 1 Step 11008 Total Loss 0.14   clone detect 0.092  Code search 0.214   
+INFO:name:Epoch 1 Step 11136 Total Loss 0.14   clone detect 0.091  Code search 0.214   
+INFO:name:Epoch 1 Step 11264 Total Loss 0.14   clone detect 0.091  Code search 0.214   
+INFO:name:Epoch 1 Step 11392 Total Loss 0.139   clone detect 0.091  Code search 0.214   
+INFO:name:Epoch 1 Step 11520 Total Loss 0.139   clone detect 0.091  Code search 0.213   
+INFO:name:Epoch 1 Step 11648 Total Loss 0.138   clone detect 0.09  Code search 0.213   
+INFO:name:Epoch 1 Step 11776 Total Loss 0.138   clone detect 0.09  Code search 0.213   
+INFO:name:Epoch 1 Step 11904 Total Loss 0.138   clone detect 0.09  Code search 0.212   
+INFO:name:Epoch 1 Step 12032 Total Loss 0.137   clone detect 0.089  Code search 0.212   
+INFO:name:Epoch 1 Step 12160 Total Loss 0.137   clone detect 0.089  Code search 0.212   
+INFO:name:Epoch 1 Step 12288 Total Loss 0.137   clone detect 0.089  Code search 0.212   
+INFO:name:Epoch 1 Step 12416 Total Loss 0.137   clone detect 0.089  Code search 0.212   
+INFO:name:Epoch 1 Step 12544 Total Loss 0.136   clone detect 0.089  Code search 0.212   
+INFO:name:Epoch 1 Step 12672 Total Loss 0.136   clone detect 0.088  Code search 0.212   
+INFO:name:Epoch 1 Step 12800 Total Loss 0.136   clone detect 0.088  Code search 0.212   
+INFO:name:Epoch 1 Step 12928 Total Loss 0.135   clone detect 0.088  Code search 0.212   
+INFO:name:Epoch 1 Step 13056 Total Loss 0.135   clone detect 0.088  Code search 0.212   
+INFO:name:Epoch 1 Step 13184 Total Loss 0.135   clone detect 0.088  Code search 0.211   
+INFO:name:Epoch 1 Step 13312 Total Loss 0.135   clone detect 0.088  Code search 0.211   
+INFO:name:Epoch 1 Step 13440 Total Loss 0.134   clone detect 0.087  Code search 0.211   
+INFO:name:Epoch 1 Step 13568 Total Loss 0.134   clone detect 0.087  Code search 0.211   
+INFO:name:Epoch 1 Step 13696 Total Loss 0.134   clone detect 0.087  Code search 0.21   
+INFO:name:Epoch 1 Step 13824 Total Loss 0.133   clone detect 0.087  Code search 0.21   
+INFO:name:Epoch 1 Step 13952 Total Loss 0.133   clone detect 0.087  Code search 0.21   
+INFO:name:Epoch 1 Step 14080 Total Loss 0.133   clone detect 0.086  Code search 0.21   
+INFO:name:Epoch 1 Step 14208 Total Loss 0.132   clone detect 0.086  Code search 0.21   
+INFO:name:Epoch 1 Step 14336 Total Loss 0.132   clone detect 0.086  Code search 0.209   
+INFO:name:Epoch 1 Step 14464 Total Loss 0.132   clone detect 0.086  Code search 0.209   
+INFO:name:Epoch 1 Step 14592 Total Loss 0.132   clone detect 0.086  Code search 0.209   
+INFO:name:Epoch 1 Step 14720 Total Loss 0.131   clone detect 0.086  Code search 0.209   
+INFO:name:Epoch 1 Step 14848 Total Loss 0.131   clone detect 0.085  Code search 0.209   
+INFO:name:Epoch 1 Step 14976 Total Loss 0.131   clone detect 0.085  Code search 0.208   
+INFO:name:Epoch 1 Step 15104 Total Loss 0.131   clone detect 0.085  Code search 0.208   
+INFO:name:Epoch 1 Step 15232 Total Loss 0.13   clone detect 0.085  Code search 0.208   
+INFO:name:Epoch 1 Step 15360 Total Loss 0.13   clone detect 0.085  Code search 0.208   
+INFO:name:Epoch 1 Step 15488 Total Loss 0.13   clone detect 0.085  Code search 0.207   
+INFO:name:Epoch 1 Step 15616 Total Loss 0.13   clone detect 0.085  Code search 0.207   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.7361, 0.2639], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.1097
+INFO:name:  eval_acc = 0.9665
+INFO:name:  f1_score = 0.8822
+INFO:name:  recall = 0.9682
+INFO:name:  precision = 0.8102
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.3969
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9737, 'test_f1_score': 0.9089, 'test_recall': 0.9573, 'test_precision': 0.8652} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.3366352229693776} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 2 Step 0 Total Loss 0.08   clone detect 0.019  Code search 0.25   
+INFO:name:Epoch 2 Step 128 Total Loss 0.085   clone detect 0.06  Code search 0.154   
+INFO:name:Epoch 2 Step 256 Total Loss 0.086   clone detect 0.058  Code search 0.163   
+INFO:name:Epoch 2 Step 384 Total Loss 0.092   clone detect 0.063  Code search 0.175   
+INFO:name:Epoch 2 Step 512 Total Loss 0.09   clone detect 0.06  Code search 0.173   
+INFO:name:Epoch 2 Step 640 Total Loss 0.091   clone detect 0.062  Code search 0.173   
+INFO:name:Epoch 2 Step 768 Total Loss 0.091   clone detect 0.063  Code search 0.169   
+INFO:name:Epoch 2 Step 896 Total Loss 0.089   clone detect 0.062  Code search 0.167   
+INFO:name:Epoch 2 Step 1024 Total Loss 0.09   clone detect 0.064  Code search 0.166   
+INFO:name:Epoch 2 Step 1152 Total Loss 0.089   clone detect 0.063  Code search 0.166   
+INFO:name:Epoch 2 Step 1280 Total Loss 0.089   clone detect 0.062  Code search 0.166   
+INFO:name:Epoch 2 Step 1408 Total Loss 0.088   clone detect 0.061  Code search 0.165   
+INFO:name:Epoch 2 Step 1536 Total Loss 0.087   clone detect 0.061  Code search 0.165   
+INFO:name:Epoch 2 Step 1664 Total Loss 0.087   clone detect 0.061  Code search 0.165   
+INFO:name:Epoch 2 Step 1792 Total Loss 0.087   clone detect 0.06  Code search 0.166   
+INFO:name:Epoch 2 Step 1920 Total Loss 0.087   clone detect 0.06  Code search 0.167   
+INFO:name:Epoch 2 Step 2048 Total Loss 0.087   clone detect 0.06  Code search 0.167   
+INFO:name:Epoch 2 Step 2176 Total Loss 0.086   clone detect 0.059  Code search 0.167   
+INFO:name:Epoch 2 Step 2304 Total Loss 0.086   clone detect 0.06  Code search 0.165   
+INFO:name:Epoch 2 Step 2432 Total Loss 0.085   clone detect 0.059  Code search 0.165   
+INFO:name:Epoch 2 Step 2560 Total Loss 0.086   clone detect 0.059  Code search 0.167   
+INFO:name:Epoch 2 Step 2688 Total Loss 0.085   clone detect 0.058  Code search 0.167   
+INFO:name:Epoch 2 Step 2816 Total Loss 0.085   clone detect 0.058  Code search 0.167   
+INFO:name:Epoch 2 Step 2944 Total Loss 0.085   clone detect 0.058  Code search 0.166   
+INFO:name:Epoch 2 Step 3072 Total Loss 0.085   clone detect 0.059  Code search 0.165   
+INFO:name:Epoch 2 Step 3200 Total Loss 0.084   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 3328 Total Loss 0.085   clone detect 0.058  Code search 0.166   
+INFO:name:Epoch 2 Step 3456 Total Loss 0.084   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 3584 Total Loss 0.084   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 3712 Total Loss 0.084   clone detect 0.058  Code search 0.166   
+INFO:name:Epoch 2 Step 3840 Total Loss 0.084   clone detect 0.058  Code search 0.166   
+INFO:name:Epoch 2 Step 3968 Total Loss 0.084   clone detect 0.059  Code search 0.165   
+INFO:name:Epoch 2 Step 4096 Total Loss 0.084   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 4224 Total Loss 0.084   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 4352 Total Loss 0.083   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 4480 Total Loss 0.083   clone detect 0.058  Code search 0.165   
+INFO:name:Epoch 2 Step 4608 Total Loss 0.083   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 4736 Total Loss 0.083   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 4864 Total Loss 0.083   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 4992 Total Loss 0.082   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 5120 Total Loss 0.082   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 5248 Total Loss 0.082   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 5376 Total Loss 0.082   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 5504 Total Loss 0.082   clone detect 0.057  Code search 0.165   
+INFO:name:Epoch 2 Step 5632 Total Loss 0.082   clone detect 0.057  Code search 0.164   
+INFO:name:Epoch 2 Step 5760 Total Loss 0.081   clone detect 0.057  Code search 0.164   
+INFO:name:Epoch 2 Step 5888 Total Loss 0.081   clone detect 0.056  Code search 0.164   
+INFO:name:Epoch 2 Step 6016 Total Loss 0.081   clone detect 0.056  Code search 0.164   
+INFO:name:Epoch 2 Step 6144 Total Loss 0.081   clone detect 0.056  Code search 0.164   
+INFO:name:Epoch 2 Step 6272 Total Loss 0.08   clone detect 0.056  Code search 0.164   
+INFO:name:Epoch 2 Step 6400 Total Loss 0.08   clone detect 0.055  Code search 0.164   
+INFO:name:Epoch 2 Step 6528 Total Loss 0.08   clone detect 0.055  Code search 0.164   
+INFO:name:Epoch 2 Step 6656 Total Loss 0.08   clone detect 0.055  Code search 0.164   
+INFO:name:Epoch 2 Step 6784 Total Loss 0.079   clone detect 0.055  Code search 0.163   
+INFO:name:Epoch 2 Step 6912 Total Loss 0.079   clone detect 0.055  Code search 0.163   
+INFO:name:Epoch 2 Step 7040 Total Loss 0.079   clone detect 0.055  Code search 0.163   
+INFO:name:Epoch 2 Step 7168 Total Loss 0.079   clone detect 0.055  Code search 0.163   
+INFO:name:Epoch 2 Step 7296 Total Loss 0.079   clone detect 0.055  Code search 0.163   
+INFO:name:Epoch 2 Step 7424 Total Loss 0.078   clone detect 0.054  Code search 0.163   
+INFO:name:Epoch 2 Step 7552 Total Loss 0.078   clone detect 0.054  Code search 0.162   
+INFO:name:Epoch 2 Step 7680 Total Loss 0.078   clone detect 0.054  Code search 0.163   
+INFO:name:Epoch 2 Step 7808 Total Loss 0.078   clone detect 0.054  Code search 0.162   
+INFO:name:Epoch 2 Step 7936 Total Loss 0.078   clone detect 0.054  Code search 0.162   
+INFO:name:Epoch 2 Step 8064 Total Loss 0.078   clone detect 0.054  Code search 0.163   
+INFO:name:Epoch 2 Step 8192 Total Loss 0.077   clone detect 0.054  Code search 0.163   
+INFO:name:Epoch 2 Step 8320 Total Loss 0.077   clone detect 0.054  Code search 0.163   
+INFO:name:Epoch 2 Step 8448 Total Loss 0.077   clone detect 0.053  Code search 0.162   
+INFO:name:Epoch 2 Step 8576 Total Loss 0.077   clone detect 0.053  Code search 0.162   
+INFO:name:Epoch 2 Step 8704 Total Loss 0.076   clone detect 0.053  Code search 0.162   
+INFO:name:Epoch 2 Step 8832 Total Loss 0.076   clone detect 0.053  Code search 0.162   
+INFO:name:Epoch 2 Step 8960 Total Loss 0.076   clone detect 0.053  Code search 0.161   
+INFO:name:Epoch 2 Step 9088 Total Loss 0.076   clone detect 0.053  Code search 0.161   
+INFO:name:Epoch 2 Step 9216 Total Loss 0.076   clone detect 0.053  Code search 0.161   
+INFO:name:Epoch 2 Step 9344 Total Loss 0.075   clone detect 0.053  Code search 0.161   
+INFO:name:Epoch 2 Step 9472 Total Loss 0.076   clone detect 0.053  Code search 0.161   
+INFO:name:Epoch 2 Step 9600 Total Loss 0.075   clone detect 0.053  Code search 0.161   
+INFO:name:Epoch 2 Step 9728 Total Loss 0.075   clone detect 0.052  Code search 0.161   
+INFO:name:Epoch 2 Step 9856 Total Loss 0.075   clone detect 0.052  Code search 0.161   
+INFO:name:Epoch 2 Step 9984 Total Loss 0.075   clone detect 0.052  Code search 0.161   
+INFO:name:Epoch 2 Step 10112 Total Loss 0.075   clone detect 0.052  Code search 0.161   
+INFO:name:Epoch 2 Step 10240 Total Loss 0.075   clone detect 0.052  Code search 0.161   
+INFO:name:Epoch 2 Step 10368 Total Loss 0.075   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 10496 Total Loss 0.074   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 10624 Total Loss 0.074   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 10752 Total Loss 0.074   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 10880 Total Loss 0.074   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 11008 Total Loss 0.074   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 11136 Total Loss 0.073   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 11264 Total Loss 0.073   clone detect 0.052  Code search 0.16   
+INFO:name:Epoch 2 Step 11392 Total Loss 0.073   clone detect 0.051  Code search 0.16   
+INFO:name:Epoch 2 Step 11520 Total Loss 0.073   clone detect 0.051  Code search 0.16   
+INFO:name:Epoch 2 Step 11648 Total Loss 0.073   clone detect 0.051  Code search 0.16   
+INFO:name:Epoch 2 Step 11776 Total Loss 0.073   clone detect 0.051  Code search 0.16   
+INFO:name:Epoch 2 Step 11904 Total Loss 0.073   clone detect 0.051  Code search 0.16   
+INFO:name:Epoch 2 Step 12032 Total Loss 0.072   clone detect 0.051  Code search 0.159   
+INFO:name:Epoch 2 Step 12160 Total Loss 0.072   clone detect 0.051  Code search 0.159   
+INFO:name:Epoch 2 Step 12288 Total Loss 0.072   clone detect 0.051  Code search 0.159   
+INFO:name:Epoch 2 Step 12416 Total Loss 0.072   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 12544 Total Loss 0.072   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 12672 Total Loss 0.071   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 12800 Total Loss 0.071   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 12928 Total Loss 0.071   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 13056 Total Loss 0.071   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 13184 Total Loss 0.071   clone detect 0.05  Code search 0.159   
+INFO:name:Epoch 2 Step 13312 Total Loss 0.071   clone detect 0.05  Code search 0.158   
+INFO:name:Epoch 2 Step 13440 Total Loss 0.07   clone detect 0.05  Code search 0.158   
+INFO:name:Epoch 2 Step 13568 Total Loss 0.07   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 13696 Total Loss 0.07   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 13824 Total Loss 0.07   clone detect 0.049  Code search 0.159   
+INFO:name:Epoch 2 Step 13952 Total Loss 0.07   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 14080 Total Loss 0.07   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 14208 Total Loss 0.069   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 14336 Total Loss 0.069   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 14464 Total Loss 0.069   clone detect 0.049  Code search 0.158   
+INFO:name:Epoch 2 Step 14592 Total Loss 0.069   clone detect 0.048  Code search 0.158   
+INFO:name:Epoch 2 Step 14720 Total Loss 0.069   clone detect 0.048  Code search 0.158   
+INFO:name:Epoch 2 Step 14848 Total Loss 0.069   clone detect 0.048  Code search 0.158   
+INFO:name:Epoch 2 Step 14976 Total Loss 0.068   clone detect 0.048  Code search 0.158   
+INFO:name:Epoch 2 Step 15104 Total Loss 0.068   clone detect 0.048  Code search 0.157   
+INFO:name:Epoch 2 Step 15232 Total Loss 0.068   clone detect 0.048  Code search 0.158   
+INFO:name:Epoch 2 Step 15360 Total Loss 0.068   clone detect 0.048  Code search 0.158   
+INFO:name:Epoch 2 Step 15488 Total Loss 0.068   clone detect 0.048  Code search 0.157   
+INFO:name:Epoch 2 Step 15616 Total Loss 0.068   clone detect 0.048  Code search 0.157   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.8823, 0.1177], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.103
+INFO:name:  eval_acc = 0.9713
+INFO:name:  f1_score = 0.8976
+INFO:name:  recall = 0.9716
+INFO:name:  precision = 0.8342
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4166
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9758, 'test_f1_score': 0.9158, 'test_recall': 0.9646, 'test_precision': 0.8718} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.35457044791667097} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 3 Step 0 Total Loss 0.079   clone detect 0.083  Code search 0.049   
+INFO:name:Epoch 3 Step 128 Total Loss 0.046   clone detect 0.035  Code search 0.126   
+INFO:name:Epoch 3 Step 256 Total Loss 0.051   clone detect 0.039  Code search 0.14   
+INFO:name:Epoch 3 Step 384 Total Loss 0.053   clone detect 0.042  Code search 0.137   
+INFO:name:Epoch 3 Step 512 Total Loss 0.053   clone detect 0.041  Code search 0.139   
+INFO:name:Epoch 3 Step 640 Total Loss 0.05   clone detect 0.038  Code search 0.14   
+INFO:name:Epoch 3 Step 768 Total Loss 0.05   clone detect 0.039  Code search 0.138   
+INFO:name:Epoch 3 Step 896 Total Loss 0.049   clone detect 0.037  Code search 0.139   
+INFO:name:Epoch 3 Step 1024 Total Loss 0.049   clone detect 0.038  Code search 0.139   
+INFO:name:Epoch 3 Step 1152 Total Loss 0.049   clone detect 0.037  Code search 0.137   
+INFO:name:Epoch 3 Step 1280 Total Loss 0.048   clone detect 0.036  Code search 0.138   
+INFO:name:Epoch 3 Step 1408 Total Loss 0.048   clone detect 0.036  Code search 0.139   
+INFO:name:Epoch 3 Step 1536 Total Loss 0.047   clone detect 0.036  Code search 0.139   
+INFO:name:Epoch 3 Step 1664 Total Loss 0.047   clone detect 0.036  Code search 0.138   
+INFO:name:Epoch 3 Step 1792 Total Loss 0.048   clone detect 0.036  Code search 0.138   
+INFO:name:Epoch 3 Step 1920 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2048 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2176 Total Loss 0.047   clone detect 0.035  Code search 0.137   
+INFO:name:Epoch 3 Step 2304 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2432 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2560 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2688 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2816 Total Loss 0.047   clone detect 0.036  Code search 0.137   
+INFO:name:Epoch 3 Step 2944 Total Loss 0.047   clone detect 0.035  Code search 0.137   
+INFO:name:Epoch 3 Step 3072 Total Loss 0.046   clone detect 0.035  Code search 0.137   
+INFO:name:Epoch 3 Step 3200 Total Loss 0.046   clone detect 0.035  Code search 0.138   
+INFO:name:Epoch 3 Step 3328 Total Loss 0.045   clone detect 0.034  Code search 0.137   
+INFO:name:Epoch 3 Step 3456 Total Loss 0.045   clone detect 0.034  Code search 0.137   
+INFO:name:Epoch 3 Step 3584 Total Loss 0.045   clone detect 0.034  Code search 0.137   
+INFO:name:Epoch 3 Step 3712 Total Loss 0.045   clone detect 0.034  Code search 0.137   
+INFO:name:Epoch 3 Step 3840 Total Loss 0.045   clone detect 0.034  Code search 0.137   
+INFO:name:Epoch 3 Step 3968 Total Loss 0.045   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4096 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4224 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4352 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4480 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4608 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4736 Total Loss 0.043   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 4864 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 4992 Total Loss 0.044   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 5120 Total Loss 0.043   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 5248 Total Loss 0.043   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 5376 Total Loss 0.043   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 5504 Total Loss 0.043   clone detect 0.033  Code search 0.137   
+INFO:name:Epoch 3 Step 5632 Total Loss 0.043   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 5760 Total Loss 0.043   clone detect 0.033  Code search 0.138   
+INFO:name:Epoch 3 Step 5888 Total Loss 0.043   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 6016 Total Loss 0.043   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 6144 Total Loss 0.043   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 6272 Total Loss 0.043   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 6400 Total Loss 0.043   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 6528 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 6656 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 6784 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 6912 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 7040 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 7168 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 7296 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 7424 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 7552 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 7680 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 7808 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 7936 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8064 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8192 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8320 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8448 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8576 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8704 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8832 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 8960 Total Loss 0.042   clone detect 0.032  Code search 0.138   
+INFO:name:Epoch 3 Step 9088 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9216 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9344 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9472 Total Loss 0.042   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9600 Total Loss 0.041   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9728 Total Loss 0.041   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9856 Total Loss 0.041   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 9984 Total Loss 0.041   clone detect 0.032  Code search 0.137   
+INFO:name:Epoch 3 Step 10112 Total Loss 0.041   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 10240 Total Loss 0.041   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 10368 Total Loss 0.041   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 10496 Total Loss 0.041   clone detect 0.031  Code search 0.136   
+INFO:name:Epoch 3 Step 10624 Total Loss 0.041   clone detect 0.031  Code search 0.136   
+INFO:name:Epoch 3 Step 10752 Total Loss 0.04   clone detect 0.031  Code search 0.136   
+INFO:name:Epoch 3 Step 10880 Total Loss 0.04   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 11008 Total Loss 0.04   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 11136 Total Loss 0.04   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 11264 Total Loss 0.04   clone detect 0.031  Code search 0.137   
+INFO:name:Epoch 3 Step 11392 Total Loss 0.04   clone detect 0.031  Code search 0.136   
+INFO:name:Epoch 3 Step 11520 Total Loss 0.04   clone detect 0.031  Code search 0.136   
+INFO:name:Epoch 3 Step 11648 Total Loss 0.04   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 11776 Total Loss 0.04   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 11904 Total Loss 0.04   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12032 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12160 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12288 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12416 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12544 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12672 Total Loss 0.039   clone detect 0.03  Code search 0.138   
+INFO:name:Epoch 3 Step 12800 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 12928 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13056 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13184 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13312 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13440 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13568 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13696 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13824 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 13952 Total Loss 0.039   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 14080 Total Loss 0.038   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 14208 Total Loss 0.038   clone detect 0.03  Code search 0.137   
+INFO:name:Epoch 3 Step 14336 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 14464 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 14592 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 14720 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 14848 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 14976 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 15104 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 15232 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 15360 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 15488 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:Epoch 3 Step 15616 Total Loss 0.038   clone detect 0.029  Code search 0.137   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.9503, 0.0497], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.1551
+INFO:name:  eval_acc = 0.9724
+INFO:name:  f1_score = 0.9017
+INFO:name:  recall = 0.9768
+INFO:name:  precision = 0.8374
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4124
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 4 Step 0 Total Loss 0.016   clone detect 0.014  Code search 0.052   
+INFO:name:Epoch 4 Step 128 Total Loss 0.032   clone detect 0.027  Code search 0.136   
+INFO:name:Epoch 4 Step 256 Total Loss 0.028   clone detect 0.022  Code search 0.137   
+INFO:name:Epoch 4 Step 384 Total Loss 0.028   clone detect 0.022  Code search 0.133   
+INFO:name:Epoch 4 Step 512 Total Loss 0.027   clone detect 0.022  Code search 0.132   
+INFO:name:Epoch 4 Step 640 Total Loss 0.028   clone detect 0.023  Code search 0.131   
+INFO:name:Epoch 4 Step 768 Total Loss 0.027   clone detect 0.022  Code search 0.127   
+INFO:name:Epoch 4 Step 896 Total Loss 0.028   clone detect 0.023  Code search 0.126   
+INFO:name:Epoch 4 Step 1024 Total Loss 0.027   clone detect 0.022  Code search 0.126   
+INFO:name:Epoch 4 Step 1152 Total Loss 0.028   clone detect 0.023  Code search 0.126   
+INFO:name:Epoch 4 Step 1280 Total Loss 0.028   clone detect 0.023  Code search 0.127   
+INFO:name:Epoch 4 Step 1408 Total Loss 0.028   clone detect 0.023  Code search 0.128   
+INFO:name:Epoch 4 Step 1536 Total Loss 0.027   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 1664 Total Loss 0.027   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 1792 Total Loss 0.026   clone detect 0.021  Code search 0.127   
+INFO:name:Epoch 4 Step 1920 Total Loss 0.026   clone detect 0.021  Code search 0.127   
+INFO:name:Epoch 4 Step 2048 Total Loss 0.027   clone detect 0.022  Code search 0.127   
+INFO:name:Epoch 4 Step 2176 Total Loss 0.027   clone detect 0.022  Code search 0.13   
+INFO:name:Epoch 4 Step 2304 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 2432 Total Loss 0.027   clone detect 0.022  Code search 0.13   
+INFO:name:Epoch 4 Step 2560 Total Loss 0.027   clone detect 0.022  Code search 0.13   
+INFO:name:Epoch 4 Step 2688 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 2816 Total Loss 0.027   clone detect 0.022  Code search 0.13   
+INFO:name:Epoch 4 Step 2944 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 3072 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 3200 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 3328 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 3456 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 3584 Total Loss 0.026   clone detect 0.021  Code search 0.127   
+INFO:name:Epoch 4 Step 3712 Total Loss 0.026   clone detect 0.022  Code search 0.127   
+INFO:name:Epoch 4 Step 3840 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 3968 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4096 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4224 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4352 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4480 Total Loss 0.027   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4608 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4736 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4864 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 4992 Total Loss 0.026   clone detect 0.022  Code search 0.129   
+INFO:name:Epoch 4 Step 5120 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 5248 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 5376 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 5504 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 5632 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 5760 Total Loss 0.026   clone detect 0.022  Code search 0.128   
+INFO:name:Epoch 4 Step 5888 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 6016 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 6144 Total Loss 0.026   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 6272 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 6400 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 6528 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 6656 Total Loss 0.026   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 6784 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 6912 Total Loss 0.026   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 7040 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7168 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7296 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7424 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7552 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7680 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7808 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 7936 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8064 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8192 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8320 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8448 Total Loss 0.025   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 8576 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8704 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8832 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 8960 Total Loss 0.025   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 9088 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 9216 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 9344 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 9472 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 9600 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 9728 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 9856 Total Loss 0.025   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 9984 Total Loss 0.025   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 10112 Total Loss 0.025   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 10240 Total Loss 0.025   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 10368 Total Loss 0.025   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 10496 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 10624 Total Loss 0.024   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 10752 Total Loss 0.025   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 10880 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 11008 Total Loss 0.025   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 11136 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 11264 Total Loss 0.025   clone detect 0.021  Code search 0.129   
+INFO:name:Epoch 4 Step 11392 Total Loss 0.024   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 11520 Total Loss 0.024   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 11648 Total Loss 0.024   clone detect 0.02  Code search 0.129   
+INFO:name:Epoch 4 Step 11776 Total Loss 0.024   clone detect 0.021  Code search 0.128   
+INFO:name:Epoch 4 Step 11904 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12032 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12160 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12288 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12416 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12544 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12672 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12800 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 12928 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13056 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13184 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13312 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13440 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13568 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13696 Total Loss 0.024   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13824 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 13952 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14080 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14208 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14336 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14464 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14592 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14720 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14848 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 14976 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 15104 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 15232 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 15360 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 15488 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:Epoch 4 Step 15616 Total Loss 0.023   clone detect 0.02  Code search 0.128   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.9791, 0.0209], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.1624
+INFO:name:  eval_acc = 0.9767
+INFO:name:  f1_score = 0.9149
+INFO:name:  recall = 0.9674
+INFO:name:  precision = 0.8677
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4111
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9801, 'test_f1_score': 0.9293, 'test_recall': 0.9571, 'test_precision': 0.9031} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.3464776922552489} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 5 Step 0 Total Loss 0.001   clone detect 0.0  Code search 0.061   
+INFO:name:Epoch 5 Step 128 Total Loss 0.021   clone detect 0.019  Code search 0.109   
+INFO:name:Epoch 5 Step 256 Total Loss 0.018   clone detect 0.016  Code search 0.107   
+INFO:name:Epoch 5 Step 384 Total Loss 0.019   clone detect 0.017  Code search 0.115   
+INFO:name:Epoch 5 Step 512 Total Loss 0.021   clone detect 0.019  Code search 0.117   
+INFO:name:Epoch 5 Step 640 Total Loss 0.02   clone detect 0.018  Code search 0.122   
+INFO:name:Epoch 5 Step 768 Total Loss 0.019   clone detect 0.016  Code search 0.121   
+INFO:name:Epoch 5 Step 896 Total Loss 0.018   clone detect 0.016  Code search 0.12   
+INFO:name:Epoch 5 Step 1024 Total Loss 0.018   clone detect 0.016  Code search 0.122   
+INFO:name:Epoch 5 Step 1152 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 1280 Total Loss 0.018   clone detect 0.016  Code search 0.125   
+INFO:name:Epoch 5 Step 1408 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 1536 Total Loss 0.017   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 1664 Total Loss 0.017   clone detect 0.015  Code search 0.127   
+INFO:name:Epoch 5 Step 1792 Total Loss 0.017   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 1920 Total Loss 0.017   clone detect 0.015  Code search 0.128   
+INFO:name:Epoch 5 Step 2048 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 2176 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 2304 Total Loss 0.018   clone detect 0.016  Code search 0.126   
+INFO:name:Epoch 5 Step 2432 Total Loss 0.019   clone detect 0.016  Code search 0.128   
+INFO:name:Epoch 5 Step 2560 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 2688 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 2816 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 2944 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 3072 Total Loss 0.018   clone detect 0.016  Code search 0.128   
+INFO:name:Epoch 5 Step 3200 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 3328 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 3456 Total Loss 0.018   clone detect 0.016  Code search 0.128   
+INFO:name:Epoch 5 Step 3584 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 3712 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 3840 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 3968 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 4096 Total Loss 0.018   clone detect 0.016  Code search 0.127   
+INFO:name:Epoch 5 Step 4224 Total Loss 0.018   clone detect 0.016  Code search 0.126   
+INFO:name:Epoch 5 Step 4352 Total Loss 0.018   clone detect 0.016  Code search 0.126   
+INFO:name:Epoch 5 Step 4480 Total Loss 0.018   clone detect 0.016  Code search 0.126   
+INFO:name:Epoch 5 Step 4608 Total Loss 0.018   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 4736 Total Loss 0.018   clone detect 0.016  Code search 0.125   
+INFO:name:Epoch 5 Step 4864 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 4992 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 5120 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 5248 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 5376 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 5504 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 5632 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 5760 Total Loss 0.017   clone detect 0.016  Code search 0.124   
+INFO:name:Epoch 5 Step 5888 Total Loss 0.017   clone detect 0.016  Code search 0.124   
+INFO:name:Epoch 5 Step 6016 Total Loss 0.017   clone detect 0.016  Code search 0.125   
+INFO:name:Epoch 5 Step 6144 Total Loss 0.018   clone detect 0.016  Code search 0.125   
+INFO:name:Epoch 5 Step 6272 Total Loss 0.018   clone detect 0.016  Code search 0.125   
+INFO:name:Epoch 5 Step 6400 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 6528 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 6656 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 6784 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 6912 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 7040 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7168 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7296 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7424 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7552 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7680 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7808 Total Loss 0.017   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 7936 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 8064 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 8192 Total Loss 0.017   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 8320 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 8448 Total Loss 0.016   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 8576 Total Loss 0.016   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 8704 Total Loss 0.016   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 5 Step 8832 Total Loss 0.016   clone detect 0.014  Code search 0.125   
+INFO:name:Epoch 5 Step 8960 Total Loss 0.016   clone detect 0.014  Code search 0.124   
+INFO:name:Epoch 5 Step 9088 Total Loss 0.016   clone detect 0.014  Code search 0.125   
+INFO:name:Epoch 5 Step 9216 Total Loss 0.016   clone detect 0.014  Code search 0.124   
+INFO:name:Epoch 5 Step 9344 Total Loss 0.016   clone detect 0.014  Code search 0.124   
+INFO:name:Epoch 5 Step 9472 Total Loss 0.016   clone detect 0.014  Code search 0.125   
+INFO:name:Epoch 5 Step 9600 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 9728 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 9856 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 9984 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 10112 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 10240 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 10368 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 10496 Total Loss 0.016   clone detect 0.015  Code search 0.125   
+INFO:name:Epoch 5 Step 10624 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 10752 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 10880 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11008 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11136 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11264 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11392 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11520 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11648 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11776 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 11904 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 12032 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 12160 Total Loss 0.016   clone detect 0.015  Code search 0.127   
+INFO:name:Epoch 5 Step 12288 Total Loss 0.016   clone detect 0.015  Code search 0.127   
+INFO:name:Epoch 5 Step 12416 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 12544 Total Loss 0.016   clone detect 0.015  Code search 0.127   
+INFO:name:Epoch 5 Step 12672 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 12800 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 12928 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 13056 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 13184 Total Loss 0.016   clone detect 0.015  Code search 0.126   
+INFO:name:Epoch 5 Step 13312 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 13440 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 13568 Total Loss 0.016   clone detect 0.014  Code search 0.126   
+INFO:name:Epoch 5 Step 13696 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 13824 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 13952 Total Loss 0.016   clone detect 0.014  Code search 0.126   
+INFO:name:Epoch 5 Step 14080 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14208 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14336 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14464 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14592 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14720 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14848 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 14976 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 15104 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 15232 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 15360 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 15488 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:Epoch 5 Step 15616 Total Loss 0.016   clone detect 0.014  Code search 0.127   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.9911, 0.0089], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.153
+INFO:name:  eval_acc = 0.9785
+INFO:name:  f1_score = 0.9197
+INFO:name:  recall = 0.9508
+INFO:name:  precision = 0.8906
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4184
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9818, 'test_f1_score': 0.9348, 'test_recall': 0.9521, 'test_precision': 0.9181} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.35129216148266607} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 6 Step 0 Total Loss 0.002   clone detect 0.002  Code search 0.013   
+INFO:name:Epoch 6 Step 128 Total Loss 0.008   clone detect 0.007  Code search 0.117   
+INFO:name:Epoch 6 Step 256 Total Loss 0.009   clone detect 0.008  Code search 0.119   
+INFO:name:Epoch 6 Step 384 Total Loss 0.009   clone detect 0.008  Code search 0.117   
+INFO:name:Epoch 6 Step 512 Total Loss 0.01   clone detect 0.009  Code search 0.116   
+INFO:name:Epoch 6 Step 640 Total Loss 0.009   clone detect 0.008  Code search 0.119   
+INFO:name:Epoch 6 Step 768 Total Loss 0.01   clone detect 0.01  Code search 0.117   
+INFO:name:Epoch 6 Step 896 Total Loss 0.012   clone detect 0.011  Code search 0.116   
+INFO:name:Epoch 6 Step 1024 Total Loss 0.012   clone detect 0.011  Code search 0.117   
+INFO:name:Epoch 6 Step 1152 Total Loss 0.013   clone detect 0.013  Code search 0.117   
+INFO:name:Epoch 6 Step 1280 Total Loss 0.014   clone detect 0.013  Code search 0.118   
+INFO:name:Epoch 6 Step 1408 Total Loss 0.013   clone detect 0.012  Code search 0.118   
+INFO:name:Epoch 6 Step 1536 Total Loss 0.013   clone detect 0.012  Code search 0.117   
+INFO:name:Epoch 6 Step 1664 Total Loss 0.013   clone detect 0.012  Code search 0.118   
+INFO:name:Epoch 6 Step 1792 Total Loss 0.013   clone detect 0.012  Code search 0.118   
+INFO:name:Epoch 6 Step 1920 Total Loss 0.013   clone detect 0.012  Code search 0.118   
+INFO:name:Epoch 6 Step 2048 Total Loss 0.012   clone detect 0.011  Code search 0.119   
+INFO:name:Epoch 6 Step 2176 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 2304 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 2432 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 2560 Total Loss 0.012   clone detect 0.011  Code search 0.119   
+INFO:name:Epoch 6 Step 2688 Total Loss 0.012   clone detect 0.011  Code search 0.119   
+INFO:name:Epoch 6 Step 2816 Total Loss 0.012   clone detect 0.011  Code search 0.119   
+INFO:name:Epoch 6 Step 2944 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 3072 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 3200 Total Loss 0.012   clone detect 0.011  Code search 0.119   
+INFO:name:Epoch 6 Step 3328 Total Loss 0.012   clone detect 0.011  Code search 0.119   
+INFO:name:Epoch 6 Step 3456 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 3584 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 3712 Total Loss 0.012   clone detect 0.011  Code search 0.12   
+INFO:name:Epoch 6 Step 3840 Total Loss 0.013   clone detect 0.012  Code search 0.12   
+INFO:name:Epoch 6 Step 3968 Total Loss 0.013   clone detect 0.012  Code search 0.12   
+INFO:name:Epoch 6 Step 4096 Total Loss 0.013   clone detect 0.012  Code search 0.12   
+INFO:name:Epoch 6 Step 4224 Total Loss 0.013   clone detect 0.012  Code search 0.12   
+INFO:name:Epoch 6 Step 4352 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 4480 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 4608 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 4736 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 4864 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 4992 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 5120 Total Loss 0.013   clone detect 0.012  Code search 0.121   
+INFO:name:Epoch 6 Step 5248 Total Loss 0.013   clone detect 0.012  Code search 0.122   
+INFO:name:Epoch 6 Step 5376 Total Loss 0.013   clone detect 0.012  Code search 0.122   
+INFO:name:Epoch 6 Step 5504 Total Loss 0.013   clone detect 0.012  Code search 0.122   
+INFO:name:Epoch 6 Step 5632 Total Loss 0.013   clone detect 0.012  Code search 0.122   
+INFO:name:Epoch 6 Step 5760 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 5888 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 6016 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 6144 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 6272 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 6400 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 6528 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 6656 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 6784 Total Loss 0.013   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 6 Step 6912 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7040 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7168 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7296 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 7424 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7552 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7680 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7808 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 7936 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 8064 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 8192 Total Loss 0.013   clone detect 0.012  Code search 0.124   
+INFO:name:Epoch 6 Step 8320 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 8448 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 8576 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 8704 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 8832 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 8960 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 9088 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 9216 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 9344 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 9472 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 9600 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 9728 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 9856 Total Loss 0.013   clone detect 0.012  Code search 0.125   
+INFO:name:Epoch 6 Step 9984 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10112 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10240 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10368 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10496 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10624 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10752 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 10880 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11008 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11136 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11264 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11392 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11520 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11648 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11776 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 11904 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12032 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12160 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12288 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12416 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12544 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12672 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12800 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 12928 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13056 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13184 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13312 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13440 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13568 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13696 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13824 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 13952 Total Loss 0.012   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 14080 Total Loss 0.012   clone detect 0.011  Code search 0.126   
+INFO:name:Epoch 6 Step 14208 Total Loss 0.012   clone detect 0.011  Code search 0.126   
+INFO:name:Epoch 6 Step 14336 Total Loss 0.012   clone detect 0.011  Code search 0.126   
+INFO:name:Epoch 6 Step 14464 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 14592 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 14720 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 14848 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 14976 Total Loss 0.013   clone detect 0.012  Code search 0.126   
+INFO:name:Epoch 6 Step 15104 Total Loss 0.013   clone detect 0.012  Code search 0.127   
+INFO:name:Epoch 6 Step 15232 Total Loss 0.013   clone detect 0.012  Code search 0.127   
+INFO:name:Epoch 6 Step 15360 Total Loss 0.013   clone detect 0.012  Code search 0.127   
+INFO:name:Epoch 6 Step 15488 Total Loss 0.012   clone detect 0.012  Code search 0.127   
+INFO:name:Epoch 6 Step 15616 Total Loss 0.012   clone detect 0.012  Code search 0.127   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.9960, 0.0040], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.1912
+INFO:name:  eval_acc = 0.9808
+INFO:name:  f1_score = 0.9278
+INFO:name:  recall = 0.9505
+INFO:name:  precision = 0.9061
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4136
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9832, 'test_f1_score': 0.9391, 'test_recall': 0.9476, 'test_precision': 0.9308} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.3457349235623222} 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 7 Step 0 Total Loss 0.001   clone detect 0.0  Code search 0.137   
+INFO:name:Epoch 7 Step 128 Total Loss 0.01   clone detect 0.009  Code search 0.11   
+INFO:name:Epoch 7 Step 256 Total Loss 0.009   clone detect 0.009  Code search 0.117   
+INFO:name:Epoch 7 Step 384 Total Loss 0.008   clone detect 0.008  Code search 0.122   
+INFO:name:Epoch 7 Step 512 Total Loss 0.011   clone detect 0.01  Code search 0.123   
+INFO:name:Epoch 7 Step 640 Total Loss 0.009   clone detect 0.009  Code search 0.12   
+INFO:name:Epoch 7 Step 768 Total Loss 0.009   clone detect 0.009  Code search 0.122   
+INFO:name:Epoch 7 Step 896 Total Loss 0.01   clone detect 0.009  Code search 0.123   
+INFO:name:Epoch 7 Step 1024 Total Loss 0.009   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 7 Step 1152 Total Loss 0.009   clone detect 0.008  Code search 0.123   
+INFO:name:Epoch 7 Step 1280 Total Loss 0.009   clone detect 0.008  Code search 0.124   
+INFO:name:Epoch 7 Step 1408 Total Loss 0.008   clone detect 0.008  Code search 0.126   
+INFO:name:Epoch 7 Step 1536 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 1664 Total Loss 0.008   clone detect 0.008  Code search 0.126   
+INFO:name:Epoch 7 Step 1792 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 1920 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 2048 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 2176 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 2304 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 2432 Total Loss 0.008   clone detect 0.008  Code search 0.126   
+INFO:name:Epoch 7 Step 2560 Total Loss 0.008   clone detect 0.008  Code search 0.125   
+INFO:name:Epoch 7 Step 2688 Total Loss 0.008   clone detect 0.008  Code search 0.126   
+INFO:name:Epoch 7 Step 2816 Total Loss 0.008   clone detect 0.008  Code search 0.126   
+INFO:name:Epoch 7 Step 2944 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 7 Step 3072 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 7 Step 3200 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 3328 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 3456 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 3584 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 3712 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 3840 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 3968 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 4096 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 4224 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 4352 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 4480 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 4608 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 4736 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 4864 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 4992 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 5120 Total Loss 0.009   clone detect 0.008  Code search 0.132   
+INFO:name:Epoch 7 Step 5248 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 5376 Total Loss 0.009   clone detect 0.009  Code search 0.131   
+INFO:name:Epoch 7 Step 5504 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 5632 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 5760 Total Loss 0.009   clone detect 0.008  Code search 0.131   
+INFO:name:Epoch 7 Step 5888 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 6016 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 6144 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 6272 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 6400 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 6528 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 6656 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 6784 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 6912 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7040 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7168 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7296 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7424 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7552 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7680 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7808 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 7936 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 8064 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 8192 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 8320 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 8448 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 8576 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 8704 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 8832 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 8960 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 9088 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 9216 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 9344 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 9472 Total Loss 0.009   clone detect 0.009  Code search 0.13   
+INFO:name:Epoch 7 Step 9600 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 9728 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 9856 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 9984 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 10112 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 10240 Total Loss 0.009   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 10368 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 10496 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 10624 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 10752 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 10880 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11008 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11136 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11264 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11392 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11520 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11648 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11776 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 11904 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12032 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12160 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12288 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12416 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12544 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12672 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12800 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 12928 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 13056 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 13184 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 13312 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 13440 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 13568 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 13696 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 13824 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 13952 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 14080 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 14208 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 14336 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 14464 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 14592 Total Loss 0.008   clone detect 0.008  Code search 0.13   
+INFO:name:Epoch 7 Step 14720 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 14848 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 14976 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 15104 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 15232 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 15360 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 15488 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 7 Step 15616 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([0.9981, 0.0019], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.2173
+INFO:name:  eval_acc = 0.9816
+INFO:name:  f1_score = 0.9309
+INFO:name:  recall = 0.9549
+INFO:name:  precision = 0.908
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4094
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 8 Step 0 Total Loss 0.0   clone detect 0.0  Code search 0.156   
+INFO:name:Epoch 8 Step 128 Total Loss 0.011   clone detect 0.011  Code search 0.117   
+INFO:name:Epoch 8 Step 256 Total Loss 0.012   clone detect 0.011  Code search 0.124   
+INFO:name:Epoch 8 Step 384 Total Loss 0.01   clone detect 0.009  Code search 0.122   
+INFO:name:Epoch 8 Step 512 Total Loss 0.011   clone detect 0.01  Code search 0.125   
+INFO:name:Epoch 8 Step 640 Total Loss 0.01   clone detect 0.01  Code search 0.129   
+INFO:name:Epoch 8 Step 768 Total Loss 0.01   clone detect 0.01  Code search 0.125   
+INFO:name:Epoch 8 Step 896 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 1024 Total Loss 0.015   clone detect 0.015  Code search 0.124   
+INFO:name:Epoch 8 Step 1152 Total Loss 0.014   clone detect 0.014  Code search 0.125   
+INFO:name:Epoch 8 Step 1280 Total Loss 0.014   clone detect 0.013  Code search 0.125   
+INFO:name:Epoch 8 Step 1408 Total Loss 0.013   clone detect 0.013  Code search 0.124   
+INFO:name:Epoch 8 Step 1536 Total Loss 0.012   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 8 Step 1664 Total Loss 0.012   clone detect 0.012  Code search 0.123   
+INFO:name:Epoch 8 Step 1792 Total Loss 0.011   clone detect 0.011  Code search 0.124   
+INFO:name:Epoch 8 Step 1920 Total Loss 0.011   clone detect 0.011  Code search 0.124   
+INFO:name:Epoch 8 Step 2048 Total Loss 0.01   clone detect 0.01  Code search 0.124   
+INFO:name:Epoch 8 Step 2176 Total Loss 0.01   clone detect 0.01  Code search 0.124   
+INFO:name:Epoch 8 Step 2304 Total Loss 0.01   clone detect 0.01  Code search 0.125   
+INFO:name:Epoch 8 Step 2432 Total Loss 0.01   clone detect 0.01  Code search 0.124   
+INFO:name:Epoch 8 Step 2560 Total Loss 0.01   clone detect 0.01  Code search 0.124   
+INFO:name:Epoch 8 Step 2688 Total Loss 0.01   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 8 Step 2816 Total Loss 0.009   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 8 Step 2944 Total Loss 0.009   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 8 Step 3072 Total Loss 0.009   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 8 Step 3200 Total Loss 0.009   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 8 Step 3328 Total Loss 0.009   clone detect 0.009  Code search 0.124   
+INFO:name:Epoch 8 Step 3456 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 3584 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 3712 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 3840 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 3968 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 4096 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 4224 Total Loss 0.01   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 4352 Total Loss 0.01   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 4480 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 4608 Total Loss 0.009   clone detect 0.009  Code search 0.125   
+INFO:name:Epoch 8 Step 4736 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 4864 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 4992 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 5120 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 5248 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 5376 Total Loss 0.009   clone detect 0.009  Code search 0.126   
+INFO:name:Epoch 8 Step 5504 Total Loss 0.009   clone detect 0.008  Code search 0.126   
+INFO:name:Epoch 8 Step 5632 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 5760 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 5888 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6016 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6144 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6272 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6400 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 6528 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6656 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6784 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 6912 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 7040 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 7168 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 7296 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 7424 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 7552 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 7680 Total Loss 0.008   clone detect 0.008  Code search 0.127   
+INFO:name:Epoch 8 Step 7808 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 7936 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 8064 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 8192 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 8320 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 8448 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 8576 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 8704 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 8832 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 8960 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9088 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9216 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9344 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9472 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9600 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9728 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9856 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 9984 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10112 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10240 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10368 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10496 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10624 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10752 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 10880 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11008 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11136 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11264 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11392 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11520 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11648 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11776 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 11904 Total Loss 0.009   clone detect 0.009  Code search 0.129   
+INFO:name:Epoch 8 Step 12032 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 12160 Total Loss 0.009   clone detect 0.009  Code search 0.128   
+INFO:name:Epoch 8 Step 12288 Total Loss 0.009   clone detect 0.009  Code search 0.129   
+INFO:name:Epoch 8 Step 12416 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 12544 Total Loss 0.009   clone detect 0.009  Code search 0.129   
+INFO:name:Epoch 8 Step 12672 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 12800 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 12928 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 13056 Total Loss 0.009   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 13184 Total Loss 0.009   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 13312 Total Loss 0.009   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 13440 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 13568 Total Loss 0.009   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 13696 Total Loss 0.009   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 13824 Total Loss 0.009   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 13952 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 14080 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 14208 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 14336 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 14464 Total Loss 0.009   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 14592 Total Loss 0.008   clone detect 0.008  Code search 0.128   
+INFO:name:Epoch 8 Step 14720 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 14848 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 14976 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 15104 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 15232 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 15360 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 15488 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:Epoch 8 Step 15616 Total Loss 0.008   clone detect 0.008  Code search 0.129   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([9.9906e-01, 9.3805e-04], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.2621
+INFO:name:  eval_acc = 0.9786
+INFO:name:  f1_score = 0.9207
+INFO:name:  recall = 0.9588
+INFO:name:  precision = 0.8856
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4137
+------------------------------------------------------------------------------------------------------------------------------------------------------
+INFO:name:Epoch 9 Step 0 Total Loss 0.001   clone detect 0.0  Code search 0.225   
+INFO:name:Epoch 9 Step 128 Total Loss 0.004   clone detect 0.004  Code search 0.122   
+INFO:name:Epoch 9 Step 256 Total Loss 0.005   clone detect 0.005  Code search 0.123   
+INFO:name:Epoch 9 Step 384 Total Loss 0.005   clone detect 0.005  Code search 0.12   
+INFO:name:Epoch 9 Step 512 Total Loss 0.004   clone detect 0.004  Code search 0.121   
+INFO:name:Epoch 9 Step 640 Total Loss 0.004   clone detect 0.004  Code search 0.124   
+INFO:name:Epoch 9 Step 768 Total Loss 0.004   clone detect 0.004  Code search 0.124   
+INFO:name:Epoch 9 Step 896 Total Loss 0.006   clone detect 0.006  Code search 0.127   
+INFO:name:Epoch 9 Step 1024 Total Loss 0.005   clone detect 0.005  Code search 0.125   
+INFO:name:Epoch 9 Step 1152 Total Loss 0.005   clone detect 0.005  Code search 0.125   
+INFO:name:Epoch 9 Step 1280 Total Loss 0.005   clone detect 0.005  Code search 0.127   
+INFO:name:Epoch 9 Step 1408 Total Loss 0.005   clone detect 0.005  Code search 0.128   
+INFO:name:Epoch 9 Step 1536 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 1664 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 1792 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 1920 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 2048 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 2176 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 2304 Total Loss 0.005   clone detect 0.005  Code search 0.128   
+INFO:name:Epoch 9 Step 2432 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 2560 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 2688 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 2816 Total Loss 0.005   clone detect 0.005  Code search 0.13   
+INFO:name:Epoch 9 Step 2944 Total Loss 0.005   clone detect 0.005  Code search 0.13   
+INFO:name:Epoch 9 Step 3072 Total Loss 0.005   clone detect 0.005  Code search 0.131   
+INFO:name:Epoch 9 Step 3200 Total Loss 0.005   clone detect 0.005  Code search 0.131   
+INFO:name:Epoch 9 Step 3328 Total Loss 0.005   clone detect 0.005  Code search 0.13   
+INFO:name:Epoch 9 Step 3456 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 3584 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 3712 Total Loss 0.005   clone detect 0.005  Code search 0.128   
+INFO:name:Epoch 9 Step 3840 Total Loss 0.005   clone detect 0.005  Code search 0.128   
+INFO:name:Epoch 9 Step 3968 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4096 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4224 Total Loss 0.005   clone detect 0.005  Code search 0.13   
+INFO:name:Epoch 9 Step 4352 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4480 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4608 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4736 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4864 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 4992 Total Loss 0.005   clone detect 0.005  Code search 0.128   
+INFO:name:Epoch 9 Step 5120 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 5248 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 5376 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 5504 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 5632 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 5760 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 5888 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 6016 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 6144 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 6272 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 6400 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 6528 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 6656 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 6784 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 6912 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 7040 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 7168 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 7296 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 7424 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 7552 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 7680 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 7808 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 7936 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 8064 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 8192 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 8320 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 8448 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 8576 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 8704 Total Loss 0.006   clone detect 0.006  Code search 0.128   
+INFO:name:Epoch 9 Step 8832 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 8960 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9088 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9216 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9344 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9472 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9600 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9728 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9856 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 9984 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10112 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10240 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10368 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10496 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10624 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10752 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 10880 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11008 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11136 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11264 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11392 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11520 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11648 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11776 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 11904 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 12032 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 12160 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 12288 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 12416 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 12544 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 12672 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 12800 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 12928 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 13056 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 13184 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 13312 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 13440 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 13568 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 13696 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 13824 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 13952 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 14080 Total Loss 0.005   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 14208 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 14336 Total Loss 0.006   clone detect 0.005  Code search 0.129   
+INFO:name:Epoch 9 Step 14464 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 14592 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 14720 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 14848 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 14976 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 15104 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 15232 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 15360 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 15488 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:Epoch 9 Step 15616 Total Loss 0.006   clone detect 0.006  Code search 0.129   
+INFO:name:
+***** task weights *****
+INFO:name:
+***** Running evaluation *****
+INFO:name:  Batch size = 32 
+INFO:name:  Num examples clone detection = 415416
+tensor([9.9951e-01, 4.8684e-04], device='cuda:0', grad_fn=<SoftmaxBackward0>)
+INFO:name:  Num examples code search = 9604
+INFO:name:
+***** Task 1 Evaluation Results *****
+INFO:name:  task = clone_detection
+INFO:name:  eval_loss = 0.3407
+INFO:name:  eval_acc = 0.9817
+INFO:name:  f1_score = 0.9315
+INFO:name:  recall = 0.958
+INFO:name:  precision = 0.9065
+INFO:name:
+***** Task 2 Evaluation Results *****
+INFO:name:  task = code_search
+INFO:name:  eval_mrr = 0.4154
+INFO:name:Saving model checkpoint to ./models/best_model_clone_codeSearch_unixcoder_lora/model.bin
+INFO:name:
+***** Running Test *****
+INFO:name:  Num examples for clone detection = 415416
+INFO:name:  Num examples for clone detection = 19210
+INFO:name:  Batch size = 32
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9837, 'test_f1_score': 0.9411, 'test_recall': 0.9499, 'test_precision': 0.9324} 
+
+
+INFO:name:Saving model checkpoint to ./models/final_model_clone_codeSearch_unixcoder_lora/model.bin
+{'task': 'code_search', 'eval_mrr': 0.34848185130355924} 
+
+
+INFO:name:
+***** Test Results for task clone_detection
+{'task': 'clone_detection', 'test_acc': 0.9837, 'test_f1_score': 0.9411, 'test_recall': 0.9499, 'test_precision': 0.9324} 
+
+
+{'task': 'code_search', 'eval_mrr': 0.34848185130355924} 
+
+
+
+ Train results : 
+
+{'clone_train_loss': [0.317,
+                      0.084,
+                      0.048,
+                      0.029,
+                      0.02,
+                      0.014,
+                      0.012,
+                      0.008,
+                      0.008,
+                      0.006],
+ 'codeSearch_train_loss': [0.461,
+                           0.207,
+                           0.157,
+                           0.137,
+                           0.128,
+                           0.127,
+                           0.127,
+                           0.129,
+                           0.129,
+                           0.129],
+ 'total_train_loss': [0.387,
+                      0.129,
+                      0.068,
+                      0.038,
+                      0.023,
+                      0.016,
+                      0.012,
+                      0.008,
+                      0.008,
+                      0.006]}
+
+ Validation results : 
+
+{'clone_detection': {'eval_acc': [0.9526,
+                                  0.9665,
+                                  0.9713,
+                                  0.9724,
+                                  0.9767,
+                                  0.9785,
+                                  0.9808,
+                                  0.9816,
+                                  0.9786,
+                                  0.9817],
+                     'eval_loss': [0.1374,
+                                   0.1097,
+                                   0.103,
+                                   0.1551,
+                                   0.1624,
+                                   0.153,
+                                   0.1912,
+                                   0.2173,
+                                   0.2621,
+                                   0.3407],
+                     'f1_score': [0.8369,
+                                  0.8822,
+                                  0.8976,
+                                  0.9017,
+                                  0.9149,
+                                  0.9197,
+                                  0.9278,
+                                  0.9309,
+                                  0.9207,
+                                  0.9315],
+                     'precision': [0.7546,
+                                   0.8102,
+                                   0.8342,
+                                   0.8374,
+                                   0.8677,
+                                   0.8906,
+                                   0.9061,
+                                   0.908,
+                                   0.8856,
+                                   0.9065],
+                     'recall': [0.9393,
+                                0.9682,
+                                0.9716,
+                                0.9768,
+                                0.9674,
+                                0.9508,
+                                0.9505,
+                                0.9549,
+                                0.9588,
+                                0.958]},
+ 'code_search': {'eval_mrr': [0.3548,
+                              0.3969,
+                              0.4166,
+                              0.4124,
+                              0.4111,
+                              0.4184,
+                              0.4136,
+                              0.4094,
+                              0.4137,
+                              0.4154]}}

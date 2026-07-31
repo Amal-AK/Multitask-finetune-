@@ -1,0 +1,30 @@
+/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/deepspeed.py:24: FutureWarning: transformers.deepspeed module is deprecated and will be removed in a future version. Please import deepspeed modules directly from transformers.integrations
+  warnings.warn(
+INFO: device=cuda:3 n_gpu=4
+root
+├── model (Qwen2Model)
+│   ├── embed_tokens (Embedding) weight:[151936, 1536]
+│   ├── layers (ModuleList)
+│   │   └── 0-27(Qwen2DecoderLayer)
+│   │       ├── self_attn (Qwen2SdpaAttention)
+│   │       │   ├── q_proj (Linear) weight:[1536, 1536] bias:[1536]
+│   │       │   │   └── lora (LowRankLinear) lora_A:[16, 1536] lora_B:[1536, 16]
+│   │       │   ├── k_proj (Linear) weight:[256, 1536] bias:[256]
+│   │       │   ├── v_proj (Linear) weight:[256, 1536] bias:[256]
+│   │       │   │   └── lora (LowRankLinear) lora_A:[16, 1536] lora_B:[256, 16]
+│   │       │   └── o_proj (Linear) weight:[1536, 1536]
+│   │       ├── mlp (Qwen2MLP)
+│   │       │   ├── gate_proj,up_proj(Linear) weight:[8960, 1536]
+│   │       │   └── down_proj (Linear) weight:[1536, 8960]
+│   │       └── input_layernorm,post_attention_layernorm(Qwen2RMSNorm) weight:[1536]
+│   └── norm (Qwen2RMSNorm) weight:[1536]
+└── lm_head (Linear) weight:[151936, 1536]
+[INFO|(OpenDelta)basemodel:696]2025-08-31 01:44:22,074 >> Trainable Ratio: 1545893376/1545893376=100.000000%
+[INFO|(OpenDelta)basemodel:698]2025-08-31 01:44:22,074 >> Delta Parameter Ratio: 2179072/1545893376=0.140959%
+[INFO|(OpenDelta)basemodel:700]2025-08-31 01:44:22,074 >> Static Memory 3.32 GB, Max Memory 3.32 GB
+INFO: Loading PEFT weights from ./adapters/qwen_4tasks_lora/model.bin …
+INFO: Loaded 127 LoRA tensors ✔️  (missing=339  unexpected=15)
+
+evaluating:   0%|                                       | 0/164 [00:00<?, ?it/s]
+HumanEval/0:   0%|                                      | 0/164 [00:00<?, ?it/s]/home/aakli/.conda/envs/multitask/lib/python3.10/site-packages/transformers/generation/utils.py:1885: UserWarning: You are calling .generate() with the `input_ids` being on a device type different than your model's device. `input_ids` is on cpu, whereas the model is on cuda. You may experience unexpected behaviors or slower generation. Please make sure that you have put `input_ids` to the correct device by calling for example input_ids = input_ids.to('cuda') before running `.generate()`.
+  warnings.warn(

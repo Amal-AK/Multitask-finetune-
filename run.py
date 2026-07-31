@@ -1171,6 +1171,9 @@ def main():
     args.autocast_dtype = autocast_dtype
 
     config = AutoConfig.from_pretrained(args.model_name_or_path, trust_remote_code=True)
+    # ModernBERT auto-enables torch.compile on its MLP when Triton is present, which hits a
+    # PyTorch Inductor bug (AttributeError: 'float' object has no attribute 'meta').
+    config.reference_compile = False
     args.tasks = _resolve_active_tasks(args)
     config.tasks = args.tasks
     config.loss_weighting = args.loss_weighting

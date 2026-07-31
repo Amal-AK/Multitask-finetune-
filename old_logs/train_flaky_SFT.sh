@@ -1,0 +1,19 @@
+python3 SFT_flakytest.py \
+    --output_dir=./ \
+    --train_data_file_flaky=./datasets/dataset_flakytest/train.json \
+    --eval_data_file_flaky=./datasets/dataset_flakytest/valid.json \
+    --test_data_file_flaky=./datasets/dataset_flakytest/test.json \
+    --model_name_or_path=Salesforce/codet5p-770m \
+    --tokenizer_name=Salesforce/codet5p-770m  \
+    --num_classes 1 \
+    --nl_length 128 \
+    --code_length 512 \
+    --do_train True \
+    --train_batch_size 16 \
+    --eval_batch_size 16 \
+    --train_data_rate_flaky 1.0 \
+    --learning_rate 1e-4 \
+    --max_grad_norm 1.0 \
+    --num_train_epochs 10 \
+    --dropout 0.2 \
+    --seed 42 2>&1 | tee ./logs_codet5p/flakiness_detection_prefix.log
